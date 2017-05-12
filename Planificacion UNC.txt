@@ -1,0 +1,57 @@
+Planificacion UNC
+
+1 - MAPA para marcar desde donde dona cada persona - 11 DIAS
+	* Google Maps API - 3 DIAS
+	* Coordenadas (¿Cómo conseguir coordenadas desde cada ubicacion - Marcarlas directamente O obtenerlas de alguna forma?) - 7 DIAS
+	* Almacenarlas en una base de datos junto a la información de cada usuario. - 1 DIA
+
+
+2 - Login - EGRESADO / INSTITUCIÓN - 6 DIAS
+
+	* Registro de Egresados
+		* ¿Como asegurarse que son egresados? (Pre Aprobar - BACK END)
+		* Cuantos campos voy a requerir (Referido por...) - 2 DIAS
+			# Nombre
+			# Apellido
+			# Email
+			# DNI
+			# Telefono
+			# Dirección
+			# Coordenadas
+			# Referidos (Si acceden por mail).
+		* Validancia de Mail - 2 DIAS
+		* Perdí mi contraseña - 2 DIAS
+
+	* Donar - 16 DIAS
+		* API MercadoPago - 4 DIAS
+			- Creamos el espacio donde se registra el egresado. Ahi esta el pre aprobado que si es egresado, el ADMIN lo confirma. Se le habilita la opcion para donar. hace click en un boton que lo lleva a la API de MercadoPago. Ahi, ingresa su usuario y contraseña o crea su cuenta. Elige el monto a donar.
+			- Lo devuelve a una página de agradecimiento.
+			- Por detras: Todo el dinero donado va a la cuenta de MercadoPago de la UNC. De ahi hay que configurar que ese dinero vaya a la cuenta del banco de la UNC.
+			- Hay que crear un formulario en el que un ADMIN va a ir al banco a corroborar el dinero o VIA WEB, es decir, cuanta plata llego. Porque el donante dono 50000, por ej, pero al banco llegaron 46000 aprox y hay que registrar que ese faltante es la comision de MercadoPago. hay que almacenar el codigo de MercadoPago y tiene que quedar registrado en el expediente.
+
+		* API Paypal - 4 DIAS
+		* El 10% o 20% de lo donado, va destinado al centro de estudiantes que refirio a la persona que dono. (No me acuerdo cuanto era)
+		* Almacenar la transacción en la base de datos
+		* Seguimiento por expediente (ESTADISTICAS) - 4 DIAS
+		* Todo se almacena en una cuenta Bancaria - 4 DIAS
+
+3 - BACK-END ADMIN - 11 DIAS
+	* CENTRO DE ESTUDIANTES o ADMIN - 3 DIAS
+	* Administración de Donaciones y de como se han ido distribuyendo las Becas. (ESTADISTICAS) - 4 DIAS
+	* El ADMIN registra BECADOS y CENTRO DE ESTUDIANTES. Ademas, el ADMIN crea los referidos - 4 DIAS
+
+4 - REFERIDOS -  10 DIAS
+	* Los referidos generan invitaciones por LINK que envian por MAIL. 
+	* URL POR GET (Analizar parametros). - 6 DIAS
+	* SOLO VEN: (ESTADISTICAS) - 4 DIAS
+		# Cantidad de Plata
+		# Cantidad de Usuarios que consiguieron
+		# Recomendar otros usuarios.
+
+
+13 dias de Mayo
+22 dias de Junio
+20 dias de Julio
+55 DIAS TOTALES
+
+TENEMOS 54
