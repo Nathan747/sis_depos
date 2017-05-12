@@ -31,7 +31,7 @@
           position: uluru,
           map: map
         });
-      }
+      } 
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
