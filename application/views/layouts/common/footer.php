@@ -7,3 +7,5 @@
 		</div>
 	</div>
 </footer>
+
+</html>
