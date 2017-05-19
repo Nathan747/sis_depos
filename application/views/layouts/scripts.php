@@ -8,6 +8,12 @@
       zoom: 18,
       center: uluru
     });
+
+    var map_register = new google.maps.Map(document.getElementById('mapa-registro'), {
+      zoom: 4,
+      center: uluru
+    });
+    
     var marker = new google.maps.Marker({
       position: uluru,
       map: map
@@ -19,6 +25,26 @@
     });
   } 
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#open').click(function(){
+      $('#popup').fadeIn('slow');
+      $('#black-cover').fadeIn('slow');
+      $('.popup-overlay').fadeIn('slow');
+      $('.popup-overlay').height($(window).height());
+      return false;
+    });
+    
+    $('#close').click(function(){
+      $('#black-cover').fadeOut('slow');
+      $('#popup').fadeOut('slow');
+      $('.popup-overlay').fadeOut('slow');
+      return false;
+    });
+  });
+</script>
+
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
 </script>
