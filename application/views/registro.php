@@ -1,14 +1,16 @@
 <div id="black-cover" style="display: none;">
 </div>
-  <div id="popup" style="display: none;">
-    <div class="content-popup">
-      <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
+<div id="popup" style="display: none;">
+  <div class="content-popup">
+    <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
 
-       
-     
-   </div>
- </div>
-<div id="mapa-registro"></div>
+      <div id="mapa_registro" style="height:300px"></div>
+
+
+
+  </div>
+</div>
+
 
 <div class="container">
   <div class="row">
