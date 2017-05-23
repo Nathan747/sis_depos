@@ -1,6 +1,12 @@
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 <script>
+  var map;
+  var map_register;
+  var marker = null;
+  var latitude;
+  var longitude;
+
   function initMap() {
     var uluru = {lat: -34.9950075, lng: -67.5100458};
     var uluru2 = {lat: -35.9950075, lng: -68.5100458};
@@ -26,29 +32,68 @@
           zoom: 8,
           center: {lat: -34.9950075, lng: -67.5100458}
         });
-        
+        var click_registro;
+        google.maps.event.addListener(map_register, "click", function (event) {
+          if(marker!=null) {
+            console.log("entro");
+            marker.setMap(null);
+          }
+          latitude = event.latLng.lat();
+          longitude = event.latLng.lng();
+          console.log( latitude + ', ' + longitude );
+          click_registro = {lat: latitude, lng: longitude}
+          console.log(click_registro);
+          marker = new google.maps.Marker({
+            position: click_registro,
+            map: map_register,
+            title: 'Ubicación'
+          });
+        });
       }
     }
   } 
-</script>
 
-<script type="text/javascript">
   $(document).ready(function(){
-    $('#open').click(function(){
-      $('#popup').fadeIn('slow');
-      $('#black-cover').fadeIn('slow');
-      $('.popup-overlay').fadeIn('slow');
-      $('.popup-overlay').height($(window).height());
-      return false;
+    $('#open').click(function(e){
+      e.preventDefault();
+      $('body').animate({
+        left: "75%"
+      });
+      $('.mapa-popup').animate({
+        left: "-75%"
+      });
     });
     
-    $('#close').click(function(){
-      $('#black-cover').fadeOut('slow');
-      $('#popup').fadeOut('slow');
-      $('.popup-overlay').fadeOut('slow');
-      return false;
+    $('.close').click(function(){
+      $('.mapa-popup').animate({
+        left: "-100%"
+      });
+      $('body').animate({
+        left: "0"
+      });
+      console.log(latitude+" "+longitude);
+    });
+
+    $("#enviar-registro").click(function(){
+      console.log("ENTRO");
+      console.log("<?php echo base_url(); ?>" + "Control_Registro");
+      $.ajax({
+        type: "POST",
+        url: "UNC/Control_Registro/load_user_info",
+        data:{
+          nombre: $("#nombre_login").val(),
+          apellido: $("#apellido_login").val(),
+          email: $("#email_login").val(),
+          usuario: $("#usuario_login").val(),
+          password: $("#password_login").val(),
+          latitud: latitude,
+          longitud: longitude          
+        }
+      });
     });
   });
+
+  
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">

@@ -1,21 +1,14 @@
-<div id="black-cover" style="display: none;">
-</div>
-<div id="popup" style="display: none;">
-  <div class="content-popup">
-    <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
-
-      <div id="mapa_registro" style="height:300px"></div>
-
-
-
+<div class="mapa-popup" style="left: -100%">
+  <div class=contenedor-mapa>
+  <div class="close"><a href="#" id="close"><span class="glyphicon glyphicon-remove"></span></a></div>
+    <div id="mapa_registro" style="height:450px"></div>
   </div>
 </div>
 
 
 <div class="container">
   <div class="row">
-    <form role="form">
-
+    <form role="form" id="formulario-registro" action="<?php echo base_url(); ?>Control_Registro/load_user_info">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
           <label for="nombre_login">Nombre</label>
@@ -71,7 +64,7 @@
 
       <div class="clearfix"></div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <button type="submit" class="btn btn-default">Enviar</button>
+        <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
       </div>
       
     </form>
