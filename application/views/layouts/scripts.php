@@ -74,22 +74,113 @@
       console.log(latitude+" "+longitude);
     });
 
-    $("#enviar-registro").click(function(){
-      console.log("ENTRO");
-      console.log("<?php echo base_url(); ?>" + "Control_Registro");
-      $.ajax({
-        type: "POST",
-        url: "UNC/Control_Registro/load_user_info",
-        data:{
-          nombre: $("#nombre_login").val(),
-          apellido: $("#apellido_login").val(),
-          email: $("#email_login").val(),
-          usuario: $("#usuario_login").val(),
-          password: $("#password_login").val(),
-          latitud: latitude,
-          longitud: longitude          
+
+    // REGISTRO 
+
+    function control_campos(nombre,apellido,email,user,password,password2,latitud,longitud){
+      var retorno = 0;
+      if ( (nombre!="") && (apellido!="") && (email!="") && (user!="") && (password!="") && (password2!="") && (latitud!=null) && (longitud!=null) ){
+        if(password!=password2){retorno=9;}else{
+          retorno=0;
         }
-      });
+      }else{
+        if(nombre=="") {retorno=1;}else{
+          if(apellido=="") {retorno=2;}else{
+            if(email=="") {retorno=3;}else{
+              if(user=="") {retorno=4;}else{
+                if(password=="") {retorno=5;}else{
+                  if(password2=="") {retorno=6;}else{
+                    if(latitud==null) {retorno=7;}else{
+                      if(longitud==null) {retorno=8;}
+                    }
+                  }
+                }
+              }
+            } 
+          }
+        }
+      }
+      return retorno;
+    }
+
+    $("#enviar-registro").click(function(e){
+      $("#nombre_login").parent().removeClass("has-error");
+      $("#apellido_login").parent().removeClass("has-error");
+      $("#email_login").parent().removeClass("has-error");
+      $("#usuario_login").parent().removeClass("has-error");
+      $("#password_login").parent().removeClass("has-error");
+      $("#password2_login").parent().removeClass("has-error");
+      color=$("#open").removeClass("btn-danger");
+      var nombre = $("#nombre_login").val();
+      var apellido = $("#apellido_login").val();
+      var email = $("#email_login").val();
+      var user = $("#usuario_login").val();
+      var password = $("#password_login").val();
+      var password2 = $("#password2_login").val();
+
+      var control = control_campos(nombre,apellido,email,user,password,password2,latitude,longitude);
+      console.log(control);
+      var color;
+      switch(control){
+        case 0:{
+          $.ajax({
+            type: "POST",
+            url: "control_registro/load_user_info/",
+            data:{
+              nombre: nombre,
+              apellido: apellido,
+              email: email,
+              usuario: user,
+              password: password,
+              latitud: latitude,
+              longitud: longitude          
+            }
+          }).done(function(json){
+            var objeto = $.parseJSON(json);
+            console.log(objeto);
+            window.location = "control_registro/index";
+          });
+          break;
+        }
+        case 1:{
+          $("#nombre_login").parent().addClass("has-error");
+          break;
+        }
+        case 2:{
+          $("#apellido_login").parent().addClass("has-error");
+          break;
+        }
+        case 3:{
+          $("#email_login").parent().addClass("has-error");
+          break;
+        }
+        case 4:{
+          $("#usuario_login").parent().addClass("has-error");
+          break;
+        }
+        case 5:{
+          $("#password_login").parent().addClass("has-error");
+          break;
+        }
+        case 6:{
+          $("#password2_login").parent().addClass("has-error");
+          break;
+        }
+        case 7:{
+          $("#open").addClass("btn-danger");
+          break;
+        }
+        case 8:{
+          $("#open").addClass("btn-danger");
+          break;
+        }
+        case 9:{
+          $("#password_login").parent().addClass("has-error");
+          $("#password2_login").parent().addClass("has-error");
+          break;
+        }
+      }
+      
     });
   });
 

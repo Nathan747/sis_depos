@@ -8,12 +8,12 @@
 
 <div class="container">
   <div class="row">
-    <form role="form" id="formulario-registro" action="<?php echo base_url(); ?>Control_Registro/load_user_info">
+    
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
           <label for="nombre_login">Nombre</label>
           <input type="text" class="form-control" id="nombre_login"
-          placeholder="Usuario">
+          placeholder="Nombre">
         </div>
       </div>
 
@@ -62,12 +62,11 @@
       </div>
 
 
-      <div class="clearfix"></div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <!--div class="clearfix"></div-->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
       </div>
       
-    </form>
   </div>
 </div>
 

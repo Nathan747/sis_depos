@@ -13,7 +13,8 @@ class Control_Registro extends CI_Controller {
 	}
 
 	public function load_user_info()
-	{
+	{	
+
 		$data = array(
 			"nombre" 	=> $this->input->post('nombre'),
 			"apellido"	=> $this->input->post('apellido'),
@@ -23,6 +24,7 @@ class Control_Registro extends CI_Controller {
 			"latitud"	=> $this->input->post('latitud'),
 			"longitud"	=> $this->input->post('longitud')
 		); 
+		
 		echo json_encode($data);
 	}
 }
