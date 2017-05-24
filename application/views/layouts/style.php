@@ -2,7 +2,7 @@
 <style>
 	body{
 		position: relative;
-		overflow: hidden;
+		overflow: visible;
 	}
 	#map{
 		height: calc(100vh - 92px);
