@@ -257,9 +257,8 @@
               longitud: longitude          
             }
           }).done(function(json){
-            var objeto = $.parseJSON(json);
-            console.log(objeto);
-            window.location = "control_registro/index";
+
+            //window.location = "control_registro/index";
           });
           break;
         }
