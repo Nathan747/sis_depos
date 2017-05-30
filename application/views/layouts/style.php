@@ -90,7 +90,7 @@
 		position: absolute;
 		top: 76px;
 		background: white;
-		height: 100vh;
+		height: calc(100vh - 76px);
 		right:-100%;
 		width: 800px;
 		padding: 25px 20px;
