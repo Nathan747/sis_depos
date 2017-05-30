@@ -88,6 +88,16 @@ padding-bottom: 30px;
 }
 
 
+
+.face{
+	padding-top: 10px;
+	padding-bottom: 40px;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
 .login a {
 font-size: 14px;
 color:#26AD5F!important;

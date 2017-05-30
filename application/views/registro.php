@@ -37,6 +37,13 @@
       </div>
     </div>
 
+    <!-- facebook -->
+    <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    </div> 
+    <!-- fin facebook -->
+
+
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="form-group">
         <input type="text" class="form-control" id="nombre_login"
@@ -97,10 +104,7 @@
 
 
 
-    <!-- facebook -->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-    </div> 
+
 
   </div>
 
