@@ -187,14 +187,11 @@
       });
     });
 
-    $('.close').click(function(){
-      $('.mapa-popup').animate({
-        left: "-100%"
+    $('#registrate').click(function(e){
+      e.preventDefault();
+      $('.contenedor-registro').animate({
+        right: "0"
       });
-      $('body').animate({
-        left: "0"
-      });
-      console.log(latitude+" "+longitude);
     });
 
 

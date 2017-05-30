@@ -80,20 +80,25 @@
 		border-radius: 4px;
 	}
 
+	#cerrar-registro img{
+		position: fixed;
+		z-index: 1000;
+	}
+
 	.contenedor-registro{
 		clear: both;
 		position: absolute;
-		top: 0;
+		top: 76px;
 		background: white;
 		height: 100vh;
-		right:0;
+		right:-100%;
 		width: 800px;
 		padding: 25px 20px;
 		overflow: auto;
 	}    
 
 	.contenedor-wizard{
-		padding-top: 25px;
+		padding-top: 40px;
 	}
 
 	.wizard{
