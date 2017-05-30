@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <style>
 	body{
+		font-family: Open Sans;
 		position: relative;
-		overflow: visible;
+		overflow: hidden;
 	}
 
 	.navbar{
@@ -64,8 +66,9 @@
 
 	#mapa_registro{
 		z-index: 1;
-		position: absolute;
-		width: 700px;
+		position: relative;
+		width: 100%;
+		height: 250px;
 	}
 
 	.has-error .form-control,.has-error .form-control:focus{
@@ -86,7 +89,12 @@
 		right:0;
 		width: 800px;
 		padding: 25px 20px;
+		overflow: auto;
 	}    
+
+	.contenedor-wizard{
+		padding-top: 25px;
+	}
 
 	.wizard{
 		width: 585px;
@@ -105,6 +113,8 @@
 		align-content: center;
 		flex-direction: column;
 		text-align: center;
+		font-size: 18px;
+		font-weight: 700;
 	}
 
 	.separador-wizard{
@@ -118,6 +128,41 @@
 		height: 4px;
 		width: 100%;
 		background-color: #D3D3D3;
+	}
+
+	.word{
+		width: 650px;
+		height: 30px;
+		margin: 0 auto;
+		padding-left: 7px;
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+
+	.palabras{
+		float: left;
+		margin-right: 196px;
+		font-size: 16px;
+		font-weight: 700;
+		color: #D3D3D3;
+	}
+
+	.word-register{
+		margin-right: 215px;
+	}
+
+	.word-confirmacion{
+		margin-right: 0px;
+	}
+
+	.active{
+		background-color: #34495E;
+		color: white;
+	}
+
+	.word-active{
+		color: #34495E;
+		font-weight: 700;
 	}
 
 	

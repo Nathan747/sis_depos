@@ -149,8 +149,16 @@
     uluru2 = {lat: -34.9950075, lng: -67.5100458};
     var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
       zoom: 8,
-      center: {lat: -34.9950075, lng: -67.5100458}
+      center: {lat: -34.9950075, lng: -67.5100458},
+      mapTypeControlOptions: {
+        mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+        'styled_map']
+      }
     });
+
+    map_register.mapTypes.set('styled_map', styledMapType);
+    map_register.setMapTypeId('styled_map');
+
     var click_registro;
     google.maps.event.addListener(map_register, "click", function (event) {
       if(marker!=null) {
