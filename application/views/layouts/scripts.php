@@ -172,13 +172,10 @@
   } 
 
   $(document).ready(function(){
-    $('#open').click(function(e){
+    $('#cerrar-registro').click(function(e){
       e.preventDefault();
-      $('body').animate({
-        left: "75%"
-      });
-      $('.mapa-popup').animate({
-        left: "-75%"
+      $('.contenedor-registro').animate({
+        right: "-100%"
       });
     });
 
