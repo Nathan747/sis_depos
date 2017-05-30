@@ -1,0 +1,47 @@
+.float{
+	height: 411px;
+	position: absolute;
+	z-index: 9999999999;
+	background: white;
+	top: 172px;
+	/* vertical-align: middle; */
+	left: 50px;
+	width: 281px;
+}
+
+.float h3{
+color:#394858;	
+font-size: 22px;
+padding:10%;
+}
+.float p{
+color:#9099A5;	
+font-size: 14px;
+padding:0 10% 10% 10%;
+}
+
+.float a{
+padding:10%;
+font-size: 14px;
+color:#26AD5F;
+font-style: italic;
+}
+
+.float a:hover{
+color:#9099A5;
+text-decoration: none;	
+}
+
+.float .bttn{
+padding:10%;
+text-align: center;	
+}
+
+#dnr{
+background-color: #2ECC71;
+color:white;
+}
+#dnr:hover{
+background-color:white;
+color:#2ECC71;
+}
