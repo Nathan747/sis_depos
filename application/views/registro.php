@@ -2,7 +2,28 @@
     <div class="row">
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a href="#"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
+        <a href="#" id="cerrar-registro"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contenedor-wizard">
+        <div class="wizard">
+          <div class="bloque-wizard">
+            1
+          </div>
+          <div class="separador-wizard">
+            <div class="linea-separador"></div>
+          </div>
+
+          <div class="bloque-wizard">
+            2
+          </div>
+          <div class="separador-wizard">
+            <div class="linea-separador"></div>
+          </div>
+          <div class="bloque-wizard">
+            3
+          </div>
+        </div>
       </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

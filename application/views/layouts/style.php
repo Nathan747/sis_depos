@@ -84,8 +84,41 @@
 		background: white;
 		height: 100vh;
 		right:0;
-		width: 700px;
+		width: 800px;
+		padding: 25px 20px;
 	}    
+
+	.wizard{
+		width: 585px;
+		height: 35px;
+		margin: 0 auto;
+	}
+
+	.bloque-wizard{
+		height: 35px;
+		width: 35px;
+		float: left;
+		color: #D3D3D3;
+		border: 1px solid #D3D3D3;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.separador-wizard{
+		height: 35px;
+		width: 240px;
+		float: left;
+		padding-top: 16px;
+	}
+
+	.linea-separador{
+		height: 4px;
+		width: 100%;
+		background-color: #D3D3D3;
+	}
 
 	
 </style>
