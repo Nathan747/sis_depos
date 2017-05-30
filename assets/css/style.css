@@ -66,9 +66,9 @@ opacity: 0.5!important;
 .login {
     width: 300px;
     position: absolute;
-    right: 0px;
+    right: -100%;
     background-color: white;
-    height: 100vh;
+    height:calc(100vh-76px);
     z-index: 999;
     top: 76px;
     border-left: 1px solid #cccccc;

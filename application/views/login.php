@@ -25,14 +25,13 @@
   <div class="row">
     <a href="#" id="">olvide mi password</a>
   </div>
-  
-</div>
 
 
+<!-- facebook -->
 
 
-
-<script>
+<div class="row">
+ <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -119,4 +118,14 @@
 
 <div id="status">
 </div>
+</div>
+<!-- fin facebook -->
+
+
+
+
+
+</div>
+
+
 
