@@ -5,6 +5,31 @@
 		position: relative;
 		overflow: visible;
 	}
+
+	.navbar{
+		min-height: 75px;
+		border-radius: 0px;
+		border: 0px;
+		border-bottom: 1px solid #e7e7e7;
+		margin-bottom: 0px;
+	}
+
+	.navbar-nav>li{
+		height: 75px;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		flex-direction: column;
+	}
+
+	.navbar-brand{
+		height: 75px;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		flex-direction: column;
+	}
+
 	#map{
 		height: calc(100vh - 92px);
 	}
@@ -51,6 +76,16 @@
 		transition: box-shadow 0.2s;
 		border-radius: 4px;
 	}
+
+	.contenedor-registro{
+		clear: both;
+		position: absolute;
+		top: 0;
+		background: white;
+		height: 100vh;
+		right:0;
+		width: 700px;
+	}    
 
 	
 </style>

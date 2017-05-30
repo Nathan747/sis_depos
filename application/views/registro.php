@@ -1,14 +1,10 @@
-<div class="mapa-popup" style="left: -100%">
-  <div class=contenedor-mapa>
-  <div class="close"><a href="#" id="close"><span class="glyphicon glyphicon-remove"></span></a></div>
-    <div id="mapa_registro" style="height:450px"></div>
-  </div>
-</div>
+<div class="contenedor-registro">
+    <div class="row">
 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <a href="#"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
+      </div>
 
-<div class="container">
-  <div class="row">
-    
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
           <label for="nombre_login">Nombre</label>
@@ -58,6 +54,11 @@
       </div>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div id="mapa_registro" style="height:450px"></div>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <button type="submit" class="btn btn-default" id="open">Localizate</button>
       </div>
 
@@ -67,6 +68,5 @@
         <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
       </div>
       
-  </div>
+    </div>
 </div>
-
