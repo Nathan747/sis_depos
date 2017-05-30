@@ -15,9 +15,12 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?php echo base_url()."login" ?>">Login</a></li>
-				<li><a href="<?php echo base_url()."registro" ?>">Registrarse</a></li>
-				<li><a href="#">Salir</a></li>
+				<li><a href="<?php echo base_url()."login" ?>">ACERCA DE</a></li>
+                <li><a href="<?php echo base_url()."login" ?>">COMO FUNCIONA</a></li>
+                <li><a href="<?php echo base_url()."registro" ?>">REGISTRARSE</a></li>
+				<li><a href="<?php echo base_url()."login" ?>">INGRESAR</a></li>
+				
+			<!--	<li><a href="#">Salir</a></li>-->
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
