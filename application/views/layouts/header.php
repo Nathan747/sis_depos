@@ -18,7 +18,7 @@
 				<li><a href="<?php echo base_url()."login" ?>">ACERCA DE</a></li>
                 <li><a href="<?php echo base_url()."login" ?>">COMO FUNCIONA</a></li>
                 <li><a href="#" id="registrate">REGISTRARSE</a></li>
-				<li><a href="<?php echo base_url()."login" ?>">INGRESAR</a></li>
+				<li><a href="#" id="ingresar">INGRESAR</a></li>
 				
 			<!--	<li><a href="#">Salir</a></li>-->
 			</ul>

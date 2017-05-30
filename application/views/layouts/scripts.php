@@ -179,11 +179,41 @@
 
   } 
 
+/*login*/
+  $(document).ready(function(){
+    $('#cerrar-login').click(function(e){
+      e.preventDefault();
+      $('.login').animate({
+        right: "-100%"
+      });
+    });
+
+    $('#ingresar').click(function(e){
+      e.preventDefault();
+      $('.login').animate({
+        right: "0"
+      });
+    });
+});
+
+/*fin login*/
+
+
+
+
+
   $(document).ready(function(){
     $('#cerrar-registro').click(function(e){
       e.preventDefault();
       $('.contenedor-registro').animate({
         right: "-100%"
+      });
+    });
+
+    $('#dnr').click(function(e){
+      e.preventDefault();
+      $('.contenedor-registro').animate({
+        right: "0"
       });
     });
 
@@ -193,6 +223,9 @@
         right: "0"
       });
     });
+
+
+
 
 
     // REGISTRO 
@@ -308,3 +341,15 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
 </script>
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=1364398453638874";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

@@ -68,8 +68,33 @@ opacity: 0.5!important;
     position: absolute;
     right: -100%;
     background-color: white;
-    height:calc(100vh-76px);
+    height: calc(100vh - 76px);
     z-index: 999;
     top: 76px;
     border-left: 1px solid #cccccc;
+    padding: 25px 20px;
+}
+
+
+.login form{
+
+padding-top: 40px;
+padding-bottom: 30px;
+
+}
+
+.fb-login-button{
+	padding-top: 30px;
+}
+
+
+.login a {
+font-size: 14px;
+color:#26AD5F!important;
+font-style: italic;
+}
+
+.login a:hover {
+color:#9099A5!important;
+text-decoration: none;	
 }
