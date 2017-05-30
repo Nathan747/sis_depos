@@ -14,27 +14,27 @@
       var styledMapType = new google.maps.StyledMapType(
             [
               {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
-              {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
+              {elementType: 'labels.text.fill', stylers: [{color: '#929292'}]},
               {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
               {
                 featureType: 'administrative',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#cccccc'}]
+                stylers: [{color: '#ffffff'}]
               },
               {
                 featureType: 'administrative.land_parcel',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#cccccc'}]
+                stylers: [{color: '#FFFFFF'}]
               },
               {
                 featureType: 'administrative.land_parcel',
                 elementType: 'labels.text.fill',
-                stylers: [{color: 'cccccc'}]
+                stylers: [{color: '#929292'}]
               },
               {/*terreno*/
                 featureType: 'landscape.natural',
                 elementType: 'geometry',
-                stylers: [{color: '#cccccc'}]
+                stylers: [{color: '#F7F7F7'}]
               },
               {
                 featureType: 'poi',
@@ -44,7 +44,7 @@
               {
                 featureType: 'poi',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#cccccc'}]
+                stylers: [{color: '#929292'}]
               },
               {
                 featureType: 'poi.park',
@@ -69,22 +69,22 @@
               {
                 featureType: 'road.highway',
                 elementType: 'geometry',
-                stylers: [{color: '#f8c967'}]
+                stylers: [{color: '#667D98'}]
               },
               {
                 featureType: 'road.highway',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#e9bc62'}]
+                stylers: [{color: '#667D98'}]
               },
               {
                 featureType: 'road.highway.controlled_access',
                 elementType: 'geometry',
-                stylers: [{color: '#e98d58'}]
+                stylers: [{color: '#667D98'}]
               },
               {
                 featureType: 'road.highway.controlled_access',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#db8555'}]
+                stylers: [{color: '#667D98'}]
               },
               {
                 featureType: 'road.local',
@@ -114,19 +114,19 @@
               {
                 featureType: 'water',
                 elementType: 'geometry.fill',
-                stylers: [{color: '#494CFF'}]
+                stylers: [{color: '#EDEDED'}]
               },
               {
                 featureType: 'water',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#494CFF'}]
+                stylers: [{color: '#929292'}]
               }
             ],
             {name: 'Styled Map'});
 
       var uluru = {lat: -34.9950075, lng: -67.5100458};
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 18,
+        zoom: 2,
         center: uluru,
         mapTypeControlOptions: {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',

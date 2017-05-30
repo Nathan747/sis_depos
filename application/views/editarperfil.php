@@ -10,7 +10,7 @@
                     <small>editando datos</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Perfil de usuario</a></li>
+                    <li><a href="<?php echo base_url('perfil');?>">Perfil de usuario</a></li>
                     <li class="active">Editando datos</li>
                 </ol>
             </div>

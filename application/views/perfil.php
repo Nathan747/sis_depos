@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     
                     <li class="active">Perfil de usuario</li>
-                    <li><a href="editarperfil.html">Editar Perfil</a></li>
+                    <li><a href="<?php echo base_url('perfil/editar');?>">Editar Perfil</a></li>
                     
                 </ol>
             </div>
