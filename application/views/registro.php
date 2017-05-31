@@ -67,8 +67,27 @@
 
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="form-group">
+        <input type="number" class="form-control" id="telefono_login"
+        placeholder="Teléfono">
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <select class="form-control" id="universidad" placeholder="Universidad">
+          <option selected disabled>Universidad</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="form-group">
         <input type="text" class="form-control" id="usuario_login"
-        placeholder="Usuario">
+        placeholder="Usuario" autocomplete="off">
       </div>
     </div>
 
@@ -92,13 +111,8 @@
       </div>
     </div>
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <button type="submit" class="btn btn-default" id="open">Localizate</button>
-    </div>
-
-
     <!--div class="clearfix"></div-->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contenedor-boton-enviar">
       <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
     </div>
 

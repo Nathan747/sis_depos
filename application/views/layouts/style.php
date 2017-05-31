@@ -170,6 +170,66 @@
 		font-weight: 700;
 	}
 
+	.contenedor-boton-enviar{
+		text-align: center;
+		padding-top: 40px;
+	}
+
+	#enviar-registro{
+		padding: 15px 110px; 
+		border-radius: 30px;
+		background-color: #D4D4D4;
+		color: #A6AFB8;
+		text-transform: uppercase;
+		font-size: 18px;
+		-webkit-box-shadow:0 4px 1px #909AA6,0 0 40px rgba(0, 0, 0, 0.1) inset;
+		-moz-box-shadow:0 4px 1px #909AA6, 0 0 40px rgba(0, 0, 0, 0.1) inset;
+		box-shadow:0 4px 1px #909AA6, 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+
+	#enviar-registro:hover{
+		color: white;
+	}
+
+	.form-control{
+		border-radius: 0px;
+		border-color: #D7D7D7;
+		color: #34495E;
+	}
+
+	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#DDE4EC;}
+
+	textarea:focus,
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="datetime"]:focus,
+	input[type="datetime-local"]:focus,
+	input[type="date"]:focus,
+	input[type="month"]:focus,
+	input[type="time"]:focus,
+	input[type="week"]:focus,
+	input[type="number"]:focus,
+	input[type="email"]:focus,
+	input[type="url"]:focus,
+	input[type="search"]:focus,
+	input[type="tel"]:focus,
+	input[type="color"]:focus,
+	.uneditable-input:focus {   
+		border-color: rgba(126, 239, 104, 0.8);
+		border-color: #FAFAFA;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
+		outline: 0 none;
+	}
+
+	#universidad:focus{
+		border-color: rgba(126, 239, 104, 0.8);
+		border-color: #FAFAFA;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
+		outline: 0 none;
+	}
+	
+
+
 	
 </style>
 </head>
