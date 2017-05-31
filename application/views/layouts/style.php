@@ -197,7 +197,7 @@
 		color: #34495E;
 	}
 
-	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#DDE4EC;}
+	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#DDE4EC;} 
 
 	textarea:focus,
 	input[type="text"]:focus,
