@@ -18,4 +18,18 @@ class Welcome extends CI_Controller {
 		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
 	}
+
+
+
+/*cierre de sesión*/
+	public function logout()
+	{
+		session_start();
+		session_unset();
+		$_SESSION['FBID'] = NULL;
+		$_SESSION['FULLNAME'] = NULL;
+		$_SESSION['EMAIL'] =  NULL;
+		//$_SESSION['usuario'] =  NULL;
+		header("Location: index");
+	}
 }
