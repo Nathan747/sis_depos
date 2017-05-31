@@ -23,4 +23,9 @@ class Registro extends CI_Controller {
 		$this->load->view('fb/autoload');
 		$this->load->view('fb/script_fb');
 	}
+
+	public function test()
+	{
+		$this->load->view("prueba_fb");
+	}
 }
