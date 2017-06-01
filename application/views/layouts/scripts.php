@@ -370,7 +370,13 @@
 
     $("#registrate-facebook").click(function(e){
       e.preventDefault();
-      console.log("CLICK");
+      $.ajax({
+        url: "<?php echo base_url(); ?>"+"registro/facebook",
+        method: "POST"
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        console.log(objeto);
+      });;
       $(".face").animate({
         left: "-100%"
       });

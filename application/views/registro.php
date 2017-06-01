@@ -39,7 +39,7 @@
 
     <!-- facebook -->
     <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-      <a id="registrate-facebook" href="<?php echo base_url().'registro/facebook' ?>">Facebook</a>
+      <a id="registrate-facebook" href="#">Facebook</a>
     </div> 
     <!-- fin facebook -->
     

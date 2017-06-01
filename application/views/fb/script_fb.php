@@ -59,7 +59,19 @@ if ( isset( $session ) ) {
 	$_SESSION['FPICTURE'] =  $fpicture;
 
 	/* ---- header location after session ----*/
-	header("Location: ".base_url()."registro/test");
+	//header("Location: ".base_url()."registro/test");
+
+	$json["ID"]=$_SESSION['FBID'];
+	$json["FULLNAME"]=$_SESSION['FULLNAME'];
+	$json["EMAIL"]=$_SESSION['EMAIL'];
+	$json["FWORK"]=$_SESSION['FWORK'];
+	$json["FWEBSITE"]=$_SESSION['FWEBSITE'];
+	$json["FFIRST_NAME"]=$_SESSION['FFIRST_NAME'];
+	$json["FBIRTHDAY"]=$_SESSION['FBIRTHDAY'];
+	$json["FLAST_NAME"]=$_SESSION['FLAST_NAME'];
+	$json["FLOCATION"]=$_SESSION['FLOCATION'];
+	echo json_encode($json);
+
 } else {
 	$loginUrl = $helper->getLoginUrl();
 	header("Location: ".$loginUrl);
