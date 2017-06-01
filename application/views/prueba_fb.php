@@ -1,17 +1,14 @@
-<?php
-session_start(); 
-?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title>Login con faces</title>
-<link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> 
+<link href="https://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> 
  </head>
   <body>
   <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
 <div class="container">
 <div class="hero-unit">
-  <h1>Holaaaaa <?php echo $_SESSION['USERNAME']; ?></h1>
+  <h1>Holaaaaa <?php echo $_SESSION['FULLNAME']; ?></h1>
   <p>pruebaaaaaaaaaaaaaaaaaaaa</p>
   </div>
 <div class="span4">
@@ -25,6 +22,23 @@ session_start();
 <li class="nav-header">Facebook Email</li>
 <li><?php echo $_SESSION['EMAIL']; ?></li>
 <div><a href="logout.php">Logout</a></div>
+
+<li class="nav-header">Primer nombre</li>
+<li><?php echo $_SESSION['FFIRST_NAME']; ?></li>
+<li class="nav-header">Apellido</li>
+<li><?php echo $_SESSION['FLAST_NAME']; ?></li>
+
+
+<li class="nav-header">Trabajo</li>
+<li><?php echo  $_SESSION['FWORK']; ?></li>
+<li class="nav-header">Website</li>
+<li><?php echo $_SESSION['FWEBSITE']; ?></li>
+
+<li class="nav-header">Fecha de nacimiento</li>
+<li><?php echo $_SESSION['FBIRTHDAY']; ?></li>
+<li class="nav-header">Ubicacion</li>
+<li><?php echo $_SESSION['FLOCATION']; ?></li>
+
 </ul></div></div>
     <?php else: ?>     <!-- Before login --> 
 <div class="container">
