@@ -26,7 +26,7 @@ try {
 // see if we have a session
 if ( isset( $session ) ) {
 	// graph api request for user data
-	$request = new FacebookRequest( $session, 'GET', '/me?locale=en_US&fields=id,name,email' );
+	$request = new FacebookRequest( $session, 'GET', '/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture' );
 	$response = $request->execute();
 	// get response
 	$graphObject = $response->getGraphObject();
@@ -36,10 +36,28 @@ if ( isset( $session ) ) {
 	// To Get Facebook full name
 	$femail = $graphObject->getProperty('email');    
 	// To Get Facebook email ID
+	$fwork = $graphObject->getProperty('work');
+	$fwebsite = $graphObject->getProperty('website'); 
+	$ffirst_name = $graphObject->getProperty('first_name'); 
+	$fbirthday = $graphObject->getProperty('birthday');     
+	$flast_name = $graphObject->getProperty('last_name'); 
+	$flocation = $graphObject->getProperty('location'); 
+	$fpicture = $graphObject->getProperty('picture');      
+
 	/* ---- Session Variables -----*/
 	$_SESSION['FBID'] = $fbid;           
 	$_SESSION['FULLNAME'] = $fbfullname;
 	$_SESSION['EMAIL'] =  $femail;
+
+	$_SESSION['FWORK'] = $fwork;           
+	$_SESSION['FWEBSITE'] = $fwebsite;
+	$_SESSION['FFIRST_NAME'] =  $ffirst_name;
+	$_SESSION['FBIRTHDAY'] =  $fbirthday;
+
+	$_SESSION['FLAST_NAME'] =  $flast_name;
+	$_SESSION['FLOCATION'] =  $flocation;
+	$_SESSION['FPICTURE'] =  $fpicture;
+
 	/* ---- header location after session ----*/
 	header("Location: ".base_url()."registro/test");
 } else {
