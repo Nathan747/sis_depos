@@ -17,12 +17,12 @@
           placeholder="Contraseña">
         </div>
         
-        <button type="submit" class="btn btn-default">Enviar</button>
+        <button type="submit" class="btn btn-default">Iniciar Sesión</button>
       </form>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <a href="#" id="">Perdí mi acceso</a>
+      <a href="#" id="">¿Olvidaste la contraseña?</a>
     </div>    
 
 
