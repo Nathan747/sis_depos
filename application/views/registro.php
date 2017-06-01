@@ -39,88 +39,139 @@
 
     <!-- facebook -->
     <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-      <!--div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div-->
-
-      <a href="<?php echo base_url().'registro/facebook' ?>">Facebook</a>
+      <a class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" href="<?php echo base_url().'registro/facebook' ?>">Facebook</a>
     </div> 
     <!-- fin facebook -->
+    
+    <!-- registro -->
+    <div class="no-face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+      <a href="#">o Registrate</a>
+    </div> 
+    <!-- fin registro -->
 
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="text" class="form-control" id="nombre_login"
-        placeholder="Nombre">
+
+    <div class="formulario-padre">
+      <div class="formulario-no-fb">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nombre_login"
+            placeholder="Nombre">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="text" class="form-control" id="apellido_login"
+            placeholder="Apellido">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="email" class="form-control" id="email_login"
+            placeholder="E-Mail">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="number" class="form-control" id="telefono_login"
+            placeholder="Teléfono">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <select class="form-control" id="universidad" placeholder="Universidad">
+              <option selected disabled>Universidad</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="text" class="form-control" id="usuario_login"
+            placeholder="Usuario" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="password" class="form-control" id="password_login" 
+            placeholder="Contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="password" class="form-control" id="password2_login"
+            placeholder="Repita la contraseña">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="formulario-fb">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="number" class="form-control" id="telefono_login"
+            placeholder="Teléfono">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="text" class="form-control" id="usuario_login"
+            placeholder="Usuario" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="password" class="form-control" id="password_login" 
+            placeholder="Contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="password" class="form-control" id="password2_login"
+            placeholder="Repita la contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <select class="form-control" id="universidad" placeholder="Universidad">
+              <option selected disabled>Universidad</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <div id="mapa_registro"></div>
+        </div>
+      </div>
+
+      <!--div class="clearfix"></div-->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contenedor-boton-enviar">
+        <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
       </div>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="text" class="form-control" id="apellido_login"
-        placeholder="Apellido">
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="email" class="form-control" id="email_login"
-        placeholder="E-Mail">
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="number" class="form-control" id="telefono_login"
-        placeholder="Teléfono">
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <select class="form-control" id="universidad" placeholder="Universidad">
-          <option selected disabled>Universidad</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="text" class="form-control" id="usuario_login"
-        placeholder="Usuario" autocomplete="off">
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="password" class="form-control" id="password_login" 
-        placeholder="Contraseña">
-      </div>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <input type="password" class="form-control" id="password2_login"
-        placeholder="Repita la contraseña">
-      </div>
-    </div>
-
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="form-group">
-        <div id="mapa_registro"></div>
-      </div>
-    </div>
-
-    <!--div class="clearfix"></div-->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contenedor-boton-enviar">
-      <button type="submit" class="btn btn-default" id="enviar-registro">Enviar</button>
-    </div>
-
-
-
-
+    
 
   </div>
 

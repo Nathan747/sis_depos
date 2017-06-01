@@ -94,7 +94,7 @@
 		right:-100%;
 		width: 800px;
 		padding: 25px 20px;
-		overflow: auto;
+		overflow: hidden;
 	}    
 
 	.contenedor-wizard{
@@ -197,7 +197,7 @@
 		color: #34495E;
 	}
 
-	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#DDE4EC;} 
+	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#bdc3c7;} 
 
 	textarea:focus,
 	input[type="text"]:focus,
@@ -226,6 +226,28 @@
 		border-color: #FAFAFA;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
 		outline: 0 none;
+	}
+
+	.no-face{
+		text-align: center;
+	}
+
+	.no-face a{
+		padding: 10px 89px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		color: #bdc3c7;
+		text-decoration: none;
+	}
+
+	.no-face a:hover{
+		background-color: #bdc3c7;
+		color: white;
+	}
+
+	.formulario-padre{
+		position: relative;
+		right: -100%;
 	}
 	
 
