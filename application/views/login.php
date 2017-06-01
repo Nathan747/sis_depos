@@ -16,8 +16,9 @@
           <input type="password" class="form-control" id="password_login" 
           placeholder="Contraseña">
         </div>
-        
-        <button type="submit" class="btn btn-default">Iniciar Sesión</button>
+           <div class="ini_ses">
+        <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12">Iniciar Sesión</button>
+          </div>
       </form>
     </div>
 
