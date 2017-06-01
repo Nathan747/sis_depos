@@ -228,12 +228,13 @@
 		outline: 0 none;
 	}
 
-	.no-face{
+	.no-face, .face{
 		text-align: center;
+		position: relative;
 	}
 
 	.no-face a{
-		padding: 10px 89px;
+		padding: 9px 89px;
 		border: 1px solid #ccc;
 		border-radius: 4px;
 		color: #bdc3c7;

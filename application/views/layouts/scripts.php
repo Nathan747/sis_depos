@@ -179,7 +179,7 @@
 
   } 
 
-/*login*/
+  /*login*/
   $(document).ready(function(){
     $('#cerrar-login').click(function(e){
       e.preventDefault();
@@ -194,9 +194,9 @@
         right: "0"
       });
     });
-});
+  });
 
-/*fin login*/
+  /*fin login*/
 
 
 
@@ -208,6 +208,22 @@
       $('.contenedor-registro').animate({
         right: "-100%"
       });
+
+      $(".face").animate({
+        left: "0"
+      });
+      $(".face").css("display","block");
+      $(".no-face").css("display","block");
+      $(".no-face").animate({
+        left: "0"
+      });
+      $(".no-face").css("display","block");
+      $(".formulario-fb").css("display","block");
+      $(".formulario-padre").animate({
+        right: "-100%"
+      });
+      $(".contenedor-registro").css("overflow","hidden");
+
     });
 
     $('#dnr').click(function(e){
@@ -334,6 +350,44 @@
       }
       
     });
+
+    $("#registrate-form").click(function(e){
+      e.preventDefault();
+      $(".face").animate({
+        left: "-100%"
+      });
+      $(".face").css("display","none");
+      $(".no-face").animate({
+        left: "-100%"
+      });
+      $(".no-face").css("display","none");
+      $(".formulario-fb").css("display","none");
+      $(".formulario-padre").animate({
+        right: "0"
+      });
+      $(".contenedor-registro").css("overflow","auto");
+    });
+
+    $("#registrate-facebook").click(function(e){
+      e.preventDefault();
+      console.log("CLICK");
+      $(".face").animate({
+        left: "-100%"
+      });
+      $(".face").css("display","none");
+      $(".no-face").animate({
+        left: "-100%"
+      });
+      $(".no-face").css("display","none");
+      $(".formulario-no-fb").css("display","none");
+      $(".formulario-padre").animate({
+        right: "0"
+      });
+      $(".contenedor-registro").css("overflow","auto");
+    });
+
+
+
   });
 
 
