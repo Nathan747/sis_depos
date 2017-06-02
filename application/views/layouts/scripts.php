@@ -128,6 +128,11 @@
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 2,
       center: uluru,
+      mapTypeControl: 0,
+      scaleControl: 1,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
         'styled_map']
@@ -151,6 +156,11 @@
     var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
       zoom: 8,
       center: {lat: -34.9950075, lng: -67.5100458},
+      mapTypeControl: 0,
+      scaleControl: 10,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
         'styled_map']
@@ -163,14 +173,11 @@
     var click_registro;
     google.maps.event.addListener(map_register, "click", function (event) {
       if(marker!=null) {
-        console.log("entro");
         marker.setMap(null);
       }
       latitude = event.latLng.lat();
       longitude = event.latLng.lng();
-      console.log( latitude + ', ' + longitude );
       click_registro = {lat: latitude, lng: longitude}
-      console.log(click_registro);
       marker = new google.maps.Marker({
         position: click_registro,
         map: map_register,
@@ -283,12 +290,12 @@
       var password = $("#password_login").val();
       var password2 = $("#password2_login").val();
       console.log("Nombre: " + nombre);
-      console.log("Apellido: " + nombre);
-      console.log("Email: " + nombre);
-      console.log("Telefono: " + nombre);
-      console.log("Universidad: " + nombre);
-      console.log("User: " + nombre);
-      console.log("Password: " + nombre);
+      console.log("Apellido: " + apellido);
+      console.log("Email: " + email);
+      console.log("Telefono: " + telefono);
+      console.log("Universidad: " + universidad);
+      console.log("User: " + user);
+      console.log("Password: " + password);
 
       /*var control = control_campos(nombre,apellido,email,user,password,password2,latitude,longitude);
       console.log(control);
