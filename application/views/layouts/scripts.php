@@ -6,6 +6,7 @@
   var marker = null;
   var latitude;
   var longitude;
+  var tipo_registro=0;
 
   function initMap() {
     var uluru = {lat: -34.9950075, lng: -67.5100458};
@@ -194,15 +195,7 @@
         right: "0"
       });
     });
-  });
 
-  /*fin login*/
-
-
-
-
-
-  $(document).ready(function(){
     $('#cerrar-registro').click(function(e){
       e.preventDefault();
       $('.contenedor-registro').animate({
@@ -240,35 +233,34 @@
       });
     });
 
-
-
-
-
     // REGISTRO 
 
-    function control_campos(nombre,apellido,email,user,password,password2,latitud,longitud){
+    function control_campos(nombre="",apellido="",email="",user,password,password2,latitud,longitud, tipo_registro){
       var retorno = 0;
-      if ( (nombre!="") && (apellido!="") && (email!="") && (user!="") && (password!="") && (password2!="") && (latitud!=null) && (longitud!=null) ){
-        if(password!=password2){retorno=9;}else{
-          retorno=0;
-        }
-      }else{
-        if(nombre=="") {retorno=1;}else{
-          if(apellido=="") {retorno=2;}else{
-            if(email=="") {retorno=3;}else{
-              if(user=="") {retorno=4;}else{
-                if(password=="") {retorno=5;}else{
-                  if(password2=="") {retorno=6;}else{
-                    if(latitud==null) {retorno=7;}else{
-                      if(longitud==null) {retorno=8;}
+      if(tipo_registro==0){
+        if ( (nombre!="") && (apellido!="") && (email!="") && (user!="") && (password!="") && (password2!="") && (latitud!=null) && (longitud!=null) ){
+          if(password!=password2){retorno=9;}else{
+            retorno=0;
+          }
+        }else{
+          if(nombre=="") {retorno=1;}else{
+            if(apellido=="") {retorno=2;}else{
+              if(email=="") {retorno=3;}else{
+                if(user=="") {retorno=4;}else{
+                  if(password=="") {retorno=5;}else{
+                    if(password2=="") {retorno=6;}else{
+                      if(latitud==null) {retorno=7;}else{
+                        if(longitud==null) {retorno=8;}
+                      }
                     }
                   }
                 }
-              }
-            } 
+              } 
+            }
           }
         }
       }
+      
       return retorno;
     }
 
@@ -276,6 +268,8 @@
       $("#nombre_login").parent().removeClass("has-error");
       $("#apellido_login").parent().removeClass("has-error");
       $("#email_login").parent().removeClass("has-error");
+      $("#telefono_login").parent().removeClass("has-error");
+      $("#universidad_login").parent().removeClass("has-error");
       $("#usuario_login").parent().removeClass("has-error");
       $("#password_login").parent().removeClass("has-error");
       $("#password2_login").parent().removeClass("has-error");
@@ -283,11 +277,20 @@
       var nombre = $("#nombre_login").val();
       var apellido = $("#apellido_login").val();
       var email = $("#email_login").val();
+      var telefono = $("#telefono_login").val();
+      var universidad = $("#universidad_login").val();
       var user = $("#usuario_login").val();
       var password = $("#password_login").val();
       var password2 = $("#password2_login").val();
+      console.log("Nombre: " + nombre);
+      console.log("Apellido: " + nombre);
+      console.log("Email: " + nombre);
+      console.log("Telefono: " + nombre);
+      console.log("Universidad: " + nombre);
+      console.log("User: " + nombre);
+      console.log("Password: " + nombre);
 
-      var control = control_campos(nombre,apellido,email,user,password,password2,latitude,longitude);
+      /*var control = control_campos(nombre,apellido,email,user,password,password2,latitude,longitude);
       console.log(control);
       var color;
       switch(control){
@@ -347,11 +350,12 @@
           $("#password2_login").parent().addClass("has-error");
           break;
         }
-      }
+      }*/
       
     });
 
     $("#registrate-form").click(function(e){
+      tipo_registro=0;
       e.preventDefault();
       $(".face").animate({
         left: "-100%"
@@ -369,6 +373,7 @@
     });
 
     $("#registrate-facebook").click(function(e){
+      tipo_registro=1;
       e.preventDefault();
       $.ajax({
         url: "<?php echo base_url(); ?>"+"registro/facebook",

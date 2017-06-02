@@ -83,7 +83,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <select class="form-control" id="universidad" placeholder="Universidad">
+            <select class="form-control" id="universidad_login" placeholder="Universidad">
               <option selected disabled>Universidad</option>
               <option value="1">1</option>
               <option value="2">2</option>

@@ -197,7 +197,7 @@
 		color: #34495E;
 	}
 
-	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#bdc3c7;} 
+	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad_login::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#bdc3c7;} 
 
 	textarea:focus,
 	input[type="text"]:focus,
@@ -221,7 +221,7 @@
 		outline: 0 none;
 	}
 
-	#universidad:focus{
+	#universidad_login:focus{
 		border-color: rgba(126, 239, 104, 0.8);
 		border-color: #FAFAFA;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
