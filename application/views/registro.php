@@ -71,11 +71,12 @@
 
 
     <div class="contenedor-modo">
+
       <!-- facebook -->
-      <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-        <a id="registrate-facebook" href="#">Facebook</a>
-      </div> 
-      <!-- fin facebook -->
+    <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+      <div id="registrate-facebook" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
+    </div> 
+    <!-- fin facebook -->
 
       <!-- registro -->
       <div class="no-face col-lg-12 col-md-12 col-sm-12 col-xs-12">      

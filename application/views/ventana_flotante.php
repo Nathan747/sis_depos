@@ -1,16 +1,17 @@
 <div class="container float">
 	<div class="row">
-		<h3>Lorem ipsum dolor sit amet</h3>
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.<br><br>  
-			Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
+		<h3>#SomosUNC</h3>
+		<p>Formá parte de la comunidad de egresados de la Universidad Nacional de Cuyo alrededor del mundo.<br></p>
 	</div>
 
 	<div class="row">
-			<a href="#">Conocer más</a>		
+		<div class="lcl">
+			<a href="#">Localizate en el mapa y contanos tu historia...</a>
+		</div>
 	</div>
 
 	<div class="row bttn">
-			<button id="dnr" type="button" class="btn btn-default btn-lg">DATE DE ALTA</button>
+			<button id="dnr" type="button" class="btn btn-default btn-lg">ENTRAR</button>
 	</div>
 	
 </div>
