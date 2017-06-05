@@ -120,20 +120,66 @@
 		text-align: center;
 		font-size: 18px;
 		font-weight: 700;
+		background: transparent;
+		-webkit-transition: background .5s;
+		-moz-transition: background .5s;
+		-o-transition: background .5s;
+		transition: background .5s
 	}
 
 	.separador-wizard{
 		height: 35px;
-		width: 240px;
+		width: 148px;
 		float: left;
 		padding-top: 16px;
 	}
+
 
 	.linea-separador{
 		height: 4px;
 		width: 100%;
 		background-color: #D3D3D3;
+		-webkit-transition: background-color .5s;
+		-moz-transition: background-color .5s;
+		-o-transition: background-color .5s;
+		transition: background-color .5s
 	}
+
+	.active-sep{
+		background-color: #34495E;
+		-webkit-transition: background-color .5s;
+		-moz-transition: background-color .5s;
+		-o-transition: background-color .5s;
+		transition: background-color .5s
+	}
+
+	.contenedor-carreras{
+		float: left;
+		clear: both;
+		width: 100%;
+		border-top: 1px solid rgba(0,0,0,0.1);
+		padding-top: 30px;
+		position: relative;
+	}
+
+	.siguiente-carrera, .siguiente-modo, .siguiente-registro-basico, .siguiente-facebook, .siguiente-finalizar{
+		padding-top: 20px;
+		text-align: center;
+		float: left;
+		width: 100%;
+	}
+
+	.contenedor-modo, .mapa-registro{
+		float: left;
+		clear: both;
+		width: 100%;
+		border-top: 1px solid rgba(0,0,0,0.1);
+		padding-top: 30px;
+		right: -100%;
+		position: relative;
+	}
+
+	
 
 	.word{
 		width: 650px;
@@ -150,24 +196,41 @@
 		font-size: 16px;
 		font-weight: 700;
 		color: #D3D3D3;
+		-webkit-transition: color .5s;
+		-moz-transition: color .5s;
+		-o-transition: color .5s;
+		transition: color .5s
 	}
 
-	.word-register{
-		margin-right: 215px;
+	.word-carrera{
+		margin-left: 13px;
+		margin-right: 130px;
 	}
 
-	.word-confirmacion{
+	.word-modo, .word-datos{
+		margin-right: 137px;
+	}
+
+	.word-mapa{
 		margin-right: 0px;
 	}
 
 	.active{
 		background-color: #34495E;
 		color: white;
+	-webkit-transition:background-color .5s;
+	-moz-transition:background-color .5s;
+	-o-transition:background-color .5s;
+	transition:background-color .5s
 	}
 
 	.word-active{
 		color: #34495E;
 		font-weight: 700;
+		-webkit-transition: color .5s;
+		-moz-transition: color .5s;
+		-o-transition: color .5s;
+		transition: color .5s
 	}
 
 	.contenedor-boton-enviar{
@@ -249,6 +312,8 @@
 	.formulario-padre{
 		position: relative;
 		right: -100%;
+		overflow: hidden;
+		float: left
 	}
 	
 
