@@ -256,11 +256,11 @@
 
 	.form-control{
 		border-radius: 0px;
-		border-color: #D7D7D7;
+		border-color: #7f8c8d;
 		color: #34495E;
 	}
 
-	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad_login::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#bdc3c7;} 
+	#nombre_login::-webkit-input-placeholder,#apellido_login::-webkit-input-placeholder,#email_login::-webkit-input-placeholder,#telefono_login::-webkit-input-placeholder,#universidad_login::-webkit-input-placeholder,#usuario_login::-webkit-input-placeholder,#password_login::-webkit-input-placeholder,#password2_login::-webkit-input-placeholder{color:#7f8c8d;} 
 
 	textarea:focus,
 	input[type="text"]:focus,
@@ -279,14 +279,14 @@
 	input[type="color"]:focus,
 	.uneditable-input:focus {   
 		border-color: rgba(126, 239, 104, 0.8);
-		border-color: #FAFAFA;
+		border-color: #7f8c8d;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
 		outline: 0 none;
 	}
 
 	#universidad_login:focus{
 		border-color: rgba(126, 239, 104, 0.8);
-		border-color: #FAFAFA;
+		border-color: #7f8c8d;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FAFAFA;
 		outline: 0 none;
 	}
@@ -296,16 +296,17 @@
 		position: relative;
 	}
 
-	.no-face a{
+	.no-face a, #siguiente-run, #siguiente-basico, #siguiente-fin, #siguiente-fb{
 		padding: 9px 89px;
 		border: 1px solid #ccc;
 		border-radius: 4px;
-		color: #bdc3c7;
+		color: white;
+		background-color: #9b59b6;
 		text-decoration: none;
 	}
 
-	.no-face a:hover{
-		background-color: #bdc3c7;
+	.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover{
+		background-color: #8e44ad;
 		color: white;
 	}
 

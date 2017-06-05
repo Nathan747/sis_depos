@@ -158,6 +158,16 @@
       map: map
     });
 
+    var marker = new google.maps.Marker({
+      position: {lat: 18.183385, lng: 28.122062},
+      map: map
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 33.429336, lng: 116.2445567},
+      map: map
+    });
+
     uluru2 = {lat: -34.9950075, lng: -67.5100458};
     var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
       zoom: 8,
@@ -189,6 +199,7 @@
         map: map_register,
         title: 'Ubicación'
       });
+      $("#siguiente-fin").removeAttr("disabled");
     });
 
   } 
@@ -357,7 +368,8 @@
       });
       $(".formulario-padre").css("display","none");
       $(".mapa-registro").animate({
-        right: "0"
+        right: "0",
+        left: "0"
       });
 
       $(".bloq-4").addClass("active");
@@ -374,6 +386,9 @@
       if ( event.which == 13 ) {
         event.preventDefault();
       }
+      if ( event.which == 9 ) {
+        event.preventDefault();
+      }
       var nombre=$("#nombre_login").val();
       var apellido=$("#apellido_login").val();
       var email=$("#email_login").val();
@@ -384,7 +399,9 @@
         console.log(string.length);
         string = string.substr(0,(string.length - 1));
       }else{
-        string += event.key;
+        if ( event.which != 9 )  {
+          string += event.key;
+        }
       }
       if(nombre==""){
         $("#nombre_login").parent().addClass("has-error");
@@ -492,13 +509,20 @@
       if ( event.which == 13 ) {
         event.preventDefault();
       }
+
+      if ( event.which == 9 ) {
+        event.preventDefault();
+      }
+
       var telefono=$("#telefono_fb").val();
       var pass1=$("#password_fb").val();
 
-      if ( event.which == 8 ) {
+      if ( event.which == 8 )  {
         string3 = string.substr(0,(string.length - 1));
       }else{
-        string3 += event.key;
+        if ( event.which != 9 )  {
+          string3 += event.key;
+        }
       }
       if(telefono==""){
         $("#telefono_fb").parent().addClass("has-error");
@@ -526,7 +550,38 @@
       }
     });
 
+    $("input[name=password-fb]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
 
+      if ( event.which == 8 ) {
+        console.log(string4.length);
+        string4 = string4.substr(0,(string4.length - 1));
+      }else{
+        string4 += event.key;
+      }
+      
+      var password2 = $("#password2_fb").val();
+      console.log("STRING PASSWORD: "+string4);
+      console.log("PASSWORD: "+password2);
+      if(password2==string4){
+        $(this).parent().removeClass("has-error");
+        $("#password2_fb").parent().removeClass("has-error");
+        $("#siguiente-fb").removeAttr("disabled");
+      }else{
+        $(this).parent().removeClass("has-error");
+        $("#password2_fb").parent().addClass("has-error");
+        $("#siguiente-fb").attr("disabled");
+      }
+    });
+
+    $("input[name=telefono-fb]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+    });
     
 
     //BOTON SIGUIENTE FORMULARIO FACEBOOK
@@ -538,13 +593,18 @@
       });
       $(".formulario-padre").css("display","none");
       $(".mapa-registro").animate({
-        right: "0"
+        right: "0",
+        left: "0"
       });
 
       $(".bloq-4").addClass("active");
       $(".word-mapa").addClass("word-active");
     });
 
+
+    $("#siguiente-fin").click(function(){
+      console.log(response.first_name);
+    });
 
 
     //BOTONES CLICKEABLES
@@ -638,14 +698,18 @@
         $(".mapa-registro").css("left","100%");
         $(".mapa-registro").css("display","block");
 
-        $(".formulario-no-fb").css("display","block");
-        $(".formulario-fb").css("display","block");
+        if(modo_log==0){
+          $(".formulario-fb").css("display","none");
+          $(".formulario-no-fb").css("display","block");  
+        }else{
+          $(".formulario-fb").css("display","block");
+          $(".formulario-no-fb").css("display","none");
+        }
 
         $(".face").css("display","block");
         $(".no-face").css("display","block");
         
         $(".no-face").css("display","block");
-        $(".formulario-fb").css("display","block");
 
         $(".contenedor-registro").css("overflow","hidden");
       }
@@ -666,7 +730,7 @@
 
 <!--facebook api-->
 <script>
-function statusChangeCallback(response) {
+  function statusChangeCallback(response) {
     //console.log('statusChangeCallback');
     //console.log(response);
     // The response object is returned with a status field that lets the
@@ -689,23 +753,23 @@ function statusChangeCallback(response) {
       $("#dnr").css("display","block");
     }
 
-   $("#salir").click(function(e){
+    $("#salir").click(function(e){
       FB.logout(function(response) {
       // Person is now logged out
-     });
+    });
 
-     $("#registrate").css("display","block");
+      $("#registrate").css("display","block");
       $("#ingresar").css("display","block");
       $("#salir").css("display","none");
       $("#dnr").css("display","block");
 
 
-   });
+    });
 
 
 
 
- }
+  }
 
  // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
@@ -714,10 +778,10 @@ function statusChangeCallback(response) {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
 
-   });
+    });
   }
 
- window.fbAsyncInit = function() {
+  window.fbAsyncInit = function() {
     FB.init({
       appId      : '1364398453638874',
     cookie     : true,  // enable cookies to allow the server to access
@@ -738,20 +802,20 @@ function statusChangeCallback(response) {
   //
   // These three cases are handled in the callback function.
 
- FB.getLoginStatus(function(response) {
+  FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
 
 };
 
  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_ES/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
  // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
@@ -764,5 +828,5 @@ function statusChangeCallback(response) {
       //  'Gracias por loguearte, ' + response.name + '!';
     });
   }
-  </script>
+</script>
 <!--facebook api-->

@@ -172,7 +172,7 @@
       </div>
 
       <div class="siguiente-finalizar">
-          <button type="submit" class="btn btn-default" id="siguiente-fin">Finalizar</button>
+          <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
         </div>
     </div>
 
