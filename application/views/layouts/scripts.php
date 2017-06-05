@@ -6,8 +6,7 @@
   var marker = null;
   var latitude;
   var longitude;
-  var tipo_registro=0;
-  var modo_log;
+  var modo_log=0;
   var string="";
   var string2="";
   var string3="";
@@ -280,6 +279,43 @@
     //BOTON REGISTRATE HEADER
     $('#registrate').click(function(e){
       e.preventDefault();
+
+      $(".bloque-wizard").each(function(){
+        $(this).removeClass("active");
+      });
+
+      $(".palabras").each(function(){
+        $(this).removeClass("word-active");
+      });
+
+      $(".separador-wizard").each(function(){
+        $(this).find(".linea-separador").removeClass("active-sep");
+      });
+
+      $(".bloq-1").addClass("active");
+      $(".word-carrera").addClass("word-active");
+      $(".sep-1").find(".linea-separador").addClass("active-sep");
+
+      $(".contenedor-carreras").css("left","0");
+      $(".contenedor-carreras").css("display","block");
+      $(".contenedor-modo").css("right","-100%");
+      $(".contenedor-modo").css("left","100%");
+      $(".contenedor-modo").css("display","block");
+      $(".formulario-padre").css("left","100%");
+      $(".formulario-padre").css("right","-100%");
+      $(".formulario-padre").css("display","block");
+      $(".mapa-registro").css("right","-100%");
+      $(".mapa-registro").css("display","block");
+
+      $(".formulario-no-fb").css("display","block");
+      $(".formulario-fb").css("display","block");
+
+      $(".face").css("display","block");
+      $(".no-face").css("display","block");
+
+      $(".formulario-fb").css("display","block");
+
+      $(".contenedor-registro").css("overflow","hidden");
       $('.contenedor-registro').animate({
         right: "0"
       });
@@ -309,7 +345,6 @@
 
     //BOTON SIGUIENTE REGISTRATE
     $("#registrate-form").click(function(e){
-      tipo_registro=0;
       e.preventDefault();
       $(".contenedor-modo").animate({
         left: "-100%"
@@ -327,35 +362,6 @@
       $(".word-datos").addClass("word-active");
 
       modo_log = 0;
-    });
-
-
-    //BOTON SIGUIENTE REGISTRATE FACEBOOK
-    $("#registrate-facebook").click(function(e){
-      tipo_registro=1;
-      e.preventDefault();
-      $.ajax({
-        url: "<?php echo base_url(); ?>"+"registro/facebook",
-        method: "POST"
-      }).done(function(json){
-        var objeto = $.parseJSON(json);
-        console.log(objeto);
-      });;
-      $(".contenedor-modo").animate({
-        left: "-100%"
-      });
-      $(".contenedor-modo").css("display","none");
-      $(".formulario-no-fb").css("display","none");
-      $(".formulario-padre").animate({
-        right: "0",
-        left: "0"
-      });
-
-      $(".bloq-3").addClass("active");
-      $(".sep-3").find(".linea-separador").addClass("active-sep");
-      $(".word-datos").addClass("word-active");
-
-      modo_log = 1;
     });
 
 
