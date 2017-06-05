@@ -10,7 +10,7 @@
 	</div>
 
 	<div class="row bttn">
-			<button id="dnr" type="button" class="btn btn-default btn-lg">DONAR</button>
+			<button id="dnr" type="button" class="btn btn-default btn-lg">DATE DE ALTA</button>
 	</div>
 	
 </div>

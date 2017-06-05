@@ -32,7 +32,7 @@
 
     <!-- facebook -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
     </div> 
 
 
