@@ -7,6 +7,12 @@
   var latitude;
   var longitude;
   var tipo_registro=0;
+  var modo_log;
+  var string="";
+  var string2="";
+  var string3="";
+  var string4="";
+
 
   function initMap() {
     var uluru = {lat: -34.9950075, lng: -67.5100458};
@@ -128,6 +134,11 @@
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 2,
       center: uluru,
+      mapTypeControl: 0,
+      scaleControl: 1,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
         'styled_map']
@@ -151,6 +162,11 @@
     var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
       zoom: 8,
       center: {lat: -34.9950075, lng: -67.5100458},
+      mapTypeControl: 0,
+      scaleControl: 10,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
         'styled_map']
@@ -163,14 +179,11 @@
     var click_registro;
     google.maps.event.addListener(map_register, "click", function (event) {
       if(marker!=null) {
-        console.log("entro");
         marker.setMap(null);
       }
       latitude = event.latLng.lat();
       longitude = event.latLng.lng();
-      console.log( latitude + ', ' + longitude );
       click_registro = {lat: latitude, lng: longitude}
-      console.log(click_registro);
       marker = new google.maps.Marker({
         position: click_registro,
         map: map_register,
@@ -196,29 +209,55 @@
       });
     });
 
+
+    //BOTON CERRAR
     $('#cerrar-registro').click(function(e){
       e.preventDefault();
       $('.contenedor-registro').animate({
         right: "-100%"
       });
 
-      $(".face").animate({
-        left: "0"
+      $(".bloque-wizard").each(function(){
+        $(this).removeClass("active");
       });
+
+      $(".palabras").each(function(){
+        $(this).removeClass("word-active");
+      });
+
+      $(".separador-wizard").each(function(){
+        $(this).find(".linea-separador").removeClass("active-sep");
+      });
+
+      $(".bloq-1").addClass("active");
+      $(".word-carrera").addClass("word-active");
+      $(".sep-1").find(".linea-separador").addClass("active-sep");
+
+      $(".contenedor-carreras").css("left","0");
+      $(".contenedor-carreras").css("display","block");
+      $(".contenedor-modo").css("right","-100%");
+      $(".contenedor-modo").css("left","100%");
+      $(".contenedor-modo").css("display","block");
+      $(".formulario-padre").css("left","100%");
+      $(".formulario-padre").css("right","-100%");
+      $(".formulario-padre").css("display","block");
+      $(".mapa-registro").css("right","-100%");
+      $(".mapa-registro").css("display","block");
+
+      $(".formulario-no-fb").css("display","block");
+      $(".formulario-fb").css("display","block");
+
       $(".face").css("display","block");
       $(".no-face").css("display","block");
-      $(".no-face").animate({
-        left: "0"
-      });
-      $(".no-face").css("display","block");
+
       $(".formulario-fb").css("display","block");
-      $(".formulario-padre").animate({
-        right: "-100%"
-      });
+
       $(".contenedor-registro").css("overflow","hidden");
 
     });
 
+
+    //BOTON DONAR
     $('#dnr').click(function(e){
       e.preventDefault();
       $('.contenedor-registro').animate({
@@ -226,6 +265,8 @@
       });
     });
 
+
+    //BOTON REGISTRATE HEADER
     $('#registrate').click(function(e){
       e.preventDefault();
       $('.contenedor-registro').animate({
@@ -233,145 +274,52 @@
       });
     });
 
-    // REGISTRO 
 
-    function control_campos(nombre="",apellido="",email="",user,password,password2,latitud,longitud, tipo_registro){
-      var retorno = 0;
-      if(tipo_registro==0){
-        if ( (nombre!="") && (apellido!="") && (email!="") && (user!="") && (password!="") && (password2!="") && (latitud!=null) && (longitud!=null) ){
-          if(password!=password2){retorno=9;}else{
-            retorno=0;
-          }
-        }else{
-          if(nombre=="") {retorno=1;}else{
-            if(apellido=="") {retorno=2;}else{
-              if(email=="") {retorno=3;}else{
-                if(user=="") {retorno=4;}else{
-                  if(password=="") {retorno=5;}else{
-                    if(password2=="") {retorno=6;}else{
-                      if(latitud==null) {retorno=7;}else{
-                        if(longitud==null) {retorno=8;}
-                      }
-                    }
-                  }
-                }
-              } 
-            }
-          }
-        }
-      }
+    //BOTON SIGUIENTE CARRERA
+    $("#siguiente-run").click(function(e){
+      e.preventDefault();
+      $('.contenedor-carreras').animate({
+        left: "-100%"
+      });
+      $('.contenedor-carreras').css("display","none");
+      $(".contenedor-modo").animate({
+        left: "0",
+        right: "0"
+      });
+
+      //CAMBIO DE COLOR
       
-      return retorno;
-    }
 
-    $("#enviar-registro").click(function(e){
-      $("#nombre_login").parent().removeClass("has-error");
-      $("#apellido_login").parent().removeClass("has-error");
-      $("#email_login").parent().removeClass("has-error");
-      $("#telefono_login").parent().removeClass("has-error");
-      $("#universidad_login").parent().removeClass("has-error");
-      $("#usuario_login").parent().removeClass("has-error");
-      $("#password_login").parent().removeClass("has-error");
-      $("#password2_login").parent().removeClass("has-error");
-      color=$("#open").removeClass("btn-danger");
-      var nombre = $("#nombre_login").val();
-      var apellido = $("#apellido_login").val();
-      var email = $("#email_login").val();
-      var telefono = $("#telefono_login").val();
-      var universidad = $("#universidad_login").val();
-      var user = $("#usuario_login").val();
-      var password = $("#password_login").val();
-      var password2 = $("#password2_login").val();
-      console.log("Nombre: " + nombre);
-      console.log("Apellido: " + nombre);
-      console.log("Email: " + nombre);
-      console.log("Telefono: " + nombre);
-      console.log("Universidad: " + nombre);
-      console.log("User: " + nombre);
-      console.log("Password: " + nombre);
-
-      /*var control = control_campos(nombre,apellido,email,user,password,password2,latitude,longitude);
-      console.log(control);
-      var color;
-      switch(control){
-        case 0:{
-          $.ajax({
-            type: "POST",
-            url: "control_registro/load_user_info/",
-            data:{
-              nombre: nombre,
-              apellido: apellido,
-              email: email,
-              usuario: user,
-              password: password,
-              latitud: latitude,
-              longitud: longitude          
-            }
-          }).done(function(json){
-
-            //window.location = "control_registro/index";
-          });
-          break;
-        }
-        case 1:{
-          $("#nombre_login").parent().addClass("has-error");
-          break;
-        }
-        case 2:{
-          $("#apellido_login").parent().addClass("has-error");
-          break;
-        }
-        case 3:{
-          $("#email_login").parent().addClass("has-error");
-          break;
-        }
-        case 4:{
-          $("#usuario_login").parent().addClass("has-error");
-          break;
-        }
-        case 5:{
-          $("#password_login").parent().addClass("has-error");
-          break;
-        }
-        case 6:{
-          $("#password2_login").parent().addClass("has-error");
-          break;
-        }
-        case 7:{
-          $("#open").addClass("btn-danger");
-          break;
-        }
-        case 8:{
-          $("#open").addClass("btn-danger");
-          break;
-        }
-        case 9:{
-          $("#password_login").parent().addClass("has-error");
-          $("#password2_login").parent().addClass("has-error");
-          break;
-        }
-      }*/
-      
+      $(".bloq-2").addClass("active");
+      $(".sep-2").find(".linea-separador").addClass("active-sep");
+      $(".word-modo").addClass("word-active");
     });
 
+
+    //BOTON SIGUIENTE REGISTRATE
     $("#registrate-form").click(function(e){
       tipo_registro=0;
       e.preventDefault();
-      $(".face").animate({
+      $(".contenedor-modo").animate({
         left: "-100%"
       });
-      $(".face").css("display","none");
-      $(".no-face").animate({
-        left: "-100%"
-      });
-      $(".no-face").css("display","none");
-      $(".formulario-fb").css("display","none");
+      $(".contenedor-modo").css("display","none");
       $(".formulario-padre").animate({
-        right: "0"
+        right: "0",
+        left: "0"
       });
-      $(".contenedor-registro").css("overflow","auto");
+      
+      $(".formulario-fb").css("display","none");
+
+      $(".bloq-3").addClass("active");
+      $(".sep-3").find(".linea-separador").addClass("active-sep");
+      $(".word-datos").addClass("word-active");
+
+      modo_log = 0;
     });
 
+
+    //BOTON SIGUIENTE REGISTRATE FACEBOOK
     $("#registrate-facebook").click(function(e){
       tipo_registro=1;
       e.preventDefault();
@@ -382,22 +330,331 @@
         var objeto = $.parseJSON(json);
         console.log(objeto);
       });;
-      $(".face").animate({
+      $(".contenedor-modo").animate({
         left: "-100%"
       });
-      $(".face").css("display","none");
-      $(".no-face").animate({
-        left: "-100%"
-      });
-      $(".no-face").css("display","none");
+      $(".contenedor-modo").css("display","none");
       $(".formulario-no-fb").css("display","none");
       $(".formulario-padre").animate({
-        right: "0"
+        right: "0",
+        left: "0"
       });
-      $(".contenedor-registro").css("overflow","auto");
+
+      $(".bloq-3").addClass("active");
+      $(".sep-3").find(".linea-separador").addClass("active-sep");
+      $(".word-datos").addClass("word-active");
+
+      modo_log = 1;
     });
 
 
+    //BOTON SIGUIENTE FORMULARIO REGISTRO
+    $("#siguiente-basico").click(function(e){
+      e.preventDefault();
+      $(".contenedor-modo").css("display","none");
+      $(".formulario-padre").animate({
+        left: "-100%"
+      });
+      $(".formulario-padre").css("display","none");
+      $(".mapa-registro").animate({
+        right: "0"
+      });
+
+      $(".bloq-4").addClass("active");
+      $(".word-mapa").addClass("word-active");
+    });
+
+
+
+
+    // INPUTS PASSWORD REGISTRO
+
+    $("input[name=password2]").keydown(function(event){
+      console.log(event.keyCode);
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      var nombre=$("#nombre_login").val();
+      var apellido=$("#apellido_login").val();
+      var email=$("#email_login").val();
+      var telefono=$("#telefono_login").val();
+      var pass1=$("#password_login").val();
+
+      if ( event.which == 8 ) {
+        console.log(string.length);
+        string = string.substr(0,(string.length - 1));
+      }else{
+        string += event.key;
+      }
+      if(nombre==""){
+        $("#nombre_login").parent().addClass("has-error");
+      }else{
+        $("#nombre_login").parent().removeClass("has-error");
+      }
+
+      if(apellido==""){
+        $("#apellido_login").parent().addClass("has-error");
+      }else{
+        $("#apellido_login").parent().removeClass("has-error");
+      }
+
+      if(email==""){
+        $("#email_login").parent().addClass("has-error");
+      }else{
+        $("#email_login").parent().removeClass("has-error");
+      }
+
+      if(telefono==""){
+        $("#telefono_login").parent().addClass("has-error");
+      }else{
+        $("#telefono_login").parent().removeClass("has-error");
+      }
+
+      if(pass1==""){
+        $("#password_login").parent().addClass("has-error");
+      }else{
+        $("#password_login").parent().removeClass("has-error");
+      }
+      
+      console.log("STRING PASSWORD2: "+string);
+      console.log("PASSWORD2: "+pass1);
+
+      if(pass1==string){
+        $("#siguiente-basico").removeAttr("disabled");
+        $("#password_login").parent().removeClass("has-error");
+        $(this).parent().removeClass("has-error");
+      }else{
+        $("#password_login").parent().addClass("has-error");
+        $(this).parent().addClass("has-error");
+        $("#siguiente-basico").attr("disabled");
+      }
+    });
+
+    $("input[name=nombre_login]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+    });
+
+    $("input[name=apellido_login]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+    });
+
+    $("input[name=email_login]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+    });
+
+    $("input[name=telefono_login]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+    });
+
+    $("input[name=password]").keydown(function(event){
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+
+      if ( event.which == 8 ) {
+        console.log(string2.length);
+        string2 = string2.substr(0,(string2.length - 1));
+      }else{
+        string2 += event.key;
+      }
+      
+      var password2 = $("#password2_login").val();
+      console.log("STRING PASSWORD: "+string2);
+      console.log("PASSWORD: "+password2);
+      if(password2==string2){
+        $(this).parent().removeClass("has-error");
+        $("#password2_login").parent().removeClass("has-error");
+      }else{
+        $(this).parent().removeClass("has-error");
+        $("#password2_login").parent().addClass("has-error");
+      }
+    });
+
+    
+
+
+    // INPUTS PASSWORD FACEBOOK
+    
+    $("input[name=password2-fb]").keydown(function(event){
+      console.log(event.keyCode);
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      var telefono=$("#telefono_fb").val();
+      var pass1=$("#password_fb").val();
+
+      if ( event.which == 8 ) {
+        string3 = string.substr(0,(string.length - 1));
+      }else{
+        string3 += event.key;
+      }
+      if(telefono==""){
+        $("#telefono_fb").parent().addClass("has-error");
+      }else{
+        $("#telefono_fb").parent().removeClass("has-error");
+      }
+
+      if(pass1==""){
+        $("#password_fb").parent().addClass("has-error");
+      }else{
+        $("#password_fb").parent().removeClass("has-error");
+      }
+      
+      console.log("STRING PASSWORD2: "+string3);
+      console.log("PASSWORD2: "+pass1);
+
+      if(pass1==string3){
+        $("#siguiente-fb").removeAttr("disabled");
+        $("#password_fb").parent().removeClass("has-error");
+        $(this).parent().removeClass("has-error");
+      }else{
+        $("#password_fb").parent().addClass("has-error");
+        $(this).parent().addClass("has-error");
+        $("#siguiente-fb").attr("disabled");
+      }
+    });
+
+
+    
+
+    //BOTON SIGUIENTE FORMULARIO FACEBOOK
+    $("#siguiente-fb").click(function(e){
+      e.preventDefault();
+      $(".contenedor-modo").css("display","none");
+      $(".formulario-padre").animate({
+        left: "-100%"
+      });
+      $(".formulario-padre").css("display","none");
+      $(".mapa-registro").animate({
+        right: "0"
+      });
+
+      $(".bloq-4").addClass("active");
+      $(".word-mapa").addClass("word-active");
+    });
+
+
+
+    //BOTONES CLICKEABLES
+
+
+
+    $("#bloque-01").click(function(e){
+      e.preventDefault();
+      $(".bloq-2").removeClass("active");
+      $(".bloq-3").removeClass("active");
+      $(".bloq-4").removeClass("active");
+      $(".sep-2").find(".linea-separador").removeClass("active-sep");
+      $(".sep-3").find(".linea-separador").removeClass("active-sep");
+      $(".word-modo").removeClass("word-active");
+      $(".word-datos").removeClass("word-active");
+      $(".word-mapa").removeClass("word-active");
+
+      $(".contenedor-carreras").css("display","block");
+      $(".contenedor-carreras").animate({
+        left: "0"
+      });
+
+      $(".contenedor-modo").css("right","-100%");
+      $(".contenedor-modo").css("left","100%");
+      $(".contenedor-modo").css("display","block");
+      $(".formulario-padre").css("left","100%");
+      $(".formulario-padre").css("right","-100%");
+      $(".formulario-padre").css("display","block");
+      $(".mapa-registro").css("right","-100%");
+      $(".mapa-registro").css("left","100%");
+      $(".mapa-registro").css("display","block");
+
+      $(".formulario-no-fb").css("display","block");
+      $(".formulario-fb").css("display","block");
+
+      $(".face").css("display","block");
+      $(".no-face").css("display","block");
+
+      $(".no-face").css("display","block");
+      $(".formulario-fb").css("display","block");
+
+      $(".contenedor-registro").css("overflow","hidden");
+
+    });
+
+    $("#bloque-02").click(function(e){
+      e.preventDefault();
+      if($(this).find(".bloque-wizard").hasClass("active")){
+        $(".bloq-3").removeClass("active");
+        $(".bloq-4").removeClass("active");
+        $(".sep-3").find(".linea-separador").removeClass("active-sep");
+        $(".word-datos").removeClass("word-active");
+        $(".word-mapa").removeClass("word-active");
+
+        $(".contenedor-modo").css("display","block");
+        $(".contenedor-modo").animate({
+          left: "0"
+        });
+        $(".formulario-padre").css("left","100%");
+        $(".formulario-padre").css("right","-100%");
+        $(".formulario-padre").css("display","block");
+        $(".mapa-registro").css("right","-100%");
+        $(".mapa-registro").css("left","100%");
+        $(".mapa-registro").css("display","block");
+
+        $(".formulario-no-fb").css("display","block");
+        $(".formulario-fb").css("display","block");
+
+        $(".face").css("display","block");
+        $(".no-face").css("display","block");
+        
+        $(".no-face").css("display","block");
+        $(".formulario-fb").css("display","block");
+
+        $(".contenedor-registro").css("overflow","hidden");
+      }
+    });
+
+    $("#bloque-03").click(function(e){
+      e.preventDefault();
+      if($(this).find(".bloque-wizard").hasClass("active")){
+        $(".bloq-4").removeClass("active");
+        $(".sep-3").find(".linea-separador").removeClass("active-sep");
+        $(".word-mapa").removeClass("word-active");
+
+        $(".formulario-padre").css("display","block");
+        $(".formulario-padre").animate({
+          left: "0"
+        });
+        $(".mapa-registro").css("right","-100%");
+        $(".mapa-registro").css("left","100%");
+        $(".mapa-registro").css("display","block");
+
+        $(".formulario-no-fb").css("display","block");
+        $(".formulario-fb").css("display","block");
+
+        $(".face").css("display","block");
+        $(".no-face").css("display","block");
+        
+        $(".no-face").css("display","block");
+        $(".formulario-fb").css("display","block");
+
+        $(".contenedor-registro").css("overflow","hidden");
+      }
+    });
+
+
+    $("#universidad_login").change(function(){
+      $("#siguiente-run").removeAttr("disabled");
+    })
 
   });
 
@@ -407,17 +664,105 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
 </script>
 
+<!--facebook api-->
+<script>
+function statusChangeCallback(response) {
+    //console.log('statusChangeCallback');
+    //console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+      $("#registrate").css("display","none");
+      $("#ingresar").css("display","none");
+      $('.login').animate({right: "-100%"});
+      $("#salir").css("display","block");
+      $("#dnr").css("display","none");
+    } else {
+      $("#registrate").css("display","block");
+      $("#ingresar").css("display","block");
+      $('.login').animate({right: "-100%"});
+      $("#salir").css("display","none");
+      $("#dnr").css("display","block");
+    }
+
+   $("#salir").click(function(e){
+      FB.logout(function(response) {
+      // Person is now logged out
+     });
+
+     $("#registrate").css("display","block");
+      $("#ingresar").css("display","block");
+      $("#salir").css("display","none");
+      $("#dnr").css("display","block");
+
+
+   });
 
 
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=1364398453638874";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
 
+ }
 
+ // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+
+   });
+  }
+
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1364398453638874',
+    cookie     : true,  // enable cookies to allow the server to access
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.8' // use graph api version 2.8
+  });
+
+ // Now that we've initialized the JavaScript SDK, we call
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+ FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+};
+
+ // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_ES/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+ // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Bienvenido! Cargando tu informacion... ');
+    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+      console.log('Successful login for: ' + response.first_name);
+      console.log('Successful login for: ' + response.last_name);
+     // document.getElementById('status').innerHTML =
+      //  'Gracias por loguearte, ' + response.name + '!';
+    });
+  }
+  </script>
+<!--facebook api-->
