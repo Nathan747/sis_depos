@@ -217,6 +217,10 @@
       $('.login').animate({
         right: "0"
       });
+      $('.contenedor-registro').animate({
+        right: "-100%"
+      });
+
     });
 
 
@@ -273,6 +277,10 @@
       $('.contenedor-registro').animate({
         right: "0"
       });
+      $('.login').animate({
+        right: "-100%"
+      });
+
     });
 
 
@@ -319,6 +327,7 @@
       $('.contenedor-registro').animate({
         right: "0"
       });
+      $('.login').animate({right: "-100%"});
     });
 
 
@@ -743,15 +752,18 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
+
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      //testAPI();
       $("#registrate").css("display","none");
       $("#ingresar").css("display","none");
       $('.login').animate({right: "-100%"});
       $("#salir").css("display","block");
       $("#dnr").css("display","none");
-    } else {
+        }
+
+  else {
       $("#registrate").css("display","block");
       $("#ingresar").css("display","block");
       $('.login').animate({right: "-100%"});
@@ -768,14 +780,36 @@
       $("#ingresar").css("display","block");
       $("#salir").css("display","none");
       $("#dnr").css("display","block");
-
-
+      $('.contenedor-registro').animate({right: "-100%"});
     });
 
+ }
 
 
+function statusChangeCallback2(response2) {
+    if (response2.status === 'connected') {
 
-  }
+ /*registro facebook wizart*/
+      $(".contenedor-modo").animate({
+        left: "-100%"
+      });
+      $(".contenedor-modo").css("display","none");
+      $(".formulario-no-fb").css("display","none");
+      $(".formulario-padre").animate({
+        right: "0",
+        left: "0"
+      });
+
+      $(".bloq-3").addClass("active");
+      $(".sep-3").find(".linea-separador").addClass("active-sep");
+      $(".word-datos").addClass("word-active");
+
+     modo_log = 1;
+     }
+   }
+     /*fin registro facebook wizart*/
+
+
 
  // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
@@ -783,6 +817,13 @@
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
+
+    });
+  }
+
+    function checkLoginState2() {
+    FB.getLoginStatus(function(response2) {
+      statusChangeCallback2(response2);
 
     });
   }
