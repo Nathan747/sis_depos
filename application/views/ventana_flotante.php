@@ -1,6 +1,6 @@
 <div class="container float">
 	<div class="row">
-		<h3>#SomosUNC</h3>
+		<h3>#SoyDeLaUNCuyo</h3>
 		<p>Formá parte de la comunidad de egresados de la Universidad Nacional de Cuyo alrededor del mundo.<br></p>
 	</div>
 

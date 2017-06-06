@@ -5,7 +5,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$data["titulo"] = "UNC";
+		$data["titulo"] = "UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('layouts/header');
