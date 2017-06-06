@@ -789,6 +789,7 @@
 function statusChangeCallback2(response2) {
     if (response2.status === 'connected') {
 
+
  /*registro facebook wizart*/
       $(".contenedor-modo").animate({
         left: "-100%"
@@ -805,6 +806,11 @@ function statusChangeCallback2(response2) {
       $(".word-datos").addClass("word-active");
 
      modo_log = 1;
+      FB.logout(function(response2) {
+      // Person is now logged out
+      });
+
+
      }
    }
      /*fin registro facebook wizart*/
