@@ -31,44 +31,20 @@
         </div></a>
       </div>
       <div class="word">
-        <div class="palabras word-carrera word-active">
-          Carrera
-        </div>
-        <div class="palabras word-modo">
+        <div class="palabras word-modo word-active">
           Modo
         </div>
         <div class="palabras word-datos">
           Datos
+        </div>
+        <div class="palabras word-carrera">
+          Carrera
         </div>
         <div class="palabras word-mapa">
           Mapa
         </div>
       </div>
     </div>
-
-
-
-    <div class="contenedor-carreras">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="form-group">
-          <select class="form-control" id="universidad_login" placeholder="Universidad">
-            <option selected disabled>Universidad</option>
-            <option value="1">Carrera 1</option>
-            <option value="2">Carrera 2</option>
-            <option value="3">Carrera 3</option>
-            <option value="4">Carrera 4</option>
-          </select>
-        </div>
-      </div>
-
-
-      <div class="siguiente-carrera">
-        <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
-      </div>
-    </div>
-
-
-
 
     <div class="contenedor-modo">
 
@@ -85,8 +61,6 @@
       <!-- fin registro -->
 
     </div>
-
-
 
     <div class="formulario-padre">
       <div class="formulario-no-fb">
@@ -125,7 +99,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input type="date" name="fecha" id='inputMarkerFecha' step="1" min="2016-01-01" max="2020-12-31" value="">
+            <input type="date" name="fecha" id="fecha_login" step="1" max="2020-12-31" placeholder="Fecha de nacimiento">
           </div>
         </div>
 
@@ -140,6 +114,14 @@
           <div class="form-group">
             <input name="password2" type="password" class="form-control" id="password2_login"
             placeholder="Repita la contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <div class="checkbox">
+              <label><input id="egresado_login" type="checkbox" value="">Soy egresado</label>
+            </div>
           </div>
         </div>
 
@@ -171,12 +153,47 @@
           </div>
         </div>
 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="date" name="fecha" id="fecha_login" step="1" max="2020-12-31" placeholder="Fecha de nacimiento">
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <div class="checkbox">
+              <label><input id="egresado_fb" type="checkbox" value="">Soy egresado</label>
+            </div>
+          </div>
+        </div>
+
         <div class="siguiente-facebook">
           <button type="submit" class="btn btn-default" id="siguiente-fb" disabled>Siguiente</button>
         </div>
 
       </div>
     </div>
+
+
+    <div class="contenedor-carreras">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <select class="form-control" id="universidad_login" placeholder="Universidad">
+            <option selected disabled>Universidad</option>
+            <option value="1">Carrera 1</option>
+            <option value="2">Carrera 2</option>
+            <option value="3">Carrera 3</option>
+            <option value="4">Carrera 4</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="siguiente-carrera">
+        <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
+      </div>
+    </div>
+
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mapa-registro">
       <div class="form-group">

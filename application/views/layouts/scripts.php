@@ -1,6 +1,12 @@
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+
+
 <script>
+  $(function () {
+    $("#fecha_login").datepicker();
+  });
+
   var map;
   var map_register;
   var marker = null;
@@ -244,7 +250,7 @@
       });
 
       $(".bloq-1").addClass("active");
-      $(".word-carrera").addClass("word-active");
+      $(".word-modo").addClass("word-active");
       $(".sep-1").find(".linea-separador").addClass("active-sep");
 
       $(".contenedor-carreras").css("left","0");
@@ -256,6 +262,7 @@
       $(".formulario-padre").css("right","-100%");
       $(".formulario-padre").css("display","block");
       $(".mapa-registro").css("right","-100%");
+      $(".mapa-registro").css("left","100%");
       $(".mapa-registro").css("display","block");
 
       $(".formulario-no-fb").css("display","block");
@@ -301,19 +308,20 @@
       });
 
       $(".bloq-1").addClass("active");
-      $(".word-carrera").addClass("word-active");
+      $(".word-modo").addClass("word-active");
       $(".sep-1").find(".linea-separador").addClass("active-sep");
-
-      $(".contenedor-carreras").css("left","0");
-      $(".contenedor-carreras").css("display","block");
-      $(".contenedor-modo").css("right","-100%");
-      $(".contenedor-modo").css("left","100%");
+      $(".contenedor-modo").css("right","0");
+      $(".contenedor-modo").css("left","0");
       $(".contenedor-modo").css("display","block");
+
+      $(".contenedor-carreras").css("left","100%");
+      $(".contenedor-carreras").css("display","block");
       $(".formulario-padre").css("left","100%");
       $(".formulario-padre").css("right","-100%");
       $(".formulario-padre").css("display","block");
       $(".mapa-registro").css("right","-100%");
       $(".mapa-registro").css("display","block");
+      $(".mapa-registro").css("left","100%");
 
       $(".formulario-no-fb").css("display","block");
       $(".formulario-fb").css("display","block");
@@ -338,17 +346,17 @@
         left: "-100%"
       });
       $('.contenedor-carreras').css("display","none");
-      $(".contenedor-modo").animate({
-        left: "0",
-        right: "0"
+      $(".mapa-registro").animate({
+        right: "0",
+        left: "0"
       });
 
       //CAMBIO DE COLOR
       
 
-      $(".bloq-2").addClass("active");
-      $(".sep-2").find(".linea-separador").addClass("active-sep");
-      $(".word-modo").addClass("word-active");
+      $(".bloq-4").addClass("active");
+      $(".sep-4").find(".linea-separador").addClass("active-sep");
+      $(".word-mapa").addClass("word-active");
     });
 
 
@@ -366,8 +374,8 @@
       
       $(".formulario-fb").css("display","none");
 
-      $(".bloq-3").addClass("active");
-      $(".sep-3").find(".linea-separador").addClass("active-sep");
+      $(".bloq-2").addClass("active");
+      $(".sep-2").find(".linea-separador").addClass("active-sep");
       $(".word-datos").addClass("word-active");
 
       modo_log = 0;
@@ -382,13 +390,15 @@
         left: "-100%"
       });
       $(".formulario-padre").css("display","none");
-      $(".mapa-registro").animate({
+      $(".contenedor-carreras").animate({
         right: "0",
         left: "0"
       });
 
-      $(".bloq-4").addClass("active");
-      $(".word-mapa").addClass("word-active");
+
+      $(".bloq-3").addClass("active");
+      $(".sep-3").find(".linea-separador").addClass("active-sep");
+      $(".word-carrera").addClass("word-active");
     });
 
 
@@ -633,18 +643,18 @@
       $(".bloq-4").removeClass("active");
       $(".sep-2").find(".linea-separador").removeClass("active-sep");
       $(".sep-3").find(".linea-separador").removeClass("active-sep");
-      $(".word-modo").removeClass("word-active");
+      $(".word-carrera").removeClass("word-active");
       $(".word-datos").removeClass("word-active");
       $(".word-mapa").removeClass("word-active");
 
-      $(".contenedor-carreras").css("display","block");
-      $(".contenedor-carreras").animate({
+      $(".contenedor-modo").css("display","block");
+      $(".contenedor-modo").animate({
         left: "0"
       });
 
-      $(".contenedor-modo").css("right","-100%");
-      $(".contenedor-modo").css("left","100%");
-      $(".contenedor-modo").css("display","block");
+      $(".contenedor-carreras").css("right","-100%");
+      $(".contenedor-carreras").css("left","100%");
+      $(".contenedor-carreras").css("display","block");
       $(".formulario-padre").css("left","100%");
       $(".formulario-padre").css("right","-100%");
       $(".formulario-padre").css("display","block");
@@ -736,6 +746,7 @@
     })
 
   });
+
 
 
 </script>

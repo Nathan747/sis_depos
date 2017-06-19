@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
 <style>
 	body{
 		font-family: Open Sans;
@@ -208,7 +209,8 @@
 	}
 
 	.word-modo, .word-datos{
-		margin-right: 137px;
+		margin-right: 118px;
+		margin-left: 20px;
 	}
 
 	.word-mapa{
@@ -218,10 +220,10 @@
 	.active{
 		background-color: #34495E;
 		color: white;
-	-webkit-transition:background-color .5s;
-	-moz-transition:background-color .5s;
-	-o-transition:background-color .5s;
-	transition:background-color .5s
+		-webkit-transition:background-color .5s;
+		-moz-transition:background-color .5s;
+		-o-transition:background-color .5s;
+		transition:background-color .5s
 	}
 
 	.word-active{
@@ -316,7 +318,21 @@
 		overflow: hidden;
 		float: left
 	}
-	
+
+	::-webkit-datetime-edit {padding-left: 10px;}
+	::-webkit-datetime-edit-fields-wrapper {}
+	::-webkit-datetime-edit-text { color: color: #7f8c8d; padding: 0 0.3em; }
+	::-webkit-datetime-edit-month-field { color: #7f8c8d; }
+	::-webkit-datetime-edit-day-field { color: color: #7f8c8d; }
+	::-webkit-datetime-edit-year-field { color: color: #7f8c8d; }
+	::-webkit-inner-spin-button { display: none; }
+	::-webkit-calendar-picker-indicator {  }
+	#fecha_login{
+		height: 34px;
+    	width: 100%;
+    	border: 1px solid #7f8c8d;
+    	color: #7f8c8d;
+	}
 
 
 	
