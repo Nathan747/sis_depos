@@ -73,10 +73,10 @@
     <div class="contenedor-modo">
 
       <!-- facebook -->
-    <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-      <div id="registrate-facebook" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState2();"></div>
-    </div> 
-    <!-- fin facebook -->
+      <div class="face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+        <div id="registrate-facebook" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState2();"></div>
+      </div> 
+      <!-- fin facebook -->
 
       <!-- registro -->
       <div class="no-face col-lg-12 col-md-12 col-sm-12 col-xs-12">      
@@ -113,8 +113,19 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input name="telefono_login" type="number" class="form-control" id="telefono_login"
-            placeholder="Teléfono">
+            <input name="telefono_login" type="number" class="form-control" id="telefono_login" placeholder="Teléfono">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="dni_login" type="number" class="form-control" id="dni_login" placeholder="DNI">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input type="date" name="fecha" id='inputMarkerFecha' step="1" min="2016-01-01" max="2020-12-31" value="">
           </div>
         </div>
 
@@ -173,8 +184,8 @@
       </div>
 
       <div class="siguiente-finalizar">
-          <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
-        </div>
+        <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
+      </div>
     </div>
 
     

@@ -761,9 +761,9 @@
       $('.login').animate({right: "-100%"});
       $("#salir").css("display","block");
       $("#dnr").css("display","none");
-        }
+    }
 
-  else {
+    else {
       $("#registrate").css("display","block");
       $("#ingresar").css("display","block");
       $('.login').animate({right: "-100%"});
@@ -783,37 +783,37 @@
       $('.contenedor-registro').animate({right: "-100%"});
     });
 
- }
+  }
 
 
-function statusChangeCallback2(response2) {
+  function statusChangeCallback2(response2) {
     if (response2.status === 'connected') {
 
 
- /*registro facebook wizart*/
-      $(".contenedor-modo").animate({
-        left: "-100%"
-      });
-      $(".contenedor-modo").css("display","none");
-      $(".formulario-no-fb").css("display","none");
-      $(".formulario-padre").animate({
-        right: "0",
-        left: "0"
-      });
+     /*registro facebook wizart*/
+     $(".contenedor-modo").animate({
+      left: "-100%"
+    });
+     $(".contenedor-modo").css("display","none");
+     $(".formulario-no-fb").css("display","none");
+     $(".formulario-padre").animate({
+      right: "0",
+      left: "0"
+    });
 
-      $(".bloq-3").addClass("active");
-      $(".sep-3").find(".linea-separador").addClass("active-sep");
-      $(".word-datos").addClass("word-active");
+     $(".bloq-3").addClass("active");
+     $(".sep-3").find(".linea-separador").addClass("active-sep");
+     $(".word-datos").addClass("word-active");
 
      modo_log = 1;
-      FB.logout(function(response2) {
+     FB.logout(function(response2) {
       // Person is now logged out
-      });
+    });
 
 
-     }
    }
-     /*fin registro facebook wizart*/
+ }
+ /*fin registro facebook wizart*/
 
 
 
@@ -827,7 +827,7 @@ function statusChangeCallback2(response2) {
     });
   }
 
-    function checkLoginState2() {
+  function checkLoginState2() {
     FB.getLoginStatus(function(response2) {
       statusChangeCallback2(response2);
 

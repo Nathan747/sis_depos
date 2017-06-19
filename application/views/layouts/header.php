@@ -15,8 +15,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" ?>">ACERCA DE</a></li>
-                <li><a href="#" ?>">COMO FUNCIONA</a></li>
+				<li><a href="#" >ACERCA DE</a></li>
+                <li><a href="#" >COMO FUNCIONA</a></li>
                 <li><a href="#" id="registrate">REGISTRARSE</a></li>
 				<li><a href="#" id="ingresar">INGRESAR</a></li>
 				<li><a href="#" id="salir" style="display:none">SALIR</a></li>
