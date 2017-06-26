@@ -7,17 +7,17 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <form role="form">
         <div class="form-group">
-          <label for="usuario_login">usuario</label>
-          <input type="text" class="form-control" id="usuario_login"
+          <label for="usuario_ingresar">E-Mail</label>
+          <input type="text" class="form-control" id="email_ingresar2"
           placeholder="Usuario">
         </div>
         <div class="form-group">
-          <label for="password_login">Contraseña</label>
-          <input type="password" class="form-control" id="password_login" 
+          <label for="password_ingresar">Contraseña</label>
+          <input type="password" class="form-control" id="password_ingresar2" 
           placeholder="Contraseña">
         </div>
            <div class="ini_ses">
-        <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12">Iniciar Sesión</button>
+        <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 iniciar-sesion">Iniciar Sesión</button>
           </div>
       </form>
     </div>

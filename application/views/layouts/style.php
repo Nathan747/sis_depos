@@ -73,12 +73,12 @@
 	}
 
 	.has-error .form-control,.has-error .form-control:focus{
-		border-color: rgb(240,20,20);
-		outline: 0;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2), 0 0 4px rgba(240, 20, 20, 1);
-		box-shadow: inset 0 1px 1px rgba(0,0,0,0.2), 0 0 4px rgba(240, 20, 20, 1);
-		transition: box-shadow 0.2s;
-		border-radius: 4px;
+		border-color: rgb(240,20,20) !important;
+		outline: 0 !important;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.2), 0 0 4px rgba(240, 20, 20, 1) !important;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.2), 0 0 4px rgba(240, 20, 20, 1) !important;
+		transition: box-shadow 0.2s !important;
+		border-radius: 4px !important;
 	}
 
 	#cerrar-registro img{
@@ -332,6 +332,11 @@
     	width: 100%;
     	border: 1px solid #7f8c8d;
     	color: #7f8c8d;
+    	padding-left: 12px;
+	}
+
+	#fecha_login:focus{
+		padding-left: 0px;
 	}
 
 

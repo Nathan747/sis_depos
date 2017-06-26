@@ -99,7 +99,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input type="date" name="fecha" id="fecha_login" step="1" max="2020-12-31" placeholder="Fecha de nacimiento">
+            <input name="date_login" class="form-control" placeholder="Fecha de nacimiento" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login" step="1" max="2020-12-31">
           </div>
         </div>
 
@@ -155,7 +155,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input type="date" name="fecha" id="fecha_login" step="1" max="2020-12-31" placeholder="Fecha de nacimiento">
+            <input placeholder="Fecha de nacimiento" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login_fb" step="1" max="2020-12-31">
           </div>
         </div>
 

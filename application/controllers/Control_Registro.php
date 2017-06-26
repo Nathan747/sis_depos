@@ -8,22 +8,8 @@ class Control_Registro extends CI_Controller {
 		$this->load->model('Registro_model');
 	}
 
-	public function index()
-	{
-		$this->load->view('logica/control_registro');
-	}
-
 	public function load_user_info()
 	{	
-		/*$data = array(
-			"nombre" 	=> $this->input->post('nombre'),
-			"apellido"	=> $this->input->post('apellido'),
-			"email"		=> $this->input->post('email'),
-			"usuario" 	=> $this->input->post('usuario'),
-			"password"	=> $this->input->post('password'),
-			"latitud"	=> $this->input->post('latitud'),
-			"longitud"	=> $this->input->post('longitud')
-		);*/
 
 		$data = $this->input->post();//Se puede reemplazar en esto
 
@@ -31,11 +17,12 @@ class Control_Registro extends CI_Controller {
 			"nombre_user" 		=> $data["nombre"],
 			"apellido_user" 	=> $data["apellido"],
 			"email_user" 		=> $data["email"],
-			"usuario_user" 		=> $data["usuario"],
+			"telefono_user" 	=> $data["telefono"],
+			"es_egresado_user"	=> $data["egresado"],
+			"fecha_egreso_user" => $data["fecha_egresado"],
 			"pass_user" 		=> $data["password"],
 			"lat_user" 			=> $data["latitud"],
 			"long_user" 		=> $data["longitud"],
-			"fecha_creacion" 	=> time(),
 			"jerarquia" 		=> 2
 		);
 

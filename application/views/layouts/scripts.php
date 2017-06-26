@@ -3,9 +3,6 @@
 
 
 <script>
-  $(function () {
-    $("#fecha_login").datepicker();
-  });
 
   var map;
   var map_register;
@@ -17,6 +14,16 @@
   var string2="";
   var string3="";
   var string4="";
+
+  var nombre;
+  var apellido;
+  var email;
+  var telefono;
+  var pass1;
+  var pass2;
+  var dni;
+  var fecha_egresado;
+  var es_egresado;
 
 
   function initMap() {
@@ -401,33 +408,42 @@
       $(".word-carrera").addClass("word-active");
     });
 
-
-
-
     // INPUTS PASSWORD REGISTRO
 
     $("input[name=password2]").keydown(function(event){
-      console.log(event.keyCode);
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       if ( event.which == 9 ) {
         event.preventDefault();
       }
-      var nombre=$("#nombre_login").val();
-      var apellido=$("#apellido_login").val();
-      var email=$("#email_login").val();
-      var telefono=$("#telefono_login").val();
-      var pass1=$("#password_login").val();
 
-      if ( event.which == 8 ) {
-        console.log(string.length);
-        string = string.substr(0,(string.length - 1));
-      }else{
-        if ( event.which != 9 )  {
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+      es_egresado = $("#egresado_login").is(':checked');
+
+      if ( ( event.which > 31 ) && (event.which < 166) ) {
+        if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
           string += event.key;
+          console.log(string);
         }
+      }else{
+        if ( event.which == 192 ) {
+          string += event.key;
+          console.log(string);
+        }
+        if ( event.which == 8 ) {
+          string = string.substr(0,(string.length - 1));
+        }
+        console.log(string);
       }
+
+      
       if(nombre==""){
         $("#nombre_login").parent().addClass("has-error");
       }else{
@@ -457,12 +473,26 @@
       }else{
         $("#password_login").parent().removeClass("has-error");
       }
+
+      if(dni==""){
+        $("#dni_login").parent().addClass("has-error");
+      }else{
+        $("#dni_login").parent().removeClass("has-error");
+      }
+
+      if(fecha_egresado===""){
+        $("#fecha_login").parent().addClass("has-error");
+      }else{
+        $("#fecha_login").parent().removeClass("has-error");
+      }
       
       console.log("STRING PASSWORD2: "+string);
       console.log("PASSWORD2: "+pass1);
 
       if(pass1==string){
-        $("#siguiente-basico").removeAttr("disabled");
+        if ( (nombre!="") && (apellido!="") && (email!="") && (dni!="") && (telefono!=="") && (fecha_egresado!=="") ){
+          $("#siguiente-basico").removeAttr("disabled");
+        }
         $("#password_login").parent().removeClass("has-error");
         $(this).parent().removeClass("has-error");
       }else{
@@ -473,43 +503,144 @@
     });
 
     $("input[name=nombre_login]").keydown(function(event){
+      //var nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
-      $(this).parent().removeClass("has-error");   
+      $(this).parent().removeClass("has-error"); 
+      if ( (apellido!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }  
     });
 
     $("input[name=apellido_login]").keydown(function(event){
+      nombre=$("#nombre_login").val();
+      //var apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
-      $(this).parent().removeClass("has-error");   
+      $(this).parent().removeClass("has-error"); 
+
+      if ( (nombre!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }    
     });
 
     $("input[name=email_login]").keydown(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      //var email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
-      $(this).parent().removeClass("has-error");   
+      $(this).parent().removeClass("has-error"); 
+      if ( (nombre!="") && (apellido!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }   
     });
 
     $("input[name=telefono_login]").keydown(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      //var telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");  
+      if ( (nombre!="") && (apellido!="") && (dni!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }    
+    });
+
+    $("input[name=dni_login]").keydown(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      //var dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error");   
+      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }  
     });
 
-    $("input[name=password]").keydown(function(event){
+    $("input[name=date_login]").change(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      //var fecha_egresado = $("#fecha_login").val();
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error"); 
+      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (dni!=="") && (pass1!=="") && (pass2!=="") ){
+        $("#siguiente-basico").removeAttr("disabled");
+      }    
+    });
+
+    $("input[name=password]").keyup(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+      console.log(event.which);
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
 
-      if ( event.which == 8 ) {
-        console.log(string2.length);
-        string2 = string2.substr(0,(string2.length - 1));
+      if ( ( event.which > 31 ) && (event.which < 166) ) {
+        if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
+          string2 += event.key;
+          console.log(string2);
+        }
       }else{
-        string2 += event.key;
+        if ( event.which == 192 ) {
+          string2 += event.key;
+          console.log(string2);
+        }
+        if ( event.which == 8 ) {
+          string2 = string2.substr(0,(string2.length - 1));
+        }
+        console.log(string2);
       }
       
       var password2 = $("#password2_login").val();
@@ -518,6 +649,9 @@
       if(password2==string2){
         $(this).parent().removeClass("has-error");
         $("#password2_login").parent().removeClass("has-error");
+        if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (dni!=="") && (fecha_egresado!=="") ){
+          $("#siguiente-basico").removeAttr("disabled");
+        }   
       }else{
         $(this).parent().removeClass("has-error");
         $("#password2_login").parent().addClass("has-error");
@@ -539,8 +673,8 @@
         event.preventDefault();
       }
 
-      var telefono=$("#telefono_fb").val();
-      var pass1=$("#password_fb").val();
+      telefono=$("#telefono_fb").val();
+      pass1=$("#password_fb").val();
 
       if ( event.which == 8 )  {
         string3 = string.substr(0,(string.length - 1));
@@ -628,8 +762,37 @@
 
 
     $("#siguiente-fin").click(function(){
-      console.log(response.first_name);
-    });
+      if (es_egresado){
+        var egresado=1 
+      }else{
+        var egresado=0;
+      } 
+
+      $.ajax({
+        type: "POST",
+        url: "control_registro/load_user_info/",
+        data:{
+          nombre: nombre,
+          apellido: apellido,
+          email: email,
+          telefono: telefono,
+          egresado: egresado,
+          fecha_egresado: fecha_egresado,
+          password: pass1,
+          latitud: latitude,
+          longitud: longitude          
+        }
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        console.log(objeto);
+           //window.location = "control_registro/index";
+         }).fail(function(xhr, status, error){
+          console.log(xhr);
+          console.log(status);
+          console.log(error);
+          console.log("FAIL");
+        });
+       });
 
 
     //BOTONES CLICKEABLES
@@ -681,28 +844,20 @@
         $(".bloq-3").removeClass("active");
         $(".bloq-4").removeClass("active");
         $(".sep-3").find(".linea-separador").removeClass("active-sep");
-        $(".word-datos").removeClass("word-active");
+        $(".word-carrera").removeClass("word-active");
         $(".word-mapa").removeClass("word-active");
 
-        $(".contenedor-modo").css("display","block");
-        $(".contenedor-modo").animate({
+        $(".formulario-padre").css("display","block");
+        $(".formulario-padre").animate({
           left: "0"
         });
-        $(".formulario-padre").css("left","100%");
-        $(".formulario-padre").css("right","-100%");
-        $(".formulario-padre").css("display","block");
+        $(".contenedor-carreras").css("right","-100%");
+        $(".contenedor-carreras").css("left","100%");
+        $(".contenedor-carreras").css("display","block");
+
         $(".mapa-registro").css("right","-100%");
         $(".mapa-registro").css("left","100%");
         $(".mapa-registro").css("display","block");
-
-        $(".formulario-no-fb").css("display","block");
-        $(".formulario-fb").css("display","block");
-
-        $(".face").css("display","block");
-        $(".no-face").css("display","block");
-        
-        $(".no-face").css("display","block");
-        $(".formulario-fb").css("display","block");
 
         $(".contenedor-registro").css("overflow","hidden");
       }
@@ -712,11 +867,10 @@
       e.preventDefault();
       if($(this).find(".bloque-wizard").hasClass("active")){
         $(".bloq-4").removeClass("active");
-        $(".sep-3").find(".linea-separador").removeClass("active-sep");
         $(".word-mapa").removeClass("word-active");
 
-        $(".formulario-padre").css("display","block");
-        $(".formulario-padre").animate({
+        $(".contenedor-carreras").css("display","block");
+        $(".contenedor-carreras").animate({
           left: "0"
         });
         $(".mapa-registro").css("right","-100%");
@@ -743,6 +897,60 @@
 
     $("#universidad_login").change(function(){
       $("#siguiente-run").removeAttr("disabled");
+    })
+
+
+    // INICIAR SESION
+
+    $(".iniciar-sesion").click(function(e){
+      e.preventDefault();
+      var email_ingresar = $("#email_ingresar2").val();
+      var password_ingresar = $("#password_ingresar2").val();
+      console.log(email_ingresar);
+      console.log(password_ingresar);
+      $.ajax({
+        type: "POST",
+        url: "control_login/enviar_datos/",
+        data:{  
+          email: email_ingresar,
+          password: password_ingresar        
+        }
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        console.log(objeto);
+        if(objeto.entro==1){
+          window.location = "http://localhost:8080/UNC/";
+        }else{
+          alert("USUARIO O PASSWORD INCORRECTO");
+        }
+      }).fail(function(xhr, status, error){
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
+        console.log("FAIL");
+      });
+    });
+
+
+    //SALIR
+
+    $("#salir").click(function(e){
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "welcome/logout/"
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        console.log(objeto);
+        if (objeto.eliminado){
+          window.location = "http://localhost:8080/UNC/";
+        }
+      }).fail(function(xhr, status, error){
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
+        console.log("FAIL");
+      });
     })
 
   });

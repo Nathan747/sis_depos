@@ -15,13 +15,33 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" >ACERCA DE</a></li>
-                <li><a href="#" >COMO FUNCIONA</a></li>
-                <li><a href="#" id="registrate">REGISTRARSE</a></li>
-				<li><a href="#" id="ingresar">INGRESAR</a></li>
-				<li><a href="#" id="salir" style="display:none">SALIR</a></li>
+				<?php  
+				if (isset($_SESSION['newsession'])) {
+					if ($_SESSION['newsession']=='yes'){
+						?>
+						<li><a href="#" id="donar">DONAR</a></li>
+						<li><a href="#" id="salir">SALIR</a></li>
+						<?php
+					}else{
+						?>
+						<li><a href="#" >ACERCA DE</a></li>
+						<li><a href="#" >COMO FUNCIONA</a></li>
+						<li><a href="#" id="registrate">REGISTRARSE</a></li>
+						<li><a href="#" id="ingresar">INGRESAR</a></li>
+						<?php
+					}
+				}else{
+					?>
+					<li><a href="#" >ACERCA DE</a></li>
+					<li><a href="#" >COMO FUNCIONA</a></li>
+					<li><a href="#" id="registrate">REGISTRARSE</a></li>
+					<li><a href="#" id="ingresar">INGRESAR</a></li>
+					<?php
+				}
+				?>
 				
-			<!--	<li><a href="#">Salir</a></li>-->
+
+				<!--	<li><a href="#">Salir</a></li>-->
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
