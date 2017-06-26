@@ -284,20 +284,6 @@
 
     });
 
-
-    //BOTON DONAR
-    $('#dnr').click(function(e){
-      e.preventDefault();
-      $('.contenedor-registro').animate({
-        right: "0"
-      });
-      $('.login').animate({
-        right: "-100%"
-      });
-
-    });
-
-
     //BOTON REGISTRATE HEADER
     $('#registrate').click(function(e){
       e.preventDefault();
@@ -785,14 +771,14 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         console.log(objeto);
-           //window.location = "control_registro/index";
-         }).fail(function(xhr, status, error){
-          console.log(xhr);
-          console.log(status);
-          console.log(error);
-          console.log("FAIL");
-        });
-       });
+        window.location = "http://localhost:8080/UNC/";
+      }).fail(function(xhr, status, error){
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
+        console.log("FAIL");
+      });
+    });
 
 
     //BOTONES CLICKEABLES
@@ -801,9 +787,9 @@
 
     $("#bloque-01").click(function(e){
       e.preventDefault();
-      $(".bloq-2").removeClass("active");
-      $(".bloq-3").removeClass("active");
-      $(".bloq-4").removeClass("active");
+      $("#bloque-02").find(".bloque-wizard").removeClass("active");
+      $("#bloque-03").find(".bloque-wizard").removeClass("active");
+      $("#bloque-04").find(".bloque-wizard").removeClass("active");
       $(".sep-2").find(".linea-separador").removeClass("active-sep");
       $(".sep-3").find(".linea-separador").removeClass("active-sep");
       $(".word-carrera").removeClass("word-active");
@@ -841,8 +827,8 @@
     $("#bloque-02").click(function(e){
       e.preventDefault();
       if($(this).find(".bloque-wizard").hasClass("active")){
-        $(".bloq-3").removeClass("active");
-        $(".bloq-4").removeClass("active");
+        $("#bloque-03").find(".bloque-wizard").removeClass("active");
+        $("#bloque-04").find(".bloque-wizard").removeClass("active");
         $(".sep-3").find(".linea-separador").removeClass("active-sep");
         $(".word-carrera").removeClass("word-active");
         $(".word-mapa").removeClass("word-active");
@@ -866,7 +852,7 @@
     $("#bloque-03").click(function(e){
       e.preventDefault();
       if($(this).find(".bloque-wizard").hasClass("active")){
-        $(".bloq-4").removeClass("active");
+        $("#bloque-04").find(".bloque-wizard").removeClass("active");
         $(".word-mapa").removeClass("word-active");
 
         $(".contenedor-carreras").css("display","block");
@@ -951,7 +937,18 @@
         console.log(error);
         console.log("FAIL");
       });
-    })
+    });
+
+
+    //DONAR
+
+    $("#donar").click(function(){
+
+    });
+
+
+
+
 
   });
 
