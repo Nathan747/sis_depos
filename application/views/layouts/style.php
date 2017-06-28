@@ -86,7 +86,7 @@
 		z-index: 1000;
 	}
 
-	.contenedor-registro{
+	.contenedor-registro, .contenedor-donar {
 		clear: both;
 		position: absolute;
 		top: 76px;
@@ -102,11 +102,120 @@
 		padding-top: 40px;
 	}
 
+
 	.wizard{
 		width: 585px;
 		height: 35px;
 		margin: 0 auto;
 	}
+
+	.contenedor-donar .wizard{
+		width: 401px;
+	}
+
+	.contenedor-donar .word{
+		width: 490px;
+	}
+
+	.contenedor-donar .word-modo-donar{
+		margin-left: 33px;
+	}
+
+	.contenedor-donar .word .palabras{
+		margin-right: 124px;
+	}
+
+	.contenedor-donar .word .word-cantidad{
+		margin-right: 90px;
+	}
+
+	.contenedor-donar .word .word-confirmacion{
+		margin-right: 0px;
+	}
+
+	.contenedor-medio-donacion{
+		width: 50%;
+		float: left;
+	}
+
+	.contenedor-medio-donacion > div {
+		text-align: center;
+	}
+
+	.contenedor-medio-donacion .mercado-pago img{
+		width: 130px;
+	}
+
+	.contenedor-medio-donacion .paypal img{
+		width: 190px;
+	}
+
+	.contenedor-modo-donar{
+		clear: both;
+		height: auto;
+		padding-top: 20px;
+	}
+
+	.contenedor-mercado-pago, .contenedor-paypal{
+		position: absolute;
+	}
+
+	.contenedor-paypal{
+		right: 0;
+	}
+
+	.contenedor-mercado-pago{
+		left: 0;
+	}
+
+	.contenedor-paypal{
+		padding: 38px 40px 0px 0px;
+	}
+
+	.paypal{
+		height: 90px;
+	}
+
+	.mercado-pago{
+		height: 130px;
+	}
+
+	.menu-mercado-pago, .menu-paypal{
+		height: 160px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contenedor-lista-pp, .contenedor-lista-mp{
+		position: relative;
+		top: -300%;
+		padding-top: 30px;
+	}
+
+	#mp-select{
+		width: 285px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
+	.boton-mp input{
+		background-color: #9b59b6;
+		color: white;
+		padding: 10px 16px;
+		font-size: 18px;
+		line-height: 1.3333333;
+		border-radius: 6px;
+	}
+
+	.boton-mp input:hover{
+		background-color: white;
+		color: #8e44ad;
+		box-shadow: none;
+		border-color: #adadad;
+		border: 1px solid;
+	}
+
+	
 
 	.bloque-wizard{
 		height: 35px;
@@ -329,10 +438,10 @@
 	::-webkit-calendar-picker-indicator {  }
 	#fecha_login{
 		height: 34px;
-    	width: 100%;
-    	border: 1px solid #7f8c8d;
-    	color: #7f8c8d;
-    	padding-left: 12px;
+		width: 100%;
+		border: 1px solid #7f8c8d;
+		color: #7f8c8d;
+		padding-left: 12px;
 	}
 
 	#fecha_login:focus{

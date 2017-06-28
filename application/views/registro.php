@@ -111,6 +111,12 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
+            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Lugar en el que trabaja">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
             <input name="password" type="password" class="form-control" id="password_login" 
             placeholder="Contraseña">
           </div>
@@ -122,6 +128,8 @@ if (isset($_SESSION['newsession'])) {
             placeholder="Repita la contraseña">
           </div>
         </div>
+
+        <div class="clearfix"></div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="form-group">
@@ -162,6 +170,12 @@ if (isset($_SESSION['newsession'])) {
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
             <input placeholder="Fecha de nacimiento" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login_fb" step="1" max="2020-12-31">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Lugar en el que trabaja">
           </div>
         </div>
 

@@ -943,7 +943,53 @@
     //DONAR
 
     $("#donar").click(function(){
+      $(".contenedor-donar").animate({
+        right: "0px"
+      })
+    });
 
+    $("#cerrar-donar").click(function(){
+      $(".contenedor-donar").animate({
+        right: "-100%"
+      });
+      $(".contenedor-mercado-pago").css("left","0");
+      $(".contenedor-paypal").css("right","0");
+      $(".contenedor-paypal").css("padding","38px 40px 0px 0px");
+
+      $(".contenedor-mercado-pago").css("width","50%");
+      $(".contenedor-paypal").css("width","50%");
+
+      $(".contenedor-lista-pp").css("top","-300%");
+      $(".contenedor-lista-mp").css("top","-300%");
+    });
+
+    $("#paypal").click(function(e){
+      e.preventDefault();
+      $(".contenedor-mercado-pago").animate({
+        left: "-100%"
+      });
+      $(".contenedor-paypal").animate({
+        padding: "38px 0px 0px 0px",
+        width: "100%"
+      });
+
+      $(".contenedor-lista-pp").animate({
+        top: "0"
+      },1000);
+    });
+
+    $("#mercado-pago").click(function(e){
+      e.preventDefault();
+      $(".contenedor-paypal").animate({
+        right: "-100%"
+      });
+      $(".contenedor-mercado-pago").animate({
+        width: "100%"
+      });
+
+      $(".contenedor-lista-mp").animate({
+        top: "0"
+      },1000);
     });
 
 
