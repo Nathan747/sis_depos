@@ -965,6 +965,11 @@
 
     $("#paypal").click(function(e){
       e.preventDefault();
+
+      $("#bloque-06").find(".bloque-wizard").addClass("active");
+      $(".word-cantidad").addClass("word-active");  
+      $(".sep-d2").find(".linea-separador").addClass("active-sep");          
+
       $(".contenedor-mercado-pago").animate({
         left: "-100%"
       });
@@ -980,6 +985,11 @@
 
     $("#mercado-pago").click(function(e){
       e.preventDefault();
+
+      $("#bloque-06").find(".bloque-wizard").addClass("active");
+      $(".word-cantidad").addClass("word-active");
+      $(".sep-d2").find(".linea-separador").addClass("active-sep");
+
       $(".contenedor-paypal").animate({
         right: "-100%"
       });
@@ -990,6 +1000,8 @@
       $(".contenedor-lista-mp").animate({
         top: "0"
       },1000);
+
+
     });
 
 

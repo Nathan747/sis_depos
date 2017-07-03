@@ -215,6 +215,12 @@
 		border: 1px solid;
 	}
 
+	.contenedor-lista-pp input{
+		width: 285px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
 	
 
 	.bloque-wizard{

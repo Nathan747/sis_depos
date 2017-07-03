@@ -72,11 +72,7 @@ if (isset($_SESSION['newsession'])) {
             </div>
             <div class="menu-paypal">
               <div class="contenedor-lista-pp">
-                <select name="paypal" id="pp-select">
-                  <option value="1">a</option>
-                  <option value="2">b</option>
-                  <option value="3">c</option>
-                </select>
+                <input type="number" class="form-control" placeholder="Ingresa el monto a donar">
               </div>
             </div>
           </div>
