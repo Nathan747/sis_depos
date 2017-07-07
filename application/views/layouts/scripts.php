@@ -142,7 +142,7 @@
       ],
       {name: 'Styled Map'});
 
-    var uluru = {lat: -34.9950075, lng: -67.5100458};
+    var uluru = {lat: 16.2591717, lng: -5.5345314};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 2,
       center: uluru,
@@ -213,7 +213,6 @@
       });
       $("#siguiente-fin").removeAttr("disabled");
     });
-
   } 
 
   /*login*/
@@ -281,6 +280,32 @@
       $(".formulario-fb").css("display","block");
 
       $(".contenedor-registro").css("overflow","hidden");
+
+    });
+
+    //BOTON CERRAR DONACIÓN
+
+    $("#cerrar-donacion").click(function(e){
+      e.preventDefault();
+      window.location="http://localhost:8080/UNC";
+      $(".contenedor-donar").animate({
+        right: "-100%"
+      });
+      $(".contenedor-mercado-pago").css("left","0");
+      $(".contenedor-paypal").css("right","0");
+      $(".contenedor-paypal").css("padding","38px 40px 0px 0px");
+
+      $(".contenedor-mercado-pago").css("width","50%");
+      $(".contenedor-paypal").css("width","50%");
+
+      $(".contenedor-lista-pp").css("top","-300%");
+      $(".contenedor-lista-mp").css("top","-300%");
+
+      $(".contenedor-modo-donar").css("display","inline-block");
+      $(".contenedor-mensaje-confirmacion").css("display","none");
+      $(".wizard-gracias").css("display","none");
+      $(".wizard-donar").css("display","inline-block");
+      
 
     });
 
@@ -924,7 +949,7 @@
       e.preventDefault();
       $.ajax({
         type: "POST",
-        url: "welcome/logout/"
+        url: "inicio/logout/"
       }).done(function(json){
         var objeto = $.parseJSON(json);
         console.log(objeto);
@@ -1007,9 +1032,22 @@
 
 
 
-
   });
 
+function abreSitio(){
+  var clase = document.precios.mp_select.options[document.precios.mp_select.selectedIndex].value;
+  console.log(clase);
+  var test = document.getElementById(clase).click();
+  console.log(test);
+  $("#bloque-07").find(".bloque-wizard").addClass("active");
+  $(".word-confirmacion").addClass("word-active");
+  /*$(".contenedor-mercado-pago").animate({
+    left: "-100%"
+  });
+  $(".contenedor-mensaje-confirmacion").animate({
+    right: "0"
+  });*/
+}
 
 
 </script>

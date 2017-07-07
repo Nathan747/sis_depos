@@ -49,20 +49,29 @@ if (isset($_SESSION['newsession'])) {
             <div class="menu-mercado-pago">
               <div class="contenedor-lista-mp">
                 <div class="opciones-mp">
-                <select name="mercado" id="mp-select" class="form-control">
-                    <option value="boton-1">$30</option>
-                    <option value="boton-2">$50</option>
-                    <option value="boton-3">$100</option>
-                    <option value="boton-4">$200</option>
-                    <option value="boton-5">$500</option>
-                    <option value="boton-6">$750</option>
-                    <option value="boton-7">Suscribirse</option>
-                  </select>
-                </div>
-                <div class="boton-mp">
-                  <input type="button" value="Donar por Mercado Pago">
-                </div>
+                  <form name="precios" >
+                    <select name="mp_select" id="mp_select" class="form-control">
+                      <option value="boton-1">$30</option>
+                      <option value="boton-2">$50</option>
+                      <option value="boton-3">$100</option>
+                      <option value="boton-4">$200</option>
+                      <option value="boton-5">$500</option>
+                      <option value="boton-6">$750</option>
+                      <option value="boton-7">Suscribirse</option>
+                    </select>
+                  </div>
+                  <div class="boton-mp">
+                    <button type="button" onclick="javascript:abreSitio()" >Donar por Mercado Pago</button>
+                  </div>
+                </form>
               </div>
+              <a id="boton-1" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d9285243-ef2b-480f-b601-ed76b79e75ef" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$30</a>
+              <a id="boton-2" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-7d0c5a47-90f0-4e2e-bf55-b8c5f342b785" name="MP-payButton" target="_blank">$50</a>
+              <a id="boton-3" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-bfb500d6-8407-4192-9999-cda6f1ee7f18" name="MP-payButton" target="_blank">$100</a>
+              <a id="boton-4" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-8cbfce52-3e9b-42d4-b102-909e7da71126" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$200</a>
+              <a id="boton-5" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d66f4a4d-2463-4104-ad61-8c38f7099103" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$500</a>
+              <a id="boton-6" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-c2616622-630b-48ae-b3f9-bdaccb97feb1" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$750</a>
+              <a id="boton-7" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton" target="_blank">Suscribirme</a>
               
             </div>
           </div>
@@ -72,7 +81,12 @@ if (isset($_SESSION['newsession'])) {
             </div>
             <div class="menu-paypal">
               <div class="contenedor-lista-pp">
-                <input type="number" class="form-control" placeholder="Ingresa el monto a donar">
+                <!--input type="number" class="form-control" placeholder="Ingresa el monto a donar"-->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="6UBCFYMG3RZH6">
+                  <button alt="PayPal - La manera más fácil y segura de pagar online!" type="submit" name="submit">Donar por Paypal</button>
+                </form>
               </div>
             </div>
           </div>

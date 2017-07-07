@@ -34,7 +34,7 @@
 	}
 
 	#map{
-		height: calc(100vh - 92px);
+		height: calc(100vh - 116px);
 	}
 	.mapa-popup{
 		position: absolute;
@@ -96,6 +96,7 @@
 		width: 800px;
 		padding: 25px 20px;
 		overflow: hidden;
+		z-index: 100
 	}    
 
 	.contenedor-wizard{
@@ -192,13 +193,13 @@
 		padding-top: 30px;
 	}
 
-	#mp-select{
+	#mp_select{
 		width: 285px;
 		margin: 0 auto;
 		margin-bottom: 20px;
 	}
 
-	.boton-mp input{
+	.boton-mp button{
 		background-color: #9b59b6;
 		color: white;
 		padding: 10px 16px;
@@ -221,7 +222,14 @@
 		margin-bottom: 20px;
 	}
 
-	
+	.contenedor-mensaje-confirmacion{
+		text-align: center;
+		width: 100%;
+		position: relative;
+		padding: 50px 20px;
+		right: 0;
+		top: 40px;
+	}
 
 	.bloque-wizard{
 		height: 35px;
@@ -452,6 +460,17 @@
 
 	#fecha_login:focus{
 		padding-left: 0px;
+	}
+
+	/* FOOTER */
+
+	.top-footer{
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: rgb(101,125,151);
+		color: white;
+		font-size: 14px;
 	}
 
 
