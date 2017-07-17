@@ -20,6 +20,5 @@ class Control_Login extends CI_Controller {
 
 		$this->Login_model->control_user($datos);
 		
-		
 	}
 }
