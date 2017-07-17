@@ -155,15 +155,7 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input name="password-fb" type="password" class="form-control" id="password_fb" 
-            placeholder="Contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="password2-fb" type="password" class="form-control" id="password2_fb"
-            placeholder="Repita la contraseña">
+            <input name="dni_fb" type="number" class="form-control" id="dni_fb" placeholder="DNI">
           </div>
         </div>
 
@@ -175,7 +167,21 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Lugar en el que trabaja">
+            <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Lugar en el que trabaja">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="password-fb" type="password" class="form-control" id="password_fb" 
+            placeholder="Contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="password2-fb" type="password" class="form-control" id="password2_fb"
+            placeholder="Repita la contraseña">
           </div>
         </div>
 

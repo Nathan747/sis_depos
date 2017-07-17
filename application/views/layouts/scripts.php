@@ -3,7 +3,8 @@
 
 
 <script>
-
+  var direccion = "<?php echo base_url(""); ?>";
+  var facebook_count = 0;
   var map;
   var map_register;
   var marker = null;
@@ -287,7 +288,7 @@
 
     $("#cerrar-donacion").click(function(e){
       e.preventDefault();
-      window.location="http://localhost:8080/UNC";
+      window.location=direccion;
       $(".contenedor-donar").animate({
         right: "-100%"
       });
@@ -781,7 +782,7 @@
 
       $.ajax({
         type: "POST",
-        url: "control_registro/load_user_info/",
+        url: "Control_Registro/load_user_info/",
         data:{
           nombre: nombre,
           apellido: apellido,
@@ -796,7 +797,7 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         console.log(objeto);
-        window.location = "http://localhost:8080/UNC/";
+        window.location = direccion;
       }).fail(function(xhr, status, error){
         console.log(xhr);
         console.log(status);
@@ -921,7 +922,7 @@
       console.log(password_ingresar);
       $.ajax({
         type: "POST",
-        url: "control_login/enviar_datos/",
+        url: "Control_Login/enviar_datos/",
         data:{  
           email: email_ingresar,
           password: password_ingresar        
@@ -930,7 +931,7 @@
         var objeto = $.parseJSON(json);
         console.log(objeto);
         if(objeto.entro==1){
-          window.location = "http://localhost:8080/UNC/";
+          window.location = direccion;
         }else{
           alert("USUARIO O PASSWORD INCORRECTO");
         }
@@ -952,9 +953,10 @@
         url: "inicio/logout/"
       }).done(function(json){
         var objeto = $.parseJSON(json);
-        console.log(objeto);
+        FB.getLoginStatus(handleSessionResponse);
+        facebook_count = 0;
         if (objeto.eliminado){
-          window.location = "http://localhost:8080/UNC/";
+          window.location = direccion;
         }
       }).fail(function(xhr, status, error){
         console.log(xhr);
@@ -1029,9 +1031,6 @@
 
     });
 
-
-
-
   });
 
 function abreSitio(){
@@ -1057,75 +1056,60 @@ function abreSitio(){
 
 <!--facebook api-->
 <script>
+
+  function handleSessionResponse(response) {
+
+    console.log(response);
+    //if we do have a non-null response.session, call FB.logout(),
+    //the JS method will log the user out of Facebook and remove any authorization cookies
+    FB.logout(handleSessionResponse);
+  }
+
   function statusChangeCallback(response) {
-    //console.log('statusChangeCallback');
-    //console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-
+    console.log(response);
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      //testAPI();
-      $("#registrate").css("display","none");
-      $("#ingresar").css("display","none");
-      $('.login').animate({right: "-100%"});
-      $("#salir").css("display","block");
-      $("#dnr").css("display","none");
+      <?php $_SESSION['newsession']="yes"; ?>
+    }else{
+      facebook_count=0;
     }
-
-    else {
-      $("#registrate").css("display","block");
-      $("#ingresar").css("display","block");
-      $('.login').animate({right: "-100%"});
-      $("#salir").css("display","none");
-      $("#dnr").css("display","block");
+    if(facebook_count==2){
+      window.location = direccion;
     }
-
-    $("#salir").click(function(e){
-      FB.logout(function(response) {
-      // Person is now logged out
-    });
-
-      $("#registrate").css("display","block");
-      $("#ingresar").css("display","block");
-      $("#salir").css("display","none");
-      $("#dnr").css("display","block");
-      $('.contenedor-registro').animate({right: "-100%"});
-    });
-
   }
 
 
   function statusChangeCallback2(response2) {
     if (response2.status === 'connected') {
+      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+        nombre = response.first_name;
+        apellido = response.last_name;
+        email = response.email;
+        console.log(response);
+        console.log(nombre);
+        console.log(apellido);
+        console.log(email);
+      });
+      /*registro facebook wizart*/
+      $(".contenedor-modo").animate({
+        left: "-100%"
+      });
+      $(".contenedor-modo").css("display","none");
+      $(".formulario-no-fb").css("display","none");
+      $(".formulario-padre").animate({
+        right: "0",
+        left: "0"
+      });
 
+      $(".bloq-2").addClass("active");
+      $(".sep-2").find(".linea-separador").addClass("active-sep");
+      $(".word-datos").addClass("word-active");
 
-     /*registro facebook wizart*/
-     $(".contenedor-modo").animate({
-      left: "-100%"
-    });
-     $(".contenedor-modo").css("display","none");
-     $(".formulario-no-fb").css("display","none");
-     $(".formulario-padre").animate({
-      right: "0",
-      left: "0"
-    });
-
-     $(".bloq-3").addClass("active");
-     $(".sep-3").find(".linea-separador").addClass("active-sep");
-     $(".word-datos").addClass("word-active");
-
-     modo_log = 1;
-     FB.logout(function(response2) {
-      // Person is now logged out
-    });
-
-
-   }
- }
- /*fin registro facebook wizart*/
+      modo_log = 1;
+      FB.getLoginStatus(handleSessionResponse);
+      <?php $_SESSION['newsession']="no"; ?> 
+    }
+  }
+  /*fin registro facebook wizart*/
 
 
 
@@ -1133,6 +1117,7 @@ function abreSitio(){
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
   function checkLoginState() {
+    facebook_count=2;
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
 
@@ -1140,6 +1125,7 @@ function abreSitio(){
   }
 
   function checkLoginState2() {
+    console.log("ENTRO");
     FB.getLoginStatus(function(response2) {
       statusChangeCallback2(response2);
 

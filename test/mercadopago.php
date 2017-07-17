@@ -21,7 +21,7 @@
 <a id="boton-5" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d66f4a4d-2463-4104-ad61-8c38f7099103" name="MP-payButton" class='blue-ar-l-rn-none'>$500</a>
 <a id="boton-6" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-c2616622-630b-48ae-b3f9-bdaccb97feb1" name="MP-payButton" class='blue-ar-l-rn-none'>$750</a>
 <a id="boton-7" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton">Suscribirme</a>
-<a id="boton-8" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton">$1</a>
+<a id="boton-8" mp-mode="dftl" style="display: none" href="http://mpago.la/iJTs" name="MP-payButton">$1</a>
 
 <script LANGUAGE="JavaScript">
 	function abreSitio(){

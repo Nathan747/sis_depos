@@ -10,7 +10,7 @@ class Control_Login extends CI_Controller {
 
 	public function enviar_datos()
 	{	
-
+		
 		$data = $this->input->post();//Se puede reemplazar en esto
 
 		$datos = array(
