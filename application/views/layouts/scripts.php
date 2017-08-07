@@ -4,7 +4,6 @@
 
 <script>
   var direccion = "<?php echo base_url(""); ?>";
-  console.log(direccion);
   var facebook_count = 0;
   var map;
   var map_register;
