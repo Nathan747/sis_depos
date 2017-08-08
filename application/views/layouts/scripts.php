@@ -15,6 +15,7 @@
   var string2="";
   var string3="";
   var string4="";
+  var marker;
 
   var nombre;
   var apellido;
@@ -161,7 +162,49 @@
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
 
-    var marker = new google.maps.Marker({
+    $.ajax({
+      type: "POST",
+      url: "Markers/load/",
+    }).done(function(json){
+      var objeto = $.parseJSON(json);
+      console.log(objeto);
+      for(var x=0;x<objeto.length;x++){
+        console.log(x);
+        var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
+        console.log(posicion);
+        console.log(" ");
+        objeto[x].lat_user = parseFloat(objeto[x].lat_user);
+        objeto[x].long_user = parseFloat(objeto[x].long_user);
+        var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+        'sandstone rock formation in the southern part of the '+
+        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+        'south west of the nearest large town, Alice Springs; 450&#160;km '+
+        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+        'Aboriginal people of the area. It has many springs, waterholes, '+
+        'rock caves and ancient paintings. Uluru is listed as a World '+
+        'Heritage Site.</p>'+
+        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+        'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+        '(last visited June 22, 2009).</p>'+
+        '</div>'+
+        '</div>';
+        add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*400, map, contentString);
+        
+        /*var marker = new google.maps.Marker({
+          position: {lat: objeto[x].lat_user, lng: objeto[x].long_user},
+          map: map
+        });*/
+      }
+    });
+
+    /*var marker = new google.maps.Marker({
       position: uluru,
       map: map
     });
@@ -179,7 +222,7 @@
     var marker = new google.maps.Marker({
       position: {lat: 33.429336, lng: 116.2445567},
       map: map
-    });
+    });*/
 
     uluru2 = {lat: -34.9950075, lng: -67.5100458};
     var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
@@ -215,6 +258,37 @@
       $("#siguiente-fin").removeAttr("disabled");
     });
   } 
+
+  function mover_mapa(mapa,latitude,longitude){
+    map.setCenter(marker.getPosition());
+  }
+
+  function moveToLocation(lat, lng, map){
+    var center = new google.maps.LatLng(lat, lng);
+    map.panTo(center);
+}
+
+  function add_marker_delay(valor1, valor2, timeout, maps, contenido){
+    console.log("Valor 1: "+valor1+" - Valor 2: "+valor2+" - Timeout: "+timeout);
+    var infowindow = new google.maps.InfoWindow({
+      content: contenido
+    });
+    window.setTimeout(function() {
+      marker = new google.maps.Marker({
+        position: {lat: valor1, lng: valor2},
+        map: maps,
+        animation: google.maps.Animation.DROP
+      });
+
+      marker.addListener('click', function() {
+        var testo = marker.getPosition();
+        console.log(testo.lat());
+        console.log(testo.lng());
+        moveToLocation(testo.lat(), testo.lng(), maps);
+        infowindow.open(map, marker);
+      });
+    }, timeout);
+  }
 
   /*login*/
   $(document).ready(function(){
