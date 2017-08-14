@@ -259,6 +259,7 @@
       marker.addListener('click', function() {
         moveToLocation(valor1, valor2, maps);
 
+        /* FUNCION PARA QUE SOLO HAYA 1 POPUP ABIERTO */
         if( prev_infowindow ) {
            prev_infowindow.close();
         }
