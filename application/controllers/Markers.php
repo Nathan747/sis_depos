@@ -13,5 +13,5 @@ class Markers extends CI_Controller {
 		$usuarios = $this->Markers_model->select_markers();
 		echo json_encode($usuarios);
 	}
-
+	
 }

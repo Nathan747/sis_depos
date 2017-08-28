@@ -6,7 +6,7 @@ class Markers_model extends CI_Model {
 	public function select_markers(){
 		$query = $this->db->get('unc_usuarios');
 		$i=0;
-		foreach ($query->result() as $row)
+		foreach ($query->result() as $row) 
 		{
 			$json[$i]["id_user"] = $row->id_user;
 			$json[$i]["nombre_user"] = $row->nombre_user;
@@ -21,6 +21,7 @@ class Markers_model extends CI_Model {
 			$json[$i]["fecha_creacion"] = $row->fecha_creacion;
 			$json[$i]["es_egresado_user"] = $row->es_egresado_user;
 			$json[$i]["jerarquia"] = $row->jerarquia;
+			$json[$i]["img"] = $row->img;
 			$i++;
 		}
 

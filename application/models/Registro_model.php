@@ -1,6 +1,6 @@
 <?php  
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+//$this->load->library('session');
 class Registro_model extends CI_Model {
 
 	public function __construct(){
@@ -11,7 +11,8 @@ class Registro_model extends CI_Model {
 	public function insert_user($data)
 	{		
 		$this->db->insert('unc_usuarios', $data);
-		$_SESSION['newsession']="yes";
+		//$_SESSION['newsession']="yes";
+		$this->session->set_userdata('newsession','yes');
 	}
 
 	public function update_entry()

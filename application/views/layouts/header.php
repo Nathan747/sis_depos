@@ -17,8 +17,11 @@
 			<ul class="nav navbar-nav navbar-right">
 				<?php  
 				if (isset($_SESSION['newsession'])) {
-					if ($_SESSION['newsession']=='yes'){
+					if ($_SESSION['newsession']=="yes"){
 						?>
+						
+						<li><a href="#" id="asd"><?php echo $this->session->email; ?></a></li>
+						<!--li><a href="#" id="asd"><?php echo $_SESSION["email"]; ?></a></li-->
 						<li><a href="#" id="donar">DONAR</a></li>
 						<li><a href="#" id="salir">SALIR</a></li>
 						<?php

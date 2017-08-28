@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Control_Registro extends CI_Controller {
-
+	//$this->load->library('session');
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Registro_model');

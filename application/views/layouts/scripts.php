@@ -176,11 +176,17 @@
         console.log(" ");
         objeto[x].lat_user = parseFloat(objeto[x].lat_user);
         objeto[x].long_user = parseFloat(objeto[x].long_user);
+        if(objeto[x].img==""){
+          var test_img = "assets/img/pics/1.png";
+        }else{
+          var test_img = objeto[x].img;
+        }
         var contentString = '<div id="content">'+
         '<div id="contenedor-marcador">'+
         '<div id="padre-imagen">'+
         '<div id="contenedor-imagen">'+
-        '<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
+        //'<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
+        '<img src="'+test_img+'" />'+
         '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
         '<div id="padre-texto">'+
         '<div id="contenedor-texto">'+
@@ -239,7 +245,7 @@
   function moveToLocation(lat, lng, map){
     var center = new google.maps.LatLng(lat, lng);
     map.panTo(center);
-}
+  }
 
   function add_marker_delay(valor1, valor2, timeout, maps, contenido){
     console.log("Valor 1: "+valor1+" - Valor 2: "+valor2+" - Timeout: "+timeout);
@@ -261,13 +267,13 @@
 
         /* FUNCION PARA QUE SOLO HAYA 1 POPUP ABIERTO */
         if( prev_infowindow ) {
-           prev_infowindow.close();
-        }
+         prev_infowindow.close();
+       }
 
-        prev_infowindow = infowindow;
+       prev_infowindow = infowindow;
 
-        infowindow.open(map, this);
-      });
+       infowindow.open(map, this);
+     });
     }, timeout);
   }
 
@@ -986,6 +992,7 @@
         var objeto = $.parseJSON(json);
         console.log(objeto);
         if(objeto.entro==1){
+          <?php $_SESSION['newsession']="yes"; ?>
           window.location = direccion;
         }else{
           alert("USUARIO O PASSWORD INCORRECTO");
@@ -1084,6 +1091,35 @@
       },1000);
 
 
+    });
+
+
+
+
+    $("#asd").click(function(){
+      <?php if ($this->session->has_userdata('email')){
+        echo "console.log('EMAIL: ".$this->session->email."');";
+        ?>
+        var confirmacion = 1;
+        var email_session = <?php echo $this->session->email; ?>;
+        <?php
+      }else{
+        ?>
+        var confirmacion = 0;  
+        <?php
+      } ?>
+      console.log(confirmacion);
+      window.location = "Cargar_Imagen";
+      /*$.ajax({
+        type: "POST",
+        url: "Cargar_Imagen/",
+        data:{  
+          email: "<?php $this->session->email ?>",       
+        }
+      }).done(function(json){
+        //var objeto = $.parseJSON(json);
+        window.location = "Cargar_Imagen/proceso/";
+      });*/
     });
 
   });
