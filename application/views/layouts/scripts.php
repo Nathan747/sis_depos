@@ -1159,7 +1159,7 @@ function abreSitio(){
   function statusChangeCallback(response) {
     console.log(response);
     if (response.status === 'connected') {
-      <?php $_SESSION['newsession']="yes"; ?>
+      <?php $this->session->set_userdata("newsession","yes"); ?>
     }else{
       facebook_count=0;
     }
@@ -1197,7 +1197,7 @@ function abreSitio(){
 
       modo_log = 1;
       FB.getLoginStatus(handleSessionResponse);
-      <?php $_SESSION['newsession']="no"; ?> 
+      <?php $this->session->set_userdata("newsession","no"); ?> 
     }
   }
   /*fin registro facebook wizart*/

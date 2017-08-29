@@ -54,10 +54,13 @@ class Inicio extends CI_Controller {
 	public function logout()
 	{
 		session_unset();
-		$_SESSION['FBID'] = NULL;
-		$_SESSION['FULLNAME'] = NULL;
-		$_SESSION['EMAIL'] =  NULL;
-		$_SESSION['newsession']="no";
+		//$_SESSION['FBID'] = NULL;
+		//$_SESSION['FULLNAME'] = NULL;
+		//$_SESSION['EMAIL'] =  NULL;
+		$this->session->set_userdata("EMAIL",NULL);
+		$this->session->set_userdata("FULLNAME",NULL);
+		$this->session->set_userdata("FBID",NULL);
+		$this->session->set_userdata("newsession","no");
 		//$_SESSION['usuario'] =  NULL;
 		$json["eliminado"]=1;
 		echo json_encode($json);

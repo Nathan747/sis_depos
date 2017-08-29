@@ -6,6 +6,8 @@ class Login_model extends CI_Model {
 	public function __construct(){
     	parent::__construct();
     	$this->load->database();
+      //$this->session->sess_destroy(); 
+      //$this->session->sess_create(); 
     }
 
 	public function control_user($data)
@@ -16,15 +18,15 @@ class Login_model extends CI_Model {
        	
        	$filas = $sql->num_rows();
        	if ($filas>0){
-          //$this->session->set_userdata("newsession","yes");
-    			$_SESSION['newsession']="yes";
+          $this->session->set_userdata("newsession","yes");
+    			//$_SESSION['newsession']="yes";
     			$json["entro"]=1;
-          //$this->session->set_userdata("email",$data["email_user"]);
-          $_SESSION['email'] = $data["email_user"];
+          $this->session->set_userdata("email",$data["email_user"]);
+          //$_SESSION['email'] = $data["email_user"];
           $json["email"]=$data["email_user"];
        	}else{
-          //$this->session->set_userdata("newsession","no");
-       		$_SESSION['newsession']="no";
+          $this->session->set_userdata("newsession","no");
+       		//$_SESSION['newsession']="no";
        		$json["entro"]=0;
           $json["email"]="none";
        	}
