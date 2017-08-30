@@ -1197,7 +1197,8 @@ function abreSitio(){
 
       modo_log = 1;
       FB.getLoginStatus(handleSessionResponse);
-      <?php $this->session->set_userdata("newsession","no"); ?> 
+      <?php //$this->session->set_userdata("newsession","no"); ?>
+      // REVISAR QUE ESTO DA PROBLEMAS CON F5 
     }
   }
   /*fin registro facebook wizart*/

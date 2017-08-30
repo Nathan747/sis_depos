@@ -1,5 +1,5 @@
 <body>
-<form action="http://localhost:8080/UNC/cargar_imagen/proceso" method="POST" enctype="multipart/form-data">
+<form action="<?php echo base_url("") . "cargar_imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
 		<table width="350" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#000000">
 			<tr>
 				<td height="85" align="center" valign="middle" bgcolor="#FFFFFF">
