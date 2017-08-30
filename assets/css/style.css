@@ -201,10 +201,10 @@
 
 #contenedor-leer > div{
 	text-align: right;
-    padding-right: 30px;
-    color: white;
-  	font-size: 10px;
-  	font-family: Open Sans;
+	padding-right: 30px;
+	color: white;
+	font-size: 10px;
+	font-family: Open Sans;
 }
 
 /* BACKEND */
@@ -213,44 +213,139 @@
 	padding: 0px !important;
 }
 aside{
-	height: 100vh;
+	height: calc(100vh - 60px);
 	float: left;
 	width: 260px;
-	background-color: #22205F;
+	background-color: rgb(67,89,112);
 	color: white;
 }
 
 .padre-contenido{
 	width: calc(100% - 260px);
 	float: left;
-	height: 100vh;
-}
-
-.imagen-menu{
-	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 70px;
+	height: calc(100vh - 60px);
 }
 
 aside ul{
 	padding: 0px;
+	padding-top: 70px;
 }
 
 aside ul li{
 	width: 100%;
-	padding: 20px 25px;
-	background-color: #22205F;
+	padding: 10px 25px;
+	background-color: rgb(67,89,112);
 	transition: background-color .5s;
 }
 
 aside ul li:hover{
-	width: 100%;
-	padding: 20px 25px;
-	background-color: #23527c;
+	background-color: rgb(56,74,94);
 	transition: background-color .5s;
+}
+
+aside ul li:nth-child(1), aside ul li:nth-child(2){
+	border-bottom: 1px solid rgb(56,74,94);
 }
 
 aside ul li a, aside ul li a:hover{
 	color: white;
 	text-decoration: none;
+}
+
+aside .imagen-footer{
+	position: fixed;
+	bottom: 0px;
+	width: 260px;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.header-aside{
+	min-height: 60px !important;
+	border: 0px solid !important;
+	background-color: rgb(44,62,80) !important;
+}
+
+.header-aside ul{
+	padding: 0 90px 0 0;
+}
+
+.header-aside .navbar-brand{
+	height: 60px;
+	padding: 0px 15px;
+}
+
+.header-aside .navbar-brand>img{
+	height: 40px;
+}
+
+.header-aside .navbar-nav>li{
+	height: 60px;
+}
+
+.padre-contenido{
+	background-color: rgb(236,240,241);
+}
+
+.contenedor-contenido{
+	padding: 40px 60px;
+	background-color: rgb(236,240,241);
+	padding-right: 105px;
+}
+
+.contenedor-contenido h1{
+	font-size: 26px;
+	font-weight: 400;
+	letter-spacing: -1px;
+	color: rgb(44,62,80);	
+}
+
+.separador{
+	width: 100%;
+	height: 1px;
+	background-color: rgb(44,62,80);
+	margin-bottom: 25px;
+}
+
+.contenedor-contenido label{
+	padding-left: 10px;
+	color: #ccc;
+	font-weight: 400;
+}
+
+.contenedor-contenido input{
+	border: 0px;
+	background-color: rgb(245, 247, 248);
+	box-shadow: none;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus{
+	box-shadow: none !important;
+}
+
+.contenedor-crear-usuario{
+	background-color: white;
+	padding: 30px 25px 30px 25px;
+}
+
+.boton-enviar{
+	background-color: rgb(52,152, 219);
+    border-color: rgb(52,152, 219);
+    padding: 8px 50px;
+    color: white;
+    border-radius: 0px;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.boton-enviar:hover{
+	color: rgb(52,152, 219);
+	background-color: white;
+    border-color: rgb(52,152, 219);
+}
+
+@media (min-width: 768px){
+	.header-aside >.container .navbar-brand, .header-aside >.container-fluid .navbar-brand {
+		margin-left: 10px;
+	}
 }

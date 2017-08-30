@@ -56,6 +56,7 @@ class Inicio extends CI_Controller {
 		$data["titulo"] = "Admin UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('backend/header');
 		$this->load->view('backend/aside');
 		$this->load->view('backend/contenido');
 	}
