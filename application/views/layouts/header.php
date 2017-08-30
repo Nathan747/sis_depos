@@ -8,7 +8,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo base_url() ?>">UNCuyo</a>
+			<a class="navbar-brand" href="<?php echo base_url() ?>"><img src="<?php echo base_url('assets/img/logo-header.png') ?>" alt=""></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,8 @@
 				if ($this->session->has_userdata('newsession')) {
 					if ($this->session->newsession=="yes"){
 						?>
-						<li><a href="#" id="asd"><?php echo $this->session->email; ?></a></li>
+						<li><a href="#"><?php echo $this->session->email; ?></a></li>
+						<li><a href="#" id="asd">CAMBIAR IMAGEN</a></li>
 						<li><a href="#" id="donar">DONAR</a></li>
 						<li><a href="#" id="salir">SALIR</a></li>
 						<?php

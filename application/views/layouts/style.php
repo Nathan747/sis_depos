@@ -17,6 +17,10 @@
 		margin-bottom: 0px;
 	}
 
+	.navbar-default{
+		background-color: #22205F;
+	}
+
 	.navbar-nav>li{
 		height: 75px;
 		display: flex;
@@ -468,7 +472,7 @@
 		text-align: center;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background-color: rgb(101,125,151);
+		background-color: #22205F;
 		color: white;
 		font-size: 14px;
 	}
