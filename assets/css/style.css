@@ -207,3 +207,50 @@
   	font-family: Open Sans;
 }
 
+/* BACKEND */
+
+.container-fluid{
+	padding: 0px !important;
+}
+aside{
+	height: 100vh;
+	float: left;
+	width: 260px;
+	background-color: #22205F;
+	color: white;
+}
+
+.padre-contenido{
+	width: calc(100% - 260px);
+	float: left;
+	height: 100vh;
+}
+
+.imagen-menu{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 70px;
+}
+
+aside ul{
+	padding: 0px;
+}
+
+aside ul li{
+	width: 100%;
+	padding: 20px 25px;
+	background-color: #22205F;
+	transition: background-color .5s;
+}
+
+aside ul li:hover{
+	width: 100%;
+	padding: 20px 25px;
+	background-color: #23527c;
+	transition: background-color .5s;
+}
+
+aside ul li a, aside ul li a:hover{
+	color: white;
+	text-decoration: none;
+}

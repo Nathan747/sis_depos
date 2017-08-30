@@ -79,6 +79,6 @@ class Cargar_Imagen extends CI_Controller {
 			"img" 		=> $target_path
 		);
 		$this->Cargar_model->insert_image($datos);
-		//header("location: http://localhost:8080/UNC/cargar_imagen/");
+		header("location: ".base_url());
 	}
 }

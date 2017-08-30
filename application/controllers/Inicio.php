@@ -51,6 +51,15 @@ class Inicio extends CI_Controller {
 		$this->load->view('layouts/footer');
 	}
 
+	public function back()
+	{
+		$data["titulo"] = "Admin UNCuyo";
+		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/style');
+		$this->load->view('backend/aside');
+		$this->load->view('backend/contenido');
+	}
+
 /*cierre de sesión*/
 	public function logout()
 	{
