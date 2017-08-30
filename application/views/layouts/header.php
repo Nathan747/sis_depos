@@ -19,15 +19,17 @@
 				if (isset($_SESSION['newsession'])) {
 					if ($_SESSION['newsession']=="yes"){
 						?>
-						
-						<li><a href="#" id="asd"><?php echo $this->session->email; ?></a></li>
+						<li><a href="#" id="asd2"><?php echo var_dump($this->session->newsession); ?></a></li>
+						<li><a href="#" id="asd"><?php echo var_dump($this->session->email); ?></a></li>
 						<!--li><a href="#" id="asd"><?php echo $_SESSION["email"]; ?></a></li-->
 						<li><a href="#" id="donar">DONAR</a></li>
 						<li><a href="#" id="salir">SALIR</a></li>
 						<?php
 					}else{
 						?>
-						<li><a href="#" >ACERCA DE</a></li>
+						<li><a href="#" id="asd2"><?php echo var_dump($this->session->newsession); ?></a></li>
+						<li><a href="#" id="asd"><?php echo var_dump($this->session->email); ?></a></li>
+						<li><a id="salir" href="#" >ACERCA DE</a></li>
 						<li><a href="#" >COMO FUNCIONA</a></li>
 						<li><a href="#" id="registrate">REGISTRARSE</a></li>
 						<li><a href="#" id="ingresar">INGRESAR</a></li>
@@ -35,7 +37,9 @@
 					}
 				}else{
 					?>
-					<li><a href="#" >ACERCA DE</a></li>
+					<li><a href="#" id="asd2"><?php echo var_dump($this->session->newsession); ?></a></li>
+					<li><a href="#" id="asd"><?php echo var_dump($this->session->email); ?></a></li>
+					<li><a id="salir" href="#" >ACERCA DE</a></li>
 					<li><a href="#" >COMO FUNCIONA</a></li>
 					<li><a href="#" id="registrate">REGISTRARSE</a></li>
 					<li><a href="#" id="ingresar">INGRESAR</a></li>

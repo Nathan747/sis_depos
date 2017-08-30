@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 		//$_SESSION['FBID'] = NULL;
 		//$_SESSION['FULLNAME'] = NULL;
 		//$_SESSION['EMAIL'] =  NULL;
-		$_SESSION['newsession']="no";
+		//$_SESSION['newsession']="no";
 		$this->session->set_userdata("EMAIL",NULL);
 		$this->session->set_userdata("FULLNAME",NULL);
 		$this->session->set_userdata("FBID",NULL);

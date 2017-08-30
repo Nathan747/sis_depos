@@ -5,6 +5,7 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
+		//$this->session->sess_destroy();
 		$data["titulo"] = "UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
