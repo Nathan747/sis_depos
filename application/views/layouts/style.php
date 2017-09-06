@@ -10,19 +10,21 @@
 	}
 
 	.navbar{
-		min-height: 75px;
+		min-height: 60px;
 		border-radius: 0px;
 		border: 0px;
 		border-bottom: 1px solid #e7e7e7;
 		margin-bottom: 0px;
+		padding: 0px;
 	}
 
 	.navbar-default{
-		background-color: #22205F;
+		background-color: #22205F !important;
+		min-height: 40px;
 	}
 
 	.navbar-nav>li{
-		height: 75px;
+		height: 60px;
 		display: flex;
 		justify-content: center;
 		align-content: center;
@@ -30,15 +32,20 @@
 	}
 
 	.navbar-brand{
-		height: 75px;
+		height: 60px;
 		display: flex;
 		justify-content: center;
 		align-content: center;
 		flex-direction: column;
 	}
 
+	.btn.btn-lg, .btn-group-lg .btn, .navbar .navbar-nav > li > a.btn.btn-lg, .btn-group-lg
+	.navbar .navbar-nav > li > a.btn{
+		padding: 12px 36px;
+	}
+
 	#map{
-		height: calc(100vh - 116px);
+		height: calc(100vh - 101px);
 	}
 	.mapa-popup{
 		position: absolute;
@@ -83,6 +90,10 @@
 		box-shadow: inset 0 1px 1px rgba(0,0,0,0.2), 0 0 4px rgba(240, 20, 20, 1) !important;
 		transition: box-shadow 0.2s !important;
 		border-radius: 4px !important;
+	}
+
+	.form-control{
+		padding: 7px 10px;	
 	}
 
 	#cerrar-registro img{
@@ -468,6 +479,10 @@
 
 	/* FOOTER */
 
+	footer{
+		padding: 0px;
+	}
+
 	.top-footer{
 		text-align: center;
 		padding-top: 10px;
@@ -476,6 +491,15 @@
 		color: white;
 		font-size: 14px;
 	}
+
+	.nav-tabs>li>a{
+		color: rgb(67,89,112) !important;
+	}
+
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+		color: rgb(44,62,80) !important;
+	}
+
 
 
 	

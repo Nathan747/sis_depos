@@ -10,16 +10,16 @@ if (isset($_SESSION['newsession'])) {
       <a href="#" id="cerrar-login"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <form role="form">
-        <div class="form-group">
-          <label for="usuario_ingresar">E-Mail</label>
-          <input type="text" class="form-control" id="email_ingresar2"
-          placeholder="Usuario">
+      <form role="form" autocomplete="off">
+        <div class="form-group is-empty">
+          <input type="e-mail" class="form-control" id="email_ingresar2"
+          placeholder="E-Mail" autocomplete="off">
+          <span class="material-input"></span>
         </div>
-        <div class="form-group">
-          <label for="password_ingresar">Contraseña</label>
+        <div class="form-group is-empty">
           <input type="password" class="form-control" id="password_ingresar2" 
-          placeholder="Contraseña">
+          placeholder="Contraseña" autocomplete="off">
+          <span class="material-input"></span>
         </div>
         <div class="ini_ses">
           <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 iniciar-sesion">Iniciar Sesión</button>

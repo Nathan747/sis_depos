@@ -59,6 +59,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/header');
 		$this->load->view('backend/aside');
 		$this->load->view('backend/contenido');
+		$this->load->view('backend/scripts');
 	}
 
 /*cierre de sesión*/

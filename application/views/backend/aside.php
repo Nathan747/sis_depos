@@ -2,9 +2,10 @@
 
 	<aside>
 		<ul>
-			<li><a href="#">Ultimos movimientos</a></li>
-			<li><a href="#">Crear Usuario</a></li>
-			<li><a href="#">Recaudado</a></li>
+			<a href="#" id="gestar"><li>Gestionar Usuarios</li></a>
+			<a href="#" id="movimientos" class="li-active"><li>Ultimos movimientos</li></a>
+			<a href="#" id="recaudado"><li>Recaudado</li></a>
+			<a href="#" id="becarios"><li>Becarios</li></a>
 		</ul>
 		<div class="imagen-footer">
 			<img src="<?php echo base_url('assets/img/footer-backend.png') ?>" alt="">

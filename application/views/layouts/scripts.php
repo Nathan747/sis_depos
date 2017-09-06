@@ -1,7 +1,6 @@
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 
-
 <script>
   var direccion = "<?php echo base_url(""); ?>";
   var facebook_count = 0;
@@ -168,12 +167,8 @@
       url: "Markers/load/",
     }).done(function(json){
       var objeto = $.parseJSON(json);
-      console.log(objeto);
       for(var x=0;x<objeto.length;x++){
-        console.log(x);
         var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
-        console.log(posicion);
-        console.log(" ");
         objeto[x].lat_user = parseFloat(objeto[x].lat_user);
         objeto[x].long_user = parseFloat(objeto[x].long_user);
         if(objeto[x].img==""){
@@ -190,10 +185,10 @@
         '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
         '<div id="padre-texto">'+
         '<div id="contenedor-texto">'+
-        '<h1>Esteban Manzanelli '+ x +'</h1>'+
-        '<h2>Doctor '+ x +'</h2>'+
-        '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. '+ x +'</h3>'+
-        '<div id="contenedor-leer"><div>Leer Más '+ x +'</div></div>'+
+        '<h1>Esteban Manzanelli </h1>'+
+        '<h2>Doctor </h2>'+
+        '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. </h3>'+
+        '<div id="contenedor-leer"><div>Leer Más </div></div>'+
         '</div></div>'+ // Cierre contenedor-texto y padre-texto
         '</div></div>'; // Cierre contenedor-marcador y content
         
@@ -248,7 +243,6 @@
   }
 
   function add_marker_delay(valor1, valor2, timeout, maps, contenido){
-    console.log("Valor 1: "+valor1+" - Valor 2: "+valor2+" - Timeout: "+timeout);
     var infowindow = new google.maps.InfoWindow({
       content: contenido,
       position: {lat: valor1, lng: valor2}
@@ -870,8 +864,6 @@
 
     //BOTONES CLICKEABLES
 
-
-
     $("#bloque-01").click(function(e){
       e.preventDefault();
       $("#bloque-02").find(".bloque-wizard").removeClass("active");
@@ -1089,19 +1081,14 @@
       $(".contenedor-lista-mp").animate({
         top: "0"
       },1000);
-
-
     });
-
-
-
 
     $("#asd").click(function(){
       <?php if ($this->session->has_userdata('email')){
         echo "console.log('EMAIL: ".$this->session->email."');";
         ?>
         var confirmacion = 1;
-        var email_session = <?php echo $this->session->email; ?>;
+        var email_session = "<?php echo $this->session->email; ?>";
         <?php
       }else{
         ?>
@@ -1110,19 +1097,13 @@
       } ?>
       console.log(confirmacion);
       window.location = "Cargar_Imagen";
-      /*$.ajax({
-        type: "POST",
-        url: "Cargar_Imagen/",
-        data:{  
-          email: "<?php $this->session->email ?>",       
-        }
-      }).done(function(json){
-        //var objeto = $.parseJSON(json);
-        window.location = "Cargar_Imagen/proceso/";
-      });*/
     });
-
   });
+
+$("#dnr").click(function(){
+  $("#ingresar").click();
+});
+
 
 function abreSitio(){
   var clase = document.precios.mp_select.options[document.precios.mp_select.selectedIndex].value;
@@ -1131,12 +1112,6 @@ function abreSitio(){
   console.log(test);
   $("#bloque-07").find(".bloque-wizard").addClass("active");
   $(".word-confirmacion").addClass("word-active");
-  /*$(".contenedor-mercado-pago").animate({
-    left: "-100%"
-  });
-  $(".contenedor-mensaje-confirmacion").animate({
-    right: "0"
-  });*/
 }
 
 
@@ -1151,20 +1126,24 @@ function abreSitio(){
   function handleSessionResponse(response) {
 
     console.log(response);
+    console.log("handleSessionResponse");
     //if we do have a non-null response.session, call FB.logout(),
     //the JS method will log the user out of Facebook and remove any authorization cookies
-    FB.logout(handleSessionResponse);
+    //if(response.status!="unknown"){
+      FB.logout(handleSessionResponse);
+    //}
   }
 
   function statusChangeCallback(response) {
     console.log(response);
+    console.log("statusChangeCallback");
     if (response.status === 'connected') {
       <?php $this->session->set_userdata("newsession","yes"); ?>
     }else{
       facebook_count=0;
     }
     if(facebook_count==2){
-      window.location = direccion;
+      //window.location = direccion;
     }
   }
 
@@ -1209,6 +1188,7 @@ function abreSitio(){
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
   function checkLoginState() {
+    console.log("checkLoginState");
     facebook_count=2;
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
@@ -1217,7 +1197,7 @@ function abreSitio(){
   }
 
   function checkLoginState2() {
-    console.log("ENTRO");
+    console.log("checkLoginState2");
     FB.getLoginStatus(function(response2) {
       statusChangeCallback2(response2);
 
