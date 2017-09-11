@@ -3,19 +3,19 @@
 		<div id="crear-usuario" class="background-opciones contenedor-crear-usuario">
 			<div class="tab-horizontal">
 				<!-- Nav tabs -->
-				<ul class="nav nav-tabs" role="tablist">
+				<div class="col-lg-12"><ul class="nav nav-tabs" role="tablist">
 					<li role="presentation" class="active"><a href="#section1" aria-controls="section1" role="tab" data-toggle="tab">Crear Usuario</a></li>
 					<li role="presentation"><a href="#section2" aria-controls="section2" role="tab" data-toggle="tab">Crear Becario</a></li>
 					<li role="presentation"><a href="#section3" aria-controls="section3" role="tab" data-toggle="tab">Crear Admin</a></li>
-				</ul>
+				</ul></div>
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="section1">
 						<div class="contenedor-titulo">
-							<h1>Crear Usuario</h1>
+							<div class="col-lg-12"><h1>Crear Usuario</h1></div>
 						</div>
-						<div class="separador"></div>
-						<form role="form" autocomplete="off">
+						<div class="col-lg-12"><div class="separador"></div></div>
+						<div class="col-lg-12"><form role="form" autocomplete="off">
 							<div class="form-group">
 								<label for="ejemplo_email_1">Usuario</label>
 								<input type="email" class="form-control" id="ejemplo_email_1" autocomplete="off">
@@ -26,14 +26,14 @@
 							</div>
 
 							<button type="submit" class="btn btn-default boton-enviar">Crear</button>
-						</form>
+						</form></div>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="section2">
 						<div class="contenedor-titulo">
-							<h1>Crear Becario</h1>
+							<div class="col-lg-12"><h1>Crear Becario</h1></div>
 						</div>
-						<div class="separador"></div>
-						<form role="form">
+						<div class="col-lg-12"><div class="separador"></div></div>
+						<div class="col-lg-12"><form role="form">
 							<div class="form-group">
 								<label for="ejemplo_email_1">Usuario</label>
 								<input type="email" class="form-control" id="ejemplo_email_1">
@@ -44,14 +44,14 @@
 							</div>
 
 							<button type="submit" class="btn btn-default boton-enviar">Crear</button>
-						</form>
+						</form></div>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="section3">
 						<div class="contenedor-titulo">
-							<h1>Crear Admin</h1>
+							<div class="col-lg-12"><h1>Crear Admin</h1></div>
 						</div>
-						<div class="separador"></div>
-						<form role="form">
+						<div class="col-lg-12"><div class="separador"></div></div>
+						<div class="col-lg-12"><form role="form">
 							<div class="form-group">
 								<label for="ejemplo_email_1">Usuario</label>
 								<input type="email" class="form-control" id="ejemplo_email_1">
@@ -62,7 +62,7 @@
 							</div>
 
 							<button type="submit" class="btn btn-default boton-enviar">Crear</button>
-						</form>
+						</form></div>
 					</div>
 				</div>	
 			</div>
@@ -70,10 +70,10 @@
 
 		<div id="ultimos-movimientos" class="background-opciones contenedor-tablas" >
 			<div class="contenedor-titulo">
-				<h1>Últimos movimientos</h1>
+				<div class="col-lg-12"><h1>Últimos movimientos</h1></div>
 			</div>
-			<div class="separador"></div>
-			<table class="table table-condensed table-hover">
+			<div class="col-lg-12"><div class="separador"></div></div>
+			<div class="col-lg-12"><table class="table table-condensed table-hover">
 				<tr>
 					<th style="text-align: center;">NOMBRE Y APELLIDO</th>
 					<th style="text-align: center;">MOVIMIENTO</th>
@@ -122,8 +122,8 @@
 					<td style="text-align: center;">4%</td>
 					<td style="text-align: center;">$3860</td>
 				</tr>
-			</table>
-			<div class="cuadro-busqueda">
+			</table></div>
+			<div class="col-lg-12"><div class="cuadro-busqueda">
 				<div class="col-lg-2">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Buscar">
@@ -164,18 +164,20 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</div></div>
 		</div>
 
 		<div id="menu-becarios" class="background-opciones contenedor-becarios">
 			
 			<div class="contenedor-titulo">
+			<div class="col-lg-12">
 			<h1>Becarios</h1>
 			</div>
-			<div class="separador"></div>
+			</div>
+			<div class="col-lg-12"><div class="separador"></div></div>
 			<div class="dni-search">
 				<div class="col-lg-8">
-					<div class="input-group">
+					<div class="input-group columna-busqueda-dni">
 						<input type="text" class="form-control" placeholder="Buscar">
 					</div>
 				</div>
@@ -197,7 +199,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="monto-buscar">
-						<div class="input-group">
+						<div class="input-group monto-ingreso">
 							<input type="text" class="form-control" placeholder="Buscar">
 						</div>
 					</div>

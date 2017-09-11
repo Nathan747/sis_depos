@@ -78,16 +78,16 @@
 	position: absolute;
 	right: -100%;
 	background-color: white;
-	height: calc(100vh - 76px);
+	height: calc(100vh - 60px);
 	z-index: 999;
-	top: 76px;
+	top: 60px;
 	border-left: 1px solid #cccccc;
 	padding: 25px 20px;
 }
 
 
 .login form{
-	padding-top: 0px;
+	padding-top: 25px;
 	padding-bottom: 30px;
 
 }
@@ -341,7 +341,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .background-opciones{
 	background-color: white;
-	padding: 30px 25px 30px 25px;
+	padding: 25px 20px 25px 20px;
 	float: left;
 	width: 100%;
 	position: relative;
@@ -508,6 +508,26 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 	text-decoration: none;
 	color: white !important;
 	background-color: rgb(44,62,80) !important;
+}
+
+.contenedor-titulo, .informacion-obtenida{
+	width: 100%;
+	float: left;
+}
+
+.columna-busqueda-dni, .monto-ingreso, .dni-search .boton-buscar{
+	width: 100%;
+}
+
+.dni-search{
+	padding-bottom: 20px;
+	width: 100%;
+    float: left;
+}
+
+.contenedor-info-becario{
+    background: rgb(245, 247, 248);
+    padding: 20px;
 }
 
 @media (min-width: 768px){

@@ -45,7 +45,7 @@
 <h1>Login with Facebook</h1>
            Not Connected
 <div>
-      <a href="fbconfig.php">Login with Facebook</a></div>
+      <a href="<?php $this->load->view('fb/fbconfig'); ?>">Login with Facebook</a></div>
 	 <div> <a href=""  title="Login with facebook">no voy a ningun lado</a>
 	  </div>
       </div>

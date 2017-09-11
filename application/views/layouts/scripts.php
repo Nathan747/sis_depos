@@ -1007,8 +1007,16 @@
         url: "inicio/logout/"
       }).done(function(json){
         var objeto = $.parseJSON(json);
-        FB.getLoginStatus(handleSessionResponse);
+        //FB.getLoginStatus(handleSessionResponse);
+        FB.getLoginStatus(function(response) {
+          if (response && response.status === 'connected') {
+            FB.logout(function(response) {
+              //document.location.reload();
+            });
+          }
+        });
         facebook_count = 0;
+        console.log(objeto);
         if (objeto.eliminado){
           window.location = direccion;
         }
@@ -1124,31 +1132,35 @@ function abreSitio(){
 <script>
 
   function handleSessionResponse(response) {
-
     console.log(response);
     console.log("handleSessionResponse");
-    //if we do have a non-null response.session, call FB.logout(),
-    //the JS method will log the user out of Facebook and remove any authorization cookies
-    //if(response.status!="unknown"){
+    if(response.status!="unknown"){
       FB.logout(handleSessionResponse);
-    //}
+    }
   }
 
   function statusChangeCallback(response) {
     console.log(response);
+    console.log(facebook_count);
     console.log("statusChangeCallback");
     if (response.status === 'connected') {
+      console.log("YES");
       <?php $this->session->set_userdata("newsession","yes"); ?>
     }else{
+      console.log("NO");
+      <?php $this->session->set_userdata("newsession","no"); ?>
       facebook_count=0;
     }
     if(facebook_count==2){
-      //window.location = direccion;
+      console.log("fc2");
+      window.location = direccion;
     }
   }
 
 
   function statusChangeCallback2(response2) {
+    console.log("statusChangeCallback2");
+    console.log(response2);
     if (response2.status === 'connected') {
       FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
         nombre = response.first_name;
@@ -1159,7 +1171,7 @@ function abreSitio(){
         console.log(apellido);
         console.log(email);
       });
-      /*registro facebook wizart*/
+
       $(".contenedor-modo").animate({
         left: "-100%"
       });
@@ -1176,23 +1188,18 @@ function abreSitio(){
 
       modo_log = 1;
       FB.getLoginStatus(handleSessionResponse);
-      <?php //$this->session->set_userdata("newsession","no"); ?>
       // REVISAR QUE ESTO DA PROBLEMAS CON F5 
     }
   }
-  /*fin registro facebook wizart*/
 
 
 
- // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
   function checkLoginState() {
     console.log("checkLoginState");
     facebook_count=2;
     FB.getLoginStatus(function(response) {
+      console.log(response);
       statusChangeCallback(response);
-
     });
   }
 
@@ -1200,7 +1207,6 @@ function abreSitio(){
     console.log("checkLoginState2");
     FB.getLoginStatus(function(response2) {
       statusChangeCallback2(response2);
-
     });
   }
 
@@ -1213,23 +1219,13 @@ function abreSitio(){
     version    : 'v2.8' // use graph api version 2.8
   });
 
- // Now that we've initialized the JavaScript SDK, we call
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
+    FB.getLoginStatus(function(response) {
+      console.log(response);
+      console.log("getLoginStatus fbAsyncInit");
+      statusChangeCallback(response);
+    });
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-};
+  };
 
  // Load the SDK asynchronously
  (function(d, s, id) {

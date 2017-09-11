@@ -40,9 +40,6 @@ if (isset($_SESSION['newsession'])) {
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
     </div> 
 
-
-
-
   </div>  <!-- fin row -->
 </div>
 

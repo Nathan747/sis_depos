@@ -26,8 +26,8 @@
 						<?php
 					}else{
 						?>
-						<li><a href="#" >ACERCA DE</a></li>
-						<li><a href="#" >COMO FUNCIONA</a></li>
+						<!--li><a href="#" >ACERCA DE</a></li>
+						<li><a href="#" >COMO FUNCIONA</a></li-->
 						<li><a href="#" id="registrate">REGISTRARSE</a></li>
 						<li><a href="#" id="ingresar">INGRESAR</a></li>
 						<?php

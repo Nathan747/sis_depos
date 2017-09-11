@@ -104,9 +104,9 @@
 	.contenedor-registro, .contenedor-donar {
 		clear: both;
 		position: absolute;
-		top: 76px;
+		top: 60px;
 		background: white;
-		height: calc(100vh - 76px);
+		height: calc(100vh - 60px);
 		right:-100%;
 		width: 800px;
 		padding: 25px 20px;
