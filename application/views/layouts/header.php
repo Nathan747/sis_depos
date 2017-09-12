@@ -1,20 +1,5 @@
 <script>
 	console.log("<?php echo $this->session->newsession; ?>" + "Linea 2 HEADER.PHP");
-	var registro_fb = localStorage.getItem("registro_facebook");
-	var registro_normal = localStorage.getItem("ingreso_normal");
-	if (registro_fb=="si") { 
-		console.log("entro si FB");
-		<?php $this->session->set_userdata("newsession","yes"); ?>
-	}else{
-		if (registro_normal=="si") {
-			console.log("entro si NORMAL");
-			<?php $this->session->set_userdata("newsession","yes"); ?>
-		}else{
-			console.log("entro no");
-			<?php $this->session->set_userdata("newsession","no"); ?>
-		}
-	}
-	console.log("<?php echo $this->session->newsession; ?>" + "Linea 17 HEADER.PHP");
 </script>
 <nav class="navbar navbar-default">
 	<div class="container">
@@ -34,8 +19,8 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<?php  
-				if ($this->session->has_userdata('newsession')) {
-					if ($this->session->newsession=="yes"){
+				if ($this->session->has_userdata('newsession')){
+					if ($this->session->newsession==="yes"){
 						?>
 						<li><a>new <?php echo $this->session->newsession; ?></a></li>
 						<li><a href="#"><?php echo $this->session->email; ?></a></li>
@@ -44,7 +29,7 @@
 						<li><a href="#" id="salir">SALIR</a></li>
 						<?php
 					}else{
-						if ($this->session->newsession=="no"){
+						if ($this->session->newsession==="no"){
 							?>
 						<!--li><a href="#" >ACERCA DE</a></li>
 						<li><a href="#" >COMO FUNCIONA</a></li-->

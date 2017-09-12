@@ -1037,7 +1037,7 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         //FB.getLoginStatus(handleSessionResponse);
-        FB.getLoginStatus(function(response) {
+        /*FB.getLoginStatus(function(response) {
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
               if (objeto.eliminado){
@@ -1049,7 +1049,7 @@
               window.location = direccion;
             }
           }
-        });
+        });*/
         facebook_count = 0;
         console.log(objeto);
       }).fail(function(xhr, status, error){
@@ -1160,63 +1160,51 @@ function abreSitio(){
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
 </script>
 
-<!--facebook api-->
+
 <script>
 
-  function handleSessionResponse(response) {
-    console.log(response);
-    console.log("handleSessionResponse");
-    //if(response.status!="unknown"){
-      FB.logout(handleSessionResponse);
-    //}
-  }
-
-  function checkLoginState2() {
-    console.log("checkLoginState2");
-    reg_fb_normal=1;
-    FB.getLoginStatus(function(response2) {
-      statusChangeCallback2(response2);
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1364398453638874',
+      cookie     : true,  // enable cookies to allow the server to access
+                        // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
     });
-  }
 
-  function statusChangeCallback2(response2) {
-    console.log("statusChangeCallback2");
-    console.log(response2);
-    if (response2.status === 'connected') {
-      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
-        nombre = response.first_name;
-        apellido = response.last_name;
-        email = response.email;
-        console.log(response);
-        console.log(nombre);
-        console.log(apellido);
-        console.log(email);
-      });
+    FB.getLoginStatus(function(response) {
+      console.log(response);
+      var registro_fb = localStorage.getItem("registro_facebook");
+      var registro_normal = localStorage.getItem("ingreso_normal");
+      var valor;
+      if (registro_fb=="si") {
+        console.log("entro si FB"); 
+        valor = 1;
+      }else{
+        if (registro_normal=="si") {
+          console.log("entro si NORMAL");
+          valor = 1;
+        }else{
+          console.log("entro no");
+          valor = 0;
+        }
+      }
+      //statusChangeCallback(response);
+    });
+  };
 
-      $(".contenedor-modo").animate({
-        left: "-100%"
-      });
-      $(".contenedor-modo").css("display","none");
-      $(".formulario-no-fb").css("display","none");
-      $(".formulario-padre").animate({
-        right: "0",
-        left: "0"
-      });
-
-      $(".bloq-2").addClass("active");
-      $(".sep-2").find(".linea-separador").addClass("active-sep");
-      $(".word-datos").addClass("word-active");
-
-      modo_log = 1;
-      FB.getLoginStatus(handleSessionResponse);
-      FB.logout(handleSessionResponse);
-      // REVISAR QUE ESTO DA PROBLEMAS CON F5 
-    }
-  }
+ // Load the SDK asynchronously
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 
 
-  function checkLoginState() {
+ function checkLoginState() {
     console.log("checkLoginState");
     facebook_count=2;
     FB.getLoginStatus(function(response) {
@@ -1225,9 +1213,6 @@ function abreSitio(){
     });
   }
 
-  
-
-  //CUANDO SE APRETA EL INGRESO POR FB
   function statusChangeCallback(response) {
     console.log(response);
     console.log(facebook_count);
@@ -1256,58 +1241,21 @@ function abreSitio(){
     }else{
       var registro_fb = localStorage.getItem("registro_facebook");
       var registro_normal = localStorage.getItem("ingreso_normal");
+      var valor;
       if (registro_fb=="si") {
         console.log("entro si FB");
-        <?php $this->session->set_userdata("newsession","yes"); ?>
+        valor = 1;  
       }else{
         if (registro_normal=="si") {
           console.log("entro si NORMAL");
-          <?php $this->session->set_userdata("newsession","yes"); ?>
+          valor = 1;
         }else{
           console.log("entro no");
-          <?php $this->session->set_userdata("newsession","no"); ?>
+          valor = 0;
         }
       }
     }
   }
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1364398453638874',
-      cookie     : true,  // enable cookies to allow the server to access
-                        // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.8' // use graph api version 2.8
-    });
-
-    FB.getLoginStatus(function(response) {
-      console.log(response);
-      var registro_fb = localStorage.getItem("registro_facebook");
-      var registro_normal = localStorage.getItem("ingreso_normal");
-      if (registro_fb=="si") {
-        console.log("entro si FB"); 
-        <?php $this->session->set_userdata("newsession","yes"); ?>
-      }else{
-        if (registro_normal=="si") {
-          console.log("entro si NORMAL");
-          <?php $this->session->set_userdata("newsession","yes"); ?>
-        }else{
-          console.log("entro no");
-          <?php $this->session->set_userdata("newsession","no"); ?>
-        }
-      }
-      statusChangeCallback(response);
-    });
-  };
-
- // Load the SDK asynchronously
- (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_ES/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
 </script>
+
 <!--facebook api-->
