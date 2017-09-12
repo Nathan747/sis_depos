@@ -1285,7 +1285,7 @@ function abreSitio(){
       var registro_fb = localStorage.getItem("registro_facebook");
       var registro_normal = localStorage.getItem("ingreso_normal");
       if (registro_fb=="si") {
-        console.log("entro si FB");
+        console.log("entro si FB"); 
         <?php $this->session->set_userdata("newsession","yes"); ?>
       }else{
         if (registro_normal=="si") {

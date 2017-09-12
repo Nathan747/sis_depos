@@ -2,7 +2,7 @@
 	console.log("<?php echo $this->session->newsession; ?>" + "Linea 2 HEADER.PHP");
 	var registro_fb = localStorage.getItem("registro_facebook");
 	var registro_normal = localStorage.getItem("ingreso_normal");
-	if (registro_fb=="si") {
+	if (registro_fb=="si") { 
 		console.log("entro si FB");
 		<?php $this->session->set_userdata("newsession","yes"); ?>
 	}else{
