@@ -1235,7 +1235,7 @@ function abreSitio(){
           facebook_count=2;
           localStorage.setItem("ingreso_normal", "no");
           localStorage.setItem("registro_facebook", "si");
-          //window.location = direccion; 
+          window.location = direccion; 
         });
       });  
     }else{
