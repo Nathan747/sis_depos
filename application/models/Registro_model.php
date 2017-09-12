@@ -14,6 +14,7 @@ class Registro_model extends CI_Model {
 		$this->db->insert('unc_usuarios', $data);
 		//$_SESSION['newsession']="yes";
 		$this->session->set_userdata('newsession','yes');
+		$this->session->set_userdata('email',$data["email_user"]);
 	}
 
 	public function update_entry()

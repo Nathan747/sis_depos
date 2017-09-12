@@ -111,12 +111,6 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Lugar en el que trabaja">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
             <input name="password" type="password" class="form-control" id="password_login" 
             placeholder="Contraseña">
           </div>
@@ -126,6 +120,12 @@ if (isset($_SESSION['newsession'])) {
           <div class="form-group">
             <input name="password2" type="password" class="form-control" id="password2_login"
             placeholder="Repita la contraseña">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Profesion">
           </div>
         </div>
 
@@ -167,7 +167,7 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
-            <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Lugar en el que trabaja">
+            <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Profesion">
           </div>
         </div>
 

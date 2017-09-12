@@ -2,6 +2,7 @@
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 
 <script>
+  console.log("<?php echo $this->session->newsession ?>");
   var direccion = "<?php echo base_url(""); ?>";
   var facebook_count = 0;
   var map;
@@ -26,6 +27,7 @@
   var fecha_egresado;
   var es_egresado;
   var prev_infowindow = false; 
+  var reg_fb_normal;
 
 
   function initMap() {
@@ -169,6 +171,11 @@
       var objeto = $.parseJSON(json);
       for(var x=0;x<objeto.length;x++){
         var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
+
+        var nombre=objeto[x].nombre_user;
+        var apellido=objeto[x].apellido_user;
+        var profesion=objeto[x].profesion_user;
+
         objeto[x].lat_user = parseFloat(objeto[x].lat_user);
         objeto[x].long_user = parseFloat(objeto[x].long_user);
         if(objeto[x].img==""){
@@ -180,21 +187,21 @@
         '<div id="contenedor-marcador">'+
         '<div id="padre-imagen">'+
         '<div id="contenedor-imagen">'+
-        //'<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
-        '<img src="'+test_img+'" />'+
-        '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
-        '<div id="padre-texto">'+
-        '<div id="contenedor-texto">'+
-        '<h1>Esteban Manzanelli </h1>'+
-        '<h2>Doctor </h2>'+
-        '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. </h3>'+
-        '<div id="contenedor-leer"><div>Leer Más </div></div>'+
-        '</div></div>'+ // Cierre contenedor-texto y padre-texto
-        '</div></div>'; // Cierre contenedor-marcador y content
-        
-        
-        add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*400, map, contentString);
-        
+       //'<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
+       '<img src="'+test_img+'" />'+
+       '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
+       '<div id="padre-texto">'+
+       '<div id="contenedor-texto">'+
+       '<h1>'+nombre+' '+apellido+'</h1>'+
+       '<h2>'+profesion+'</h2>'+
+       '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. </h3>'+
+       '<div id="contenedor-leer"><div>Leer Más </div></div>'+
+       '</div></div>'+ // Cierre contenedor-texto y padre-texto
+       '</div></div>'; // Cierre contenedor-marcador y content
+
+
+       add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
+
         /*var marker = new google.maps.Marker({
           position: {lat: objeto[x].lat_user, lng: objeto[x].long_user},
           map: map
@@ -451,7 +458,7 @@
       $(".bloq-2").addClass("active");
       $(".sep-2").find(".linea-separador").addClass("active-sep");
       $(".word-datos").addClass("word-active");
-
+      reg_fb_normal=0;
       modo_log = 0;
     });
 
@@ -731,6 +738,9 @@
     // INPUTS PASSWORD FACEBOOK
     
     $("input[name=password2-fb]").keydown(function(event){
+      telefono=$("#telefono_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
       console.log(event.keyCode);
       if ( event.which == 13 ) {
         event.preventDefault();
@@ -777,6 +787,9 @@
     });
 
     $("input[name=password-fb]").keydown(function(event){
+      telefono=$("#telefono_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
@@ -803,6 +816,9 @@
     });
 
     $("input[name=telefono-fb]").keydown(function(event){
+      telefono=$("#telefono_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
@@ -818,13 +834,14 @@
         left: "-100%"
       });
       $(".formulario-padre").css("display","none");
-      $(".mapa-registro").animate({
+      $(".contenedor-carreras").animate({
         right: "0",
         left: "0"
       });
 
-      $(".bloq-4").addClass("active");
-      $(".word-mapa").addClass("word-active");
+      $(".bloq-3").addClass("active");
+      $(".word-carrera").addClass("word-active");
+      $(".sep-3").find(".linea-separador").addClass("active-sep");
     });
 
 
@@ -834,6 +851,7 @@
       }else{
         var egresado=0;
       } 
+      console.log(fecha_egresado);
 
       $.ajax({
         type: "POST",
@@ -850,8 +868,15 @@
           longitud: longitude          
         }
       }).done(function(json){
-        var objeto = $.parseJSON(json);
-        console.log(objeto);
+        //var objeto = $.parseJSON(json);
+        console.log(json);
+        if(reg_fb_normal==0){
+          localStorage.setItem("ingreso_normal", "si");
+          localStorage.setItem("registro_facebook", "no");
+        }else{
+          localStorage.setItem("ingreso_normal", "no");
+          localStorage.setItem("registro_facebook", "si");
+        }
         window.location = direccion;
       }).fail(function(xhr, status, error){
         console.log(xhr);
@@ -985,6 +1010,8 @@
         console.log(objeto);
         if(objeto.entro==1){
           <?php $_SESSION['newsession']="yes"; ?>
+          localStorage.setItem("ingreso_normal", "si");
+          localStorage.setItem("registro_facebook", "no");
           window.location = direccion;
         }else{
           alert("USUARIO O PASSWORD INCORRECTO");
@@ -1002,6 +1029,8 @@
 
     $("#salir").click(function(e){
       e.preventDefault();
+      localStorage.setItem("ingreso_normal", "no");
+      localStorage.setItem("registro_facebook", "no");
       $.ajax({
         type: "POST",
         url: "inicio/logout/"
@@ -1011,14 +1040,21 @@
         FB.getLoginStatus(function(response) {
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
-              //document.location.reload();
+              if (objeto.eliminado){
+                document.location.reload();
+              }
             });
+          }else{
+            if (objeto.eliminado){
+              document.location.reload();
+            }
           }
         });
         facebook_count = 0;
         console.log(objeto);
         if (objeto.eliminado){
-          window.location = direccion;
+          //window.location = direccion;
+          //document.location.reload();
         }
       }).fail(function(xhr, status, error){
         console.log(xhr);
@@ -1134,29 +1170,18 @@ function abreSitio(){
   function handleSessionResponse(response) {
     console.log(response);
     console.log("handleSessionResponse");
-    if(response.status!="unknown"){
+    //if(response.status!="unknown"){
       FB.logout(handleSessionResponse);
-    }
+    //}
   }
 
-  function statusChangeCallback(response) {
-    console.log(response);
-    console.log(facebook_count);
-    console.log("statusChangeCallback");
-    if (response.status === 'connected') {
-      console.log("YES");
-      <?php $this->session->set_userdata("newsession","yes"); ?>
-    }else{
-      console.log("NO");
-      <?php $this->session->set_userdata("newsession","no"); ?>
-      facebook_count=0;
-    }
-    if(facebook_count==2){
-      console.log("fc2");
-      window.location = direccion;
-    }
+  function checkLoginState2() {
+    console.log("checkLoginState2");
+    reg_fb_normal=1;
+    FB.getLoginStatus(function(response2) {
+      statusChangeCallback2(response2);
+    });
   }
-
 
   function statusChangeCallback2(response2) {
     console.log("statusChangeCallback2");
@@ -1188,6 +1213,7 @@ function abreSitio(){
 
       modo_log = 1;
       FB.getLoginStatus(handleSessionResponse);
+      FB.logout(handleSessionResponse);
       // REVISAR QUE ESTO DA PROBLEMAS CON F5 
     }
   }
@@ -1203,28 +1229,64 @@ function abreSitio(){
     });
   }
 
-  function checkLoginState2() {
-    console.log("checkLoginState2");
-    FB.getLoginStatus(function(response2) {
-      statusChangeCallback2(response2);
-    });
+  
+
+  //CUANDO SE APRETA EL INGRESO POR FB
+  function statusChangeCallback(response) {
+    console.log(response);
+    console.log(facebook_count);
+    console.log("statusChangeCallback");
+    if (response.status === 'connected') {
+      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+        nombre = response.first_name;
+        apellido = response.last_name;
+        email = response.email;
+        console.log(response);
+        $.ajax({
+          type: "POST",
+          url: "Login/control/",
+          data:{
+            email: email
+          }
+        }).done(function(json){
+          var objeto = $.parseJSON(json);
+          console.log(objeto);
+          facebook_count=2;
+          localStorage.setItem("ingreso_normal", "no");
+          localStorage.setItem("registro_facebook", "si");
+          //window.location = direccion;
+        });
+      });  
+    }
   }
 
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1364398453638874',
-    cookie     : true,  // enable cookies to allow the server to access
+      cookie     : true,  // enable cookies to allow the server to access
                         // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use graph api version 2.8
-  });
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
 
     FB.getLoginStatus(function(response) {
       console.log(response);
-      console.log("getLoginStatus fbAsyncInit");
-      statusChangeCallback(response);
+      var registro_fb = localStorage.getItem("registro_facebook");
+      var registro_normal = localStorage.getItem("ingreso_normal");
+      if (registro_fb=="si") {
+        console.log("entro si FB");
+        <?php $this->session->set_userdata("newsession","yes"); ?>
+      }else{
+        if (registro_normal=="si") {
+          console.log("entro si NORMAL");
+          <?php $this->session->set_userdata("newsession","yes"); ?>
+        }else{
+          console.log("entro no");
+          <?php $this->session->set_userdata("newsession","no"); ?>
+        }
+      }
+      //statusChangeCallback(response);
     });
-
   };
 
  // Load the SDK asynchronously
@@ -1236,16 +1298,5 @@ function abreSitio(){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
- // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Bienvenido! Cargando tu informacion... ');
-    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
-      console.log('Successful login for: ' + response.first_name);
-      console.log('Successful login for: ' + response.last_name);
-     // document.getElementById('status').innerHTML =
-      //  'Gracias por loguearte, ' + response.name + '!';
-    });
-  }
 </script>
 <!--facebook api-->

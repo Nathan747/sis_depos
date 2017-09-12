@@ -18,4 +18,17 @@ class Login extends CI_Controller {
 		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
 	}
+
+	public function control()
+	{
+		$data = $this->input->post();//Se puede reemplazar en esto
+
+		$datos = array(
+			"email" => $data["email"]
+		);
+
+		echo json_encode($data);
+
+		$this->session->set_userdata("email",$datos["email"]);
+	}
 }
