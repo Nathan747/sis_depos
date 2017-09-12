@@ -171,6 +171,11 @@
         var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
         objeto[x].lat_user = parseFloat(objeto[x].lat_user);
         objeto[x].long_user = parseFloat(objeto[x].long_user);
+        /* nombre y apellido*/
+        var nombre=objeto[x].nombre_user; 
+        var apellido=objeto[x].apellido_user;
+        var profesion=objeto[x].profesion_user;
+        /* nombre y apellido*/
         if(objeto[x].img==""){
           var test_img = "assets/img/pics/1.png";
         }else{
@@ -185,8 +190,8 @@
         '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
         '<div id="padre-texto">'+
         '<div id="contenedor-texto">'+
-        '<h1>Esteban Manzanelli </h1>'+
-        '<h2>Doctor </h2>'+
+        '<h1>'+nombre+' '+apellido+'</h1>'+
+        '<h2>'+profesion+'</h2>'+
         '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. </h3>'+
         '<div id="contenedor-leer"><div>Leer Más </div></div>'+
         '</div></div>'+ // Cierre contenedor-texto y padre-texto
