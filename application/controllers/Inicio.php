@@ -70,7 +70,6 @@ class Inicio extends CI_Controller {
 		$this->session->set_userdata("FULLNAME",NULL);
 		$this->session->set_userdata("FBID",NULL);
 		$this->session->unset_userdata("newsession");
-		//$this->session->set_userdata("newsession","no");
 		$json["eliminado"]=1;
 		echo json_encode($json);
 	}
