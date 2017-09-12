@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Inicio extends CI_Controller {
@@ -62,18 +63,13 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/scripts');
 	}
 
-/*cierre de sesión*/
 	public function logout()
 	{
 		session_unset();
-		//$_SESSION['FBID'] = NULL;
-		//$_SESSION['FULLNAME'] = NULL;
-		//$_SESSION['EMAIL'] =  NULL;
 		$this->session->set_userdata("EMAIL",NULL);
 		$this->session->set_userdata("FULLNAME",NULL);
 		$this->session->set_userdata("FBID",NULL);
 		$this->session->set_userdata("newsession","no");
-		//$_SESSION['usuario'] =  NULL;
 		$json["eliminado"]=1;
 		echo json_encode($json);
 	}
