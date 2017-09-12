@@ -2,7 +2,7 @@
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 
 <script>
-  console.log("<?php echo $this->session->newsession ?>");
+  console.log("<?php echo $this->session->newsession; ?>");
   var direccion = "<?php echo base_url(""); ?>";
   var facebook_count = 0;
   var map;
@@ -1009,7 +1009,7 @@
         var objeto = $.parseJSON(json);
         console.log(objeto);
         if(objeto.entro==1){
-          <?php $_SESSION['newsession']="yes"; ?>
+          <?php $this->session->set_userdata("newsession","yes"); ?>
           localStorage.setItem("ingreso_normal", "si");
           localStorage.setItem("registro_facebook", "no");
           window.location = direccion;
@@ -1041,21 +1041,17 @@
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
               if (objeto.eliminado){
-                document.location.reload();
+                window.location = direccion;
               }
             });
           }else{
             if (objeto.eliminado){
-              document.location.reload();
+              window.location = direccion;
             }
           }
         });
         facebook_count = 0;
         console.log(objeto);
-        if (objeto.eliminado){
-          //window.location = direccion;
-          //document.location.reload();
-        }
       }).fail(function(xhr, status, error){
         console.log(xhr);
         console.log(status);
@@ -1285,7 +1281,7 @@ function abreSitio(){
           <?php $this->session->set_userdata("newsession","no"); ?>
         }
       }
-      //statusChangeCallback(response);
+      statusChangeCallback(response);
     });
   };
 
