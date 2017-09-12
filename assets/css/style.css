@@ -59,69 +59,6 @@
 }
 
 /*ventana flotante incio sesion*/
-<<<<<<< HEAD
-
-.float2{
-	height: 301px;
-	position: absolute;
-	z-index: 1;
-	background: white;
-	top: 145px;
-	left: 50px;
-	width: 281px;
-	border: 1px solid #cccccc;
-}
-
-.float2 h3{
-	color: #22205F;
-	font-size: 22px;
-	padding: 10%;
-	text-align: center;
-	font-weight: 800;
-}
-
-.float2 p{
-	color:#9099A5;	
-	font-size: 14px;
-	padding:0 10% 10% 10%;
-	font-weight: 600;
-}
-
-
-.lcl{
-	padding: 0 10%;
-}
-
-.float2 a{
-
-	font-size: 14px;
-	color:#22205F;
-	font-style: italic;
-}
-
-
-
-.float2 a:hover{
-	color:#9099A5;
-	text-decoration: none;	
-}
-
-.float2 .bttn{
-	padding:10%;
-	text-align: center;	
-}
-
-#dnr{
-	background-color: #22205F;
-	color:white;
-}
-#dnr:hover{
-	background-color:white;
-	color:#22205F;
-}
-
-=======
->>>>>>> d5910d1d51c24cee9fe7657da224b4101ffe0c62
 
 .float2{
 	height: 301px;
