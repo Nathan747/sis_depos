@@ -22,8 +22,7 @@
 				if ($this->session->has_userdata('newsession')){
 					if ($this->session->newsession==="yes"){
 						?>
-						<li><a>new <?php echo $this->session->newsession; ?></a></li>
-						<li><a href="#"><?php echo $this->session->email; ?></a></li>
+						<li><a href="#"><?php echo $this->session->username; ?></a></li>
 						<li><a href="#" id="asd">CAMBIAR IMAGEN</a></li>
 						<li><a href="#" id="donar">DONAR</a></li>
 						<li><a href="#" id="salir">SALIR</a></li>
@@ -33,7 +32,6 @@
 							?>
 						<!--li><a href="#" >ACERCA DE</a></li>
 						<li><a href="#" >COMO FUNCIONA</a></li-->
-							<li><a>new <?php echo $this->session->newsession; ?></a></li>
 							<li><a href="#" id="registrate">REGISTRARSE</a></li>
 							<li><a href="#" id="ingresar">INGRESAR</a></li>
 							<?php
@@ -43,7 +41,6 @@
 					?>
 					<!--li><a href="#" >ACERCA DE</a></li>
 					<li><a href="#" >COMO FUNCIONA</a></li-->
-						<li><a>no iniciada</a></li>
 						<li><a href="#" id="registrate">REGISTRARSE</a></li>
 						<li><a href="#" id="ingresar">INGRESAR</a></li>
 						<?php

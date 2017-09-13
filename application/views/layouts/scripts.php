@@ -26,8 +26,10 @@
   var dni;
   var fecha_egresado;
   var es_egresado;
+  var profesion;
   var prev_infowindow = false; 
   var reg_fb_normal;
+  var nombre_completo;
 
 
   function initMap() {
@@ -176,6 +178,14 @@
         var apellido=objeto[x].apellido_user;
         var profesion=objeto[x].profesion_user;
 
+        var biografia=objeto[x].biografia_user;
+        console.log(biografia);
+        var longitud=50;
+        /***********/
+        if(biografia.length > longitud){
+          var texto=(biografia.substring(0,longitud));
+        }
+        /***********/
         objeto[x].lat_user = parseFloat(objeto[x].lat_user);
         objeto[x].long_user = parseFloat(objeto[x].long_user);
         if(objeto[x].img==""){
@@ -187,20 +197,20 @@
         '<div id="contenedor-marcador">'+
         '<div id="padre-imagen">'+
         '<div id="contenedor-imagen">'+
-       //'<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
-       '<img src="'+test_img+'" />'+
-       '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
-       '<div id="padre-texto">'+
-       '<div id="contenedor-texto">'+
-       '<h1>'+nombre+' '+apellido+'</h1>'+
-       '<h2>'+profesion+'</h2>'+
-       '<h3>Mi nombre es Esteban. Nací un jueves 30 de octubre de 1986 en Mayaguez, Puerto Rico. </h3>'+
-       '<div id="contenedor-leer"><div>Leer Más </div></div>'+
-       '</div></div>'+ // Cierre contenedor-texto y padre-texto
-       '</div></div>'; // Cierre contenedor-marcador y content
+        //'<img src="<?php echo base_url("assets/img/pics/1.png"); ?>" />'+
+        '<img src="'+test_img+'" />'+
+        '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
+        '<div id="padre-texto">'+
+        '<div id="contenedor-texto">'+
+        '<h1>'+nombre+' '+apellido+'</h1>'+
+        '<h2>'+profesion+'</h2>'+
+        '<h3>'+texto+'...</h3>'+
+        '<div id="contenedor-leer"><div>Leer Más </div></div>'+
+        '</div></div>'+ // Cierre contenedor-texto y padre-texto
+        '</div></div>'; // Cierre contenedor-marcador y content
 
 
-       add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
+        add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
 
         /*var marker = new google.maps.Marker({
           position: {lat: objeto[x].lat_user, lng: objeto[x].long_user},
@@ -465,6 +475,24 @@
 
     //BOTON SIGUIENTE FORMULARIO REGISTRO
     $("#siguiente-basico").click(function(e){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      dni = $("#dni_login").val();
+      fecha_egresado = $("#fecha_login").val();
+      profesion = $("#lugar_login").val();
+      es_egresado = $("#egresado_login").is(':checked');
+      console.log(nombre);
+      console.log(apellido);
+      console.log(email);
+      console.log(telefono);
+      console.log(pass1);
+      console.log(dni);
+      console.log(fecha_egresado);
+      console.log(profesion);
+      console.log(es_egresado);
       e.preventDefault();
       $(".contenedor-modo").css("display","none");
       $(".formulario-padre").animate({
@@ -499,22 +527,20 @@
       pass1=$("#password_login").val();
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
+      profesion = $("#lugar_login").val();
       es_egresado = $("#egresado_login").is(':checked');
 
       if ( ( event.which > 31 ) && (event.which < 166) ) {
         if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
           string += event.key;
-          console.log(string);
         }
       }else{
         if ( event.which == 192 ) {
           string += event.key;
-          console.log(string);
         }
         if ( event.which == 8 ) {
           string = string.substr(0,(string.length - 1));
         }
-        console.log(string);
       }
 
       
@@ -559,10 +585,13 @@
       }else{
         $("#fecha_login").parent().removeClass("has-error");
       }
-      
-      console.log("STRING PASSWORD2: "+string);
-      console.log("PASSWORD2: "+pass1);
 
+      if(profesion===""){
+        $("#lugar_login").parent().addClass("has-error");
+      }else{
+        $("#lugar_login").parent().removeClass("has-error");
+      }
+      
       if(pass1==string){
         if ( (nombre!="") && (apellido!="") && (email!="") && (dni!="") && (telefono!=="") && (fecha_egresado!=="") ){
           $("#siguiente-basico").removeAttr("disabled");
@@ -577,40 +606,40 @@
     });
 
     $("input[name=nombre_login]").keydown(function(event){
-      //var nombre=$("#nombre_login").val();
       apellido=$("#apellido_login").val();
       email=$("#email_login").val();
       telefono=$("#telefono_login").val();
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
       dni = $("#dni_login").val();
+      profesion = $("#lugar_login").val();
       fecha_egresado = $("#fecha_login").val();
 
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error"); 
-      if ( (apellido!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (apellido!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
       }  
     });
 
     $("input[name=apellido_login]").keydown(function(event){
       nombre=$("#nombre_login").val();
-      //var apellido=$("#apellido_login").val();
       email=$("#email_login").val();
       telefono=$("#telefono_login").val();
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
+      profesion = $("#lugar_login").val();
 
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error"); 
 
-      if ( (nombre!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (nombre!="") && (email!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
       }    
     });
@@ -618,17 +647,18 @@
     $("input[name=email_login]").keydown(function(event){
       nombre=$("#nombre_login").val();
       apellido=$("#apellido_login").val();
-      //var email=$("#email_login").val();
       telefono=$("#telefono_login").val();
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
+      profesion = $("#lugar_login").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error"); 
-      if ( (nombre!="") && (apellido!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (nombre!="") && (apellido!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
       }   
     });
@@ -637,17 +667,17 @@
       nombre=$("#nombre_login").val();
       apellido=$("#apellido_login").val();
       email=$("#email_login").val();
-      //var telefono=$("#telefono_login").val();
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
+      profesion = $("#lugar_login").val();
 
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error");  
-      if ( (nombre!="") && (apellido!="") && (dni!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (nombre!="") && (apellido!="") && (dni!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
       }    
     });
@@ -659,13 +689,13 @@
       telefono=$("#telefono_login").val();
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
-      //var dni = $("#dni_login").val();
+      profesion = $("#lugar_login").val();
       fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error");   
-      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
       }  
     });
@@ -678,12 +708,32 @@
       pass1=$("#password_login").val();
       pass2=$("#password2_login").val();
       dni = $("#dni_login").val();
+      profesion = $("#lugar_login").val();
       //var fecha_egresado = $("#fecha_login").val();
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error"); 
-      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (dni!=="") && (pass1!=="") && (pass2!=="") ){
+      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (dni!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="")){
+        $("#siguiente-basico").removeAttr("disabled");
+      }    
+    });
+
+    $("input[name=lugar_login]").change(function(event){
+      nombre=$("#nombre_login").val();
+      apellido=$("#apellido_login").val();
+      email=$("#email_login").val();
+      telefono=$("#telefono_login").val();
+      pass1=$("#password_login").val();
+      pass2=$("#password2_login").val();
+      dni = $("#dni_login").val();
+      //profesion = $("#lugar_login").val();
+      var fecha_egresado = $("#fecha_login").val();
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error"); 
+      if ( (nombre!="") && (apellido!="") && (telefono!="") && (email!="") && (dni!=="") && (pass1!=="") && (pass2!=="") && (fecha_egresado!=="")){
         $("#siguiente-basico").removeAttr("disabled");
       }    
     });
@@ -695,7 +745,7 @@
       telefono=$("#telefono_login").val();
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
-      console.log(event.which);
+      profesion = $("#lugar_login").val();
 
       if ( event.which == 13 ) {
         event.preventDefault();
@@ -704,22 +754,17 @@
       if ( ( event.which > 31 ) && (event.which < 166) ) {
         if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
           string2 += event.key;
-          console.log(string2);
         }
       }else{
         if ( event.which == 192 ) {
           string2 += event.key;
-          console.log(string2);
         }
         if ( event.which == 8 ) {
           string2 = string2.substr(0,(string2.length - 1));
         }
-        console.log(string2);
       }
       
       var password2 = $("#password2_login").val();
-      console.log("STRING PASSWORD: "+string2);
-      console.log("PASSWORD: "+password2);
       if(password2==string2){
         $(this).parent().removeClass("has-error");
         $("#password2_login").parent().removeClass("has-error");
@@ -738,10 +783,11 @@
     // INPUTS PASSWORD FACEBOOK
     
     $("input[name=password2-fb]").keydown(function(event){
-      telefono=$("#telefono_login").val();
-      dni = $("#dni_login").val();
-      fecha_egresado = $("#fecha_login").val();
-      console.log(event.keyCode);
+      telefono=$("#telefono_fb").val();
+      dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
@@ -750,7 +796,6 @@
         event.preventDefault();
       }
 
-      telefono=$("#telefono_fb").val();
       pass1=$("#password_fb").val();
 
       if ( event.which == 8 )  {
@@ -766,14 +811,30 @@
         $("#telefono_fb").parent().removeClass("has-error");
       }
 
+      if(dni==""){
+        $("#dni_fb").parent().addClass("has-error");
+      }else{
+        $("#dni_fb").parent().removeClass("has-error");
+      }
+
+      if(fecha_egresado==""){
+        $("#fecha_login_fb").parent().addClass("has-error");
+      }else{
+        $("#fecha_login_fb").parent().removeClass("has-error");
+      }
+
+      if(profesion==""){
+        $("#lugar_fb").parent().addClass("has-error");
+      }else{
+        $("#lugar_fb").parent().removeClass("has-error");
+      }
+
       if(pass1==""){
         $("#password_fb").parent().addClass("has-error");
       }else{
         $("#password_fb").parent().removeClass("has-error");
       }
       
-      console.log("STRING PASSWORD2: "+string3);
-      console.log("PASSWORD2: "+pass1);
 
       if(pass1==string3){
         $("#siguiente-fb").removeAttr("disabled");
@@ -787,9 +848,11 @@
     });
 
     $("input[name=password-fb]").keydown(function(event){
-      telefono=$("#telefono_login").val();
-      dni = $("#dni_login").val();
-      fecha_egresado = $("#fecha_login").val();
+      telefono=$("#telefono_fb").val();
+      dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
@@ -800,10 +863,32 @@
       }else{
         string4 += event.key;
       }
+
+      if(telefono==""){
+        $("#telefono_fb").parent().addClass("has-error");
+      }else{
+        $("#telefono_fb").parent().removeClass("has-error");
+      }
+
+      if(dni==""){
+        $("#dni_fb").parent().addClass("has-error");
+      }else{
+        $("#dni_fb").parent().removeClass("has-error");
+      }
+
+      if(fecha_egresado==""){
+        $("#fecha_login_fb").parent().addClass("has-error");
+      }else{
+        $("#fecha_login_fb").parent().removeClass("has-error");
+      }
+
+      if(profesion==""){
+        $("#lugar_fb").parent().addClass("has-error");
+      }else{
+        $("#lugar_fb").parent().removeClass("has-error");
+      }
       
       var password2 = $("#password2_fb").val();
-      console.log("STRING PASSWORD: "+string4);
-      console.log("PASSWORD: "+password2);
       if(password2==string4){
         $(this).parent().removeClass("has-error");
         $("#password2_fb").parent().removeClass("has-error");
@@ -816,18 +901,88 @@
     });
 
     $("input[name=telefono-fb]").keydown(function(event){
-      telefono=$("#telefono_login").val();
-      dni = $("#dni_login").val();
-      fecha_egresado = $("#fecha_login").val();
+      //telefono=$("#telefono_fb").val();
+      dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+
       if ( event.which == 13 ) {
         event.preventDefault();
       }
       $(this).parent().removeClass("has-error");   
+
+      if ( (dni!="") && (fecha_egresado!="") && (profesion!="") ){
+        $("#siguiente-fb").removeAttr("disabled");
+      }    
+    });
+
+    $("input[name=dni_fb]").keydown(function(event){
+      telefono=$("#telefono_fb").val();
+      //dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+
+      if ( (telefono!="") && (fecha_egresado!="") && (profesion!="") ){
+        $("#siguiente-fb").removeAttr("disabled");
+      }    
+    });
+
+    $("#fecha_login_fb").keydown(function(event){
+      telefono=$("#telefono_fb").val();
+      dni = $("#dni_fb").val();
+      //fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+
+      if ( (telefono!="") && (dni!="") && (profesion!="") ){
+        $("#siguiente-fb").removeAttr("disabled");
+      }    
+    });
+
+    $("input[name=lugar_fb]").keydown(function(event){
+      telefono=$("#telefono_fb").val();
+      dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      //profesion = $("#lugar_fb").val();
+
+      if ( event.which == 13 ) {
+        event.preventDefault();
+      }
+      $(this).parent().removeClass("has-error");   
+
+      if ( (telefono!="") && (dni!="") && (fecha_egresado!="") ){
+        $("#siguiente-fb").removeAttr("disabled");
+      }    
     });
     
 
     //BOTON SIGUIENTE FORMULARIO FACEBOOK
     $("#siguiente-fb").click(function(e){
+      telefono=$("#telefono_fb").val();
+      pass1=$("#password_fb").val();
+      dni = $("#dni_fb").val();
+      fecha_egresado = $("#fecha_login_fb").val();
+      profesion = $("#lugar_fb").val();
+      es_egresado = $("#egresado_fb").is(':checked');
+      console.log(nombre);
+      console.log(apellido);
+      console.log(email);
+      console.log(telefono);
+      console.log(pass1);
+      console.log(dni);
+      console.log(fecha_egresado);
+      console.log(profesion);
+      console.log(es_egresado);
+
       e.preventDefault();
       $(".contenedor-modo").css("display","none");
       $(".formulario-padre").animate({
@@ -863,6 +1018,7 @@
           telefono: telefono,
           egresado: egresado,
           fecha_egresado: fecha_egresado,
+          profesion: profesion,
           password: pass1,
           latitud: latitude,
           longitud: longitude          
@@ -1008,8 +1164,8 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         console.log(objeto);
+        console.log(json);
         if(objeto.entro==1){
-          <?php $this->session->set_userdata("newsession","yes"); ?>
           localStorage.setItem("ingreso_normal", "si");
           localStorage.setItem("registro_facebook", "no");
           window.location = direccion;
@@ -1037,19 +1193,23 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         //FB.getLoginStatus(handleSessionResponse);
-        /*FB.getLoginStatus(function(response) {
+        FB.getLoginStatus(function(response) {
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
+              console.log(response);
+              console.log("LOGOUT FB");
               if (objeto.eliminado){
                 window.location = direccion;
               }
             });
           }else{
+            console.log(response);
+            console.log("LOGOUT NO FB");
             if (objeto.eliminado){
               window.location = direccion;
             }
           }
-        });*/
+        });
         facebook_count = 0;
         console.log(objeto);
       }).fail(function(xhr, status, error){
@@ -1205,57 +1365,142 @@ function abreSitio(){
 
 
  function checkLoginState() {
-    console.log("checkLoginState");
-    facebook_count=2;
-    FB.getLoginStatus(function(response) {
+  console.log("checkLoginState");
+  facebook_count=2;
+  FB.getLoginStatus(function(response) {
+    console.log(response);
+    statusChangeCallback(response);
+  });
+}
+
+function statusChangeCallback(response) {
+  console.log(response);
+  console.log(facebook_count);
+  console.log("statusChangeCallback");
+  if (response.status === 'connected') {
+    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+      nombre = response.first_name;
+      apellido = response.last_name;
+      email = response.email;
+      nombre_completo = nombre+" "+apellido;
       console.log(response);
-      statusChangeCallback(response);
+      $.ajax({
+        type: "POST",
+        url: "Login/control/",
+        data:{
+          email: email,
+          nombre_completo: nombre_completo
+        }
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        console.log("Valor de si existe o no - 1 EXISTE - 2 NO EXISTE");
+        console.log(objeto);
+        facebook_count=2;
+        localStorage.setItem("ingreso_normal", "no");
+        localStorage.setItem("registro_facebook", "si");
+        if(objeto==1){
+          window.location = direccion;
+        }else{
+          FB.logout(function(response) {
+            console.log(response);
+            console.log("LOGOUT FB");
+            $(".login").animate({
+              right: "-100%"
+            },function(){
+              $("#registrate").click();
+              $(".contenedor-modo").animate({
+                left: "-100%"
+              });
+              $(".contenedor-modo").css("display","none");
+              $(".formulario-no-fb").css("display","none");
+              $(".formulario-padre").animate({
+                right: "0",
+                left: "0"
+              });
+
+              $(".bloq-2").addClass("active");
+              $(".sep-2").find(".linea-separador").addClass("active-sep");
+              $(".word-datos").addClass("word-active");
+            });
+          });
+        }
+        
+      });
+      
+    });  
+  }else{
+    var registro_fb = localStorage.getItem("registro_facebook");
+    var registro_normal = localStorage.getItem("ingreso_normal");
+    var valor;
+    if (registro_fb=="si") {
+      console.log("entro si FB");
+      valor = 1;  
+    }else{
+      if (registro_normal=="si") {
+        console.log("entro si NORMAL");
+        valor = 1;
+      }else{
+        console.log("entro no");
+        valor = 0;
+      }
+    }
+
+  }
+}
+
+function handleSessionResponse(response) {
+  console.log(response);
+  console.log("handleSessionResponse");
+    //if(response.status!="unknown"){
+      FB.logout(handleSessionResponse);
+    //}
+  }
+
+  // FB REGISTRATE
+
+  function checkLoginState2() {
+    console.log("checkLoginState2");
+    reg_fb_normal=1;
+    FB.getLoginStatus(function(response2) {
+      statusChangeCallback2(response2);
     });
   }
 
-  function statusChangeCallback(response) {
-    console.log(response);
-    console.log(facebook_count);
-    console.log("statusChangeCallback");
-    if (response.status === 'connected') {
+  function statusChangeCallback2(response2) {
+    console.log("statusChangeCallback2");
+    console.log(response2);
+    if (response2.status === 'connected') {
       FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
         nombre = response.first_name;
         apellido = response.last_name;
         email = response.email;
         console.log(response);
-        $.ajax({
-          type: "POST",
-          url: "Login/control/",
-          data:{
-            email: email
-          }
-        }).done(function(json){
-          var objeto = $.parseJSON(json);
-          console.log(objeto);
-          facebook_count=2;
-          localStorage.setItem("ingreso_normal", "no");
-          localStorage.setItem("registro_facebook", "si");
-          window.location = direccion; 
-        });
-      });  
-    }else{
-      var registro_fb = localStorage.getItem("registro_facebook");
-      var registro_normal = localStorage.getItem("ingreso_normal");
-      var valor;
-      if (registro_fb=="si") {
-        console.log("entro si FB");
-        valor = 1;  
-      }else{
-        if (registro_normal=="si") {
-          console.log("entro si NORMAL");
-          valor = 1;
-        }else{
-          console.log("entro no");
-          valor = 0;
-        }
-      }
+        console.log(nombre);
+        console.log(apellido);
+        console.log(email);
+      });
+
+      $(".contenedor-modo").animate({
+        left: "-100%"
+      });
+      $(".contenedor-modo").css("display","none");
+      $(".formulario-no-fb").css("display","none");
+      $(".formulario-padre").animate({
+        right: "0",
+        left: "0"
+      });
+
+      $(".bloq-2").addClass("active");
+      $(".sep-2").find(".linea-separador").addClass("active-sep");
+      $(".word-datos").addClass("word-active");
+
+      modo_log = 1;
+      FB.getLoginStatus(handleSessionResponse);
+      FB.logout(handleSessionResponse);
+      // REVISAR QUE ESTO DA PROBLEMAS CON F5 
     }
   }
+
 </script>
 
 <!--facebook api-->

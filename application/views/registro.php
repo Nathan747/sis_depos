@@ -362,6 +362,14 @@ if (isset($_SESSION['newsession'])) {
           </div>
         </div>
 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Profesion">
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="form-group">
             <div class="checkbox">
@@ -386,6 +394,24 @@ if (isset($_SESSION['newsession'])) {
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="form-group">
+            <input name="dni_fb" type="number" class="form-control" id="dni_fb" placeholder="DNI">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input placeholder="Fecha de nacimiento" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login_fb" step="1" max="2020-12-31">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Profesion">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
             <input name="password-fb" type="password" class="form-control" id="password_fb" 
             placeholder="Contraseña">
           </div>
@@ -395,12 +421,6 @@ if (isset($_SESSION['newsession'])) {
           <div class="form-group">
             <input name="password2-fb" type="password" class="form-control" id="password2_fb"
             placeholder="Repita la contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input placeholder="Fecha de nacimiento" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login_fb" step="1" max="2020-12-31">
           </div>
         </div>
 

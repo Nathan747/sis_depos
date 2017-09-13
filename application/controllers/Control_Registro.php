@@ -21,6 +21,7 @@ class Control_Registro extends CI_Controller {
 			"es_egresado_user"	=> $data["egresado"],
 			"fecha_egreso_user" => $data["fecha_egresado"],
 			"pass_user" 		=> $data["password"],
+			"profesion_user"	=> $data["profesion"],
 			"lat_user" 			=> $data["latitud"],
 			"long_user" 		=> $data["longitud"],
 			"jerarquia" 		=> 2

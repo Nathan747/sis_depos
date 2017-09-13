@@ -25,8 +25,8 @@ class Cargar_Imagen extends CI_Controller {
 
 		$nombre_fichero = $_FILES['imagen']['tmp_name'];
 		list($ancho, $alto) = getimagesize($nombre_fichero);
-		echo "ANCHO: " . $ancho . "<br>";
-		echo "ALTO: " . $alto . "<br>";
+		//echo "ANCHO: " . $ancho . "<br>";
+		//echo "ALTO: " . $alto . "<br>";
 
 		$max_ancho = 200;
 		$max_alto = 159;
@@ -37,7 +37,7 @@ class Cargar_Imagen extends CI_Controller {
 		if($ancho>$alto){
 			$max_ancho = $ancho * $promedio_alto;	
 			$nuevo_alto = $alto * $promedio_alto;	
-			echo "Resolucion horizontal: ".$max_ancho."x".$nuevo_alto."<br>";
+			//echo "Resolucion horizontal: ".$max_ancho."x".$nuevo_alto."<br>";
 			$resto = $max_ancho - 200;
 			$eliminar_bordes_y = $max_alto;
 			$offset_x = $resto / 2;
@@ -48,7 +48,7 @@ class Cargar_Imagen extends CI_Controller {
 		}else{
 			$max_alto = $alto * $promedio_ancho;
 			$nuevo_ancho = $ancho * $promedio_ancho;	
-			echo "Resolucion vertical: ".$nuevo_ancho."x".$max_alto."<br>";	
+			//echo "Resolucion vertical: ".$nuevo_ancho."x".$max_alto."<br>";	
 			$resto = $max_alto - 159;
 			$eliminar_bordes_x = $max_ancho;
 			$offset_y = $resto / 2;

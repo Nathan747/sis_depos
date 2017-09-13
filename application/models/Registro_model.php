@@ -12,9 +12,9 @@ class Registro_model extends CI_Model {
 	public function insert_user($data)
 	{		
 		$this->db->insert('unc_usuarios', $data);
-		//$_SESSION['newsession']="yes";
 		$this->session->set_userdata('newsession','yes');
-		$this->session->set_userdata('email',$data["email_user"]);
+		$nombre_completo = $data["nombre_user"]." ".$data["apellido_user"];
+		$this->session->set_userdata('username',$nombre_completo);
 	}
 
 	public function update_entry()
