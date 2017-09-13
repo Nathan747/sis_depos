@@ -15,7 +15,7 @@
   var string2="";
   var string3="";
   var string4="";
-  var marker;
+  var marker; 
 
   var nombre;
   var apellido;
