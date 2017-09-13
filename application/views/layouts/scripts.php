@@ -1037,19 +1037,21 @@
       }).done(function(json){
         var objeto = $.parseJSON(json);
         //FB.getLoginStatus(handleSessionResponse);
-        /*FB.getLoginStatus(function(response) {
+        FB.getLoginStatus(function(response) {
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
+              console.log(response);
               if (objeto.eliminado){
-                window.location = direccion;
+                //window.location = direccion;
               }
             });
           }else{
+            console.log(response);
             if (objeto.eliminado){
-              window.location = direccion;
+              //window.location = direccion;
             }
           }
-        });*/
+        });
         facebook_count = 0;
         console.log(objeto);
       }).fail(function(xhr, status, error){
