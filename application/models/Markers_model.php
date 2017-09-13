@@ -15,6 +15,7 @@ class Markers_model extends CI_Model {
 			$json[$i]["telefono_user"] = $row->telefono_user;
 			$json[$i]["dni_user"] = $row->dni_user;
 			$json[$i]["profesion_user"] = $row->profesion_user;
+			$json[$i]["biografia_user"] = $row->biografia_user;
 			$json[$i]["fecha_egreso_user"] = $row->fecha_egreso_user;
 			$json[$i]["pass_user"] = $row->pass_user;
 			$json[$i]["lat_user"] = $row->lat_user;

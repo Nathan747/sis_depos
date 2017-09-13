@@ -5,6 +5,7 @@ class Login extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('Login_model');
 	}
 
 	public function index()
@@ -24,11 +25,26 @@ class Login extends CI_Controller {
 		$data = $this->input->post();//Se puede reemplazar en esto
 
 		$datos = array(
-			"email" => $data["email"]
+			"email_user" => $data["email"]
 		);
 
-		echo json_encode($data);
-
-		$this->session->set_userdata("email",$datos["email"]);
+		$existe=$this->Login_model->existe_mail($datos);
+		if($existe==1){
+			$this->session->set_userdata("username",$data["nombre_completo"]);
+		}
+		echo json_encode($existe);
+		
 	}
+
+	public function set_yes()
+	{
+		$this->session->set_userdata("newsession","yes");
+	}
+
+	public function set_no()
+	{
+		$this->session->set_userdata("newsession","no");
+	}
+
+
 }
