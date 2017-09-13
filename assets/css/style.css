@@ -134,7 +134,7 @@
 
 
 .login {
-	width: 300px;
+	width: 314px;
 	position: absolute;
 	right: -100%;
 	background-color: white;
@@ -588,6 +588,56 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 .contenedor-info-becario{
     background: rgb(245, 247, 248);
     padding: 20px;
+}
+
+.columna-busqueda-dni input{
+	background-color: white;
+	border: 1px solid #364a62;
+	height: 42px;
+	padding-left: 43px;
+}
+
+.icono-busqueda-dni{
+	float: left;
+    position: relative;
+    z-index: 1500;
+    top: -32px;
+    left: 13px;
+}
+
+.icono-busqueda-dni img{
+	width: 20px;
+}
+
+.boton-buscar{
+	background: #e84c3d;
+    border: 1px solid #e84c3d;
+    border-radius: 0px;
+    color: white;
+    padding: 10px 0px;
+    transition: background .5s;
+}
+
+.boton-buscar:hover{
+	color: #e84c3d;
+	border: 1px solid #e84c3d;
+	background: white;
+	transition: background .5s;
+}
+
+.contenedor-info-becario .item-buscado{
+	color: #2d3e50;
+	padding-bottom: 20px;
+}
+
+.contenedor-info-becario .item-buscado:last-child{
+	padding-bottom: 0px;
+}
+
+.monto-ingreso input{
+	background-color: white;
+	border: 1px solid #364a62;
+	height: 42px;
 }
 
 @media (min-width: 768px){

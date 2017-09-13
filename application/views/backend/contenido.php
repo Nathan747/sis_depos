@@ -180,6 +180,9 @@
 					<div class="input-group columna-busqueda-dni">
 						<input type="text" class="form-control" placeholder="Buscar">
 					</div>
+					<div class="icono-busqueda-dni">
+						<img src="<?php echo base_url("assets/img/magnifier.png"); ?>" alt="">
+					</div>
 				</div>
 				<div class="col-lg-4">
 					<button type="submit" class="btn btn-default boton-buscar">Buscar</button>
@@ -189,12 +192,12 @@
 			<div class="informacion-obtenida">
 				<div class="col-lg-6">
 					<div class="contenedor-info-becario">
-						<div class="nombre-becario">Nombre: Maximiliano</div>
-						<div class="apellido-becario">Apellido: Kadyszyn</div>
-						<div class="dni-becario">DNI: 35563679</div>
-						<div class="edad-becario">Edad: 26</div>
-						<div class="carrera-becario">Carrera: Ing. en Sistemas</div>
-						<div class="anio-ingreso-becario">Año de Ingreso: 03/03/20009</div>
+						<div class="item-buscado nombre-becario">Nombre: Maximiliano</div>
+						<div class="item-buscado apellido-becario">Apellido: Kadyszyn</div>
+						<div class="item-buscado dni-becario">DNI: 35563679</div>
+						<div class="item-buscado edad-becario">Edad: 26</div>
+						<div class="item-buscado carrera-becario">Carrera: Ing. en Sistemas</div>
+						<div class="item-buscado anio-ingreso-becario">Año de Ingreso: 03/03/20009</div>
 					</div>
 				</div>
 				<div class="col-lg-6">

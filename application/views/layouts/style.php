@@ -441,13 +441,28 @@
 		border: 1px solid #ccc;
 		border-radius: 4px;
 		color: white;
-		background-color: #9b59b6;
+		background-color: #22205F;
 		text-decoration: none;
 	}
 
-	.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover{
-		background-color: #8e44ad;
+	.iniciar-sesion{
+		padding: 10px 0px;
+		font-size: 15px;
 		color: white;
+		background-color: #22205F;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+
+	.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover, .iniciar-sesion:hover{
+		background-color: white;
+		color: #22205F;
+		border: 1px solid #22205F
+	}
+
+	.no-face a{
+		padding: 10px 94px;
+		font-size: 15px;
 	}
 
 	.formulario-padre{
