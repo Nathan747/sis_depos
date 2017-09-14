@@ -31,6 +31,9 @@ class Login extends CI_Controller {
 		$existe=$this->Login_model->existe_mail($datos);
 		if($existe==1){
 			$this->session->set_userdata("username",$data["nombre_completo"]);
+			$this->session->set_userdata("email",$data["email"]);
+
+
 		}
 		echo json_encode($existe);
 		

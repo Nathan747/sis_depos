@@ -63,6 +63,17 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/scripts');
 	}
 
+	public function perfil()
+	{
+		$data["titulo"] = "Perfil UNCuyo";
+		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/style');
+		$this->load->view('editperfil/header');
+		$this->load->view('editperfil/aside');
+		$this->load->view('editperfil/contenido');
+		$this->load->view('editperfil/scripts');
+	}
+
 	public function logout()
 	{
 		session_unset();

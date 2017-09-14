@@ -1,5 +1,11 @@
+<?php  
+                if ($this->session->has_userdata('newsession')){
+                    if ($this->session->newsession==="yes"){
 
-    <!-- Contenido de la página -->
+    ?>
+                        
+
+                           <!-- Contenido de la página -->
     <div class="container">
 
         <!-- Encabezado de página / Breadcrumb -->
@@ -22,18 +28,19 @@
         <!-- Campos del formulario de contacto con validación de campos-->
         <div class="row">
             <!-- Columna de la izquierda -->
-        	<div class="col-md-3">
-        		<div class="col-md-12" align="center">
-        			<img class="img-responsive img-portfolio img-hover" src="<?php echo base_url('assets/img/profile.jpg');?>">
-        		</div>
-        		<div class="col-md-12">
-        			<p class="text-center"><strong>Nombre Apellido</strong></p>
-	        		<p class="text-center"><em>Título del perfil de usuario</em></p>
-        		</div>
+            <div class="col-md-3">
+                <div class="col-md-12" align="center">
+                    <img class="img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
+                </div>
+                <div class="col-md-12">
+                    <p class="text-center"><strong><?php echo $nombre_completo ?></strong></p>
+                     <p class="text-center"><strong><?php echo $profesion; ?></strong></p>
 
-        		<div class="col-md-12 text-center">
-    		       <!-- Redes sociales-->
-	               <ul class="list-unstyled list-inline list-social-icons">
+                </div>
+
+                <div class="col-md-12 text-center">
+                   <!-- Redes sociales-->
+                   <ul class="list-unstyled list-inline list-social-icons">
                         <li>
                             <a href="#"><i class="editIcons icon-facebook-square editSizeIcons"></i></a>
                         </li>
@@ -48,19 +55,19 @@
                         </li>
                     </ul>
                     <!-- Fin redes sociales -->
-        		</div>
+                </div>
 
-        		<div class="col-md-12">
-        		<!-- Barra vertical de opciones del perfil de usuairo -->
-        			<br >
-        			<ul class="list-group list-primary">
-        				<a href="<?php echo base_url('perfil');?>" class="list-group-item">Mi perfil</a>
+                <div class="col-md-12">
+                <!-- Barra vertical de opciones del perfil de usuairo -->
+                    <br >
+                    <ul class="list-group list-primary">
+                        <a href="<?php echo base_url('perfil');?>" class="list-group-item">Mi perfil</a>
                         <a href="<?php echo base_url('perfil/editar');?>" class="list-group-item">Editar Perfil</a>
-        				<a href="<?php echo base_url('perfil');?>" class="list-group-item">Donar</a>
-    				</ul>
-    			</div>
+                        <a href="<?php echo base_url('perfil');?>" class="list-group-item">Donar</a>
+                    </ul>
+                </div>
                 <!-- Fin Barra vertical de opciones del perfil de usuario -->
-        	</div>
+            </div>
             <!-- Fin de Columna de la izquierda -->
 
             <!-- Parte central -->
@@ -71,7 +78,7 @@
 
                     <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">
 
-                    <p style="text-align: center">Las diferencias entre las biografías son de muy distinto sesgo y originan toda una serie de subgéneros: la biografía autorizada o no autorizada, la vita moralizante grecolatina, la autobiografía (con subgéneros tan importantes como las autobiografías de esclavos o las autobiografías de soldados españoles del Siglo de Oro), las memorias, el diario personal o confesión, el epistolario, el diario simple o dietario, el libro de viajes, el memorial, las vidas de santos, la semblanza, el retrato, las vidas de trovadores provenzales, la autobiografía falsa, la biografía ficticia, el currículum, la biobibliografía, el dossier documental sobre una persona.</p>
+                    <p style="text-align: center"><?php echo $biografia; ?></p>
                 </div>
 
                         
@@ -81,3 +88,19 @@
 
         &nbsp;
         <hr>
+
+                        <?php
+                    }else{
+                        if ($this->session->newsession==="no"){
+                            ?>
+               
+                            <?php
+                        }
+                    }
+                }else{
+                    ?>
+   
+                        <?php
+                    }
+                    ?>
+ 

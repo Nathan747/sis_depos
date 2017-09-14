@@ -23,6 +23,7 @@
 					if ($this->session->newsession==="yes"){
 						?>
 						<li><a href="#"><?php echo $this->session->username; ?></a></li>
+						<li><a href="#"><?php echo $this->session->email; ?></a></li>
 						<li><a href="#" id="asd">CAMBIAR IMAGEN</a></li>
 						<li><a href="#" id="donar">DONAR</a></li>
 						<li><a href="#" id="salir">SALIR</a></li>
