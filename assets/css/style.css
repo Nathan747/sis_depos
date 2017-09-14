@@ -544,6 +544,10 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 	top: -393px;
 }
 
+#menu-recaudado{
+    top: -1850px;
+}
+
 #menu-becarios{
 	top: 10px;
 }
@@ -580,14 +584,20 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 }
 
 .dni-search{
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	width: 100%;
-    float: left;
+	float: left;
 }
 
 .contenedor-info-becario{
-    background: rgb(245, 247, 248);
-    padding: 20px;
+	background: rgb(245, 247, 248);
+	padding: 20px;
+	
+}
+
+.contenedor-info-becario, .monto-buscar, .texto-monto, .botones-monto, .botones-confirmacion-final{
+	position: relative;
+	top: 340px;
 }
 
 .columna-busqueda-dni input{
@@ -599,30 +609,32 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 
 .icono-busqueda-dni{
 	float: left;
-    position: relative;
-    z-index: 1500;
-    top: -32px;
-    left: 13px;
+	position: relative;
+	z-index: 1500;
+	top: -32px;
+	left: 13px;
 }
 
 .icono-busqueda-dni img{
 	width: 20px;
 }
 
-.boton-buscar{
-	background: #e84c3d;
-    border: 1px solid #e84c3d;
-    border-radius: 0px;
-    color: white;
-    padding: 10px 0px;
-    transition: background .5s;
+.boton-buscar, .boton-buscar:focus{
+	background: rgb(52,152, 219);
+	border: 1px solid rgb(52,152, 219);
+	border-radius: 0px;
+	color: white;
+	padding: 10px 0px;
+	transition: background .5s;
+	outline: 0px;
 }
 
-.boton-buscar:hover{
-	color: #e84c3d;
-	border: 1px solid #e84c3d;
+.boton-buscar:hover, .boton-buscar:focus:hover{
+	color: rgb(52,152, 219);
+	border: 1px solid rgb(52,152, 219);
 	background: white;
 	transition: background .5s;
+	
 }
 
 .contenedor-info-becario .item-buscado{
@@ -637,7 +649,79 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 .monto-ingreso input{
 	background-color: white;
 	border: 1px solid #364a62;
-	height: 42px;
+	height: 60px;
+	font-size: 30px;
+	color: #ccc;
+}
+
+.texto-monto{
+	padding-top: 15px;
+	float: left;
+	width: 100%;
+	padding-bottom: 125px;
+}
+
+.texto-info-monto, .cantidad-dinero-restante{
+	padding-left: 15px;
+	font-size: 12px;
+	letter-spacing: -0.4px;
+	color: #ccc;
+	float: left;
+}
+
+.cantidad-dinero-restante{
+	float: right;
+	padding-right: 15px;
+	color: #e84c3d;
+}
+
+.botones{
+	width: 50%;
+	float: left;
+}
+
+.boton-editar, .boton-confirmar, .boton-final, .boton-editar:focus, .boton-confirmar:focus, .boton-final:focus {
+	background: rgb(52,152, 219);
+	border: 1px solid rgb(52,152, 219);
+	border-radius: 0px;
+	color: white;
+	padding: 10px 0px;
+	transition: background .5s;
+	width: 100%;
+	outline: 0px;
+}
+
+.boton-editar:hover, .boton-confirmar:hover, .boton-final:hover, .boton-editar:focus:hover, .boton-confirmar:focus:hover, .boton-final:focus:hover{
+	color: rgb(52,152, 219);
+	border: 1px solid rgb(52,152, 219);
+	background: white;
+	transition: background .5s;
+}
+
+.boton-final, .boton-final:focus, .boton-final:focus:hover{
+	width: 250px;
+}
+
+.boton-editar{
+	margin-right: 5px;
+}
+
+.boton-confirmar{
+	margin-left: 5px;
+}
+
+.botones-confirmacion-final{
+	padding-top: 20px;
+	float: left;
+	width: 100%;
+}
+
+.contenedor-fade-in{
+	float: left;
+    top: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 @media (min-width: 768px){
