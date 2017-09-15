@@ -26,6 +26,7 @@ class Inicio extends CI_Controller {
 	public function donacion()
 	{
 		$data["titulo"] = "UNCuyo";
+		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
@@ -41,6 +42,7 @@ class Inicio extends CI_Controller {
 	public function en_proceso()
 	{
 		$data["titulo"] = "UNCuyo";
+		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
@@ -56,6 +58,7 @@ class Inicio extends CI_Controller {
 	public function back()
 	{
 		$data["titulo"] = "Admin UNCuyo";
+		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
@@ -69,6 +72,7 @@ class Inicio extends CI_Controller {
 	public function perfil()
 	{
 		$data["titulo"] = "Perfil UNCuyo";
+		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
