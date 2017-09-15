@@ -73,7 +73,7 @@
             <!-- Parte central -->
             <div class="col-md-9">
                 <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
-                    <h3 style="text-align: center">Mi perfil <p><small>Añade información personal para compartir tu perfil</small></p></h3>
+                    <h3 style="text-align: center">BIOGRAFÍA<p><small></small></p></h3>
                 </div>
 
                     <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">

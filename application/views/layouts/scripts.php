@@ -1296,7 +1296,8 @@
         <?php
       } ?>
       console.log(confirmacion);
-      window.location = "Cargar_Imagen";
+      //window.location = "Cargar_Imagen";
+       window.location = "Perfil";
     });
   });
 
