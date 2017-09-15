@@ -34,8 +34,8 @@ if ($this->session->has_userdata('newsession')){
                         </div>
 
                         <div class="col-md-12 text-center">
-                           <!-- Redes sociales-->
-                           <ul class="list-unstyled list-inline list-social-icons">
+                         <!-- Redes sociales-->
+                         <ul class="list-unstyled list-inline list-social-icons">
                             <li>
                                 <a href="#"><i class="editIcons icon-facebook-square editSizeIcons"></i></a>
                             </li>
@@ -80,25 +80,28 @@ if ($this->session->has_userdata('newsession')){
 
                 </div>  
                 <!-- Fin del div de parte central -->
-                
-                </div>  
 
-                &nbsp;
-                <hr>
+            </div>  
 
-                <?php
-            }else{
-                if ($this->session->newsession==="no"){
-                    ?>
-
-
-
-                    <?php
-                }
-            }
-        }else{
-            ?>
+            &nbsp;
+            <hr>
 
             <?php
+        }else{
+            if ($this->session->newsession==="no"){
+                header("Location: ". base_url());
+                ?>
+
+
+
+
+                <?php
+            }
         }
+    }else{
+        header("Location: ". base_url());
         ?>
+
+        <?php
+    }
+    ?>
