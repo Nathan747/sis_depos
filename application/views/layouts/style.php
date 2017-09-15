@@ -8,6 +8,11 @@
 		position: relative;
 		overflow: hidden;
 	}
+	body.editprofile{
+		font-family: Open Sans;
+		position: relative;
+		overflow: scroll;
+	}
 
 	.navbar{
 		min-height: 60px;
