@@ -15,6 +15,7 @@
   var string2="";
   var string3="";
   var string4="";
+  var string5="";
   var marker; 
 
   var nombre;
@@ -30,6 +31,7 @@
   var prev_infowindow = false; 
   var reg_fb_normal;
   var nombre_completo;
+  var todos_los_mail;
 
 
   function initMap() {
@@ -290,6 +292,15 @@
 
   /*login*/
   $(document).ready(function(){
+    $.ajax({
+      type: "post",
+      url: "Control_Registro/bring_mails"
+    }).done(function(json){
+      var objeto = $.parseJSON(json);
+      todos_los_mail = objeto;
+      console.log(todos_los_mail);
+    });
+
     $('#cerrar-login').click(function(e){
       e.preventDefault();
       $('.login').animate({
@@ -660,7 +671,42 @@
       $(this).parent().removeClass("has-error"); 
       if ( (nombre!="") && (apellido!="") && (dni!="") && (telefono!="") && (fecha_egresado!=="") && (pass1!=="") && (pass2!=="") && (profesion!=="") ){
         $("#siguiente-basico").removeAttr("disabled");
-      }   
+      }
+
+      if ( ( event.which > 31 ) && (event.which < 166) ) {
+        if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
+          string5 += event.key;
+        }
+      }else{
+        if ( event.which == 192 ) {
+          string5 += event.key;
+        }
+        if (event.which==190) {
+          string5 += event.key;
+        }
+        if (event.which==189) {
+          string5 += event.key;
+        }
+        if (event.which==219) {
+          string5 += event.key;
+        }
+        if (event.which==186) {
+          string5 += event.key;
+        }
+        if ( event.which == 8 ) {
+          string5 = string5.substr(0,(string5.length - 1));
+        }
+      }
+      console.log(event.which);
+      console.log(string5);
+      for(var j=0;j<todos_los_mail.length;j++){
+        if(string5==todos_los_mail[j].email_user){
+          console.log("IGUALES");
+        }else{
+          console.log("NO IGUALES");
+        }
+      }
+      
     });
 
     $("input[name=telefono_login]").keydown(function(event){
@@ -1297,7 +1343,7 @@
       } ?>
       console.log(confirmacion);
       //window.location = "Cargar_Imagen";
-       window.location = "Perfil";
+      window.location = "Perfil";
     });
   });
 

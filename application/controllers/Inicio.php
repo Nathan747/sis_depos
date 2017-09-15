@@ -8,18 +8,19 @@ class Inicio extends CI_Controller {
 	{
 		//$this->session->sess_destroy();
 		$data["titulo"] = "UNCuyo";
+		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
 		$this->load->view('layouts/header');
-		$this->load->view('start_body');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('registro');
 		$this->load->view('login');
 		$this->load->view('donar');
-		$this->load->view('end_body');
 		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('end_body');
 	}
 
 	public function donacion()
@@ -27,14 +28,14 @@ class Inicio extends CI_Controller {
 		$data["titulo"] = "UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
 		$this->load->view('layouts/header');
-		$this->load->view('start_body');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('donacion');
-		$this->load->view('end_body');
 		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('end_body');
 	}
 
 	public function en_proceso()
@@ -42,14 +43,14 @@ class Inicio extends CI_Controller {
 		$data["titulo"] = "UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
 		$this->load->view('layouts/header');
-		$this->load->view('start_body');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('proceso');
-		$this->load->view('end_body');
 		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('end_body');
 	}
 
 	public function back()
@@ -57,10 +58,12 @@ class Inicio extends CI_Controller {
 		$data["titulo"] = "Admin UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
 		$this->load->view('backend/header');
 		$this->load->view('backend/aside');
 		$this->load->view('backend/contenido');
 		$this->load->view('backend/scripts');
+		$this->load->view('end_body');
 	}
 
 	public function perfil()
@@ -68,10 +71,12 @@ class Inicio extends CI_Controller {
 		$data["titulo"] = "Perfil UNCuyo";
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
 		$this->load->view('editperfil/header');
 		$this->load->view('editperfil/aside');
 		$this->load->view('editperfil/contenido');
 		$this->load->view('editperfil/scripts');
+		$this->load->view('end_body');
 	}
 
 	public function logout()
