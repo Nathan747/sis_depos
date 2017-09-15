@@ -14,8 +14,8 @@ class Registro extends CI_Controller {
 		$this->load->view('layouts/style');
 		$this->load->view('layouts/header');
 		$this->load->view('registro');
-		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('layouts/scripts');
 	}
 
 	public function facebook()

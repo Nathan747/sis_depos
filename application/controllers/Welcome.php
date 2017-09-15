@@ -16,8 +16,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('registro');
 		$this->load->view('login');
 		$this->load->view('donar');
-		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('layouts/scripts');
 		$this->load->view('end_body');
 	}
 }

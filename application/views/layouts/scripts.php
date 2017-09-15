@@ -495,30 +495,40 @@
       fecha_egresado = $("#fecha_login").val();
       profesion = $("#lugar_login").val();
       es_egresado = $("#egresado_login").is(':checked');
-      console.log(nombre);
-      console.log(apellido);
-      console.log(email);
-      console.log(telefono);
-      console.log(pass1);
-      console.log(dni);
-      console.log(fecha_egresado);
-      console.log(profesion);
-      console.log(es_egresado);
       e.preventDefault();
-      $(".contenedor-modo").css("display","none");
-      $(".formulario-padre").animate({
-        left: "-100%"
-      });
-      $(".formulario-padre").css("display","none");
-      $(".contenedor-carreras").animate({
-        right: "0",
-        left: "0"
-      });
+      for(var j=0;j<todos_los_mail.length;j++){
+        console.log(j);
+        console.log(email + " == " + todos_los_mail[j].email_user);
+        if(email==todos_los_mail[j].email_user){
+          email_existe="existe";
+        }
+        console.log("EXISTE: "+email_existe);
+      }
+      console.log("EXISTE: "+email_existe);
+      if(!(email_existe=="existe")){
+        $("#email_login").parent().removeClass("has-error");
+        $(".error-email").text("");
+
+        $(".contenedor-modo").css("display","none");
+        $(".formulario-padre").animate({
+          left: "-100%"
+        });
+        $(".formulario-padre").css("display","none");
+        $(".contenedor-carreras").animate({
+          right: "0",
+          left: "0"
+        });
 
 
-      $(".bloq-3").addClass("active");
-      $(".sep-3").find(".linea-separador").addClass("active-sep");
-      $(".word-carrera").addClass("word-active");
+        $(".bloq-3").addClass("active");
+        $(".sep-3").find(".linea-separador").addClass("active-sep");
+        $(".word-carrera").addClass("word-active");
+      }else{
+       $("#email_login").parent().addClass("has-error");
+       $(".error-email").text("E-mail ya en uso");
+       email_existe="";
+      }
+      
     });
 
     // INPUTS PASSWORD REGISTRO
@@ -695,15 +705,6 @@
         }
         if ( event.which == 8 ) {
           string5 = string5.substr(0,(string5.length - 1));
-        }
-      }
-      console.log(event.which);
-      console.log(string5);
-      for(var j=0;j<todos_los_mail.length;j++){
-        if(string5==todos_los_mail[j].email_user){
-          console.log("IGUALES");
-        }else{
-          console.log("NO IGUALES");
         }
       }
       

@@ -18,8 +18,8 @@ class Inicio extends CI_Controller {
 		$this->load->view('registro');
 		$this->load->view('login');
 		$this->load->view('donar');
-		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('layouts/scripts');
 		$this->load->view('end_body');
 	}
 
@@ -34,8 +34,8 @@ class Inicio extends CI_Controller {
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('donacion');
-		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('layouts/scripts');
 		$this->load->view('end_body');
 	}
 
@@ -50,8 +50,8 @@ class Inicio extends CI_Controller {
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('proceso');
-		$this->load->view('layouts/scripts');
 		$this->load->view('layouts/footer');
+		$this->load->view('layouts/scripts');
 		$this->load->view('end_body');
 	}
 
