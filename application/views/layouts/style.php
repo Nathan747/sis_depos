@@ -8,11 +8,6 @@
 		position: relative;
 		overflow: hidden;
 	}
-	body.editprofile{
-		font-family: Open Sans;
-		position: relative;
-		overflow: scroll;
-	}
 
 	.navbar{
 		min-height: 60px;
@@ -313,10 +308,6 @@
 		width: 100%;
 	}
 
-	.siguiente-registro-basico{
-		padding-top: 0px;
-	}
-
 	.contenedor-modo, .mapa-registro{
 		float: left;
 		clear: both;
@@ -327,16 +318,7 @@
 		position: relative;
 	}
 
-	.mapa-registro{
-		padding-top: 15px;
-	}	
-
-	.ubicate{
-		color: #34495E;
-	    font-weight: 700;
-	    font-size: 16px;
-	    padding-bottom: 15px;
-	}
+	
 
 	.word{
 		width: 650px;

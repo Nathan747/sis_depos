@@ -3,7 +3,7 @@ if ($this->session->has_userdata('newsession')){
     if ($this->session->newsession==="yes"){
         ?>
         <!-- Contenido de la página -->
-        <div class="container-fluid">
+        <div class="profile">
             <div class="container">
                 <!-- Encabezado de página / Breadcrumb -->
                 <div class="row">
