@@ -48,4 +48,19 @@ class Login_model extends CI_Model {
     }
   }
 
+  public function recuperar_pass($data){
+    $sql=$this->db->where($data)->get('unc_usuarios');
+    $filas = $sql->num_rows();
+    if ($filas>0){
+      foreach ($sql->result() as $row){
+        $JSON["pass"] = $row->pass_user;
+        $JSON["nombre"] = $row->nombre_user;
+        $JSON["encontro"] = 1;
+      }
+    }else{
+      $JSON["encontro"] = 0;
+    }
+    return $JSON;
+  }
+
 }

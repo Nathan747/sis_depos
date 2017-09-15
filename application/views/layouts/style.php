@@ -445,7 +445,7 @@
 		text-decoration: none;
 	}
 
-	.iniciar-sesion{
+	.iniciar-sesion, .btn-recup-pass{
 		padding: 10px 0px;
 		font-size: 15px;
 		color: white;
@@ -454,7 +454,7 @@
 		border-radius: 4px;
 	}
 
-	.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover, .iniciar-sesion:hover{
+	.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover, .iniciar-sesion:hover, .btn-recup-pass:hover{
 		background-color: white;
 		color: #22205F;
 		border: 1px solid #22205F
