@@ -32,15 +32,9 @@ class Control_Registro extends CI_Controller {
 			"nombre"	=> $data["nombre"]
 		);
 
-		//$this->enviar_mail($datos_mail);
 		$this->Registro_model->insert_user($datos);
-		
-		echo json_encode($data);
-	}
-
-	public function enviar_mail($data){
-		$email =  $data["email"];
-		$name = $data["nombre"];
+		$email =  $datos_mail["email"];
+		$name = $datos_mail["nombre"];
 		$email_address = $email;
 		$to = $email_address;
 		$email_subject = "Gracias por registrarte en la plataforma #SoyDeLaUNCuyo";
@@ -56,12 +50,11 @@ class Control_Registro extends CI_Controller {
 		<center> 
 
 		<p>
-		Hola <strong>'.$nombre.'</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. 
+		Hola <strong>'.$name.'</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. 
 		</p>
 
 		</body>
 		</html>';
-		$json["body"]=$email_body;
 
 		$headers = "MIME-Version: 1.0\n";
 		$headers .= "Content-type: text/html; charset=utf-8\n";
@@ -69,6 +62,8 @@ class Control_Registro extends CI_Controller {
 
 		$headers .= "Reply-To: $email_address";	
 		mail($to,$email_subject,$email_body,$headers);
+		
+		echo json_encode($data);
 	}
 
 	public function control_email()

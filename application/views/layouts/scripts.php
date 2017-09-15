@@ -32,6 +32,7 @@
   var reg_fb_normal;
   var nombre_completo;
   var todos_los_mail;
+  var email_existe="";
 
   /*login*/
   $(document).ready(function(){
