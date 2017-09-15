@@ -463,6 +463,7 @@ if (isset($_SESSION['newsession'])) {
 
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mapa-registro">
+        <div class="ubicate">Ubicate en el mapa</div>
         <div class="form-group">
           <div id="mapa_registro"></div>
         </div>

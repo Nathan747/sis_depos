@@ -29,9 +29,15 @@ class Perfil_model extends CI_Model {
       $json["profesion"]=$profesion;
       $json["biografia"]=$biografia;
       $json["foto"]=$foto;
+    }else{
+      $json["nombre_completo"]="";
+      $json["email"]="";
+      $json["profesion"]="";
+      $json["biografia"]="";
+      $json["foto"]="";
     }
 
-return $json; 
+    return $json; 
   }
 }
 
