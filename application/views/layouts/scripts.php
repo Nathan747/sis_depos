@@ -599,6 +599,7 @@
       console.log(apellido);
       console.log(email);
       console.log(telefono);
+      console.log(birthday);
       console.log(pass1);
       console.log(dni);
       console.log(fecha_egresado);
@@ -863,6 +864,8 @@ function statusChangeCallback(response) {
       apellido = response.last_name;
       email = response.email;
       nombre_completo = nombre+" "+apellido;
+      birthday=response.birthday;
+      console.log(birthday);
       console.log(response);
       $.ajax({
         type: "POST",
@@ -948,16 +951,25 @@ function handleSessionResponse(response) {
 
   function statusChangeCallback2(response2) {
     console.log("statusChangeCallback2");
-    console.log(response2);
+    //console.log(response2);
     if (response2.status === 'connected') {
-      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
         nombre = response.first_name;
         apellido = response.last_name;
         email = response.email;
+        birthday = response.age_range;
+        work = response.work;
+        locale = response.locale;
+        acercade = response.bio;
+
         console.log(response);
         console.log(nombre);
         console.log(apellido);
         console.log(email);
+        console.log(birthday);
+        console.log(work);
+        console.log(locale);
+        console.log(acercade);
       });
 
       $(".contenedor-modo").animate({

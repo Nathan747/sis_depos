@@ -24,9 +24,13 @@ if ($this->session->has_userdata('newsession')){
                     <!-- Columna de la izquierda -->
                     <div class="col-md-3">
                       <div class="col-md-12" align="center">
+
+
                         <img class="img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
+
+                        
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 name">
                         <p class="text-center"><strong><?php echo $nombre_completo ?></strong></p>
                         <p class="text-center"><strong><?php echo $profesion; ?></strong></p>
 
@@ -57,7 +61,27 @@ if ($this->session->has_userdata('newsession')){
                   <ul class="list-group list-primary">
                     <a href="<?php echo base_url('perfil');?>" class="list-group-item">Mi perfil</a>
                     <a href="<?php echo base_url('perfil');?>" class="list-group-item">Guardar</a>
-                </ul>
+                
+
+<form action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
+        <table width="350" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#000000">
+            <tr>
+                <td height="85" align="center" valign="middle" bgcolor="#FFFFFF">
+                    <div align="center">
+                        <input name="imagen" type="file" maxlength="150">
+                        <br><br>                                     
+                        <input type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</ul>
+
+
+
+
             </div>
             <!-- Fin Barra vertical de opciones del perfil de usuario -->
         </div>

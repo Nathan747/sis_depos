@@ -26,6 +26,7 @@ if ($this->session->has_userdata('newsession')){
                     <div class="col-md-3">
                         <div class="col-md-12" align="center">
                             <img class="img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
+                            <?php echo $foto;?>
                         </div>
                         <div class="col-md-12">
                             <p class="text-center"><strong><?php echo $nombre_completo ?></strong></p>

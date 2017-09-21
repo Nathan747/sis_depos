@@ -8,6 +8,11 @@
 		position: relative;
 		overflow: hidden;
 	}
+	body.editprofile{
+		font-family: Open Sans;
+		position: relative;
+		overflow: scroll;
+	}
 
 	.navbar{
 		min-height: 60px;
@@ -515,6 +520,16 @@
 		color: rgb(44,62,80) !important;
 	}
 
+
+
+	/*PERFIL*/
+	.profile{
+		width: 100%;
+	}
+
+	.editprofile{
+		width:100%; 
+	}
 
 
 	

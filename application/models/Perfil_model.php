@@ -23,7 +23,12 @@ class Perfil_model extends CI_Model {
         $profesion = $row->profesion_user;
         $biografia = $row->biografia_user;
         $foto = $row->img;
+        if ($foto==""){
+          $foto='assets/img/pics/'.'1.png';
+        }
+
       }
+
       $json["nombre_completo"]=$nombre_completo;
       $json["email"]=$email;
       $json["profesion"]=$profesion;
