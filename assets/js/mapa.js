@@ -145,7 +145,6 @@ function initMap() {
       var profesion=objeto[x].profesion_user;
 
       var biografia=objeto[x].biografia_user;
-      console.log(biografia);
       var longitud=50;
       /***********/
       if(biografia.length > longitud){

@@ -126,7 +126,7 @@ if (isset($_SESSION['newsession'])) {
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="form-group">
-                <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Profesion">
+                <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Trabajo actual">
               </div>
             </div>
 
@@ -168,7 +168,7 @@ if (isset($_SESSION['newsession'])) {
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="form-group">
-                <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Profesion">
+                <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Trabajo actual">
               </div>
             </div>
 
@@ -225,6 +225,7 @@ if (isset($_SESSION['newsession'])) {
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mapa-registro">
           <div class="form-group">
             <div id="mapa_registro"></div>
+            <div class="fb-share-button" data-href="https://koiron.com/proyectos/2017/unc/" data-layout="button" data-size="large"><a class="fb-xfbml-parse-ignore" href="javascript:void(0);" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkoiron.com%2Fproyectos%2F2017%2Func%2F&amp;src=sdkpreparse', 'popup', 'left=390, top=200, width=400, height=200, toolbar=0, resizable=1')" style="text-decoration: none;">Compartir</a></div>
           </div>
 
           <div class="siguiente-finalizar">
@@ -325,12 +326,12 @@ if (isset($_SESSION['newsession'])) {
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padre-email">
-              <div class="form-group">
-                <input name="email_login" type="email" class="form-control" id="email_login"
-                placeholder="E-Mail" data-toggle="tooltip-mail" title="E-Mail ya en uso">
-              </div>
-              <div class="error-email"></div>
+            <div class="form-group">
+              <input name="email_login" type="email" class="form-control" id="email_login"
+              placeholder="E-Mail" data-toggle="tooltip-mail" title="E-Mail ya en uso">
             </div>
+            <div class="error-email"></div>
+          </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">

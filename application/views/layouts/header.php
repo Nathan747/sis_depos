@@ -1,6 +1,4 @@
-<script>
-	console.log("<?php echo $this->session->newsession; ?>" + "Linea 2 HEADER.PHP");
-</script>
+
 <nav class="navbar navbar-default">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -21,7 +19,7 @@
 				<?php  
 				if ($this->session->has_userdata('newsession')){
 					if ($this->session->newsession==="yes"){
-						?>
+						?>						
 						<li><a href="#"><?php echo $this->session->username; ?></a></li>
 						<li><a href="#" id="asd">PERFIL</a></li>
 						<li><a href="#" id="donar">DONAR</a></li>
@@ -51,4 +49,3 @@
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-	<script>console.log("<?php echo $this->session->newsession; ?>" + "Linea 70 HEADER.PHP");</script>
