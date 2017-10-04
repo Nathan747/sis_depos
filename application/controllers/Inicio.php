@@ -21,7 +21,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('layouts/header');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
-		$this->load->view('registro');
+		//$this->load->view('registro');
 		$this->load->view('login');
 		$this->load->view('donar');
 		$this->load->view('layouts/footer');

@@ -6,7 +6,6 @@
     }).done(function(json){
       var objeto = $.parseJSON(json);
       todos_los_mail = objeto;
-      console.log(todos_los_mail);
     });
 
     //BOTON SIGUIENTE REGISTRATE
@@ -43,14 +42,10 @@
       es_egresado = $("#egresado_login").is(':checked');
       e.preventDefault();
       for(var j=0;j<todos_los_mail.length;j++){
-        console.log(j);
-        console.log(email + " == " + todos_los_mail[j].email_user);
         if(email==todos_los_mail[j].email_user){
           email_existe="existe";
         }
-        console.log("EXISTE: "+email_existe);
       }
-      console.log("EXISTE: "+email_existe);
       if(!(email_existe=="existe")){
         $("#email_login").parent().removeClass("has-error");
         $(".error-email").text("");
@@ -276,7 +271,6 @@
     });
 
     $("input[name=password2]").keydown(function(event){
-      console.log(event.which);
       if ( event.which == 13 ) {
         event.preventDefault();
       }
@@ -444,7 +438,6 @@
       }
 
       if ( event.which == 8 ) {
-        console.log(string4.length);
         string4 = string4.substr(0,(string4.length - 1));
       }else{
         string4 += event.key;
@@ -559,16 +552,6 @@
       fecha_egresado = $("#fecha_login_fb").val();
       profesion = $("#lugar_fb").val();
       es_egresado = $("#egresado_fb").is(':checked');
-      console.log(nombre);
-      console.log(apellido);
-      console.log(email);
-      console.log(telefono);
-      console.log(birthday);
-      console.log(pass1);
-      console.log(dni);
-      console.log(fecha_egresado);
-      console.log(profesion);
-      console.log(es_egresado);
 
       e.preventDefault();
       $(".contenedor-modo").css("display","none");
@@ -593,7 +576,8 @@
       }else{
         var egresado=0;
       } 
-      $(".fb-share-button").click();
+      $(".class").click();
+      console.log($(".fb-xfbml-parse-ignore"));
 
       $.ajax({
         type: "POST",
@@ -611,8 +595,6 @@
           longitud: longitude          
         }
       }).done(function(json){
-        //var objeto = $.parseJSON(json);
-        console.log(json);
         if(reg_fb_normal==0){
           localStorage.setItem("ingreso_normal", "si");
           localStorage.setItem("registro_facebook", "no");
@@ -636,8 +618,6 @@
       e.preventDefault();
       var email_ingresar = $("#email_ingresar2").val();
       var password_ingresar = $("#password_ingresar2").val();
-      console.log(email_ingresar);
-      console.log(password_ingresar);
       $.ajax({
         type: "POST",
         url: "Control_Login/enviar_datos/",
@@ -647,14 +627,11 @@
         }
       }).done(function(json){
         var objeto = $.parseJSON(json);
-        console.log(objeto);
-        console.log(json);
         if(objeto.entro==1){
           localStorage.setItem("ingreso_normal", "si");
           localStorage.setItem("registro_facebook", "no");
           window.location = direccion;
         }else{
-          console.log("ELSE");
           $(".error-login").text("Email o Contraseña erronea");
         }
       }).fail(function(xhr, status, error){
@@ -681,22 +658,17 @@
         FB.getLoginStatus(function(response) {
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
-              console.log(response);
-              console.log("LOGOUT FB");
               if (objeto.eliminado){
                 window.location = direccion;
               }
             });
           }else{
-            console.log(response);
-            console.log("LOGOUT NO FB");
             if (objeto.eliminado){
               window.location = direccion;
             }
           }
         });
         facebook_count = 0;
-        console.log(objeto);
       }).fail(function(xhr, status, error){
         console.log(xhr);
         console.log(status);
@@ -722,7 +694,6 @@
           }
         }).done(function(json){
           var objeto = $.parseJSON(json);
-          console.log(objeto);
           if(objeto.encontro==1){
             $(".texto-recupera").text("En breves te llegará un mail con tu contraseña");
             $(".texto-recupera").css("color","green");
@@ -744,4 +715,8 @@
     $("#asd").click(function(){
       window.location = "Perfil";
     });
+  });
+
+  $(window).on('load', function(){ 
+    $("#preloader").fadeOut(1000);
   });

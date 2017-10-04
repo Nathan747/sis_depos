@@ -21,26 +21,22 @@
 					if ($this->session->newsession==="yes"){
 						?>						
 						<li><a href="#"><?php echo $this->session->username; ?></a></li>
-						<li><a href="#" id="asd">PERFIL</a></li>
-						<li><a href="#" id="donar">DONAR</a></li>
-						<li><a href="#" id="salir">SALIR</a></li>
+						<li><a href="#" id="asd">Perfil</a></li>
+						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
+						<li><a href="#" id="salir">Salir</a></li>
 						<?php
 					}else{
 						if ($this->session->newsession==="no"){
 							?>
-						<!--li><a href="#" >ACERCA DE</a></li>
-						<li><a href="#" >COMO FUNCIONA</a></li-->
-							<li><a href="#" id="registrate">REGISTRARSE</a></li>
-							<li><a href="#" id="ingresar">INGRESAR</a></li>
+							<li><a href="#" id="registrate">Registrarse</a></li>
+							<li><a href="#" id="ingresar">Ingresar</a></li>
 							<?php
 						}
 					}
 				}else{
 					?>
-					<!--li><a href="#" >ACERCA DE</a></li>
-					<li><a href="#" >COMO FUNCIONA</a></li-->
-						<li><a href="#" id="registrate">REGISTRARSE</a></li>
-						<li><a href="#" id="ingresar">INGRESAR</a></li>
+						<li><a href="#" id="registrate">Registrarse</a></li>
+						<li><a href="#" id="ingresar">Ingresar</a></li>
 						<?php
 					}
 					?>
