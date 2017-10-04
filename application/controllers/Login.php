@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 		$this->load->model('Login_model');
 	}
 
-	public function index()
+	/*public function index()
 	{
 		$data["titulo"] = "LOGIN";
 
@@ -18,7 +18,7 @@ class Login extends CI_Controller {
 		$this->load->view('login');
 		$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');
-	}
+	}*/
 
 	public function control()
 	{
@@ -32,9 +32,9 @@ class Login extends CI_Controller {
 		if($existe==1){
 			$this->session->set_userdata("username",$data["nombre_completo"]);
 			$this->session->set_userdata("email",$data["email"]);
-
-
+			$this->session->set_userdata("newsession","yes");
 		}
+
 		echo json_encode($existe);
 		
 	}

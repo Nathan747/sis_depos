@@ -39,13 +39,11 @@ class Login_model extends CI_Model {
     $sql=$this->db->where($data)->get('unc_usuarios');
     $filas = $sql->num_rows();
     if ($filas>0){
-      $this->session->set_userdata("newsession","yes");
-      $this->session->set_userdata("email",$data["email_user"]);
-      return 1;
+      $variable = 1;
     }else{
-      $this->session->set_userdata("newsession","no");
-      return 0;
+      $variable = 0;
     }
+    return $variable;
   }
 
   public function recuperar_pass($data){

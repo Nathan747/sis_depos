@@ -62,6 +62,7 @@ function statusChangeCallback(response) {
         facebook_count=2;
         localStorage.setItem("ingreso_normal", "no");
         localStorage.setItem("registro_facebook", "si");
+        console.log(objeto);
         if(objeto==1){
           window.location = direccion;
         }else{
@@ -132,24 +133,45 @@ function handleSessionResponse(response) {
         work = response.work;
         locale = response.locale;
         acercade = response.bio;
-      });
 
-      $(".contenedor-modo").animate({
-        left: "-100%"
-      });
-      $(".contenedor-modo").css("display","none");
-      $(".formulario-no-fb").css("display","none");
-      $(".formulario-padre").animate({
-        right: "0",
-        left: "0"
-      });
 
-      $(".bloq-2").addClass("active");
-      $(".sep-2").find(".linea-separador").addClass("active-sep");
-      $(".word-datos").addClass("word-active");
+        nombre_completo = nombre+" "+apellido;
 
-      modo_log = 1;
-      FB.getLoginStatus(handleSessionResponse);
-      FB.logout(handleSessionResponse);
+        $.ajax({
+          type: "POST",
+          url: "Login/control/",
+          data:{
+            email: email,
+            nombre_completo: nombre_completo
+          }
+        }).done(function(json){
+          var objeto = $.parseJSON(json);
+          facebook_count=2;
+          localStorage.setItem("ingreso_normal", "no");
+          localStorage.setItem("registro_facebook", "si");
+          console.log(objeto);
+          if(objeto==1){
+            window.location = direccion;
+          }else{
+            $(".contenedor-modo").animate({
+              left: "-100%"
+            });
+            $(".contenedor-modo").css("display","none");
+            $(".formulario-no-fb").css("display","none");
+            $(".formulario-padre").animate({
+              right: "0",
+              left: "0"
+            });
+
+            $(".bloq-2").addClass("active");
+            $(".sep-2").find(".linea-separador").addClass("active-sep");
+            $(".word-datos").addClass("word-active");
+
+            modo_log = 1;
+            FB.getLoginStatus(handleSessionResponse);
+            FB.logout(handleSessionResponse);
+          }
+        });
+      });
     }
   }

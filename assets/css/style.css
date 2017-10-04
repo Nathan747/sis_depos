@@ -1,3 +1,24 @@
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../fonts/icomoon.eot?ybuj1v');
+	src:  url('../fonts/icomoon.eot?ybuj1v#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon.ttf?ybuj1v') format('truetype'),
+	url('../fonts/icomoon.woff?ybuj1v') format('woff'),
+	url('../fonts/icomoon.svg?ybuj1v#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-user:before {
+  content: "\e971";
+  font-family: 'icomoon';
+}
+
+.icon-user{
+	padding-left: 8px;
+    margin-top: 0px;
+}
+
 /*ventana flotnte sin sesion*/
 .float{
 	height: 400px;
@@ -1289,12 +1310,32 @@ footer{
 }
 
 /*PERFIL*/
-.profile{
-	width: 100%;
+.profile {
+    width: 1200px;
+    overflow: hidden;
+    position: absolute;
+    top: 60px;
+    background: white;
+    z-index: 999;
+    border: 2px solid;
+    right: -100%;
+    height: calc(100vh - 60px);
 }
-
 .editprofile{
-	width:100%; 
+     width: 1200px;
+    overflow: scroll;
+    position: absolute;
+    top: 60px;
+    background: white;
+    z-index: 999;
+    border: 2px solid;
+    right: -100%;
+    height: calc(100vh - 60px);
+    display:none;
+}
+.formul{
+    right: -100%;
+    top: -102px;
 }
 
 .container-checkbox .form-group{
@@ -1309,12 +1350,23 @@ footer{
 	z-index: 100;
 	width: 100vw;
 	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
 }
-#loader {
-	width: 100px;
-	height: 100px;
+
+#contenedor-loader{
+	width: 100vw;
+	height: 200px;
 	position: absolute;
-	left:50%; top:50%;
-	background: url(../img/loader.gif) no-repeat center 0;
-	margin:-50px 0 0 -50px;
 }
+
+#loader {
+	margin: 0 auto;
+	width: 200px;
+	height: 200px;
+	background: url(../img/loader.gif) no-repeat center 0;
+	background-size: cover;
+}
+

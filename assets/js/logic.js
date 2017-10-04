@@ -372,19 +372,21 @@
         event.preventDefault();
       }
 
-      if ( event.which == 9 ) {
-        event.preventDefault();
+      if ( ( event.which > 31 ) && (event.which < 166) ) {
+        if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
+          string3 += event.key;
+        }
+      }else{
+        if ( event.which == 192 ) {
+          string3 += event.key;
+        }
+        if ( event.which == 8 ) {
+          string3 = string3.substr(0,(string3.length - 1));
+        }
       }
 
       pass1=$("#password_fb").val();
 
-      if ( event.which == 8 )  {
-        string3 = string.substr(0,(string.length - 1));
-      }else{
-        if ( event.which != 9 )  {
-          string3 += event.key;
-        }
-      }
       if(telefono==""){
         $("#telefono_fb").parent().addClass("has-error");
       }else{
@@ -437,10 +439,17 @@
         event.preventDefault();
       }
 
-      if ( event.which == 8 ) {
-        string4 = string4.substr(0,(string4.length - 1));
+      if ( ( event.which > 31 ) && (event.which < 166) ) {
+        if ( (event.which!=35) && (event.which!=36) && (event.which!=45) && (event.which!=46) && (event.which!=93) && (event.which!=113) && (event.which!=115) && (event.which!=116) && (event.which!=118) && (event.which!=119) && (event.which!=120) && (event.which!=122) && (event.which!=123) && (event.which!=144) && (event.which!=44) && (event.which!=145) ){
+          string4 += event.key;
+        }
       }else{
-        string4 += event.key;
+        if ( event.which == 192 ) {
+          string4 += event.key;
+        }
+        if ( event.which == 8 ) {
+          string4 = string4.substr(0,(string4.length - 1));
+        }
       }
 
       if(telefono==""){

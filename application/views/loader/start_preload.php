@@ -1,5 +1,7 @@
 <div id=preloader>
-	<div id="loader">
-		
+	<div id="contenedor-loader">
+		<div id="loader">
+			
+		</div>
 	</div>
 </div>
