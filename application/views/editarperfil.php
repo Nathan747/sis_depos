@@ -207,8 +207,20 @@ if ($this->session->has_userdata('newsession')){
 <hr>
 
 
+<?php
+}else{
+    if ($this->session->newsession==="no"){
+        header("Location: ". base_url());
+        ?>
+
+        <?php
+    }
+}
+}else{
+   header("Location: ". base_url());
+   ?>
+
    <?php
- }
 }
 ?>
 
