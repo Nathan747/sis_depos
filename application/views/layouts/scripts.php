@@ -2,6 +2,8 @@
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/mapa.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/login_registro.js"); ?>"></script>
+<script src="<?php echo base_url("assets/js/AjaxUpload.2.0.min.js"); ?>"></script>
+
 <script>  
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
