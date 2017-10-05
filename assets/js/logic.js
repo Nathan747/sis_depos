@@ -748,6 +748,8 @@
       var pass_usuario = $("#txtPassword").val();
       var profesion_usuario = $("#txtQualification").val();
       var biografia_usuario = $("#txtBiography").val();
+
+      
     });
     
   });

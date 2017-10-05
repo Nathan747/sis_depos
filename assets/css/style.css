@@ -1374,13 +1374,29 @@ footer{
 	padding-left: 0px;
 }
 
-#btnEnviar, #btnClean:hover{
+.changeimg{
+    cursor: pointer;
+    width: 78%;
+    background: white;
+    text-align: left;
+    padding: 10px 15px;
+}
+.changeimg:hover{
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+.camimg{
+    display: none;
+}
+
+#btnEnviar, #btnClean{
 	color: #fff !important;
     background-color: #22205F !important;
     border-color: #22205F !important;
 }
 
-#btnEnviar:hover, #btnClean{
+#btnClean:hover,#btnEnviar:hover{
 	color: #22205F !important;
     background-color: white !important;
     border-color: #22205F !important;
