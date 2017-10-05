@@ -10,13 +10,13 @@
 }
 
 .icon-user:before {
-  content: "\e971";
-  font-family: 'icomoon';
+	content: "\e971";
+	font-family: 'icomoon';
 }
 
 .icon-user{
 	padding-left: 8px;
-    margin-top: 0px;
+	margin-top: 0px;
 }
 
 /*ventana flotnte sin sesion*/
@@ -1311,31 +1311,83 @@ footer{
 
 /*PERFIL*/
 .profile {
-    width: 1200px;
-    overflow: hidden;
-    position: absolute;
-    top: 60px;
-    background: white;
-    z-index: 999;
-    border: 2px solid;
-    right: -100%;
-    height: calc(100vh - 60px);
+	width: 1200px;
+	overflow: hidden;
+	/* height: 657px; */
+	position: absolute;
+	top: 60px;
+	background: white;
+	z-index: 999;
+	border-left: 1px solid #cccccc;
+	right: -100%;
+	height: calc(100vh - 60px);
+	overflow-x: hidden !important;
 }
+
+.profile .container{
+	margin-right: 15px !important;
+	margin-left: 15px !important;
+}
+
+.profile .container .row{
+	height: auto;
+	max-height: 1070px !important;
+	clear: both;
+	overflow: hidden;
+}
+
+
 .editprofile{
-     width: 1200px;
-    overflow: scroll;
-    position: absolute;
-    top: 60px;
-    background: white;
-    z-index: 999;
-    border: 2px solid;
-    right: -100%;
-    height: calc(100vh - 60px);
-    display:none;
+	width: 1200px;
+	overflow: scroll;
+	/* height: 657px; */
+	position: absolute;
+	top: 60px;
+	background: white;
+	z-index: 999;
+	border: 2px solid;
+	right: -100%;
+	height: calc(100vh - 60px);
+	display:none;
 }
 .formul{
-    right: -100%;
-    top: -102px;
+	right: -100%;
+	top: -102px;
+}
+
+#cerrar-perfil{
+	position: relative;
+	top: 10px;
+}
+.name{
+	top: 10px;
+	position: relative;
+	font-size: 20px;
+}
+.job{
+	font-weight: 400!important;
+	line-height: 1;
+	color: #777;
+	padding-top: 10px;
+}
+.first,.second,.third{
+	padding-left: 0px;
+}
+
+#btnEnviar, #btnClean:hover{
+	color: #fff !important;
+    background-color: #22205F !important;
+    border-color: #22205F !important;
+}
+
+#btnEnviar:hover, #btnClean{
+	color: #22205F !important;
+    background-color: white !important;
+    border-color: #22205F !important;
+}
+
+.centrar-botones{
+	float: right;
 }
 
 .container-checkbox .form-group{

@@ -268,6 +268,9 @@ $("#universidad_login").change(function(){
 //DONAR
 
 $("#donar").click(function(){
+
+  $("#cerrar-perfil").click();
+
   $(".contenedor-donar").animate({
     right: "0px"
   })
@@ -351,18 +354,43 @@ function abreSitio(){
 }
 
 /*Perfil*/
+
 $('#cerrar-perfil').click(function(e){
   e.preventDefault();
   $('.profile').animate({
     right: "-100%"
   });
 });
+
 $('#prof').click(function(e){
   e.preventDefault();
+  $("#cerrar-donar").click();
   $('.profile').animate({
     right: "0"
   });
+  console.log("CLICK");
+  if(datos_perfil==0){
+    $.ajax({
+      url: "Perfil/obtener_datos_json",
+      type: "POST"
+    }).done(function(json){
+      datos_perfil=1;
+      var objeto = $.parseJSON(json);
+      $("#txtName").val(objeto.nombre);
+      $("#txtSurname").val(objeto.apellido);
+      $("#txtEmail").val(objeto.email);
+      $("#txtPhone").val(objeto.telefono);
+      $("#txtDni").val(objeto.dni);
+      $("#txtBday").val(objeto.fecha);
+      $("#txtPassword").val(objeto.password);
+      $("#txtQualification").val(objeto.profesion);
+      $("#txtBiography").val(objeto.biografia);
+      console.log(objeto);
+    });
+  }
+  
 });
+
 $('.editprof').click(function(e){
   e.preventDefault();
   $('.bio').animate({
@@ -373,6 +401,7 @@ $('.editprof').click(function(e){
   });
   $('.profile').css("overflow","scroll");  
 });
+
 $('.myprof').click(function(e){
   e.preventDefault();
   $('.bio').animate({
@@ -384,4 +413,5 @@ $('.myprof').click(function(e){
   
   $('.profile').css("overflow","hidden");  
 });
+
 /*Perfil*/
