@@ -79,7 +79,7 @@ class Cargar_Imagen extends CI_Controller {
 			"img" 		=> $target_path
 		);
 		$this->Cargar_model->insert_image($datos);
-		$home = "location: ". base_url('/perfil/editar');
+		$home = "location: ". base_url('');
 		header($home);
 	}
 }

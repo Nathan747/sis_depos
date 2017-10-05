@@ -23,12 +23,12 @@ class Perfil extends CI_Controller {
 
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('layouts/header');
+		//$this->load->view('start_body',$class);
+		//$this->load->view('layouts/header');
 		$this->load->view('perfil',$profile);
-		$this->load->view('layouts/footer');
+		//$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');
-		$this->load->view('end_body');
+		//$this->load->view('end_body');
 	}
 
 	public function editar()
@@ -46,12 +46,12 @@ class Perfil extends CI_Controller {
 
 		$this->load->view('layouts/head',$data);
 		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
+		//$this->load->view('start_body',$class);
 		$this->load->view('layouts/header');
 		$this->load->view('editarperfil',$profile);
-		$this->load->view('layouts/footer');
+		//$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');
-		$this->load->view('end_body');
+		//$this->load->view('end_body');
 	}
 
 }

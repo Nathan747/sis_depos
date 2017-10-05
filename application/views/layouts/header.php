@@ -21,7 +21,7 @@
 					if ($this->session->newsession==="yes"){
 						?>						
 						<li><a href="#"><?php echo $this->session->username; ?></a></li>
-						<li><a href="#" id="asd">Perfil</a></li>
+						<li><a href="#" id="prof">Perfil</a></li>
 						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
 						<li><a href="#" id="salir">Salir</a></li>
 						<?php

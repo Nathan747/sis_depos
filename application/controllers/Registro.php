@@ -7,7 +7,7 @@ class Registro extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function index()
+	/*public function index()
 	{
 		$data["titulo"] = "REGISTRO";
 		$this->load->view('layouts/head',$data);
@@ -17,7 +17,7 @@ class Registro extends CI_Controller {
 		$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');
 	}
-
+*/
 	public function facebook()
 	{
 		$this->load->view('fb/autoload');

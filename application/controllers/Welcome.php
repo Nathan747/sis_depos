@@ -2,9 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('Perfil_model');
+	}
 
 	public function index()
 	{
+		$datos = array(
+			"email_user" => $this->session->email
+		);
+		$profile=$this->Perfil_model->control_user($datos);
+
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
@@ -14,6 +23,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('layouts/header');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
+		$this->load->view('perfil',$profile);
 		if (isset($_SESSION['newsession'])) {
   			if ($_SESSION['newsession'] != "yes"){
  				$this->load->view('registro');

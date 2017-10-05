@@ -24,6 +24,51 @@ $('#ingresar').click(function(e){
 
 });
 
+/*Perfil*/
+$('#cerrar-perfil').click(function(e){
+  e.preventDefault();
+  $('.profile').animate({
+    right: "-100%"
+  });
+
+});
+
+$('#prof').click(function(e){
+  e.preventDefault();
+  $('.profile').animate({
+    right: "0"
+  });
+});
+
+$('.editprof').click(function(e){
+  e.preventDefault();
+  $('.bio').animate({
+    right: "-100%"
+  });
+    $('.formul').animate({
+    right: "0"
+  });
+
+  $('.profile').css("overflow","scroll");  
+
+});
+
+
+
+$('.myprof').click(function(e){
+  e.preventDefault();
+  $('.bio').animate({
+    right: "0"
+  });
+    $('.formul').animate({
+    right: "-100%"
+  });
+    
+$('.profile').css("overflow","hidden");  
+
+});
+/*Perfil*/
+
 
 //BOTON CERRAR
 $('#cerrar-registro').click(function(e){
