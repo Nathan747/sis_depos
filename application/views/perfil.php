@@ -25,15 +25,15 @@ if ($this->session->has_userdata('newsession')){
           <div class="col-md-12 first" align="left">
             <img class="photo img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
           </div>
-          <form action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
+          <form class="camimg" action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
 
 
 
             <input name="imagen" type="file" maxlength="150">
             <br>
-            <input type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
+            <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
 
-
+          
           </form>
           <div class="col-md-12 second">
             <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>
