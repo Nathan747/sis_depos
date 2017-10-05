@@ -733,23 +733,20 @@
       $("#txtPassword").val("");
       $("#txtQualification").val("");
       $("#txtBiography").val("");
-      datos_perfil=0;
     });
 
     // MODIFICAR LA INFORMACION DEL PERFIL
 
     $("#btnEnviar").click(function(){
-      var nombre_usuario = $("#txtName").val();
-      var apellido_usuario = $("#txtSurname").val();
-      var email_usuario = $("#txtEmail").val();
-      var telefono_usuario = $("#txtPhone").val();
-      var dni_usuario = $("#txtDni").val();
-      var fecha_usuario = $("#txtBday").val();
-      var pass_usuario = $("#txtPassword").val();
-      var profesion_usuario = $("#txtQualification").val();
-      var biografia_usuario = $("#txtBiography").val();
-
-      
+      $("#txtName").val("");
+      $("#txtSurname").val("");
+      $("#txtEmail").val("");
+      $("#txtPhone").val("");
+      $("#txtDni").val("");
+      $("#txtBday").val("");
+      $("#txtPassword").val("");
+      $("#txtQualification").val("");
+      $("#txtBiography").val("");
     });
     
   });

@@ -399,6 +399,8 @@ $('.editprof').click(function(e){
   $('.formul').animate({
     right: "0"
   });
+ $('.camimg').css("display","block");  
+
   $('.profile').css("overflow","scroll");  
 });
 
@@ -410,6 +412,7 @@ $('.myprof').click(function(e){
   $('.formul').animate({
     right: "-100%"
   });
+  $('.camimg').css("display","none");
   
   $('.profile').css("overflow","hidden");  
 });
