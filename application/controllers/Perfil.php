@@ -8,23 +8,6 @@ class Perfil extends CI_Controller {
 		$this->load->model('Perfil_model');
 	}
 
-	public function index()
-	{
-		$profile=$this->obtener_datos();
-		
-		$data["titulo"] = "PERFIL";
-		$class["clase"] = "profile";
-
-		$this->load->view('layouts/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('layouts/header');
-		$this->load->view('perfil',$profile);
-		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts',$profile);
-		$this->load->view('end_body');
-	}
-
 	public function obtener_datos()
 	{
 		$datos = array(
@@ -40,31 +23,29 @@ class Perfil extends CI_Controller {
 		);
 		$json = $this->Perfil_model->control_user($datos);
 		$json = json_encode($json);
-		//print_r($json);
 		echo $json;
 	}
 
-	public function editar()
+	public function actualizar_perfil()
 	{
-
+		$data = $this->input->post();
 
 		$datos = array(
-			"email_user" => $this->session->email
-
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			//"email_user" 		=> $data["email"],
+			"telefono_user" 	=> $data["telefono"],
+			"dni_user" 			=> $data["dni"],
+			"profesion_user" 	=> $data["profesion"],
+			"biografia_user" 	=> $data["biografia"],
+			"fecha_egreso_user" => $data["fecha"],
+			"pass_user" 		=> $data["pass"]
 		);
-		$profile=$this->Perfil_model->control_user($datos);
 
-		$data["titulo"] = "EDITAR PERFIL";
-		$class["clase"] = "editprofile";
-
-		$this->load->view('layouts/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('layouts/header');
-		$this->load->view('editarperfil',$profile);
-		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts');
-		$this->load->view('end_body');
+		$this->Perfil_model->actualizar($datos);
+		$json["username"] = $datos["nombre_user"]." ".$datos["apellido_user"];
+		$json["profesion"] = $datos["profesion_user"];
+		echo json_encode($json);
 	}
 
 }

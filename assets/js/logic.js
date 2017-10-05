@@ -737,16 +737,38 @@
 
     // MODIFICAR LA INFORMACION DEL PERFIL
 
-    $("#btnEnviar").click(function(){
-      $("#txtName").val("");
-      $("#txtSurname").val("");
-      $("#txtEmail").val("");
-      $("#txtPhone").val("");
-      $("#txtDni").val("");
-      $("#txtBday").val("");
-      $("#txtPassword").val("");
-      $("#txtQualification").val("");
-      $("#txtBiography").val("");
+    $(".boton-modificar").click(function(){
+      console.log("click");
+      var nombre_usuario = $("#txtName").val();
+      var apellido_usuario = $("#txtSurname").val();
+      var telefono_usuario = $("#txtPhone").val();
+      var dni_usuario = $("#txtDni").val();
+      var fecha_usuario = $("#txtBday").val();
+      //var email_usuario = $("#txtEmail").val();
+      var pass_usuario = $("#txtPassword").val();
+      var profesion_usuario = $("#txtQualification").val();
+      var biografia_usuario = $("#txtBiography").val();
+      
+      $.ajax({
+        url: "Perfil/actualizar_perfil",
+        type: "post",
+        data: {
+          nombre: nombre_usuario,
+          apellido: apellido_usuario,
+          telefono: telefono_usuario,
+          dni: dni_usuario,
+          //email: email_usuario,
+          profesion: profesion_usuario,
+          biografia: biografia_usuario,
+          fecha: fecha_usuario,
+          pass: pass_usuario
+        }
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        $(".username-change").find("div").text(objeto.username);
+        $(".second").find(".name").find("strong").text(objeto.username);
+        $(".second").find(".job").find("strong").text(objeto.profesion);
+      });
     });
     
   });

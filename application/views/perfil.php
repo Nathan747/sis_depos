@@ -86,7 +86,7 @@ if ($this->session->has_userdata('newsession')){
                 <br >
                 <label>E-Mail:</label>
                 <span id="alertEmail" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                  <input type="email" class="form-control" id="txtEmail" placeholder="Introduzca su email" required data-validation-required-message="Por favor introduzca su email.">
+                  <input type="email" class="form-control" id="txtEmail" disabled>
                 </span>
                 <p class="help-block"></p>
                 <br >
@@ -134,7 +134,7 @@ if ($this->session->has_userdata('newsession')){
         <div class="centrar-botones">
           <div class="form-group">
             <button type="button" id="btnClean" class="btn btn-warning">Limpiar</button>
-            <button type="submit" id="btnEnviar" class="btn btn-primary">Actualizar</button>
+            <button type="button" id="btnEnviar" class="btn btn-primary boton-modificar">Actualizar</button>
           </div>
         </div>
       </div>

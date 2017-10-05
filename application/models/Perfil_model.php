@@ -60,5 +60,14 @@ class Perfil_model extends CI_Model {
 
     return $json; 
   }
+
+
+  public function actualizar($datos) 
+  {
+    $this->db->where('email_user', $this->session->email);
+    $this->db->update('unc_usuarios', $datos);
+    $nombre_completo = $datos["nombre_user"]." ".$datos["apellido_user"];
+    $this->session->set_userdata('username',$nombre_completo);
+  }
 }
 

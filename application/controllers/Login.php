@@ -8,18 +8,6 @@ class Login extends CI_Controller {
 		$this->load->model('Login_model');
 	}
 
-	/*public function index()
-	{
-		$data["titulo"] = "LOGIN";
-
-		$this->load->view('layouts/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('layouts/header');
-		$this->load->view('login');
-		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts');
-	}*/
-
 	public function control()
 	{
 		$data = $this->input->post();//Se puede reemplazar en esto
