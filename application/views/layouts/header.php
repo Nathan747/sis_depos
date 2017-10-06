@@ -20,10 +20,23 @@
 				if ($this->session->has_userdata('newsession')){
 					if ($this->session->newsession==="yes"){
 						?>						
-						<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
+						<!--<li class="username-change"><a href="#"><div><?php //echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
 						<li><a href="#" id="prof">Perfil</a></li>
 						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
+						<li><a href="#" id="salir">Salir</a></li>-->
+
+						<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
+						<li><a href="#" id="prof">Perfil</a></li>
+						<li><a id="a" href="#" style="padding-left: 0px;padding-right: 2px;">|</a></li>
+						<li><a id="b" class="myprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Perfil de Usuario</a></li>
+						<li><a id="c" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
+						<li><a id="d" class="editprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Editar Perfil</a></li>
+						<li><a id="e" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
+						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
 						<li><a href="#" id="salir">Salir</a></li>
+
+
+
 						<?php
 					}else{
 						if ($this->session->newsession==="no"){
@@ -35,13 +48,13 @@
 					}
 				}else{
 					?>
-						<li><a href="#" id="registrate">Registrarse</a></li>
-						<li><a href="#" id="ingresar">Ingresar</a></li>
-						<?php
-					}
-					?>
-					<!--	<li><a href="#">Salir</a></li>-->
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
+					<li><a href="#" id="registrate">Registrarse</a></li>
+					<li><a href="#" id="ingresar">Ingresar</a></li>
+					<?php
+				}
+				?>
+				<!--	<li><a href="#">Salir</a></li>-->
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

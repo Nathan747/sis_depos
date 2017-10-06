@@ -360,6 +360,12 @@ $('#cerrar-perfil').click(function(e){
   $('.profile').animate({
     right: "-100%"
   });
+    $("#a").css("display","none");
+   $("#b").css("display","none");
+   $("#c").css("display","none");
+   $("#d").css("display","none");
+   $("#e").css("display","none");
+
 });
 
 $('#prof').click(function(e){
@@ -368,6 +374,13 @@ $('#prof').click(function(e){
   $('.profile').animate({
     right: "0"
   });
+   $("#a").css("display","block");
+   $("#b").css("display","block");
+   $("#c").css("display","block");
+   $("#d").css("display","block");
+   $("#e").css("display","block");
+
+
   console.log("CLICK");
   if(datos_perfil==0){
     $.ajax({
