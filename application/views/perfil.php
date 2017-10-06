@@ -25,35 +25,37 @@ if ($this->session->has_userdata('newsession')){
           <div class="col-md-12 first" align="left">
             <img class="photo img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
           </div>
-          <form class="camimg" action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
-            <!-- Mi código de agregado de imágenes -->
-            <div class="inputModificado">
-              <div class="botonInputFileModificado">
-                <input style="display: none" name="imagen" type="file" class="inputImagenOculto" id="archivo_oculto1" name="archivo_oculto1"/>
-                <div class="examinar">Examinar</div>    
-              </div>    
+          <div class="contenedor-informacion-perfil">
+            <form class="camimg" action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
+              <!-- Mi código de agregado de imágenes -->
+              <div class="inputModificado">
+                <div class="botonInputFileModificado">
+                  <input style="display: none" name="imagen" type="file" class="inputImagenOculto" id="archivo_oculto1" name="archivo_oculto1"/>
+                  <div class="examinar">CAMBIAR IMAGEN</div>    
+                </div>    
+              </div>
+
+              <!-- Fin de mi código -->  
+
+
+              <!--input class="testo2" name="imagen" type="file" maxlength="150"-->
+              <br>
+              <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
+
+            </form>
+            <div class="col-md-12 second">
+              <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>
+              <p class="job text-left"><strong><?php echo $profesion; ?></strong></p>
             </div>
 
-            <!-- Fin de mi código -->  
-
-
-            <!--input class="testo2" name="imagen" type="file" maxlength="150"-->
-            <br>
-            <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
-
-          </form>
-          <div class="col-md-12 second">
-            <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>
-            <p class="job text-left"><strong><?php echo $profesion; ?></strong></p>
-          </div>
-
-          <div class="col-md-10 third">
-            <!-- Barra vertical de opciones del perfil de usuairo -->
-            <br >
-            <ul class="list-group list-primary">
-              <a href="#" class="list-group-item myprof">Mi perfil</a>
-              <a href="#" class="list-group-item editprof">Editar Perfil</a>
-            </ul>
+            <div class="col-md-10 third">
+              <!-- Barra vertical de opciones del perfil de usuairo -->
+              <br >
+              <ul class="list-group list-primary">
+                <a href="#" class="list-group-item myprof">Mi perfil</a>
+                <a href="#" class="list-group-item editprof">Editar Perfil</a>
+              </ul>
+            </div>
           </div>
           <!-- Fin Barra vertical de opciones del perfil de usuario -->
         </div>
@@ -121,10 +123,19 @@ if ($this->session->has_userdata('newsession')){
                 <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
                  <input type="text" class="form-control" id="txtQualification" placeholder="Introduzca su título" required data-validation-required-message="Por favor introduzca su título.">
                </span>
-               <br >
-             </div>
-           </div>
-           <div class="control-group form-group">
+                <br >
+                
+               <label>¿Egresado?</label>
+               <section>
+                <div class="checkbox-2">
+                  <input type="checkbox" id="ejemplo-2" value="1" name="" />
+                  <label for="ejemplo-2"></label>
+                </div>
+              </section>
+              <br >
+            </div>
+          </div>
+          <div class="control-group form-group">
             <div class="controls">
               <label>Biografía:</label>
               <span id="alertBiography" data-toggle="popover" data-trigger="hover" data-placement="auto" title="" data-content="">

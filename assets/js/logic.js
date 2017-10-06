@@ -748,6 +748,12 @@
       var pass_usuario = $("#txtPassword").val();
       var profesion_usuario = $("#txtQualification").val();
       var biografia_usuario = $("#txtBiography").val();
+      var es_egresado_usuario = $("#ejemplo-2").prop("checked");
+      if(es_egresado_usuario==true){
+        es_egresado_usuario=1;
+      }else{
+        es_egresado_usuario=0;
+      }
       
       $.ajax({
         url: "Perfil/actualizar_perfil",
@@ -761,7 +767,8 @@
           profesion: profesion_usuario,
           biografia: biografia_usuario,
           fecha: fecha_usuario,
-          pass: pass_usuario
+          pass: pass_usuario,
+          egresado: es_egresado_usuario
         }
       }).done(function(json){
         var objeto = $.parseJSON(json);

@@ -394,9 +394,6 @@ $('#prof').click(function(e){
     left: "0px"
   });
 
-  
-
-  console.log("CLICK");
   if(datos_perfil==0){
     $.ajax({
       url: "Perfil/obtener_datos_json",
@@ -413,6 +410,12 @@ $('#prof').click(function(e){
       $("#txtPassword").val(objeto.password);
       $("#txtQualification").val(objeto.profesion);
       $("#txtBiography").val(objeto.biografia);
+      if(objeto.es_egresado==1){
+        $("#ejemplo-2").prop("checked",true);
+      }else{
+        $("#ejemplo-2").prop("checked",false);
+      }
+      
       console.log(objeto);
     });
   }
@@ -421,27 +424,58 @@ $('#prof').click(function(e){
 
 $('.editprof').click(function(e){
   e.preventDefault();
+
+  $("#d").addClass("active-perfil");
+  $("#b").removeClass("active-perfil");
+
   $('.bio').animate({
     right: "-100%"
   });
   $('.formul').animate({
     right: "0"
   });
- $('.camimg').css("display","block");  
+ //$('.camimg').css("display","block");  
+  $(".third").animate({
+    top: "0px"
+  });
+
+  $(".second").animate({
+    top: "0px"
+  });
+
+  $(".camimg").animate({
+    top: "0px"
+  });
 
   $('.profile').css("overflow","scroll");  
 });
 
 $('.myprof').click(function(e){
   e.preventDefault();
+
+  $("#b").addClass("active-perfil");
+  $("#d").removeClass("active-perfil");
+
   $('.bio').animate({
     right: "0"
   });
   $('.formul').animate({
     right: "-100%"
   });
-  $('.camimg').css("display","none");
+  //$('.camimg').css("display","none");
+
+  $(".camimg").animate({
+    top: "-80px"
+  });
   
+  $(".third").animate({
+    top: "-80px"
+  });
+
+  $(".second").animate({
+    top: "-80px"
+  });
+
   $('.profile').css("overflow","hidden");  
 });
 
@@ -454,5 +488,6 @@ $("#d").click(function(){
   $(this).addClass("active-perfil");
   $("#b").removeClass("active-perfil");
 });
+
 
 /*Perfil*/

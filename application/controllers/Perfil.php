@@ -33,13 +33,13 @@ class Perfil extends CI_Controller {
 		$datos = array(
 			"nombre_user" 		=> $data["nombre"],
 			"apellido_user" 	=> $data["apellido"],
-			//"email_user" 		=> $data["email"],
 			"telefono_user" 	=> $data["telefono"],
 			"dni_user" 			=> $data["dni"],
 			"profesion_user" 	=> $data["profesion"],
 			"biografia_user" 	=> $data["biografia"],
 			"fecha_egreso_user" => $data["fecha"],
-			"pass_user" 		=> $data["pass"]
+			"pass_user" 		=> $data["pass"],
+			"es_egresado_user"	=> $data["egresado"]
 		);
 
 		$this->Perfil_model->actualizar($datos);
