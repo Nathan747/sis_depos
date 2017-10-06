@@ -17,7 +17,9 @@ class Control_Login extends CI_Controller {
 			"pass_user" 		=> $data["password"]
 		);
 
-		$this->Login_model->control_user($datos);
+		$retorno = $this->Login_model->control_user($datos);
+
+		echo json_encode($retorno);
 		
 	}
 }

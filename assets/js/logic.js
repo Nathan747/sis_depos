@@ -625,8 +625,13 @@
 
     $(".iniciar-sesion").click(function(e){
       e.preventDefault();
+      $(".texto-no-user").animate({
+        top: "-30px"
+      });
       var email_ingresar = $("#email_ingresar2").val();
       var password_ingresar = $("#password_ingresar2").val();
+      console.log(email_ingresar);
+      console.log(password_ingresar);
       $.ajax({
         type: "POST",
         url: "Control_Login/enviar_datos/",
@@ -636,12 +641,13 @@
         }
       }).done(function(json){
         var objeto = $.parseJSON(json);
+        console.log(objeto);
         if(objeto.entro==1){
-          localStorage.setItem("ingreso_normal", "si");
-          localStorage.setItem("registro_facebook", "no");
           window.location = direccion;
         }else{
-          $(".error-login").text("Email o Contraseña erronea");
+          $(".texto-no-user").animate({
+            top: "0px"
+          });
         }
       }).fail(function(xhr, status, error){
         console.log(xhr);

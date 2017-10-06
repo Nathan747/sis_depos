@@ -20,11 +20,7 @@
 				if ($this->session->has_userdata('newsession')){
 					if ($this->session->newsession==="yes"){
 						?>						
-						<!--<li class="username-change"><a href="#"><div><?php //echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
-						<li><a href="#" id="prof">Perfil</a></li>
-						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
-						<li><a href="#" id="salir">Salir</a></li>-->
-
+						
 						<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
 						<div class="test-profile"> <li class="perfil-animation"><a href="#" id="prof">Perfil</a></li>
 							<div class="profile-options">

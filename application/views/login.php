@@ -21,6 +21,11 @@ if (isset($_SESSION['newsession'])) {
               <input type="password" class="form-control" id="password_ingresar2" 
               placeholder="Contraseña">
             </div>
+            <div class="mensaje-no-user">
+              <div class="texto-no-user">
+                Email o Contraseña erronea
+              </div>
+            </div>
             <div class="ini_ses">
               <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 iniciar-sesion">Iniciar Sesión</button>
             </div>

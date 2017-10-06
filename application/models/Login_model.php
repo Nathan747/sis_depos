@@ -32,7 +32,7 @@ class Login_model extends CI_Model {
       $json["entro"]=0;
       $json["username"]="none";
     }
-    echo json_encode($json);
+    return $json;
   }
 
   public function existe_mail($data){

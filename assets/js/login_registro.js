@@ -435,59 +435,50 @@ $('.editprof').click(function(e){
     right: "0"
   });
  //$('.camimg').css("display","block");  
-  $(".third").animate({
-    top: "0px"
-  });
+ $(".third").animate({
+  top: "0px"
+});
 
-  $(".second").animate({
-    top: "0px"
-  });
+ $(".second").animate({
+  top: "0px"
+});
 
-  $(".camimg").animate({
-    top: "0px"
-  });
+ $(".camimg").animate({
+  top: "0px"
+});
 
-  $('.profile').css("overflow","scroll");  
+ $('.profile').css("overflow","scroll");  
 });
 
 $('.myprof').click(function(e){
   e.preventDefault();
+  $('.profile').animate({scrollTop : 0}, 300, function(){
+    $("#b").addClass("active-perfil");
+    $("#d").removeClass("active-perfil");
 
-  $("#b").addClass("active-perfil");
-  $("#d").removeClass("active-perfil");
+    $('.bio').animate({
+      right: "0"
+    });
+    $('.formul').animate({
+      right: "-100%"
+    });
 
-  $('.bio').animate({
-    right: "0"
-  });
-  $('.formul').animate({
-    right: "-100%"
-  });
-  //$('.camimg').css("display","none");
+    $(".camimg").animate({
+      top: "-80px"
+    });
 
-  $(".camimg").animate({
-    top: "-80px"
-  });
-  
-  $(".third").animate({
-    top: "-80px"
-  });
+    $(".third").animate({
+      top: "-80px"
+    });
 
-  $(".second").animate({
-    top: "-80px"
+    $(".second").animate({
+      top: "-80px"
+    });
+
+    $('.profile').css("overflow","hidden");
   });
 
-  $('.profile').css("overflow","hidden");  
+
 });
-
-$("#b").click(function(){
-  $(this).addClass("active-perfil");
-  $("#d").removeClass("active-perfil");
-});
-
-$("#d").click(function(){
-  $(this).addClass("active-perfil");
-  $("#b").removeClass("active-perfil");
-});
-
 
 /*Perfil*/

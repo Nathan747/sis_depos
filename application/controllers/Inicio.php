@@ -12,7 +12,6 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
-		//$this->session->sess_destroy();
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
@@ -21,7 +20,6 @@ class Inicio extends CI_Controller {
 		$this->load->view('layouts/header');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
-		//$this->load->view('registro');
 		$this->load->view('login');
 		$this->load->view('donar');
 		$this->load->view('layouts/footer');
