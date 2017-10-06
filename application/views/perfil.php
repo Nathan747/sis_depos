@@ -26,14 +26,21 @@ if ($this->session->has_userdata('newsession')){
             <img class="photo img-responsive img-portfolio img-hover" src="<?php echo base_url($foto);?>">
           </div>
           <form class="camimg" action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">
+            <!-- Mi código de agregado de imágenes -->
+            <div class="inputModificado">
+              <div class="botonInputFileModificado">
+                <input style="display: none" name="imagen" type="file" class="inputImagenOculto" id="archivo_oculto1" name="archivo_oculto1"/>
+                <div class="examinar">Examinar</div>    
+              </div>    
+            </div>
+
+            <!-- Fin de mi código -->  
 
 
-
-            <input name="imagen" type="file" maxlength="150">
+            <!--input class="testo2" name="imagen" type="file" maxlength="150"-->
             <br>
             <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
 
-          
           </form>
           <div class="col-md-12 second">
             <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>

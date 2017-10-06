@@ -770,6 +770,20 @@
         $(".second").find(".job").find("strong").text(objeto.profesion);
       });
     });
+
+    $(".examinar").click(function(){
+      $("#archivo_oculto1").click();
+    });
+
+
+    $("#archivo_oculto1").change(function(){
+      var imagen = $("#archivo_oculto1").val();
+      console.log("")
+      $(".changeimg").click();
+    });
+    
+
+
     
   });
 
