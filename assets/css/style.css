@@ -1395,6 +1395,31 @@ footer{
     left: 180px;
 }
 
+.perfil-animation:hover,.perfil-animation:hover a, .perfil-animation:focus, .perfil-animation:focus a, #prof:focus, #b:focus, #b:hover, #d:focus, #d:hover, #a:focus, #a:hover, #c:focus, #c:hover, #e:focus, #e:hover, #donar:focus, #donar:hover, #salir:hover, #salir:focus{
+	text-decoration: none !important;
+}
+
+#a, #c, #e{
+	cursor: default;
+}
+#b,#d{
+	font-size: 10px !important;
+	margin-top: 1px;
+	transition: all .5s;
+}
+
+#b.active-perfil,#d.active-perfil{
+	margin-top: 0px !important;
+	font-size: 11px !important;
+	opacity: .5 !important;
+	transition: all .5s !important;
+}
+
+#a:hover, #c:hover, #e:hover{
+	color: white;
+	opacity: 1 !important;
+}
+
 .profile-options{
 	left: 180px;
     position: relative;
@@ -1464,7 +1489,7 @@ footer{
 	position: fixed;
 	top:0; left:0;
 	right:0; bottom:0;
-	background: #000;
+	background: #FFF;
 	z-index: 100;
 	width: 100vw;
 	height: 100vh;

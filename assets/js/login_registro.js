@@ -445,4 +445,14 @@ $('.myprof').click(function(e){
   $('.profile').css("overflow","hidden");  
 });
 
+$("#b").click(function(){
+  $(this).addClass("active-perfil");
+  $("#d").removeClass("active-perfil");
+});
+
+$("#d").click(function(){
+  $(this).addClass("active-perfil");
+  $("#b").removeClass("active-perfil");
+});
+
 /*Perfil*/
