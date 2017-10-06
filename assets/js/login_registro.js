@@ -360,11 +360,18 @@ $('#cerrar-perfil').click(function(e){
   $('.profile').animate({
     right: "-100%"
   });
-    $("#a").css("display","none");
-   $("#b").css("display","none");
-   $("#c").css("display","none");
-   $("#d").css("display","none");
-   $("#e").css("display","none");
+
+  $(".profile-options").animate({
+    left: "180px"
+  });
+
+  $(".perfil-animation").animate({
+    left: "180px"
+  });
+
+  $(".username-change").animate({
+    left: "180px"
+  });
 
 });
 
@@ -374,12 +381,20 @@ $('#prof').click(function(e){
   $('.profile').animate({
     right: "0"
   });
-   $("#a").css("display","block");
-   $("#b").css("display","block");
-   $("#c").css("display","block");
-   $("#d").css("display","block");
-   $("#e").css("display","block");
+  
+  $(".username-change").animate({
+    left: "0px"
+  });
 
+  $(".perfil-animation").animate({
+    left: "0px"
+  });
+
+  $(".profile-options").animate({
+    left: "0px"
+  });
+
+  
 
   console.log("CLICK");
   if(datos_perfil==0){

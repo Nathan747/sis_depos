@@ -1375,36 +1375,81 @@ footer{
 }
 
 .changeimg{
-    cursor: pointer;
-    width: 78%;
-    background: white;
-    text-align: left;
-    padding: 10px 15px;
+	cursor: pointer;
+	width: 78%;
+	background: white;
+	text-align: left;
+	padding: 10px 15px;
 }
 .changeimg:hover{
-    color: #555;
-    text-decoration: none;
-    background-color: #f5f5f5;
+	color: #555;
+	text-decoration: none;
+	background-color: #f5f5f5;
 }
 .camimg{
-    display: none;
+	display: none;
+}
+
+.username-change{
+	position: relative;
+    left: 180px;
+}
+
+.profile-options{
+	left: 180px;
+    position: relative;
+}
+
+.test-profile .perfil-animation{
+	position: relative;
+    left: 180px;
+}
+
+.profile-options, .test-profile, .last-profile{
+	float: left;
+}
+
+.profile-options > .contenedor-profile-options > li,.test-profile > li, .last-profile >li{
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	float: left;
+}
+
+.test-profile, .last-profile{
+	position: relative;
+}
+
+.test-profile{
+	z-index: 2;
+    overflow: hidden;
+}
+
+.test-profile > li{
+	margin-right: 10px;
+}
+
+.last-profile > li{
+	margin-left: 10px;
 }
 
 #a,#b,#c,#d,#e{
-display:none;
+	/*display:none;*/
 
 }
 
 #btnEnviar, #btnClean{
 	color: #fff !important;
-    background-color: #22205F !important;
-    border-color: #22205F !important;
+	background-color: #22205F !important;
+	border-color: #22205F !important;
 }
 
 #btnClean:hover,#btnEnviar:hover{
 	color: #22205F !important;
-    background-color: white !important;
-    border-color: #22205F !important;
+	background-color: white !important;
+	border-color: #22205F !important;
 }
 
 .centrar-botones{

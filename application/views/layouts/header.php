@@ -26,14 +26,21 @@
 						<li><a href="#" id="salir">Salir</a></li>-->
 
 						<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?></div><span class="icon-user"></span></a></li>
-						<li><a href="#" id="prof">Perfil</a></li>
-						<li><a id="a" href="#" style="padding-left: 0px;padding-right: 2px;">|</a></li>
-						<li><a id="b" class="myprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Perfil de Usuario</a></li>
-						<li><a id="c" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
-						<li><a id="d" class="editprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Editar Perfil</a></li>
-						<li><a id="e" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
-						<li><a href="#" id="donar">#BancáUnaBeca</a></li>
-						<li><a href="#" id="salir">Salir</a></li>
+						<div class="test-profile"> <li class="perfil-animation"><a href="#" id="prof">Perfil</a></li>
+							<div class="profile-options">
+								<div class="contenedor-profile-options">
+									<li><a id="a" href="#" style="padding-left: 0px;padding-right: 2px;">|</a></li>
+									<li><a id="b" class="myprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Perfil de Usuario</a></li>
+									<li><a id="c" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
+									<li><a id="d" class="editprof" href="#" style="padding-left: 0px;padding-right: 0px;font-size: 10px !important;">Editar Perfil</a></li>
+									<li><a id="e" href="#" style="padding-left: 2px;padding-right: 2px;">|</a></li>
+								</div>
+							</div>
+						</div>
+						<div class="last-profile">
+							<li><a href="#" id="donar">#BancáUnaBeca</a></li>
+							<li><a href="#" id="salir">Salir</a></li>
+						</div>
 
 
 
