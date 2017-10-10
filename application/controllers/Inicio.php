@@ -127,6 +127,7 @@ class Inicio extends CI_Controller {
 	public function obtener_access_token_mp(){
 		$this->load->view('mp/mercadopago.php');
 		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		return $access_token;
 	}
