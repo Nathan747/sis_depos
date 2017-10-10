@@ -52,8 +52,8 @@ if (isset($_SESSION['newsession'])) {
                   <form name="precios" >
                     <select name="mp_select" id="mp_select" class="form-control">
                       <option value="boton-8">$1</option>
-                      <option value="boton-1">$30</option>
-                      <option value="boton-2">$50</option>
+                      <option value="boton-1">$2</option>
+                      <option value="boton-2">$3</option>
                       <option value="boton-3">$100</option>
                       <option value="boton-4">$200</option>
                       <option value="boton-5">$500</option>
@@ -66,14 +66,17 @@ if (isset($_SESSION['newsession'])) {
                   </div>
                 </form>
               </div>
-              <a id="boton-1" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d9285243-ef2b-480f-b601-ed76b79e75ef" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$30</a>
-              <a id="boton-2" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-7d0c5a47-90f0-4e2e-bf55-b8c5f342b785" name="MP-payButton" target="_blank">$50</a>
-              <a id="boton-3" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-bfb500d6-8407-4192-9999-cda6f1ee7f18" name="MP-payButton" target="_blank">$100</a>
+
+              <a id="boton-1" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=150678392-48943d1f-3ba1-4f42-a4a0-711ac32534ab" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$2</a>
+              <a id="boton-2" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=150678392-c970e19b-176f-460a-a61b-c12dacbcd12a" name="MP-payButton" target="_blank">$3</a>
+              <a id="boton-3" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=277501295-10f3abc2-c15b-49dd-8a15-9d86d34b2653" name="MP-payButton" target="_blank">$100</a>
+
+
               <a id="boton-4" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-8cbfce52-3e9b-42d4-b102-909e7da71126" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$200</a>
               <a id="boton-5" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d66f4a4d-2463-4104-ad61-8c38f7099103" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$500</a>
               <a id="boton-6" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-c2616622-630b-48ae-b3f9-bdaccb97feb1" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$750</a>
               <a id="boton-7" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton" target="_blank">Suscribirme</a>
-              <a id="boton-8" mp-mode="dftl" style="display: none" href="http://mpago.la/iJTs" name="MP-payButton">$1</a>
+              <a id="boton-8" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=150678392-121ad1b1-06e4-4471-be28-1aaf58465e27" name="MP-payButton" target="_blank">$1</a>
               
             </div>
           </div>

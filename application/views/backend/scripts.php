@@ -2,8 +2,116 @@
 <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
 
 <script>
+	var done = 0;
+	var cant_paginas=0;
+	var page_selected=1;
 
+	function limpiar_tabla(){
+		for(var i=1;i<10;i++){
+			$(".fila-"+i).find(".columna-1").text("\u00a0");
+			$(".fila-"+i).find(".columna-2").text("\u00a0");
+			$(".fila-"+i).find(".columna-3").text("\u00a0");
+			$(".fila-"+i).find(".columna-4").text("\u00a0");
+			$(".fila-"+i).find(".columna-5").text("\u00a0");
+			$(".fila-"+i).find(".columna-6").text("\u00a0");
+			$(".fila-"+i).find(".columna-7").text("\u00a0");
+
+		}
+	}
+
+	function rellenar_tabla(indice=0){
+		var i;
+		var limite;
+		var cant_items = objeto.length;
+		var aux_cant = cant_items;
+
+		var cant_items_mostrados = 9;
+
+
+
+		if(done==0){
+			while(aux_cant>0){
+				aux_cant-=cant_items_mostrados;
+				cant_paginas++;
+			}
+			done=1;
+		}
+		
+
+		if($(".selector-numero").length==0){
+			for(var x=0;x<cant_paginas;x++){
+				if(x==0){
+					$(".selectores-numeros").append("<a href='#' class='selector-numero numero-activo'> <div class='numeros'>"+(x+1)+"</div> </a>");			
+				}else{
+					if(x<3){
+						$(".selectores-numeros").append("<a href='#' class='selector-numero'> <div class='numeros'>"+(x+1)+"</div> </a>");
+					}
+				}
+			}
+		}	
+
+		
+		if(indice==0){
+			i = 0;
+			limite = cant_items_mostrados; 
+		}else{
+			i = indice*cant_items_mostrados
+			limite = i + cant_items_mostrados; 
+			if(limite>cant_items){
+				limite = cant_items;
+			}
+		}
+
+		// MOSTRAR INFO DE RESULTADOS
+		$(".primer-elemento-resultados").text(" ");
+		$(".primer-elemento-resultados").text(i+1);
+
+		$(".ultimo-elemento-resultados").text(" ");
+		$(".ultimo-elemento-resultados").text(limite);
+
+		$(".total-resultados").text(" ");
+		$(".total-resultados").text(cant_items);
+
+		// FIN MOSTRAR INFO DE RESULTADOS
+
+		for(fila=1;i<limite;i++,fila++){
+			$(".table-condensed").append("<tr class=row-"+i+"></tr>");
+
+			$(".fila-"+fila).find(".columna-1").text();
+			$(".fila-"+fila).find(".columna-1").text(objeto[i]["payer"]["first_name"]+" "+objeto[i]["payer"]["last_name"]);
+
+			$(".fila-"+fila).find(".columna-2").text();
+			$(".fila-"+fila).find(".columna-2").text(objeto[i]["payer"]["email"]);
+
+			$(".fila-"+fila).find(".columna-3").text();
+			$(".fila-"+fila).find(".columna-3").text(objeto[i]["payer"]["identification"]["number"]);
+
+			$(".fila-"+fila).find(".columna-4").text();
+			$(".fila-"+fila).find(".columna-4").text(objeto[i]["payer"]["phone"]["number"]);
+
+			var d = new Date(objeto[i]["date_created"]);
+			var dia = d.getUTCDate();
+			var mes = d.getUTCMonth() + 1;
+			var anio = d.getUTCFullYear();
+			var fecha = dia+"/"+mes+"/"+anio;
+
+			$(".fila-"+fila).find(".columna-5").text();
+			$(".fila-"+fila).find(".columna-5").text(fecha);
+
+			$(".fila-"+fila).find(".columna-6").text();
+			$(".fila-"+fila).find(".columna-6").text(objeto[i]["transaction_amount"]);
+
+			$(".fila-"+fila).find(".columna-7").text();
+
+			$(".fila-"+fila).find(".columna-7").text(objeto[i]["transaction_details"]["net_received_amount"]);
+		}
+	}
+
+	var objeto = <?php echo json_encode($objeto) ?>;
+	console.log(objeto);
 	
+	rellenar_tabla();
+
 	$("#ejemplo_email_1").val("");
 	$("#becario-1").val("");
 	$("#admin-1").val("");
@@ -309,23 +417,59 @@
 		var max;
 		var actual=-1;
 		var padre;
+		var selected;
+		$("#ultimo").find(".siguiente").removeClass("boton-deshabilitado");
 		if(!$(this).children().hasClass("boton-deshabilitado")){
 			$(".selector-numero").each(function(){
 				if($(this).hasClass("numero-activo")){
 					$(this).removeClass("numero-activo");
 					actual = parseInt($(this).children().text());
+					selected=actual;
 					actual-=2;
 				}
 				i++;
 			});
-			var change = ($(".selector-numero")[actual]);
-			$(change).addClass("numero-activo");
-			actual++;
-			max = i-1;
+			console.log("SELECTED: "+selected);
+			page_selected--;
+			console.log("Page selected last: "+page_selected);
+			if(selected>3){
+				$($(".selector-numero")[2]).addClass("numero-activo");
+				var first_number = parseInt($($(".selector-numero")[0]).children().text());
+				first_number--;
+				$(".selector-numero").each(function(){
+					$(this).children().text(first_number);
+					first_number++;
+				});
+			}else{
+				var first_number=1;
+				$(".selector-numero").each(function(){
+					$(this).children().text(first_number);
+					first_number++;
+				});
+				var change = ($(".selector-numero")[actual]);
+				$(change).addClass("numero-activo");
+				actual++;
+				max = i-1;
+			}
+
+
+			if ((actual>3)&&(actual<max+1)){
+				$($(".selector-numero")[2]).addClass("numero-activo");
+				var first_number = parseInt($($(".selector-numero")[0]).children().text());
+				first_number++;
+				$(".selector-numero").each(function(){
+					$(this).children().text(first_number);
+					first_number++;
+				});
+			}
+
 			if(actual==min){
 				$("#last").children().removeClass("boton-deshabilitado");
 				$("#last").children().addClass("boton-deshabilitado");
 				$("#next").children().removeClass("boton-deshabilitado");
+				$("#last").find(".anterior").addClass("boton-deshabilitado");
+				$("#primer-elemento").find(".anterior").addClass("boton-deshabilitado");
+				page_selected=1;
 			}else{
 				if(actual==max){
 					$("#next").children().removeClass("boton-deshabilitado");
@@ -336,15 +480,93 @@
 					$("#last").children().removeClass("boton-deshabilitado");
 				}
 			}
+			console.log("Page selected last DESPUES: "+page_selected);
+			limpiar_tabla();
+			if (selected>2){
+				rellenar_tabla(page_selected);
+			}else{
+				rellenar_tabla(page_selected-1);
+			}
+		}
+	});
+
+	$("#primer-elemento").click(function(){
+		if(page_selected!=1){
+			$(".selector-numero").each(function(){
+				if($(this).hasClass("numero-activo")){
+					$(this).removeClass("numero-activo");
+					actual = parseInt($(this).children().text());
+					actual++;
+				}
+			});
+			$($(".selector-numero")[0]).addClass("numero-activo");
+			var first_number = 1;
+			$(".selector-numero").each(function(){
+				$(this).children().text(first_number);
+				first_number++;
+			});
+
+			$("#last").find(".anterior").addClass("boton-deshabilitado");
+			$("#primer-elemento").find(".anterior").addClass("boton-deshabilitado");
+
+			$("#ultimo").find(".siguiente").removeClass("boton-deshabilitado");
+			$("#next").find(".siguiente").removeClass("boton-deshabilitado");
+
+			///cant_paginas;
+			page_selected = 1;
+			console.log(page_selected);
+			limpiar_tabla();
+			rellenar_tabla(0);
+		}
+	});
+
+	$("#ultimo").click(function(){
+		if(page_selected!=cant_paginas){
+			$(".selector-numero").each(function(){
+				if($(this).hasClass("numero-activo")){
+					$(this).removeClass("numero-activo");
+					actual = parseInt($(this).children().text());
+					actual++;
+				}
+			});
+			if(cant_paginas>2){
+				$($(".selector-numero")[2]).addClass("numero-activo");
+			}else{
+				$($(".selector-numero")[cant_paginas-1]).addClass("numero-activo");
+			}
+			var first_number;
+			if(cant_paginas>2){
+				first_number = cant_paginas-2;
+			}else{
+				first_number=1;
+			}
+			$(".selector-numero").each(function(){
+				$(this).children().text(first_number);
+				first_number++;
+			});
+			$("#last").find(".anterior").removeClass("boton-deshabilitado");
+			$("#primer-elemento").find(".anterior").removeClass("boton-deshabilitado");
+
+			$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
+			$("#next").find(".siguiente").addClass("boton-deshabilitado");
+			
+			
+			///cant_paginas;
+			page_selected = cant_paginas;
+			console.log(page_selected);
+			limpiar_tabla();
+			rellenar_tabla(cant_paginas-1);
 		}
 	});
 
 	$("#next").click(function(){
 		var i=1;
 		var min=1;
-		var max;
+		var cant_paginados=0;
+		var max=cant_paginas;
 		var actual=-1;
-		if(!$(this).children().hasClass("boton-deshabilitado")){
+		$("#primer-elemento").find(".boton-numeros").removeClass("boton-deshabilitado");
+		if(!$(this).children().hasClass("boton-deshabilitado")){ /// Si no esta deshabilitado
 			$(".selector-numero").each(function(){
 				if($(this).hasClass("numero-activo")){
 					$(this).removeClass("numero-activo");
@@ -356,7 +578,33 @@
 				}
 				i++;
 			});
-			max = i-1;
+
+			page_selected++;
+			if ((actual>3)&&(actual<max+1)){
+				$($(".selector-numero")[2]).addClass("numero-activo");
+				var first_number = parseInt($($(".selector-numero")[0]).children().text());
+				console.log("FIRST NUMBER NEXT: "+first_number);
+				first_number++;
+				//console.log("FIRST NUMBER NEXT AUMENTADO: "+first_number);
+				if(first_number+2>cant_paginas){
+					first_number--;
+				}
+				$(".selector-numero").each(function(){
+					$(this).children().text(first_number);
+					first_number++;
+				});
+			}else{
+				console.log("ELSE");
+				var first_number = parseInt($($(".selector-numero")[0]).children().text());
+				console.log(first_number);
+				//first_number++;
+				$(".selector-numero").each(function(){
+					$(this).children().text(first_number);
+					first_number++;
+				});
+			}
+			
+			cant_paginados = i-1;
 			if(actual==min){
 				$("#last").children().removeClass("boton-deshabilitado");
 				$("#last").children().addClass("boton-deshabilitado");
@@ -366,11 +614,14 @@
 					$("#next").children().removeClass("boton-deshabilitado");
 					$("#next").children().addClass("boton-deshabilitado");
 					$("#last").children().removeClass("boton-deshabilitado");
+					$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
 				}else{
 					$("#next").children().removeClass("boton-deshabilitado");
 					$("#last").children().removeClass("boton-deshabilitado");
 				}
 			}
+			limpiar_tabla();
+			rellenar_tabla(actual-1);
 		}
 	});
 
@@ -400,6 +651,37 @@
 				$("#last").children().removeClass("boton-deshabilitado");
 			}
 		}
+
+		var selected = parseInt($(this).children().text());
+		page_selected = selected;
+
+		if (selected==1){
+			$("#last").find(".anterior").addClass("boton-deshabilitado");
+			$("#primer-elemento").find(".anterior").addClass("boton-deshabilitado");
+			$("#ultimo").find(".siguiente").removeClass("boton-deshabilitado");
+			$("#next").find(".siguiente").removeClass("boton-deshabilitado");
+		}else{
+			if (selected==cant_paginas) {
+				$("#last").find(".anterior").removeClass("boton-deshabilitado");
+				$("#primer-elemento").find(".anterior").removeClass("boton-deshabilitado");
+
+				$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
+				$("#next").find(".siguiente").addClass("boton-deshabilitado");
+			}else{
+				$("#last").find(".anterior").removeClass("boton-deshabilitado");
+				$("#primer-elemento").find(".anterior").removeClass("boton-deshabilitado");
+
+				$("#ultimo").find(".siguiente").removeClass("boton-deshabilitado");
+				$("#next").find(".siguiente").removeClass("boton-deshabilitado");
+			}
+		}
+
+		
+
+
+
+		limpiar_tabla();
+		rellenar_tabla(selected-1);
 	});
 
 	/* FIN ULTIMOS MOVIMIENTOS */
@@ -428,5 +710,8 @@
 		});
 	});
 	/* FIN BUSCAR BECARIO */
+
+
+
 
 </script>

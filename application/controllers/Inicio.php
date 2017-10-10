@@ -62,9 +62,9 @@ class Inicio extends CI_Controller {
 	public function back()
 	{
 		$objeto = $this->cargar_informacion_mp();
-		$cantidad_elementos = sizeof($objeto);
+		//$cantidad_elementos = sizeof($objeto);
 		$cant_filas = $this->Inicio_model->select_transactions();
-		if($cant_filas==0){
+		/*if($cant_filas==0){
 			echo "<table border=1>
 			<tr>
 			<th>ID Usuario</th>
@@ -103,22 +103,31 @@ class Inicio extends CI_Controller {
 				echo "</tr>";
 			}
 			echo "</table>";
-		}
+		}*/
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "home";
+		$object["objeto"] = $objeto;
 		$this->load->view('backend/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
 		$this->load->view('backend/header');
 		$this->load->view('backend/aside');
-		$this->load->view('backend/contenido');
-		$this->load->view('backend/scripts');
+
+		$this->load->view('backend/inicio_backend');
+		//$this->load->view('backend/gestionar_usuarios');
+		$this->load->view('backend/ultimos_movimientos',$object);
+		//$this->load->view('backend/becarios');
+		//$this->load->view('backend/recaudado');
+		$this->load->view('backend/fin_backend');
+
+		$this->load->view('backend/scripts',$object);
 		$this->load->view('end_body');
 	}
 
 	public function obtener_access_token_mp(){
 		$this->load->view('mp/mercadopago.php');
 		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		return $access_token;
 	}
