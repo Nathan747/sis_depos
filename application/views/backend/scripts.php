@@ -25,7 +25,7 @@
 		var cant_items = objeto.length;
 		var aux_cant = cant_items;
 
-		var cant_items_mostrados = 4;
+		var cant_items_mostrados = 9;
 
 
 
