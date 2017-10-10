@@ -9,9 +9,29 @@
 	font-style: normal;
 }
 
+.icon-triangle-right:before {
+  content: "\e900";
+  font-family: 'icomoon';
+}
+
+.icon-previous2:before {
+  content: "\ea23";
+  font-family: 'icomoon';
+}
+
+.icon-next2:before {
+  content: "\ea24";
+  font-family: 'icomoon';
+}
+
 .icon-user:before {
 	content: "\e971";
 	font-family: 'icomoon';
+}
+
+.icon-triangle-left:before {
+  content: "\e901";
+  font-family: 'icomoon'
 }
 
 .icon-user{
@@ -473,7 +493,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 	clear: both;
 	float: left;
 	width: 100%;
-	padding-top: 50px;
+	padding-top: 20px;
 }
 
 .cuadro-busqueda input{
@@ -500,7 +520,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 .boton-numeros{
-	padding: 5px 25px;
+	padding: 4.5px 12px;
 }
 
 .boton-numeros p{
@@ -741,6 +761,21 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 	overflow: hidden;
 	width: 100%;
 }
+
+.selectores-anteriores, .selectores-numeros, .selectores-despues{
+	float: right;
+}
+
+.busqueda-numeros .selectores-numeros  a:last-child{
+	border-right: none;
+}
+
+.busqueda-numeros .selectores-numeros  a:first-child{
+	border-left: none;
+}
+
+
+/* FIN BACKEND*/
 
 .formulario-no-fb .form-group{
 	margin-bottom: 22px;
@@ -1615,4 +1650,16 @@ input[type=checkbox] {
 .checkbox-2 input[type=checkbox]:checked + label {
 	left: 88%;
 	background: white;
+}
+
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{
+	table-layout: auto;
+    font-size: 12px;
+    vertical-align: middle;
+    border-left: 1px solid #e2dfdf !important;
+    border-right: 1px solid #e2dfdf !important;
+}
+
+.table-condensed .fila-9{
+	border-bottom: 1px solid #e2dfdf !important;
 }
