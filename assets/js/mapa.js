@@ -169,7 +169,7 @@ function initMap() {
         '<h1>'+nombre+' '+apellido+'</h1>'+
         '<h2>'+profesion+'</h2>'+
         '<h3>'+texto+'...</h3>'+
-        '<div id="contenedor-leer"><div>Leer Más </div></div>'+
+        '<div id="contenedor-leer"><div><a class="moreless" href="#">Leer Más</a></div></div>'+
         '</div></div>'+ // Cierre contenedor-texto y padre-texto
         '</div></div>'; // Cierre contenedor-marcador y content
 
@@ -246,3 +246,12 @@ function add_marker_delay(valor1, valor2, timeout, maps, contenido){
    });
   }, timeout);
 }
+
+
+$('.moreless').click(function(e){
+  e.preventDefault();
+  $('.login').animate({
+    right: "-100%"
+  });
+
+});
