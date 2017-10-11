@@ -10,21 +10,10 @@ class Inicio extends CI_Controller {
 		$this->load->model('Inicio_model');
 	}
 
-	public function index()
+	public function index($payment=0, $status=0)
 	{
-		$data["titulo"] = "UNCuyo";
-		$class["clase"] = "home";
-		$this->load->view('layouts/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('layouts/header');
-		$this->load->view('ventana_flotante');
-		$this->load->view('main');
-		$this->load->view('login');
-		$this->load->view('donar');
-		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts');
-		$this->load->view('end_body');
+		$home = "location: ".base_url("");
+		header($home);
 	}
 
 	public function donacion()
@@ -129,6 +118,7 @@ class Inicio extends CI_Controller {
 		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
+		echo $access_token;
 		return $access_token;
 	}
 
@@ -137,7 +127,7 @@ class Inicio extends CI_Controller {
 		$curl = curl_init();
 
 		$access_token =	$this->obtener_access_token_mp();
-		$url = "https://api.mercadopago.com/v1/payments/search?payer.id=150678392&access_token=".$access_token;
+		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=".$access_token;
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -157,8 +147,47 @@ class Inicio extends CI_Controller {
 
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
+
+		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
+		//$balance = $mp->get ("/mercadopago_account/movements/search");
+
 		$resultados = $response["results"];
 		return $resultados;
+		
+		//return $balance;
+	}
+
+
+	public function mercadopago($valor=0, $confirmacion=0)
+	{
+		/*echo "EMAIL: ".$this->session->email;
+		echo "<br>";
+		echo "NEWSESSION: ".$this->session->newsession;
+		echo "<br>";
+		$test = $this->Inicio_model->select_user_info();
+		echo "ID: ".$test["id"];
+		echo "<br>";
+		echo ;
+		echo "<br>";
+		echo $confirmacion;*/
+		
+		if($confirmacion==1){
+			echo "PAGO el monto de: $".$valor;
+			echo "<br>";
+			//echo "Su ID es: ".$test["id"];
+			echo "<br>";
+			echo "Y su correo: ".$this->session->email;
+		}else{
+			echo "El PAGO del mail: ".$this->session->email;
+			echo "<br>";
+			//echo "Correspondiente al ID: ".$test["id"];
+			echo "<br>";
+			echo "No fue concretado";
+		}
+		
+		//header("Location: http://www.google.com");
+
 	}
 
 

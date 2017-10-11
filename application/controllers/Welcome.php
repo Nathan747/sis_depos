@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 		$this->load->model("Perfil_model");
 	}
 
-	public function index()
+	public function index($payment=0, $status=0)
 	{
 		$datos = array(
 			"email_user" => $this->session->email
@@ -32,7 +32,9 @@ class Welcome extends CI_Controller {
 		} else{
 			$this->load->view('registro');
 		}
-		
+		if($payment!=0){
+			$this->load->view('respuesta_status');
+		}
 		$this->load->view('login');
 		$this->load->view('donar');
 		$this->load->view('layouts/footer');

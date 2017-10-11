@@ -1663,3 +1663,10 @@ input[type=checkbox] {
 .table-condensed .fila-9{
 	border-bottom: 1px solid #e2dfdf !important;
 }
+
+
+/* COMIENZO LANDING DONACION */
+
+.contenido-donacion{
+	height: calc(100vh - 100px);
+}
