@@ -145,6 +145,7 @@ class Donacion extends CI_Controller {
 		}else{
 			$home = "location: ".base_url("");
 		}
+		ob_start();
 		header($home);
 	}
 
