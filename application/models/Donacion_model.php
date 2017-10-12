@@ -13,10 +13,13 @@ class Donacion_model extends CI_Model {
 		$this->db->where('email_user', $this->session->email);
 		$sql=$this->db->get('unc_usuarios');
 		$filas = $sql->num_rows();
+		$json;
 		if ($filas>0){
 			foreach ($sql->result() as $row){
 				$json = $row->nombre_user;
 			}
+		}else{
+			$json = -1;
 		}
 		return $json;
 	}

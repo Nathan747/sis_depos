@@ -6,6 +6,7 @@ class Donacion extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Donacion_model');
+		$this->load->model('Inicio_model');
 	}
 
 	public function create_number($numero=0){
@@ -46,6 +47,51 @@ class Donacion extends CI_Controller {
 		$this->load->view('end_body');
 	}
 
+	public function obtener_access_token_mp(){
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		return $access_token;
+	}
+
+	public function cargar_informacion_mp()
+	{
+		$curl = curl_init();
+
+		$access_token =	$this->obtener_access_token_mp();
+		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=".$access_token;
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_TIMEOUT => 30,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "GET",
+			CURLOPT_HTTPHEADER => array(
+				"cache-control: no-cache"
+			),
+		));
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		$response = json_decode($response, true); //because of true, it's in an array
+		$cantidad_elementos = sizeof($response["results"]);
+
+		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
+		//$balance = $mp->get ("/mercadopago_account/movements/search");
+
+		$resultados = $response["results"];
+		return $resultados;
+		
+		//return $balance;
+	}
+
 	public function status($payment=0, $status=0)
 	{
 		$data["titulo"] = "UNCuyo";
@@ -67,8 +113,16 @@ class Donacion extends CI_Controller {
 		// 27568035 = 0 en Status
 		// 28050972 = 1 en Status
 
-		if($payment!=0){	
-			$id = $this->Donacion_model->select_user_info();
+		// http://localhost/UNC/Donacion/status/143526/28050972 PAGO ACEPTADO - 1 PESO
+		// http://localhost/UNC/Donacion/status/143526/27568035 PAGO PENDIENTE - 1 PESO
+
+		$objeto = $this->cargar_informacion_mp();
+		$cant_filas = $this->Inicio_model->select_transactions();
+		$id = $this->Donacion_model->select_user_info();
+		$cantidad = sizeof($objeto);
+		$object["objeto"] = $objeto;
+
+		if ( ($payment!=0) && ($id!=-1) ){	
 			$payment = $this->decode_number($payment);
 			if($payment!=0){
 				$status = $this->decode_status($status);
@@ -81,19 +135,22 @@ class Donacion extends CI_Controller {
 					$value_status = "Pendiente";
 				}
 				$datos = array(
-					"email"		=> $this->session->email,
-					"id_user"	=> $id,
-					"valor"		=> $payment,
-					"status"	=> $value_status
+					"id_usuario"		=> $id,
+					"id_operacion_mp"	=> $objeto[$cantidad-1]["order"]["id"],
+					"tipo_dinero"		=> $objeto[$cantidad-1]["currency_id"],
+					"status"			=> $objeto[$cantidad-1]["status"],
+					"monto_transaction"	=> $objeto[$cantidad-1]["transaction_details"]["installment_amount"],
+					"neto_recibido"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"]
 				);
-				echo "Email: ".$datos["email"]."<br>";
-				echo "ID: ".$datos["id_user"]."<br>";
-				echo "VALOR: ".$datos["valor"]."<br>";
-				echo "STATUS: ".$datos["status"]."<br>";
+				print_r($datos);
+				
 			}
+		}else{
+			$home = "location: ".base_url("");
+			header($home);
 		}
 		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts');
+		$this->load->view('backend/scripts',$object);
 		$this->load->view('end_body');
 	}
 }

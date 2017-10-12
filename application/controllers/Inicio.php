@@ -118,7 +118,7 @@ class Inicio extends CI_Controller {
 		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
-		echo $access_token;
+		//echo $access_token;
 		return $access_token;
 	}
 
@@ -158,42 +158,8 @@ class Inicio extends CI_Controller {
 		//return $balance;
 	}
 
-
-	public function mercadopago($valor=0, $confirmacion=0)
-	{
-		/*echo "EMAIL: ".$this->session->email;
-		echo "<br>";
-		echo "NEWSESSION: ".$this->session->newsession;
-		echo "<br>";
-		$test = $this->Inicio_model->select_user_info();
-		echo "ID: ".$test["id"];
-		echo "<br>";
-		echo ;
-		echo "<br>";
-		echo $confirmacion;*/
-		
-		if($confirmacion==1){
-			echo "PAGO el monto de: $".$valor;
-			echo "<br>";
-			//echo "Su ID es: ".$test["id"];
-			echo "<br>";
-			echo "Y su correo: ".$this->session->email;
-		}else{
-			echo "El PAGO del mail: ".$this->session->email;
-			echo "<br>";
-			//echo "Correspondiente al ID: ".$test["id"];
-			echo "<br>";
-			echo "No fue concretado";
-		}
-		
-		//header("Location: http://www.google.com");
-
-	}
-
-
 	public function perfil()
 	{
-
 		$data["titulo"] = "Perfil UNCuyo";
 		$class["clase"] = "home";
 		$this->load->view('layouts/head',$data);
