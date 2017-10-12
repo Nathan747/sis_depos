@@ -127,13 +127,7 @@ class Donacion extends CI_Controller {
 			if($payment!=0){
 				$status = $this->decode_status($status);
 
-				if($status==1){
-					$this->load->view('donacion/aceptado');
-					$value_status = "Aceptado"; 
-				}else{
-					$this->load->view('donacion/pendiente');
-					$value_status = "Pendiente";
-				}
+				
 				$datos = array(
 					"id_usuario"		=> $id,
 					"id_operacion_mp"	=> $objeto[$cantidad-1]["order"]["id"],
@@ -143,6 +137,21 @@ class Donacion extends CI_Controller {
 					"neto_recibido"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"]
 				);
 				print_r($datos);
+				$respuesta_id_ya_cargado = $this->Donacion_model->control_id_orden($datos["id_operacion_mp"]);
+				if($respuesta_id_ya_cargado!=0){
+					$home = "location: ".base_url("");
+					header($home);
+				}else{
+					$this->Donacion_model->guardar_informacion_pago();
+				}
+
+				if($status==1){
+					$this->load->view('donacion/aceptado');
+					$value_status = "Aceptado"; 
+				}else{
+					$this->load->view('donacion/pendiente');
+					$value_status = "Pendiente";
+				}
 				
 			}
 		}else{

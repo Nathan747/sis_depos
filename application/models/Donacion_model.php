@@ -16,11 +16,24 @@ class Donacion_model extends CI_Model {
 		$json;
 		if ($filas>0){
 			foreach ($sql->result() as $row){
-				$json = $row->nombre_user;
+				$json = $row->id_user;
 			}
 		}else{
 			$json = -1;
 		}
 		return $json;
+	}
+
+	public function control_id_orden($id_orden)
+	{
+		$this->db->where('id_operacion_mp', $id_orden);
+		$sql=$this->db->get('unc_transactions');
+		$filas = $sql->num_rows();
+		return $filas;
+	}
+
+	public function guardar_informacion_pago($datos)
+	{
+		$this->db->insert('unc_transactions', $datos);
 	}
 }
