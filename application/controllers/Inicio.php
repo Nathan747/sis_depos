@@ -54,7 +54,6 @@ class Inicio extends CI_Controller {
 
 		$object = $this->Inicio_model->select_transactions();
 		$cant_filas = $object["cantidad"];
-		echo $cant_filas;
 		
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "home";
