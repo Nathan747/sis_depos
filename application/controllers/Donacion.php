@@ -124,7 +124,7 @@ class Donacion extends CI_Controller {
 					"id_operacion_mp"	=> $objeto[$cantidad-1]["order"]["id"],
 					"tipo_dinero"		=> $objeto[$cantidad-1]["currency_id"],
 					"status"			=> $objeto[$cantidad-1]["status"],
-					"monto_transaction"	=> $objeto[$cantidad-1]["transaction_details"]["installment_amount"],
+					"monto_transaction"	=> $objeto[$cantidad-1]["transaction_amount"],
 					"neto_recibido"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"]
 				);
 				$respuesta_id_ya_cargado = $this->Donacion_model->control_id_orden($datos["id_operacion_mp"]);

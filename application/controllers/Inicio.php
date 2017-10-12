@@ -50,7 +50,7 @@ class Inicio extends CI_Controller {
 
 	public function back()
 	{
-		//$objeto = $this->cargar_informacion_mp();
+		//$object = $this->cargar_informacion_mp();
 
 		$object = $this->Inicio_model->select_transactions();
 		$cant_filas = $object["cantidad"];
