@@ -131,20 +131,23 @@ class Donacion extends CI_Controller {
 				if($respuesta_id_ya_cargado==0){
 					$this->Donacion_model->guardar_informacion_pago($datos);
 					if($status==1){
-						$home = "location: ".base_url("")."Donacion/landing_pagado";				
+						$home = "location: ".base_url("")."Donacion/landing_pagado";
 					}else{
-						$home = "location: ".base_url("")."Donacion/landing_pendiente";		
+						$home = "location: ".base_url("")."Donacion/landing_pendiente";
 					}
+					header($home);
 				}else{
 					$home = "location: ".base_url("");
+					header($home);
 				}
 
 				
 			}
 		}else{
 			$home = "location: ".base_url("");
+			header($home);
 		}
-		header($home);
+		
 	}
 
 
