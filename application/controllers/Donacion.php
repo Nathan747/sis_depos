@@ -127,7 +127,6 @@ class Donacion extends CI_Controller {
 					"monto_transaction"	=> $objeto[$cantidad-1]["transaction_details"]["installment_amount"],
 					"neto_recibido"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"]
 				);
-				print_r($datos);
 				$respuesta_id_ya_cargado = $this->Donacion_model->control_id_orden($datos["id_operacion_mp"]);
 				if($respuesta_id_ya_cargado==0){
 					$this->Donacion_model->guardar_informacion_pago($datos);
@@ -145,7 +144,6 @@ class Donacion extends CI_Controller {
 		}else{
 			$home = "location: ".base_url("");
 		}
-		ob_start();
 		header($home);
 	}
 
