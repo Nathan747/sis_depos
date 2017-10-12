@@ -12,7 +12,7 @@
 					<th style="text-align: center;">DNI</th>
 					<th style="text-align: center;">TELEFONO</th>
 					<th style="text-align: center;">FECHA CREADO</th>
-					<th style="text-align: center;">MOVIMIENTO</th>
+					<th style="text-align: center;">DINERO</th>
 					<th style="text-align: center;">NETO TOTAL</th>
 				</tr>
 

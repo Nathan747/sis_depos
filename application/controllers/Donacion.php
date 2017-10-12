@@ -94,14 +94,6 @@ class Donacion extends CI_Controller {
 
 	public function status($payment=0, $status=0)
 	{
-		$data["titulo"] = "UNCuyo";
-		$class["clase"] = "home";
-		$this->load->view('layouts/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('layouts/header');
-		//$this->load->view('donacion/landing');
-
 		// 136515 = 0 en Payment
 		// 143526 = 1 en Payment
 		// 150537 = 2 en Payment
@@ -126,7 +118,6 @@ class Donacion extends CI_Controller {
 			$payment = $this->decode_number($payment);
 			if($payment!=0){
 				$status = $this->decode_status($status);
-
 				
 				$datos = array(
 					"id_usuario"		=> $id,
@@ -138,28 +129,52 @@ class Donacion extends CI_Controller {
 				);
 				print_r($datos);
 				$respuesta_id_ya_cargado = $this->Donacion_model->control_id_orden($datos["id_operacion_mp"]);
-				if($respuesta_id_ya_cargado!=0){
-					$home = "location: ".base_url("");
+				if($respuesta_id_ya_cargado==0){
+					$this->Donacion_model->guardar_informacion_pago($datos);
+					if($status==1){
+						$home = "location: ".base_url("")."Donacion/landing_pagado";				
+					}else{
+						$home = "location: ".base_url("")."Donacion/landing_pendiente";		
+					}
 					header($home);
 				}else{
-					$this->Donacion_model->guardar_informacion_pago($datos);
+					$home = "location: ".base_url("");
+					header($home);
 				}
 
-				if($status==1){
-					$this->load->view('donacion/aceptado');
-					$value_status = "Aceptado"; 
-				}else{
-					$this->load->view('donacion/pendiente');
-					$value_status = "Pendiente";
-				}
 				
 			}
 		}else{
 			$home = "location: ".base_url("");
 			header($home);
 		}
+	}
+
+
+	public function landing_pagado()
+	{
+		$data["titulo"] = "UNCuyo";
+		$class["clase"] = "home";
+		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
+		$this->load->view('layouts/header');
+		$this->load->view('donacion/aceptado');
 		$this->load->view('layouts/footer');
-		$this->load->view('backend/scripts',$object);
+		$this->load->view('end_body');
+	}
+
+
+	public function landing_pendiente()
+	{
+		$data["titulo"] = "UNCuyo";
+		$class["clase"] = "home";
+		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
+		$this->load->view('layouts/header');
+		$this->load->view('donacion/pendiente');
+		$this->load->view('layouts/footer');
 		$this->load->view('end_body');
 	}
 }

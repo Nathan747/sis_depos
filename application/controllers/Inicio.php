@@ -50,52 +50,15 @@ class Inicio extends CI_Controller {
 
 	public function back()
 	{
-		$objeto = $this->cargar_informacion_mp();
-		//$cantidad_elementos = sizeof($objeto);
-		$cant_filas = $this->Inicio_model->select_transactions();
-		/*if($cant_filas==0){
-			echo "<table border=1>
-			<tr>
-			<th>ID Usuario</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Email</th>
-			<th>DNI</th>
-			<th>Usuario</th>
-			<th>Teléfono</th>
-			<th>Fecha Creada</th>
-			<th>Fecha Aprobada</th>
-			<th>Fecha Dinero Enviado</th>
-			<th>Fecha Actualizacion</th>
-			<th>Status</th>
-			<th>Monto Transacción</th>
-			<th>Costo Envío</th>
-			<th>Valor Neto</th>
-			</tr>";
-			for($i=0;$i<$cantidad_elementos;$i++){
-				echo "<tr>";
-				echo "<td>".$objeto[$i]["payer_id"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["first_name"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["last_name"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["email"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["identification"]["number"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["nickname"]."</td>";
-				echo "<td>".$objeto[$i]["payer"]["phone"]["number"]."</td>";
-				echo "<td>".$objeto[$i]["date_created"]."</td>";
-				echo "<td>".$objeto[$i]["date_approved"]."</td>";
-				echo "<td>".$objeto[$i]["money_release_date"]."</td>";
-				echo "<td>".$objeto[$i]["date_last_updated"]."</td>";
-				echo "<td>".$objeto[$i]["status"]."</td>";
-				echo "<td>".$objeto[$i]["transaction_amount"]."</td>";
-				echo "<td>".$objeto[$i]["shipping_cost"]."</td>";
-				echo "<td>".$objeto[$i]["transaction_details"]["net_received_amount"]."</td>";
-				echo "</tr>";
-			}
-			echo "</table>";
-		}*/
+		//$objeto = $this->cargar_informacion_mp();
+
+		$object = $this->Inicio_model->select_transactions();
+		$cant_filas = $object["cantidad"];
+		echo $cant_filas;
+		
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "home";
-		$object["objeto"] = $objeto;
+		$objeto["objeto"] = $object;
 		$this->load->view('backend/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
@@ -104,12 +67,12 @@ class Inicio extends CI_Controller {
 
 		$this->load->view('backend/inicio_backend');
 		//$this->load->view('backend/gestionar_usuarios');
-		$this->load->view('backend/ultimos_movimientos',$object);
+		$this->load->view('backend/ultimos_movimientos');
 		//$this->load->view('backend/becarios');
 		//$this->load->view('backend/recaudado');
 		$this->load->view('backend/fin_backend');
 
-		$this->load->view('backend/scripts',$object);
+		$this->load->view('backend/scripts',$objeto);
 		$this->load->view('end_body');
 	}
 

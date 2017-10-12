@@ -78,18 +78,18 @@
 			$(".table-condensed").append("<tr class=row-"+i+"></tr>");
 
 			$(".fila-"+fila).find(".columna-1").text();
-			$(".fila-"+fila).find(".columna-1").text(objeto[i]["payer"]["first_name"]+" "+objeto[i]["payer"]["last_name"]);
+			$(".fila-"+fila).find(".columna-1").text(objeto[i]["nombre"]+" "+objeto[i]["apellido"]);
 
 			$(".fila-"+fila).find(".columna-2").text();
-			$(".fila-"+fila).find(".columna-2").text(objeto[i]["payer"]["email"]);
+			$(".fila-"+fila).find(".columna-2").text(objeto[i]["email"]);
 
 			$(".fila-"+fila).find(".columna-3").text();
-			$(".fila-"+fila).find(".columna-3").text(objeto[i]["payer"]["identification"]["number"]);
+			$(".fila-"+fila).find(".columna-3").text(objeto[i]["dni"]);
 
 			$(".fila-"+fila).find(".columna-4").text();
-			$(".fila-"+fila).find(".columna-4").text(objeto[i]["payer"]["phone"]["number"]);
+			$(".fila-"+fila).find(".columna-4").text(objeto[i]["telefono"]);
 
-			var d = new Date(objeto[i]["date_created"]);
+			var d = new Date(objeto[i]["fecha_creada"]);
 			var dia = d.getUTCDate();
 			var mes = d.getUTCMonth() + 1;
 			var anio = d.getUTCFullYear();
@@ -99,11 +99,11 @@
 			$(".fila-"+fila).find(".columna-5").text(fecha);
 
 			$(".fila-"+fila).find(".columna-6").text();
-			$(".fila-"+fila).find(".columna-6").text(objeto[i]["transaction_amount"]);
+			$(".fila-"+fila).find(".columna-6").text(objeto[i]["monto_transaction"]);
 
 			$(".fila-"+fila).find(".columna-7").text();
 
-			$(".fila-"+fila).find(".columna-7").text(objeto[i]["transaction_details"]["net_received_amount"]);
+			$(".fila-"+fila).find(".columna-7").text(objeto[i]["neto_recibido"]);
 		}
 	}
 
