@@ -142,7 +142,7 @@ class Donacion extends CI_Controller {
 					$home = "location: ".base_url("");
 					header($home);
 				}else{
-					$this->Donacion_model->guardar_informacion_pago();
+					$this->Donacion_model->guardar_informacion_pago($datos);
 				}
 
 				if($status==1){
