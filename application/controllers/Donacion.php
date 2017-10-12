@@ -136,18 +136,16 @@ class Donacion extends CI_Controller {
 					}else{
 						$home = "location: ".base_url("")."Donacion/landing_pendiente";		
 					}
-					header($home);
 				}else{
 					$home = "location: ".base_url("");
-					header($home);
 				}
 
 				
 			}
 		}else{
 			$home = "location: ".base_url("");
-			header($home);
 		}
+		header($home);
 	}
 
 
