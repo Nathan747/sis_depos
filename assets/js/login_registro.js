@@ -262,7 +262,29 @@ $("#bloque-03").click(function(e){
 
 
 $("#universidad_login").change(function(){
-  $("#siguiente-run").removeAttr("disabled");
+
+  if(clase!=0){
+    $(clase).animate({
+      top: "-780px"
+    });
+    $(clase).css("display","none");
+  }
+
+  var seleccionada = $("#universidad_login").val();
+  console.log(seleccionada);
+  $(".contenedor-carreras").css("overflow","auto");
+  
+  clase = ".carreras-"+seleccionada;
+
+  $(clase).css("display","inline-block");
+  $(clase).animate({
+    top: "0px"
+  });
+
+  $(".siguiente-carrera").animate({
+    top: "0px"
+  });
+
 });
 
 //DONAR
@@ -480,5 +502,29 @@ $('.myprof').click(function(e){
 
 
 });
+
+
+$(".all-careers").find("a").click(function(){
+  $(".all-careers").find("a").each(function(){
+    $(this).find(".padre-icono-carrera").css("border","1px solid #D3D3D3");
+    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
+    $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
+  });
+  $(this).find(".padre-icono-carrera").css("border","1px solid #22205F");
+  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#22205F");
+  $(this).find(".padre-texto-carrera").css("color","#22205F");
+  var carrera_seleccionada = $(this).attr("id");
+  carrera_seleccionada = carrera_seleccionada.replace("carrera-", "");
+  console.log("STRING: " + carrera_seleccionada);
+  console.log("INTEGER: " + parseInt(carrera_seleccionada));
+
+  var clase_padre = $(this).parent().attr("class");
+  clase_padre = clase_padre.replace("all-careers carreras-","");
+  console.log("STRING PADRE: " + clase_padre);
+  console.log("INTEGER PADRE: " + parseInt(clase_padre));
+
+  $("#siguiente-run").removeAttr("disabled");
+});
+
 
 /*Perfil*/
