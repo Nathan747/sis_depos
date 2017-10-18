@@ -198,7 +198,7 @@
 				$("#gestar").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1850px"
+					top: "-1890px"
 				},function(){
 					$("#crear-usuario").animate({
 						right: "0"
@@ -270,7 +270,7 @@
 				$("#movimientos").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1850px"
+					top: "-1890px"
 				},function(){
 					$("#ultimos-movimientos").animate({
 						left: "0"
@@ -360,7 +360,7 @@
 				$("#becarios").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1850px"
+					top: "-1890px"
 				},function(){
 					$("#menu-becarios").animate({
 						top: "-850px"
@@ -397,7 +397,7 @@
 					right: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1390px"
+						top: "-1460px"
 					});
 				});
 			}
@@ -416,7 +416,7 @@
 					left: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1390px"
+						top: "-1460px"
 					});
 				});
 			}
@@ -437,7 +437,7 @@
 					top: "0px"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1390px"
+						top: "-1460px"
 					});
 				});
 			}
