@@ -134,13 +134,13 @@
           </div>
         </div>
 
-        <!--div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
-        </div-->
-
         <div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" >Siguiente</button>
+          <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
         </div>
+
+        <!--div class="siguiente-registro-basico">
+          <button type="submit" class="btn btn-default" id="siguiente-basico" >Siguiente</button>
+        </div-->
 
       </div>
 
@@ -1741,19 +1741,8 @@
               </div>
             </a>
 
+
             <a href="#" id="carrera-123">
-              <div class="contenedor-carrera">
-                <div class="padre-icono-carrera">
-                  <span class="icon-book"></span>
-                </div>
-
-                <div class="padre-texto-carrera">
-                  Tecnicatura Universitaria en Electricidad y Sistemas de Control Industriales
-                </div>
-              </div>
-            </a>
-
-            <a href="#" id="carrera-124">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1765,7 +1754,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-125">
+            <a href="#" id="carrera-124">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1777,7 +1766,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-126">
+            <a href="#" id="carrera-125">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1789,7 +1778,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-127">
+            <a href="#" id="carrera-126">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1801,7 +1790,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-128">
+            <a href="#" id="carrera-127">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1813,7 +1802,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-129">
+            <a href="#" id="carrera-128">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1829,7 +1818,7 @@
 
           <div class="all-careers carreras-15">
 
-            <a href="#" id="carrera-130">
+            <a href="#" id="carrera-129">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1841,7 +1830,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-131">
+            <a href="#" id="carrera-130">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>
@@ -1853,7 +1842,7 @@
               </div>
             </a>
 
-            <a href="#" id="carrera-132">
+            <a href="#" id="carrera-131">
               <div class="contenedor-carrera">
                 <div class="padre-icono-carrera">
                   <span class="icon-book"></span>

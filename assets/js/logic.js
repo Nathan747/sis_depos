@@ -597,11 +597,14 @@
           email: email,
           telefono: telefono,
           egresado: egresado,
+          dni: dni,
           fecha_egresado: fecha_egresado,
           profesion: profesion,
           password: pass1,
           latitud: latitude,
-          longitud: longitude          
+          longitud: longitude,
+          facultad: facultad_number,
+          carrera: carrera_number          
         }
       }).done(function(json){
         if(reg_fb_normal==0){
@@ -755,6 +758,19 @@
       var profesion_usuario = $("#txtQualification").val();
       var biografia_usuario = $("#txtBiography").val();
       var es_egresado_usuario = $("#ejemplo-2").prop("checked");
+      var facultad_usuario = $("#universidad_modify").val();
+      var carrera_usuario;
+
+      var v = 1;
+      $(".selecciones-modify").each(function(){
+        if($(this).find("select").val() != null){
+          console.log("FACULTAD: "+facultad_usuario);
+          console.log("CARRERA: "+$(this).find("select").val() );
+          carrera_usuario = $(this).find("select").val();
+        }
+        v++;
+      });
+
       if(es_egresado_usuario==true){
         es_egresado_usuario=1;
       }else{
@@ -774,7 +790,9 @@
           biografia: biografia_usuario,
           fecha: fecha_usuario,
           pass: pass_usuario,
-          egresado: es_egresado_usuario
+          egresado: es_egresado_usuario,
+          facultad: facultad_usuario,
+          carrera: carrera_usuario
         }
       }).done(function(json){
         var objeto = $.parseJSON(json);

@@ -22,10 +22,11 @@
 	function rellenar_tabla(indice=0){
 		var i;
 		var limite;
-		var cant_items = objeto.length;
+		var cant_items = objeto.cantidad;
+		console.log(cant_items);
 		var aux_cant = cant_items;
 
-		var cant_items_mostrados = 9;
+		var cant_items_mostrados = 4;
 
 
 
@@ -38,7 +39,7 @@
 		}
 		
 
-		if($(".selector-numero").length==0){
+		if($(".selectores-ultimos-movimientos").find(".selector-numero").length==0){
 			for(var x=0;x<cant_paginas;x++){
 				if(x==0){
 					$(".selectores-numeros").append("<a href='#' class='selector-numero numero-activo'> <div class='numeros'>"+(x+1)+"</div> </a>");			
@@ -74,37 +75,74 @@
 
 		// FIN MOSTRAR INFO DE RESULTADOS
 
-		for(fila=1;i<limite;i++,fila++){
-			$(".table-condensed").append("<tr class=row-"+i+"></tr>");
+		if(cant_items<limite){
+			for(fila=1;i<cant_items;i++,fila++){
+				console.log("i: "+i);
+				$(".table-condensed").append("<tr class=row-"+i+"></tr>");
 
-			$(".fila-"+fila).find(".columna-1").text();
-			$(".fila-"+fila).find(".columna-1").text(objeto[i]["nombre"]+" "+objeto[i]["apellido"]);
+				$(".fila-"+fila).find(".columna-1").text();
+				$(".fila-"+fila).find(".columna-1").text(objeto[i]["nombre"]+" "+objeto[i]["apellido"]);
 
-			$(".fila-"+fila).find(".columna-2").text();
-			$(".fila-"+fila).find(".columna-2").text(objeto[i]["email"]);
+				$(".fila-"+fila).find(".columna-2").text();
+				$(".fila-"+fila).find(".columna-2").text(objeto[i]["email"]);
 
-			$(".fila-"+fila).find(".columna-3").text();
-			$(".fila-"+fila).find(".columna-3").text(objeto[i]["dni"]);
+				$(".fila-"+fila).find(".columna-3").text();
+				$(".fila-"+fila).find(".columna-3").text(objeto[i]["dni"]);
 
-			$(".fila-"+fila).find(".columna-4").text();
-			$(".fila-"+fila).find(".columna-4").text(objeto[i]["telefono"]);
+				$(".fila-"+fila).find(".columna-4").text();
+				$(".fila-"+fila).find(".columna-4").text(objeto[i]["telefono"]);
 
-			var d = new Date(objeto[i]["fecha_creada"]);
-			var dia = d.getUTCDate();
-			var mes = d.getUTCMonth() + 1;
-			var anio = d.getUTCFullYear();
-			var fecha = dia+"/"+mes+"/"+anio;
+				var d = new Date(objeto[i]["fecha_creada"]);
+				var dia = d.getUTCDate();
+				var mes = d.getUTCMonth() + 1;
+				var anio = d.getUTCFullYear();
+				var fecha = dia+"/"+mes+"/"+anio;
 
-			$(".fila-"+fila).find(".columna-5").text();
-			$(".fila-"+fila).find(".columna-5").text(fecha);
+				$(".fila-"+fila).find(".columna-5").text();
+				$(".fila-"+fila).find(".columna-5").text(fecha);
 
-			$(".fila-"+fila).find(".columna-6").text();
-			$(".fila-"+fila).find(".columna-6").text(objeto[i]["monto_transaction"]);
+				$(".fila-"+fila).find(".columna-6").text();
+				$(".fila-"+fila).find(".columna-6").text(objeto[i]["monto_transaction"]);
 
-			$(".fila-"+fila).find(".columna-7").text();
+				$(".fila-"+fila).find(".columna-7").text();
 
-			$(".fila-"+fila).find(".columna-7").text(objeto[i]["neto_recibido"]);
+				$(".fila-"+fila).find(".columna-7").text(objeto[i]["neto_recibido"]);
+			}	
+		}else{
+			for(fila=1;i<limite;i++,fila++){
+				console.log("i: "+i);
+				$(".table-condensed").append("<tr class=row-"+i+"></tr>");
+
+				$(".fila-"+fila).find(".columna-1").text();
+				$(".fila-"+fila).find(".columna-1").text(objeto[i]["nombre"]+" "+objeto[i]["apellido"]);
+
+				$(".fila-"+fila).find(".columna-2").text();
+				$(".fila-"+fila).find(".columna-2").text(objeto[i]["email"]);
+
+				$(".fila-"+fila).find(".columna-3").text();
+				$(".fila-"+fila).find(".columna-3").text(objeto[i]["dni"]);
+
+				$(".fila-"+fila).find(".columna-4").text();
+				$(".fila-"+fila).find(".columna-4").text(objeto[i]["telefono"]);
+
+				var d = new Date(objeto[i]["fecha_creada"]);
+				var dia = d.getUTCDate();
+				var mes = d.getUTCMonth() + 1;
+				var anio = d.getUTCFullYear();
+				var fecha = dia+"/"+mes+"/"+anio;
+
+				$(".fila-"+fila).find(".columna-5").text();
+				$(".fila-"+fila).find(".columna-5").text(fecha);
+
+				$(".fila-"+fila).find(".columna-6").text();
+				$(".fila-"+fila).find(".columna-6").text(objeto[i]["monto_transaction"]);
+
+				$(".fila-"+fila).find(".columna-7").text();
+
+				$(".fila-"+fila).find(".columna-7").text(objeto[i]["neto_recibido"]);
+			}	
 		}
+
 	}
 
 	var objeto = <?php echo json_encode($objeto) ?>;
@@ -359,7 +397,7 @@
 					right: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1360px"
+						top: "-1390px"
 					});
 				});
 			}
@@ -378,7 +416,7 @@
 					left: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1360px"
+						top: "-1390px"
 					});
 				});
 			}
@@ -396,10 +434,10 @@
 				$("#recaudado").addClass("li-active");
 
 				$("#menu-becarios").animate({
-					top: "-250px"
+					top: "0px"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1360px"
+						top: "-1390px"
 					});
 				});
 			}

@@ -36,10 +36,12 @@
   var todos_los_mail;
   var email_existe="";
   var clase = 0;
+  var facultad_number;
+  var carrera_number;
 
-  function decodificar_facultad($indice){
+  function decodificar_facultad(indice){
     var string_facultad;
-    switch($indice){
+    switch(indice){
       case 1:{
         string_facultad = "Facultad de Artes y Diseño";
         break;
@@ -116,13 +118,13 @@
       }
     }
 
-    return $string_facultad;
+    return string_facultad;
   }
 
 
-  function decodificar_carrera($indice){
+  function decodificar_carrera(indice){
     var string_carrera;
-    switch($indice){
+    switch(indice){
       case 1:{
         string_carrera = "Ciclo de Formación Básica en Artes Visuales";
         break;
@@ -784,7 +786,7 @@
       }
     }
 
-    return $string_carrera;
+    return string_carrera;
   }
 
 

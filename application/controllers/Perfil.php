@@ -39,7 +39,9 @@ class Perfil extends CI_Controller {
 			"biografia_user" 	=> $data["biografia"],
 			"fecha_egreso_user" => $data["fecha"],
 			"pass_user" 		=> $data["pass"],
-			"es_egresado_user"	=> $data["egresado"]
+			"es_egresado_user"	=> $data["egresado"],
+			"facultad_user"		=> $data["facultad"],
+			"carrera_user"		=> $data["carrera"]
 		);
 
 		$this->Perfil_model->actualizar($datos);

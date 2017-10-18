@@ -27,6 +27,8 @@ class Perfil_model extends CI_Model {
         $fecha = $row->fecha_egreso_user;
         $password = $row->pass_user;
         $es_egresado = $row->es_egresado_user;
+        $facultad = $row->facultad_user;
+        $carrera = $row->carrera_user;
         if ($foto==""){
           $foto='assets/img/pics/'.'1.png';
         }
@@ -43,6 +45,8 @@ class Perfil_model extends CI_Model {
       $json["fecha"]=$fecha;
       $json["password"]=$password;
       $json["es_egresado"]=$es_egresado;
+      $json["facultad"]=$facultad;
+      $json["carrera"]=$carrera;
     }else{
       $json["nombre"]="";
       $json["apellido"]="";
@@ -56,6 +60,8 @@ class Perfil_model extends CI_Model {
       $json["fecha"]="";
       $json["password"]="";
       $json["es_egresado"]="";
+      $json["facultad"]="";
+      $json["carrera"]="";
     }
 
     return $json; 

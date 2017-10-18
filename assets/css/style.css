@@ -1449,7 +1449,7 @@ footer{
 
 .profile .container .row{
 	height: auto;
-	max-height: 1130px !important;
+	max-height: 1165px;
 	clear: both;
 	overflow: hidden;
 }
@@ -1458,7 +1458,6 @@ footer{
 .editprofile{
 	width: 1200px;
 	overflow: scroll;
-	/* height: 657px; */
 	position: absolute;
 	top: 60px;
 	background: white;
@@ -1752,4 +1751,32 @@ input[type=checkbox] {
 
 .contenido-donacion{
 	height: calc(100vh - 100px);
+}
+
+
+.selecciones-modify{
+	display: none;
+}
+
+.seleccion-1{
+	display: inline-block;
+}
+
+label{
+	width: 100%
+}
+
+.contenedor-selecciones{
+	position: relative;
+	overflow: hidden;
+}
+
+.padre-selecciones{
+	position: relative;
+	top: 0px;
+}
+
+.padre-biografia, .allFormButtons{
+	position: relative;
+	top: 0px;
 }

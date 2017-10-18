@@ -65,10 +65,10 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/aside');
 
 		$this->load->view('backend/inicio_backend');
-		//$this->load->view('backend/gestionar_usuarios');
+		$this->load->view('backend/gestionar_usuarios');
 		$this->load->view('backend/ultimos_movimientos');
-		//$this->load->view('backend/becarios');
-		//$this->load->view('backend/recaudado');
+		$this->load->view('backend/becarios');
+		$this->load->view('backend/recaudado');
 		$this->load->view('backend/fin_backend');
 
 		$this->load->view('backend/scripts',$objeto);
