@@ -16,6 +16,7 @@ class Registro_model extends CI_Model {
 		$nombre_completo = $data["nombre_user"]." ".$data["apellido_user"];
 		$this->session->set_userdata('username',$nombre_completo);
 		$this->session->set_userdata('email',$data["email_user"]);
+		$this->session->set_userdata('jerarquia',$data["jerarquia"]);
 	}
 
 	public function update_entry()

@@ -198,7 +198,7 @@
 				$("#gestar").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1890px"
+					top: "-1950px"
 				},function(){
 					$("#crear-usuario").animate({
 						right: "0"
@@ -270,7 +270,7 @@
 				$("#movimientos").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1890px"
+					top: "-1950px"
 				},function(){
 					$("#ultimos-movimientos").animate({
 						left: "0"
@@ -325,7 +325,7 @@
 					right: "-100%"
 				},function(){
 					$("#menu-becarios").animate({
-						top: "-850px"
+						top: "-1010px"
 					});
 				});
 			}
@@ -344,7 +344,7 @@
 					left: "-100%"
 				},function(){
 					$("#menu-becarios").animate({
-						top: "-850px"
+						top: "-1010px"
 					});
 				});
 			}
@@ -360,10 +360,10 @@
 				$("#becarios").addClass("li-active");
 
 				$("#menu-recaudado").animate({
-					top: "-1890px"
+					top: "-1950px"
 				},function(){
 					$("#menu-becarios").animate({
-						top: "-850px"
+						top: "-1010px"
 					});
 				});
 			}
@@ -397,7 +397,7 @@
 					right: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1460px"
+						top: "-1540px"
 					});
 				});
 			}
@@ -416,7 +416,7 @@
 					left: "-100%"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1460px"
+						top: "-1540px"
 					});
 				});
 			}
@@ -437,7 +437,7 @@
 					top: "0px"
 				},function(){
 					$("#menu-recaudado").animate({
-						top: "-1460px"
+						top: "-1540px"
 					});
 				});
 			}
@@ -750,6 +750,108 @@
 	/* FIN BUSCAR BECARIO */
 
 
+	/* GESTIONAR USUARIOS */
 
+	$("#boton-enviar-1").click(function(){
+      console.log("CLICK");
+      var nombre_colaborador = $("#nombre-1").val();
+      var apellido_colaborador = $("#apellido-1").val();
+      var email_colaborador = $("#email-1").val();
+      var telefono_colaborador = $("#telefono-1").val();
+      var password_colaborador = $("#password-1").val();
+
+      $.ajax({
+        url: "load_colaborador",
+        type: "post",
+        data: {
+          nombre: nombre_colaborador,
+          apellido: apellido_colaborador,
+          telefono: telefono_colaborador,
+          email: email_colaborador,
+          pass: password_colaborador,
+        }
+      }).done(function(json){
+      	$(".padre-mensaje-colaborador").animate({
+      		left: "0px"
+      	});
+        var objeto = $.parseJSON(json);
+        console.log(json);
+      });
+    });
+
+
+	$("#universidad-2").change(function(){
+		console.log($("#universidad-2").val());
+		var universidad_becario = $("#universidad-2").val();
+		$(".carreras-becario").find("select").each(function(){
+			$(this).css("display","none");
+			$(this).val(null);
+		});
+		var becario_clase = "#carrera-becario-"+universidad_becario;
+		console.log(becario_clase);
+		$(becario_clase).css("display","inline-block");
+
+	});
+
+	$("#boton-enviar-2").click(function(){
+      console.log("CLICK");
+      var nombre_becario = $("#nombre-2").val();
+      var apellido_becario = $("#apellido-2").val();
+      var dni_becario = $("#dni-2").val();
+      var telefono_becario = $("#telefono-2").val();
+      var password_becario = $("#password-2").val();
+      var facultad_becario = $("#universidad-2").val();
+      var clase_becario = "#carrera-becario-"+facultad_becario;
+      var carrera_becario = $(clase_becario).val();
+
+      $.ajax({
+        url: "load_becario",
+        type: "post",
+        data: {
+          nombre: nombre_becario,
+          apellido: apellido_becario,
+          dni: dni_becario,
+          telefono: telefono_becario,
+          pass: password_becario,
+          facultad: facultad_becario,
+          carrera: carrera_becario
+        }
+      }).done(function(json){
+      	$(".padre-mensaje-becario").animate({
+      		left: "0px"
+      	});
+        var objeto = $.parseJSON(json);
+        console.log(json);
+      });
+    });
+
+
+
+    $("#boton-enviar-3").click(function(){
+      console.log("CLICK");
+      var nombre_admin = $("#nombre-3").val();
+      var apellido_admin = $("#apellido-3").val();
+      var email_admin = $("#email-3").val();
+      var telefono_admin = $("#telefono-3").val();
+      var password_admin = $("#password-3").val();
+
+      $.ajax({
+        url: "load_admin",
+        type: "post",
+        data: {
+          nombre: nombre_admin,
+          apellido: apellido_admin,
+          telefono: telefono_admin,
+          email: email_admin,
+          pass: password_admin,
+        }
+      }).done(function(json){
+      	$(".padre-mensaje-admin").animate({
+      		left: "0px"
+      	});
+        var objeto = $.parseJSON(json);
+        console.log(json);
+      });
+    });
 
 </script>

@@ -22,9 +22,11 @@ class Login_model extends CI_Model {
       foreach ($sql->result() as $row){
         $nombre_completo = $row->nombre_user." ".$row->apellido_user;
         $email = $row->email_user;
+        $jerarquia = $row->jerarquia;
       }
       $this->session->set_userdata('username',$nombre_completo);
       $this->session->set_userdata('email',$email);
+      $this->session->set_userdata('jerarquia',$jerarquia);
       $json["username"]=$nombre_completo;
     }else{
       $this->session->set_userdata("newsession","no");

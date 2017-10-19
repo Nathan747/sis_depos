@@ -9,8 +9,16 @@
 	font-style: normal;
 }
 
-.icon-triangle-right:before, .icon-book:before, .icon-previous2:before, .icon-next2:before, .icon-user:before, .icon-triangle-left:before{
+.icon-triangle-right:before, .icon-book:before, .icon-previous2:before, .icon-next2:before, .icon-user:before, .icon-triangle-left:before, .icon-pencil:before, .icon-cross:before{
 	font-family: 'icomoon';
+}
+
+.icon-pencil:before {
+  content: "\e905";
+}
+
+.icon-cross:before {
+  content: "\ea0f";
 }
 
 .icon-book:before {
@@ -579,14 +587,15 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 #crear-usuario{
 	right: -100%;
+	min-height: 531px;
 }
 
 #ultimos-movimientos{
-	top: -460px;
+	top: -530px;
 }
 
 #menu-recaudado{
-	top: -1890px;
+	top: -1950px;
 }
 
 #menu-becarios{
@@ -1868,7 +1877,6 @@ label{
 .profile2 {
     width: 1200px;
     overflow: hidden;
-    /* height: 657px; */
     position: absolute;
     top: -108px;
     background: white;
@@ -1877,4 +1885,31 @@ label{
     right: -256px;
     height: calc(100vh - 81px);
     overflow-x: hidden !important;
+}
+
+#boton-enviar-1, #boton-enviar-2, #boton-enviar-3{
+	float: left;
+}
+
+.contenedor-mensaje-colaborador, .contenedor-mensaje-becario, .contenedor-mensaje-admin{
+	float: left;
+    line-height: 50px;
+    height: 49px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 0px 15px;
+}
+
+.padre-mensaje-colaborador, .padre-mensaje-becario, .padre-mensaje-admin{
+	position: relative;
+    left: -300px;
+    font-size: 12px;
+}
+
+.padre-mensaje-colaborador p, .padre-mensaje-becario p, .padre-mensaje-admin p{
+	color: red;
+}
+
+#carrera-becario-1, #carrera-becario-2, #carrera-becario-3, #carrera-becario-4, #carrera-becario-5, #carrera-becario-6, #carrera-becario-7, #carrera-becario-8, #carrera-becario-9, #carrera-becario-10, #carrera-becario-11, #carrera-becario-12, #carrera-becario-13, #carrera-becario-14, #carrera-becario-15{
+	display: none;
 }

@@ -48,16 +48,74 @@ class Inicio extends CI_Controller {
 		$this->load->view('end_body');
 	}
 
+	public function load_colaborador()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"email_user" 		=> $data["email"],
+			"telefono_user" 	=> $data["telefono"],
+			"pass_user" 		=> $data["pass"],
+			"jerarquia" 		=> 1
+		);
+
+		$this->Inicio_model->insert_user($datos);
+		echo json_encode($data);
+	}
+
+	public function load_becario()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"dni_user" 			=> $data["dni"],
+			"telefono_user" 	=> $data["telefono"],
+			"pass_user" 		=> $data["pass"],
+			"facultad_user" 	=> $data["facultad"],
+			"carrera_user" 		=> $data["carrera"],
+			"jerarquia" 		=> 3
+		);
+
+		$this->Inicio_model->insert_user($datos);
+		echo json_encode($data);
+	}
+
+	public function load_admin()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"email_user" 		=> $data["email"],
+			"telefono_user" 	=> $data["telefono"],
+			"pass_user" 		=> $data["pass"],
+			"jerarquia" 		=> 0
+		);
+
+		$this->Inicio_model->insert_user($datos);
+		echo json_encode($data);
+	}
+
+
+
 	public function back()
 	{
 		//$object = $this->cargar_informacion_mp();
 
 		$object = $this->Inicio_model->select_transactions();
+		$jerarchy = $this->Inicio_model->select_jerarquia();
 		$cant_filas = $object["cantidad"];
 		
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "home";
 		$objeto["objeto"] = $object;
+		$jerarquia["jerarquia"] = $jerarchy;
+
 		$this->load->view('backend/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
@@ -65,7 +123,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/aside');
 
 		$this->load->view('backend/inicio_backend');
-		$this->load->view('backend/gestionar_usuarios');
+		$this->load->view('backend/gestionar_usuarios',$jerarquia);
 		$this->load->view('backend/ultimos_movimientos');
 		$this->load->view('backend/becarios');
 		$this->load->view('backend/recaudado');
@@ -141,6 +199,8 @@ class Inicio extends CI_Controller {
 		$this->session->set_userdata("FULLNAME",NULL);
 		$this->session->set_userdata("FBID",NULL);
 		$this->session->unset_userdata("newsession");
+		$this->session->unset_userdata("email");
+		$this->session->unset_userdata("jerarquia");
 		$json["eliminado"]=1;
 		echo json_encode($json);
 	}

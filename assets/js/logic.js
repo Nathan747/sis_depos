@@ -785,7 +785,6 @@
           apellido: apellido_usuario,
           telefono: telefono_usuario,
           dni: dni_usuario,
-          //email: email_usuario,
           profesion: profesion_usuario,
           biografia: biografia_usuario,
           fecha: fecha_usuario,
@@ -812,17 +811,6 @@
       console.log("")
       $(".changeimg").click();
     });
-
-
-    $("#boton-enviar-1").click(function(){
-      var nombre_colaborador = $("#nombre-1").val();
-      var apellido_colaborador = $("#apellido-1").val();
-      var email_colaborador = $("#email-1").val();
-      var telefono_colaborador = $("#telefono-1").val();
-      var password_colaborador = $("#password-1").val();
-    });
-
-
     
   });
 

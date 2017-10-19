@@ -9,6 +9,28 @@ class Inicio_model extends CI_Model {
 		$this->load->library('session');
 	}
 
+	public function select_jerarquia(){
+		$sql2=$this->db->get('unc_usuarios');
+		$x=0;
+		foreach ($sql2->result() as $row){
+			if ( ($row->jerarquia==1) || ($row->jerarquia==3) ){	
+				$arreglo[$x]["id_user"] = $row->id_user;
+				$arreglo[$x]["nombre_user"] = $row->nombre_user;
+				$arreglo[$x]["apellido_user"] = $row->apellido_user;
+				$arreglo[$x]["email_user"] = $row->email_user;
+				$arreglo[$x]["telefono_user"] = $row->telefono_user;
+				$arreglo[$x]["dni_user"] = $row->dni_user;
+				$arreglo[$x]["pass_user"] = $row->pass_user;
+				$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
+				$arreglo[$x]["facultad_user"] = $row->facultad_user;
+				$arreglo[$x]["carrera_user"] = $row->carrera_user;			
+				$x++;
+			}
+		}
+		$arreglo["cantidad"]=$x;
+		return $arreglo;
+	}
+
 	public function select_transactions(){
 		$sql=$this->db->get('unc_transactions');
 		$sql2=$this->db->get('unc_usuarios');
@@ -60,5 +82,10 @@ class Inicio_model extends CI_Model {
 	public function insert_data_transactions($datos){
 		$this->db->where('email_user', $this->session->email);
 		$this->db->update('unc_usuarios', $datos);
+	}
+
+	public function insert_user($data)
+	{		
+		$this->db->insert('unc_usuarios', $data);
 	}
 }
