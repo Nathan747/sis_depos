@@ -18,12 +18,15 @@ class Control_Registro extends CI_Controller {
 			"apellido_user" 	=> $data["apellido"],
 			"email_user" 		=> $data["email"],
 			"telefono_user" 	=> $data["telefono"],
+			"dni_user"			=> $data["dni"],
 			"es_egresado_user"	=> $data["egresado"],
 			"fecha_egreso_user" => $data["fecha_egresado"],
 			"pass_user" 		=> $data["password"],
 			"profesion_user"	=> $data["profesion"],
 			"lat_user" 			=> $data["latitud"],
 			"long_user" 		=> $data["longitud"],
+			"facultad_user"		=> $data["facultad"],
+			"carrera_user"		=> $data["carrera"],
 			"jerarquia" 		=> 2
 		);
 

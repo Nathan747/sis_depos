@@ -1,4 +1,4 @@
-<div id="ultimos-movimientos" style="top: 0px !important" class="background-opciones contenedor-tablas" >
+<div id="ultimos-movimientos" class="background-opciones contenedor-tablas" >
 	<div class="contenedor-titulo">
 		<div class="col-lg-12"><h1>Últimos movimientos</h1></div>
 	</div>
@@ -118,7 +118,7 @@
 		<div class="col-lg-5">
 			<div class="texto-resultados">
 				<p>
-					Mostrando <span class="primer-elemento-resultados"></span> a <span class="ultimo-elemento-resultados"></span> resultados de <span class="total-resultados"></span> resultados
+					Mostrando <span class="primer-elemento-resultados">0</span> a <span class="ultimo-elemento-resultados">0</span> resultados de <span class="total-resultados">0</span> resultados
 				</p>
 			</div>
 		</div>
@@ -143,16 +143,8 @@
 					</a>
 				</div>
 
-				<div class="selectores-numeros">
-					<!--a href="#" class="selector-numero numero-activo">
-						<div class="numeros">1</div>
-					</a>
-					<a href="#" class="selector-numero">
-						<div class="numeros">2</div>
-					</a>
-					<a href="#" class="selector-numero">
-						<div class="numeros">3</div>
-					</a-->
+				<div class="selectores-numeros selectores-ultimos-movimientos">
+					
 				</div>
 
 				<div class="selectores-anteriores">

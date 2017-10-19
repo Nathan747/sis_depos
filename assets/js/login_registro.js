@@ -261,8 +261,70 @@ $("#bloque-03").click(function(e){
 });
 
 
+
+$("#universidad_modify").change(function(){
+  if(clase!=0){
+    $(clase).animate({
+      top: "-780px"
+    });
+    $(clase).css("display","none");
+  }
+
+  var seleccionada = $("#universidad_modify").val();
+  console.log(seleccionada);
+
+  $(".selecciones-modify").each(function(){
+    $(this).css("display","none");
+  });
+
+  clase = ".seleccion-"+seleccionada;
+  $(clase).css("display","inline-block");
+
+  $(".allFormButtons").animate({
+    top: "0px"
+  });
+
+  $(".padre-biografia").animate({
+    top: "0px"
+  });
+
+  $(".padre-selecciones").animate({
+    top: "0px"
+  });
+
+  $(".profile").find(".container").find(".row").css("max-height","1280px");
+
+
+  
+
+
+  
+});
+
 $("#universidad_login").change(function(){
-  $("#siguiente-run").removeAttr("disabled");
+
+  if(clase!=0){
+    $(clase).animate({
+      top: "-780px"
+    });
+    $(clase).css("display","none");
+  }
+
+  var seleccionada = $("#universidad_login").val();
+  console.log(seleccionada);
+  $(".contenedor-carreras").css("overflow","auto");
+  
+  clase = ".carreras-"+seleccionada;
+
+  $(clase).css("display","inline-block");
+  $(clase).animate({
+    top: "0px"
+  });
+
+  $(".siguiente-carrera").animate({
+    top: "0px"
+  });
+
 });
 
 //DONAR
@@ -410,6 +472,23 @@ $('#prof').click(function(e){
       $("#txtPassword").val(objeto.password);
       $("#txtQualification").val(objeto.profesion);
       $("#txtBiography").val(objeto.biografia);
+      $("#universidad_modify").val(objeto.facultad);
+
+      $(".selecciones-modify").each(function(){
+        $(this).css("display","none");
+      });
+
+      var clase3 = ".seleccion-"+objeto.facultad;
+      $(clase3).css("display","inline-block");
+      $(".profile").find(".container").find(".row").css("max-height","1260px");
+
+      objeto.facultad = parseInt(objeto.facultad);
+      var clase2 = "#carreras-"+objeto.facultad;
+      console.log(objeto.carrera);
+      objeto.carrera = parseInt(objeto.carrera);
+      console.log(objeto.carrera);
+      console.log($(clase2));
+      $(clase2).val(objeto.carrera);
       if(objeto.es_egresado==1){
         $("#ejemplo-2").prop("checked",true);
       }else{
@@ -480,5 +559,30 @@ $('.myprof').click(function(e){
 
 
 });
+
+
+$(".all-careers").find("a").click(function(){
+  $(".all-careers").find("a").each(function(){
+    $(this).find(".padre-icono-carrera").css("border","1px solid #D3D3D3");
+    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
+    $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
+  });
+  $(this).find(".padre-icono-carrera").css("border","1px solid #22205F");
+  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#22205F");
+  $(this).find(".padre-texto-carrera").css("color","#22205F");
+  var carrera_seleccionada = $(this).attr("id");
+  carrera_seleccionada = carrera_seleccionada.replace("carrera-", "");
+
+  var clase_padre = $(this).parent().attr("class");
+  clase_padre = clase_padre.replace("all-careers carreras-","");
+
+  var carrera_decodificada = decodificar_carrera(parseInt(carrera_seleccionada));
+  var facultad_decodificada = decodificar_facultad(parseInt(clase_padre));
+
+  facultad_number = parseInt(clase_padre);
+  carrera_number = parseInt(carrera_seleccionada);
+  $("#siguiente-run").removeAttr("disabled");
+});
+
 
 /*Perfil*/

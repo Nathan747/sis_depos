@@ -2,7 +2,7 @@
 	<div class="tab-horizontal">
 		<!-- Nav tabs -->
 		<div class="col-lg-12"><ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#section1" aria-controls="section1" role="tab" data-toggle="tab">Crear Usuario</a></li>
+			<li role="presentation" class="active"><a href="#section1" aria-controls="section1" role="tab" data-toggle="tab">Crear Colaborador</a></li>
 			<li role="presentation"><a href="#section2" aria-controls="section2" role="tab" data-toggle="tab">Crear Becario</a></li>
 			<li role="presentation"><a href="#section3" aria-controls="section3" role="tab" data-toggle="tab">Crear Admin</a></li>
 		</ul></div>
@@ -10,7 +10,7 @@
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="section1">
 				<div class="contenedor-titulo">
-					<div class="col-lg-12"><h1>Crear Usuario</h1></div>
+					<div class="col-lg-12"><h1>Crear Colaborador</h1></div>
 				</div>
 				<div class="col-lg-12"><div class="separador"></div></div>
 				<div class="col-lg-12"><form role="form" autocomplete="off">
@@ -19,11 +19,15 @@
 						<input type="nombre" name="usuario-1" class="form-control" id="usuario-1" autocomplete="off">
 					</div>
 					<div class="form-group">
+						<label for="nombre-1">Nombre</label>
+						<input type="nombre" name="nombre-1" class="form-control" id="nombre-1" autocomplete="off">
+					</div>
+					<div class="form-group">
 						<label for="password-1">Contraseña</label>
 						<input type="password" name="password-1" class="form-control" id="password-1" autocomplete="new-password">
 					</div>
 
-					<button type="submit" class="btn btn-default boton-enviar">Crear</button>
+					<button type="submit" id="boton-enviar-1" class="btn btn-default boton-enviar">Crear</button>
 				</form></div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="section2">

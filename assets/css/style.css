@@ -9,29 +9,32 @@
 	font-style: normal;
 }
 
+.icon-triangle-right:before, .icon-book:before, .icon-previous2:before, .icon-next2:before, .icon-user:before, .icon-triangle-left:before{
+	font-family: 'icomoon';
+}
+
+.icon-book:before {
+  content: "\e91f";
+}
+
 .icon-triangle-right:before {
   content: "\e900";
-  font-family: 'icomoon';
 }
 
 .icon-previous2:before {
   content: "\ea23";
-  font-family: 'icomoon';
 }
 
 .icon-next2:before {
   content: "\ea24";
-  font-family: 'icomoon';
 }
 
 .icon-user:before {
 	content: "\e971";
-	font-family: 'icomoon';
 }
 
 .icon-triangle-left:before {
   content: "\e901";
-  font-family: 'icomoon'
 }
 
 .icon-user{
@@ -579,11 +582,11 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 #ultimos-movimientos{
-	top: -393px;
+	top: -460px;
 }
 
 #menu-recaudado{
-	top: -1850px;
+	top: -1890px;
 }
 
 #menu-becarios{
@@ -922,8 +925,80 @@ body.editprofile{
 }
 
 .form-control{
-	padding: 7px 10px;	
+	padding: 6px 10px;	
 }
+
+.contenedor-carreras2{
+	text-align: center;
+	float: left;
+    padding-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contenedor-carrera{
+	float: left;
+	width: 100px;
+}
+
+.contenedor-carrera:hover .padre-icono-carrera{
+	border: 1px solid #22205F !important;
+	transition: all .2s;
+}
+
+.contenedor-carrera:hover .icon-book, .contenedor-carrera:hover .padre-texto-carrera{
+	color: #22205F !important;
+	transition: all .2s;
+}
+
+.all-careers{
+	position: relative;
+    z-index: 2;
+    top: -780px;
+    display: none;
+}
+
+.all-careers a{
+	float: none;
+    display: inline-flex;
+    padding-right: 10px;
+    width: auto;
+    height: auto;
+    padding-left: 10px;
+    padding-bottom: 30px;
+    height: 225px;
+}
+
+.all-careers > a:last-child{
+	padding-right: 0px;
+}
+
+.padre-icono-carrera{
+	float: left;
+	width: 100%;
+	border-radius: 50%;
+	border: 1px solid #D3D3D3;
+	padding: 31px 30px;
+	text-align: center;
+	transition: all .2s;
+}
+
+.icon-book{
+	color: #D3D3D3;
+	font-size: 25px;
+	transition: all .2s;
+}
+
+.padre-texto-carrera{
+	text-align: center;
+    font-size: 12px;
+    color: #D3D3D3;
+    margin-top: 10px;
+    width: 100%;
+    float: left;
+    transition: all .2s;
+}
+
 
 #cerrar-registro img{
 	position: fixed;
@@ -1128,6 +1203,7 @@ body.editprofile{
 	border-top: 1px solid rgba(0,0,0,0.1);
 	padding-top: 30px;
 	position: relative;
+    max-height: 404px;
 }
 
 .siguiente-carrera, .siguiente-modo, .siguiente-registro-basico, .siguiente-facebook, .siguiente-finalizar{
@@ -1135,6 +1211,13 @@ body.editprofile{
 	text-align: center;
 	float: left;
 	width: 100%;
+}
+
+.siguiente-carrera{
+	padding-top: 40px;
+	padding-bottom: 30px;
+	position: relative;
+	top: 0px;
 }
 
 .contenedor-modo, .mapa-registro{
@@ -1366,7 +1449,7 @@ footer{
 
 .profile .container .row{
 	height: auto;
-	max-height: 1130px !important;
+	max-height: 1165px;
 	clear: both;
 	overflow: hidden;
 }
@@ -1375,7 +1458,6 @@ footer{
 .editprofile{
 	width: 1200px;
 	overflow: scroll;
-	/* height: 657px; */
 	position: absolute;
 	top: 60px;
 	background: white;
@@ -1669,4 +1751,32 @@ input[type=checkbox] {
 
 .contenido-donacion{
 	height: calc(100vh - 100px);
+}
+
+
+.selecciones-modify{
+	display: none;
+}
+
+.seleccion-1{
+	display: inline-block;
+}
+
+label{
+	width: 100%
+}
+
+.contenedor-selecciones{
+	position: relative;
+	overflow: hidden;
+}
+
+.padre-selecciones{
+	position: relative;
+	top: 0px;
+}
+
+.padre-biografia, .allFormButtons{
+	position: relative;
+	top: 0px;
 }
