@@ -25,6 +25,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
 		$this->load->view('perfil',$profile);
+		$this->load->view('modal');
+
 		if (isset($_SESSION['newsession'])) {
 			if ($_SESSION['newsession'] != "yes"){
 				$this->load->view('registro');
