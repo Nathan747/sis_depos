@@ -13,21 +13,46 @@
 					<div class="col-lg-12"><h1>Crear Colaborador</h1></div>
 				</div>
 				<div class="col-lg-12"><div class="separador"></div></div>
-				<div class="col-lg-12"><form role="form" autocomplete="off">
-					<div class="form-group">
-						<label for="usuario-1">Usuario</label>
-						<input type="nombre" name="usuario-1" class="form-control" id="usuario-1" autocomplete="off">
-					</div>
-					<div class="form-group">
-						<label for="nombre-1">Nombre</label>
-						<input type="nombre" name="nombre-1" class="form-control" id="nombre-1" autocomplete="off">
-					</div>
-					<div class="form-group">
-						<label for="password-1">Contraseña</label>
-						<input type="password" name="password-1" class="form-control" id="password-1" autocomplete="new-password">
+				<div class="contenedor-registro-colaboradores"><form role="form" autocomplete="off">
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="nombre-1">Nombre</label>
+							<input type="nombre" name="nombre-1" class="form-control" id="nombre-1" autocomplete="off">
+						</div>
 					</div>
 
-					<button type="submit" id="boton-enviar-1" class="btn btn-default boton-enviar">Crear</button>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="nombre-1">Apellido</label>
+							<input type="nombre" name="apellido-1" class="form-control" id="apellido-1" autocomplete="off">
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="email-1">Email</label>
+							<input type="nombre" name="email-1" class="form-control" id="email-1" autocomplete="off">
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="telefono-1">Teléfono</label>
+							<input type="nombre" name="telefono-1" class="form-control" id="telefono-1" autocomplete="off">
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="password-1">Contraseña</label>
+							<input type="password" name="password-1" class="form-control" id="password-1" autocomplete="new-password">
+						</div>
+
+					</div>
+
+					<div class="col-lg-12">
+						<button type="submit" id="boton-enviar-1" class="btn btn-default boton-enviar">Crear</button>
+					</div>
 				</form></div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="section2">

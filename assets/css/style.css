@@ -1780,3 +1780,101 @@ label{
 	position: relative;
 	top: 0px;
 }
+
+.modal{
+    top: 0px;
+    z-index: 9999;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    
+}
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    opacity: 1!important;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 1!important;
+    position: absolute;
+    right: -226px;
+    top: -85px;
+}
+/* Z-index of #mask must lower than #boxes .window */
+#mask {
+  position:absolute;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+  top: 0px;
+}
+ 
+#boxes .window {
+    position: absolute;
+    width: 440px;
+    height: 400px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+}
+ 
+ 
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog {
+    width: 700px;
+    background: white;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border: 1px solid #cccccc;
+    top: 20vh;
+}
+#cont_text h1 {
+    font-size: 13px;
+    color: #474747;
+    margin-top: 35px;
+    margin-bottom: 5px;
+}
+#cont_text h2 {
+    font-size: 12px;
+    color: #108CFF;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+#cont_text h1, #cont_text h2, #cont_text h3 {
+    font-family: Open Sans;
+    font-weight: 700;
+}
+#cont_text {
+    width: 200px;
+    padding-left: 10px;
+}
+#bgf h3 {
+    font-size: 11px;
+    color: #B8BABF;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+.profile2 {
+    width: 1200px;
+    overflow: hidden;
+    /* height: 657px; */
+    position: absolute;
+    top: -108px;
+    background: white;
+    z-index: 999;
+    border-left: 1px solid #cccccc;
+    right: -256px;
+    height: calc(100vh - 81px);
+    overflow-x: hidden !important;
+}
