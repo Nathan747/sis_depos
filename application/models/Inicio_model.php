@@ -84,6 +84,25 @@ class Inicio_model extends CI_Model {
 		$this->db->update('unc_usuarios', $datos);
 	}
 
+	public function modificar_user($datos)
+	{
+		$this->db->where('id_user', $datos["id_user"]);
+		$data = array(
+			"nombre_user" 		=> $datos["nombre_user"],
+			"apellido_user" 	=> $datos["apellido_user"],
+			"email_user" 		=> $datos["email_user"],
+			"telefono_user" 	=> $datos["telefono_user"],
+			"email_user" 		=> $datos["email_user"]
+		);
+		$this->db->update('unc_usuarios', $data);
+	}
+
+	public function eliminar_user($datos)
+	{
+		$this->db->where('id_user', $datos["id_user"]);
+		$this->db->delete('unc_usuarios');
+	}
+
 	public function insert_user($data)
 	{		
 		$this->db->insert('unc_usuarios', $data);

@@ -402,26 +402,22 @@
 						<tr>
 							<th style="text-align: center;">NOMBRE Y APELLIDO</th>
 							<th style="text-align: center;">EMAIL</th>
-							<th style="text-align: center;">DNI</th>
 							<th style="text-align: center;">TELEFONO</th>
-							<th style="text-align: center;">FACULTAD</th>
-							<th style="text-align: center;">CARRERA</th>
 							<th style="text-align: center;">EDITAR</th>
 							<th style="text-align: center;">ELIMINAR</th>
 						</tr>
 						<?php 
-						for ($i=0; $i < $jerarquia["cantidad"]; $i++) { 
-							echo "<tr>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["nombre_user"]." ";
-							echo $jerarquia[$i]["apellido_user"]."</td>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["email_user"]."</td>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["dni_user"]."</td>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["telefono_user"]."</td>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["facultad_user"]."</td>";
-							echo '<td style="text-align: center;">'.$jerarquia[$i]["carrera_user"]."</td>";
-							echo '<td style="text-align: center;"><a class="editar-colaborador" href="#" id="colaborador-editar-'.$jerarquia[$i]["id_user"].'"><span class="icon-pencil"></span></a></td>';
-							echo '<td style="text-align: center;"><a class="eliminar-colaborador" href="#" id="colaborador-eliminar-'.$jerarquia[$i]["id_user"].'"><span class="icon-cross"></span></td>';
-							echo "</tr>";
+						for ($i=0; $i < $jerarquia["cantidad"]; $i++) {
+							if($jerarquia[$i]["jerarquia_user"]==1){	
+								echo "<tr>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["nombre_user"]." ";
+								echo $jerarquia[$i]["apellido_user"]."</td>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["email_user"]."</td>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["telefono_user"]."</td>";
+								echo '<td style="text-align: center;"><a class="editar-colaborador" href="#" id="colaborador-editar-'.$jerarquia[$i]["id_user"].'"><span class="icon-pencil"></span></a></td>';
+								echo '<td style="text-align: center;"><a class="eliminar-colaborador" href="#" id="colaborador-eliminar-'.$jerarquia[$i]["id_user"].'"><span class="icon-cross"></span></td>';
+								echo "</tr>";
+							} 
 						}
 						?>
 					</table>
@@ -434,52 +430,35 @@
 					<div class="col-lg-12"><h1>Editar Becario</h1></div>
 				</div>
 				<div class="col-lg-12"><div class="separador"></div></div>
-				<div class="contenedor-registro-admin"><form role="form">
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="nombre-3">Nombre</label>
-							<input type="nombre" name="nombre-3" class="form-control" id="nombre-3" autocomplete="off">
-						</div>
-					</div>
-
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="nombre-3">Apellido</label>
-							<input type="nombre" name="apellido-3" class="form-control" id="apellido-3" autocomplete="off">
-						</div>
-					</div>
-
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="email-3">Email</label>
-							<input type="nombre" name="email-3" class="form-control" id="email-3" autocomplete="off">
-						</div>
-					</div>
-
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="telefono-3">Teléfono</label>
-							<input type="nombre" name="telefono-3" class="form-control" id="telefono-3" autocomplete="off">
-						</div>
-					</div>
-
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="password-3">Contraseña</label>
-							<input type="password" name="password-3" class="form-control" id="password-3" autocomplete="new-password">
-						</div>
-
-					</div>
-
-					<div class="col-lg-12">
-						<button type="button" id="boton-enviar-3" class="btn btn-default boton-enviar">Crear</button>
-						<div class="contenedor-mensaje-admin" style="float: left">
-							<div class="padre-mensaje-admin">
-								<p>Administrador creado exitosamente</p>
-							</div>
-						</div>	
-					</div>
-				</form></div>
+				<div class="col-lg-12">	
+					<table class="table table-hover table-condensed">
+						<tr>
+							<th style="text-align: center;">NOMBRE Y APELLIDO</th>
+							<th style="text-align: center;">TELEFONO</th>
+							<th style="text-align: center;">DNI</th>
+							<th style="text-align: center;">FACULTAD</th>
+							<th style="text-align: center;">CARRERA</th>
+							<th style="text-align: center;">EDITAR</th>
+							<th style="text-align: center;">ELIMINAR</th>
+						</tr>
+						<?php 
+						for ($i=0; $i < $jerarquia["cantidad"]; $i++) {
+							if($jerarquia[$i]["jerarquia_user"]==3){	
+								echo "<tr>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["nombre_user"]." ";
+								echo $jerarquia[$i]["apellido_user"]."</td>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["telefono_user"]."</td>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["dni_user"]."</td>";
+								echo '<td class="facultad_numero" style="text-align: center;">'.$jerarquia[$i]["facultad_user"]."</td>";
+								echo '<td class="carrera_numero" style="text-align: center;">'.$jerarquia[$i]["carrera_user"]."</td>";
+								echo '<td style="text-align: center;"><a class="editar-becario" href="#" id="becario-editar-'.$jerarquia[$i]["id_user"].'"><span class="icon-pencil"></span></a></td>';
+								echo '<td style="text-align: center;"><a class="eliminar-becario" href="#" id="becario-eliminar-'.$jerarquia[$i]["id_user"].'"><span class="icon-cross"></span></td>';
+								echo "</tr>";
+							} 
+						}
+						?>
+					</table>
+				</div>
 			</div>
 
 		</div>	

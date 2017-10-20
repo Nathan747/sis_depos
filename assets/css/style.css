@@ -14,27 +14,27 @@
 }
 
 .icon-pencil:before {
-  content: "\e905";
+	content: "\e905";
 }
 
 .icon-cross:before {
-  content: "\ea0f";
+	content: "\ea0f";
 }
 
 .icon-book:before {
-  content: "\e91f";
+	content: "\e91f";
 }
 
 .icon-triangle-right:before {
-  content: "\e900";
+	content: "\e900";
 }
 
 .icon-previous2:before {
-  content: "\ea23";
+	content: "\ea23";
 }
 
 .icon-next2:before {
-  content: "\ea24";
+	content: "\ea24";
 }
 
 .icon-user:before {
@@ -42,7 +42,7 @@
 }
 
 .icon-triangle-left:before {
-  content: "\e901";
+	content: "\e901";
 }
 
 .icon-user{
@@ -940,9 +940,9 @@ body.editprofile{
 .contenedor-carreras2{
 	text-align: center;
 	float: left;
-    padding-top: 20px;
-    position: relative;
-    overflow: hidden;
+	padding-top: 20px;
+	position: relative;
+	overflow: hidden;
 }
 
 .contenedor-carrera{
@@ -962,20 +962,20 @@ body.editprofile{
 
 .all-careers{
 	position: relative;
-    z-index: 2;
-    top: -780px;
-    display: none;
+	z-index: 2;
+	top: -780px;
+	display: none;
 }
 
 .all-careers a{
 	float: none;
-    display: inline-flex;
-    padding-right: 10px;
-    width: auto;
-    height: auto;
-    padding-left: 10px;
-    padding-bottom: 30px;
-    height: 225px;
+	display: inline-flex;
+	padding-right: 10px;
+	width: auto;
+	height: auto;
+	padding-left: 10px;
+	padding-bottom: 30px;
+	height: 225px;
 }
 
 .all-careers > a:last-child{
@@ -1000,12 +1000,12 @@ body.editprofile{
 
 .padre-texto-carrera{
 	text-align: center;
-    font-size: 12px;
-    color: #D3D3D3;
-    margin-top: 10px;
-    width: 100%;
-    float: left;
-    transition: all .2s;
+	font-size: 12px;
+	color: #D3D3D3;
+	margin-top: 10px;
+	width: 100%;
+	float: left;
+	transition: all .2s;
 }
 
 
@@ -1212,7 +1212,7 @@ body.editprofile{
 	border-top: 1px solid rgba(0,0,0,0.1);
 	padding-top: 30px;
 	position: relative;
-    max-height: 404px;
+	max-height: 404px;
 }
 
 .siguiente-carrera, .siguiente-modo, .siguiente-registro-basico, .siguiente-facebook, .siguiente-finalizar{
@@ -1680,15 +1680,15 @@ footer{
 
 .mensaje-no-user{
 	position: relative;
-    height: 30px;
-    overflow: hidden;
+	height: 30px;
+	overflow: hidden;
 }
 
 .texto-no-user{
 	position: relative;
-    top: -30px;
-    font-size: 12px;
-    color: red;
+	top: -30px;
+	font-size: 12px;
+	color: red;
 }
 
 input[type=checkbox] {
@@ -1745,10 +1745,11 @@ input[type=checkbox] {
 
 .table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{
 	table-layout: auto;
-    font-size: 12px;
-    vertical-align: middle;
-    border-left: 1px solid #e2dfdf !important;
-    border-right: 1px solid #e2dfdf !important;
+	font-size: 12px;
+	vertical-align: middle;
+	border-left: 1px solid #e2dfdf !important;
+	border-right: 1px solid #e2dfdf !important;
+	border-bottom: 1px solid #e2dfdf !important;
 }
 
 .table-condensed .fila-9{
@@ -1791,100 +1792,100 @@ label{
 }
 
 .modal{
-    top: 0px;
-    z-index: 9999;
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    
+	top: 0px;
+	z-index: 9999;
+	position: absolute;
+	background-color: white;
+	border: 1px solid black;
+
 }
 .close:focus, .close:hover {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-    filter: alpha(opacity=0);
-    opacity: 1!important;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	opacity: 1!important;
 }
 .close {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
-    opacity: 1!important;
-    position: absolute;
-    right: -226px;
-    top: -85px;
+	float: right;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	filter: alpha(opacity=20);
+	opacity: 1!important;
+	position: absolute;
+	right: -226px;
+	top: -85px;
 }
 /* Z-index of #mask must lower than #boxes .window */
 #mask {
-  position:absolute;
-  z-index:9000;
-  background-color:#000;
-  display:none;
-  top: 0px;
+	position:absolute;
+	z-index:9000;
+	background-color:#000;
+	display:none;
+	top: 0px;
 }
- 
+
 #boxes .window {
-    position: absolute;
-    width: 440px;
-    height: 400px;
-    display: none;
-    z-index: 9999;
-    padding: 20px;
+	position: absolute;
+	width: 440px;
+	height: 400px;
+	display: none;
+	z-index: 9999;
+	padding: 20px;
 }
- 
- 
+
+
 /* Customize your modal window here, you can add background image too */
 #boxes #dialog {
-    width: 700px;
-    background: white;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    border: 1px solid #cccccc;
-    top: 20vh;
+	width: 700px;
+	background: white;
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	border: 1px solid #cccccc;
+	top: 20vh;
 }
 #cont_text h1 {
-    font-size: 13px;
-    color: #474747;
-    margin-top: 35px;
-    margin-bottom: 5px;
+	font-size: 13px;
+	color: #474747;
+	margin-top: 35px;
+	margin-bottom: 5px;
 }
 #cont_text h2 {
-    font-size: 12px;
-    color: #108CFF;
-    margin-top: 0px;
-    margin-bottom: 10px;
+	font-size: 12px;
+	color: #108CFF;
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
 #cont_text h1, #cont_text h2, #cont_text h3 {
-    font-family: Open Sans;
-    font-weight: 700;
+	font-family: Open Sans;
+	font-weight: 700;
 }
 #cont_text {
-    width: 200px;
-    padding-left: 10px;
+	width: 200px;
+	padding-left: 10px;
 }
 #bgf h3 {
-    font-size: 11px;
-    color: #B8BABF;
-    margin-bottom: 15px;
-    margin-top: 0px;
+	font-size: 11px;
+	color: #B8BABF;
+	margin-bottom: 15px;
+	margin-top: 0px;
 }
 .profile2 {
-    width: 1200px;
-    overflow: hidden;
-    position: absolute;
-    top: -108px;
-    background: white;
-    z-index: 999;
-    border-left: 1px solid #cccccc;
-    right: -256px;
-    height: calc(100vh - 81px);
-    overflow-x: hidden !important;
+	width: 1200px;
+	overflow: hidden;
+	position: absolute;
+	top: -108px;
+	background: white;
+	z-index: 999;
+	border-left: 1px solid #cccccc;
+	right: -256px;
+	height: calc(100vh - 81px);
+	overflow-x: hidden !important;
 }
 
 #boton-enviar-1, #boton-enviar-2, #boton-enviar-3{
@@ -1893,17 +1894,17 @@ label{
 
 .contenedor-mensaje-colaborador, .contenedor-mensaje-becario, .contenedor-mensaje-admin{
 	float: left;
-    line-height: 50px;
-    height: 49px;
-    margin-top: 10px;
-    overflow: hidden;
-    padding: 0px 15px;
+	line-height: 50px;
+	height: 49px;
+	margin-top: 10px;
+	overflow: hidden;
+	padding: 0px 15px;
 }
 
 .padre-mensaje-colaborador, .padre-mensaje-becario, .padre-mensaje-admin{
 	position: relative;
-    left: -300px;
-    font-size: 12px;
+	left: -300px;
+	font-size: 12px;
 }
 
 .padre-mensaje-colaborador p, .padre-mensaje-becario p, .padre-mensaje-admin p{
@@ -1912,4 +1913,33 @@ label{
 
 #carrera-becario-1, #carrera-becario-2, #carrera-becario-3, #carrera-becario-4, #carrera-becario-5, #carrera-becario-6, #carrera-becario-7, #carrera-becario-8, #carrera-becario-9, #carrera-becario-10, #carrera-becario-11, #carrera-becario-12, #carrera-becario-13, #carrera-becario-14, #carrera-becario-15{
 	display: none;
+}
+
+.editar-colaborador, .eliminar-colaborador{
+	color: rgb(44,62,80);
+	text-decoration: none !important;
+}
+
+tr:hover .editar-colaborador, tr:hover .eliminar-colaborador{
+	color: white;
+}
+
+.editar-colaborador:hover, .eliminar-colaborador:hover{
+	text-decoration: none !important;
+}
+
+.editar-colaborador:hover{
+	color: #2ecc71 !important;	
+}
+
+.eliminar-colaborador:hover{
+	color: #e74c3c !important;	
+}
+
+body.back #contenedor-marcador, body.back #boxes #dialog{
+	height: auto;
+}
+
+body.back #boxes #dialog{
+	top: 15vh;
 }

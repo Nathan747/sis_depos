@@ -101,7 +101,29 @@ class Inicio extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function editar_user()
+	{
+		$data = $this->input->post();
 
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"email_user" 		=> $data["email"],
+			"telefono_user" 	=> $data["telefono"],
+			"email_user" 		=> $data["email"],
+			"id_user" 			=> $data["id"]
+		);
+		$this->Inicio_model->modificar_user($datos);
+	}
+
+	public function eliminar_user()
+	{
+		$data = $this->input->post();
+		$datos = array(
+			"id_user" 	=> $data["id"]
+		);
+		$this->Inicio_model->eliminar_user($datos);
+	}
 
 	public function back()
 	{
@@ -112,13 +134,14 @@ class Inicio extends CI_Controller {
 		$cant_filas = $object["cantidad"];
 		
 		$data["titulo"] = "Admin UNCuyo";
-		$class["clase"] = "home";
+		$class["clase"] = "back";
 		$objeto["objeto"] = $object;
 		$jerarquia["jerarquia"] = $jerarchy;
 
 		$this->load->view('backend/head',$data);
 		$this->load->view('layouts/style');
 		$this->load->view('start_body',$class);
+		$this->load->view('backend/modal');
 		$this->load->view('backend/header');
 		$this->load->view('backend/aside');
 
@@ -129,7 +152,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/recaudado');
 		$this->load->view('backend/fin_backend');
 
-		$this->load->view('backend/scripts',$objeto);
+		$this->load->view('backend/scripts',$objeto,$jerarquia);
 		$this->load->view('end_body');
 	}
 
