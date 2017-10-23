@@ -9,7 +9,7 @@
 	<div class="dni-search">
 		<div class="col-lg-8">
 			<div class="input-group columna-busqueda-dni">
-				<input type="text" class="form-control" placeholder="Buscar">
+				<input id="dni-buscar-becario" type="text" class="form-control" placeholder="Buscar por DNI">
 			</div>
 			<div class="icono-busqueda-dni">
 				<img src="<?php echo base_url("assets/img/magnifier.png"); ?>" alt="">

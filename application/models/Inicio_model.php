@@ -21,6 +21,7 @@ class Inicio_model extends CI_Model {
 				$arreglo[$x]["telefono_user"] = $row->telefono_user;
 				$arreglo[$x]["dni_user"] = $row->dni_user;
 				$arreglo[$x]["pass_user"] = $row->pass_user;
+				$arreglo[$x]["fecha_egreso_user"] = $row->fecha_egreso_user;
 				$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
 				$arreglo[$x]["facultad_user"] = $row->facultad_user;
 				$arreglo[$x]["carrera_user"] = $row->carrera_user;			
@@ -97,6 +98,20 @@ class Inicio_model extends CI_Model {
 		$this->db->update('unc_usuarios', $data);
 	}
 
+	public function modificar_becario($datos)
+	{
+		$this->db->where('id_user', $datos["id_user"]);
+		$data = array(
+			"nombre_user" 		=> $datos["nombre_user"],
+			"apellido_user" 	=> $datos["apellido_user"],
+			"telefono_user"		=> $datos["telefono_user"],
+			"dni_user" 			=> $datos["dni_user"],
+			"facultad_user" 	=> $datos["facultad_user"],
+			"carrera_user" 		=> $datos["carrera_user"]
+		);
+		$this->db->update('unc_usuarios', $data);
+	}
+
 	public function eliminar_user($datos)
 	{
 		$this->db->where('id_user', $datos["id_user"]);
@@ -107,4 +122,44 @@ class Inicio_model extends CI_Model {
 	{		
 		$this->db->insert('unc_usuarios', $data);
 	}
+
+	public function obtener_last_id(){
+		$sql=$this->db->get('unc_usuarios');
+
+		$filas = $sql->num_rows();
+
+		if($filas>0){
+			$x=0;
+			$last;
+			foreach ($sql->result() as $row){
+				$last = $row->id_user;
+				$x++;
+			}
+		}
+		return $last;
+	}
+
+	public function buscar_becario($datos)
+	{		
+		$this->db->where('dni_user', $datos["dni_user"]);
+		$sql=$this->db->get('unc_transactions');
+
+		$filas = $sql->num_rows();
+
+		if($filas>0){
+			$x=0;
+			foreach ($sql->result() as $row){
+				$arreglo[$x]["nombre_user"] = $row->nombre_user;
+				$arreglo[$x]["apellido_user"] = $row->apellido_user;
+				$arreglo[$x]["dni_user"] = $row->dni_user;
+				$arreglo[$x]["carrera_user"] = $row->carrera_user;
+				$arreglo[$x]["fecha_ingreso"] = $row->fecha_egreso_user;
+				$x++;
+			}
+		}
+
+		return $sql;
+	}
+
+	
 }

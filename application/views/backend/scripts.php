@@ -1187,10 +1187,6 @@
 			}
 		}
 
-		
-
-
-
 		limpiar_tabla();
 		rellenar_tabla(selected-1);
 	});
@@ -1200,6 +1196,18 @@
 
 	/* BUSCAR BECARIO */
 	$(".boton-buscar").click(function(){
+
+		var becario_buscar = $("#dni-buscar-becario").val();
+		$.ajax({
+			type: "POST",
+			url: "buscar_becario",
+			data: {
+				dni: becario_buscar
+			}
+		}).done(function(json){
+
+		});
+
 		$(".contenedor-info-becario").animate({
 			top: "0px"
 		},function(){
@@ -1272,10 +1280,10 @@
 		var apellido_becario = $("#apellido-2").val();
 		var dni_becario = $("#dni-2").val();
 		var telefono_becario = $("#telefono-2").val();
-		var password_becario = $("#password-2").val();
 		var facultad_becario = $("#universidad-2").val();
 		var clase_becario = "#carrera-becario-"+facultad_becario;
 		var carrera_becario = $(clase_becario).val();
+		var fecha_ingreso = $("#fecha-2").val();
 
 		$.ajax({
 			url: "load_becario",
@@ -1285,9 +1293,9 @@
 				apellido: apellido_becario,
 				dni: dni_becario,
 				telefono: telefono_becario,
-				pass: password_becario,
 				facultad: facultad_becario,
-				carrera: carrera_becario
+				carrera: carrera_becario,
+				fecha: fecha_ingreso
 			}
 		}).done(function(json){
 			$(".padre-mensaje-becario").animate({
@@ -1295,6 +1303,38 @@
 			});
 			var objeto = $.parseJSON(json);
 			console.log(json);
+
+			var elemento;
+			$(".editar-becario").each(function(){
+				elemento = $(this);
+			});
+			var id_becario = "becario-editar-"+objeto.id_user;
+			elemento.attr("id",id_becario);
+
+			objeto.facultad_user = deco_facultad(parseInt(objeto.facultad_user));
+			objeto.carrera_user = deco_carrera(parseInt(objeto.carrera_user));
+
+			var date = new Date(objeto.fecha_egreso_user);
+			var year = date.getFullYear();
+
+			var month = (1 + date.getMonth()).toString();
+			month = month.length > 1 ? month : '0' + month;
+
+			var day = (1 +date.getDate()).toString();
+			day = day.length > 1 ? day : '0' + day;
+
+			objeto.fecha_egreso_user = day + '-' + month + '-' + year;
+
+			$("#section5").find(".tabla-max-width").find("tbody").append("<tr>"+
+				"<td style='text-align: center;'>"+objeto.nombre_user+" "+objeto.apellido_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.telefono_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.dni_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.fecha_egreso_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.facultad_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.carrera_user+"</td>"+
+				"<td style='text-align: center;''><a class='editar-becario' href='#' id='becario-editar-"+objeto.id_user+"'><span class='icon-pencil'></span></a></td>"+
+				"<td style='text-align: center;''><a class='eliminar-becario' href='#' id='becario-eliminar-"+objeto.id_user+"'><span class='icon-cross'></span></a></td>"+
+				"</tr>")
 		});
 	});
 
@@ -1336,9 +1376,9 @@
 		id_buscar = parseInt(id_buscar);
 		console.log(id_buscar);
 		muestraModal(id_buscar);
-    });
+	});
 
-    $(".editar-becario").click(function(){
+	$(".editar-becario").click(function(){
 		var elemento = $(this);
 		var id_buscar = $(this).attr("id");
 		id_buscar = id_buscar.replace("becario-editar-","");
@@ -1346,7 +1386,7 @@
 		console.log(id_buscar);
 		muestraModal2(id_buscar);
 
-    });
+	});
 
 
 
@@ -1391,6 +1431,44 @@
 			$(tds[0]).text(nombre_editar+" "+apellido_editar);
 			$(tds[1]).text(email_editar);
 			$(tds[2]).text(telefono_editar);
+			$("#boxes").find(".close").click();
+		});
+	};
+
+	function enviardatos2(parametro){
+		var nombre_editar = $("#NombreEditar2").val();
+		var apellido_editar = $("#ApellidoEditar2").val();
+		var dni_editar = $("#DNIEditar2").val();
+		var telefono_editar = $("#TelefonoEditar2").val();
+		var facultad_editar = $("#universidad-editar-2").val();
+		var test_carrera = "#carrera-editar-becario-"+facultad_editar;
+		var carrera_editar = $(test_carrera).val();
+		var id_editar = parametro;
+		
+		
+		
+		$.ajax({
+			url: "editar_becario",
+			type: "post",
+			data: {
+				nombre: nombre_editar,
+				apellido: apellido_editar,
+				telefono: telefono_editar,
+				dni: dni_editar,
+				facultad: facultad_editar,
+				carrera: carrera_editar,
+				id: id_editar
+			}
+		}).done(function(){
+			var busqueda = "#becario-editar-"+parametro;
+			var tds = $(busqueda).parent().parent().find("td");
+			$(tds[0]).text(nombre_editar+" "+apellido_editar);
+			$(tds[1]).text(telefono_editar);
+			$(tds[2]).text(dni_editar);
+			facultad_editar = deco_facultad(parseInt(facultad_editar));
+			carrera_editar = deco_carrera(parseInt(carrera_editar));
+			$(tds[3]).text(facultad_editar);
+			$(tds[4]).text(carrera_editar);
 			$("#boxes").find(".close").click();
 		});
 	};
@@ -1488,42 +1566,372 @@
 
 
     function muestraModal2(parametro) {
-		$("#boxes #dialog").css("display","block");
+    	$("#boxes #dialog").css("display","block");
 
-		var contentString2 = '<div id="content">'+
-		'<div id="contenedor-marcador">'+
-		'<div class="control-group form-group">'+
-		'<h1>Editar Becario</h1><br>'+
-		'<div class="controls">'+
+    	var contentString2 = '<div id="content">'+
+    	'<div id="contenedor-marcador">'+
+    	'<div class="control-group form-group">'+
+    	'<h1>Editar Becario</h1><br>'+
+    	'<div class="controls">'+
 
-		'<label>Nombre:</label>'+
-		'<span id="alertName2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
-		'<input type="text" class="form-control" id="NombreEditar2" placeholder="Introduzca su Nombre" required data-validation-required-message="Por favor introduzca su Nombre.">'+
-		'</span><br>'+
+    	'<label>Nombre:</label>'+
+    	'<span id="alertName2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input type="text" class="form-control" id="NombreEditar2" placeholder="Introduzca su Nombre" required data-validation-required-message="Por favor introduzca su Nombre.">'+
+    	'</span><br>'+
 
-		'<label>Apellido:</label>'+
-		'<span id="alertLastName2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
-		'<input type="text" class="form-control" id="ApellidoEditar2" placeholder="Introduzca su Apellido" required data-validation-required-message="Por favor introduzca su Apellido.">'+
-		'</span><br>'+
+    	'<label>Apellido:</label>'+
+    	'<span id="alertLastName2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input type="text" class="form-control" id="ApellidoEditar2" placeholder="Introduzca su Apellido" required data-validation-required-message="Por favor introduzca su Apellido.">'+
+    	'</span><br>'+
 
-		'<label>DNI:</label>'+
-		'<span id="alertDNI2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
-		'<input type="text" class="form-control" id="DNIEditar2" placeholder="Introduzca su DNI" required data-validation-required-message="Por favor introduzca su DNI.">'+
-		'</span><br>'+
+    	'<label>Teléfono:</label>'+
+    	'<span id="alertTelefono2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input type="text" class="form-control" id="TelefonoEditar2" placeholder="Introduzca su Teléfono" required data-validation-required-message="Por favor introduzca su Teléfono.">'+
+    	'</span><br>'+
 
-		'<label>Teléfono:</label>'+
-		'<span id="alertTelefono2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
-		'<input type="text" class="form-control" id="TelefonoEditar2" placeholder="Introduzca su Teléfono" required data-validation-required-message="Por favor introduzca su Teléfono.">'+
-		'</span><br>'+
+    	'<label>DNI:</label>'+
+    	'<span id="alertDNI2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input type="text" class="form-control" id="DNIEditar2" placeholder="Introduzca su DNI" required data-validation-required-message="Por favor introduzca su DNI.">'+
+    	'</span><br>'+
 
-		'<button type="button" id="btnModificarModal" class="btn btn-primary boton-modificar-modal" onclick="enviardatos('+parametro+');">Actualizar</button>'
+    	'<label>Facultad:</label>'+
+    	'<span id="FacultadEditar2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<select name="facultad-2" class="form-control" id="universidad-editar-2">'+
+    	'<option selected disabled></option>'+
+    	'<option value="1">Facultad de Artes y Diseño</option>'+
+    	'<option value="2">Facultad de Ciencias Agrarias</option>'+
+    	'<option value="3">Facultad de Ciencias Aplicadas a la Industria</option>'+
+    	'<option value="4">Facultad de Ciencias Económicas</option>'+
+    	'<option value="5">Facultad de Ciencias Exactas y Naturales</option>'+
+    	'<option value="6">Facultad de Ciencias Médicas</option>'+
+    	'<option value="7">Facultad de Ciencias Políticas y Sociales</option>'+
+    	'<option value="8">Facultad de Derecho</option>'+
+    	'<option value="9">Facultad de Educación</option>'+
+    	'<option value="10">Facultad de Filosofía y Letras</option>'+
+    	'<option value="11">Facultad de Ingeniería</option>'+
+    	'<option value="12">Facultad de Odontología</option>'+
+    	'<option value="13">Instituto Balseiro</option>'+
+    	'<option value="14">Instituto Tecnológico Universitario</option>'+
+    	'<option value="15">Instituto Universitario de Seguridad Pública</option>'+
+    	'</select>'+
+    	'</span><br>'+
 
-		'</div>'+
-		'</div>'+
-		'</div>'; 
+    	'<label>Carrera:</label>'+
+    	'<span id="CarreraEditar2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	
+    	'<select name="carrera-2" class="form-control class-carrera-editar" id="carrera-Editar">'+
+    	'<option selected disabled>Carreras</option>'+
+    	'</select>'+
 
-		var maskHeight = $(document).height();  
-		var maskWidth = $(window).width();  
+    	'<select name="carrera-2" class="form-control class-carrera-editar" id="carrera-editar-becario-1" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="1">Ciclo de Formación Básica en Artes Visuales</option>'+
+    	'<option value="2">Ciclo de Prof. de Grado Univ. de Diseño</option>'+
+    	'<option value="3">Ciclo de Prof. de Grado Univ. en Música</option>'+
+    	'<option value="4">Diseño Escenográfico</option>'+
+    	'<option value="5">Diseño Gráfico</option>'+
+    	'<option value="6">Diseño Industrial</option>'+
+    	'<option value="7">Licenciatura en Arte Dramático</option>'+
+    	'<option value="8">Licenciatura en Artes Plásticas</option>'+
+    	'<option value="9">Licenciatura en Canto</option>'+
+    	'<option value="10">Licenciatura en Cerámica Artística</option>'+
+    	'<option value="11">Licenciatura en Cerámica Industrial</option>'+
+    	'<option value="12">Licenciatura en Composición Musical</option>'+
+    	'<option value="13">Licenciatura en Dirección Coral</option>'+
+    	'<option value="14">Licenciatura en Historia de las Artes Plásticas</option>'+
+    	'<option value="15">Licenciatura en Instrumento</option>'+
+    	'<option value="16">Licenciatura en Música Popular</option>'+
+    	'<option value="17">Licenciatura en Órgano</option>'+
+    	'<option value="18">Licenciatura en Piano o Guitarra</option>'+
+    	'<option value="19">Profesorado de Grado Universitario de Teorías Musicales</option>'+
+    	'<option value="20">Profesorado de Grado Universitario en Artes Visuales</option>'+
+    	'<option value="21">Profesorado de Grado Universitario en Cerámica Artística</option>'+
+    	'<option value="22">Profesorado de Grado Universitario en Historia del Arte</option>'+
+    	'<option value="23">Profesorado de Grado Universitario en Música</option>'+
+    	'<option value="24">Profesorado de Grado Universitario en Teatro</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-2" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="25">Bromatología</option>'+
+    	'<option value="26">Ingeniería Agronómica</option>'+
+    	'<option value="27">Ingeniería en Recursos Naturales Renovables</option>'+
+    	'<option value="28">Licenciatura en Bromatología</option>'+
+    	'<option value="29">Tecnicatura Universitaria en Enología y Viticultura</option>'+
+    	'<option value="30">Tecnicatura Universitaria en Producción Animal de Zonas Áridas</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-3" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="31">Bromatología</option>'+
+    	'<option value="32">Ciclo de Lic. en Enología</option>'+
+    	'<option value="33">Ingeniería en Industrias de la Alimentación</option>'+
+    	'<option value="34">Ingeniería Química</option>'+
+    	'<option value="35">Profesorado de Grado Universitario en Química</option>'+
+    	'<option value="36">Técnico Universitario en Enología y Viticultura</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-4">'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="37">Ciclo de Formación Básica en Ciencias Económicas</option>'+
+    	'<option value="38">Ciclo de Lic. en Gestión de Negocios Regionales</option>'+
+    	'<option value="39">Contador Público Nacional</option>'+
+    	'<option value="40">Licenciatura en Administración</option>'+
+    	'<option value="41">Licenciatura en Economía</option>'+
+    	'<option value="42">Licenciatura en Logística</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-5" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="43">Ciclo General de Conocimientos Básicos en Ciencias Exactas y Naturales</option>'+
+    	'<option value="44">Licenciatura en Ciencias Básicas con Orientación en Biología</option>'+
+    	'<option value="45">Licenciatura en Ciencias Básicas con Orientación en Física</option>'+
+    	'<option value="46">Licenciatura en Ciencias Básicas con Orientación en Geología</option>'+
+    	'<option value="47">Licenciatura en Ciencias Básicas con Orientación en Matemática</option>'+
+    	'<option value="48">Licenciatura en Ciencias Básicas con Orientación en Química</option>'+
+    	'<option value="49">Profesorado de Grado Universitario en Ciencias Básicas Orientación en Biología</option>'+
+    	'<option value="50">Profesorado de Grado Universitario en Ciencias Básicas Orientación en Física</option>'+
+    	'<option value="51">Profesorado de Grado Universitario en Ciencias Básicas Orientación en Matemática</option>'+
+    	'<option value="52">Profesorado de Grado Universitario en Ciencias Básicas Orientación en Química</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-6">'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="53">Ciclo de Lic. en Enfermería</option>'+
+    	'<option value="54">Ciclo de Licenciatura en Higiene y Seguridad en el Trabajo</option>'+
+    	'<option value="55">Enfermería Universitaria</option>'+
+    	'<option value="56">Medicina</option>'+
+    	'<option value="57">Tecnicatura Universitaria en Anestesia</option>'+
+    	'<option value="58">Tecnicatura Universitaria en Diagnóstico por Imágenes</option>'+
+    	'<option value="59">Tecnicatura Universitaria en Esterilización</option>'+
+    	'<option value="60">Tecnicatura Universitaria en Hemoterapia</option>'+
+    	'<option value="61">Tecnicatura Universitaria en Laboratorio</option>'+
+    	'<option value="62">Tecnicatura Universitaria en Promoción de la Salud</option>'+
+    	'<option value="63">Tecnicatura Universitaria en Quirófano</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-7" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="64">Ciclo de Profesorado para Graduados de la carrera de Ciencia Política y Administración Pública</option>'+
+    	'<option value="65">Ciclo de Profesorado para Graduados de la carrera de Comunicación Social</option>'+
+    	'<option value="66">Ciclo de Profesorado para Graduados de la carrera de Sociología</option>'+
+    	'<option value="67">Ciclo de Profesorado para Graduados de la carrera de Trabajo Social</option>'+
+    	'<option value="68">Licenciatura en Ciencia Política y Administración Pública</option>'+
+    	'<option value="69">Licenciatura en Comunicación Social</option>'+
+    	'<option value="70">Licenciatura en Sociología</option>'+
+    	'<option value="71">Licenciatura en Trabajo Social</option>'+
+    	'<option value="72">Tecnicatura en Gestión de Políticas Públicas</option>'+
+    	'<option value="73">Tecnicatura Universitaria en Producción Audiovisual</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-8">'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="74">Abogacía</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-9" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="75">Ciclo de Licenciatura en Psicomotricidad Educativa</option>'+
+    	'<option value="76">Ciclo de Prof. de Grado Univ. en Informática</option>'+
+    	'<option value="77">Licenciatura en Terapia del Lenguaje</option>'+
+    	'<option value="78">Profesorado Universitario de Educación Inicial</option>'+
+    	'<option value="79">Profesorado Universitario de Educación para Personas Sordas</option>'+
+    	'<option value="80">Profesorado Universitario de Educación Primaria</option>'+
+    	'<option value="81">Profesorado Universitario de Pedagogía Terapéutica en Discapacidad Intelectual con Orientación en Discapacidad Motora</option>'+
+    	'<option value="82">Profesorado Universitario de Pedagogía Terapéutica en Discapacidad Visual</option>'+
+    	'<option value="83">Tecnicatura en Cuidados Infantiles</option>'+
+    	'<option value="84">Tecnicatura en Interpretación de Lengua de Señas</option>'+
+    	'<option value="85">Tecnicatura Universitaria en Educación Social</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-10" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="86">Ciclo de Licenciatura en Literatura Infantil</option>'+
+    	'<option value="87">Ciclo de Profesorado para Profesionales Universitarios</option>'+
+    	'<option value="88">Geógrafo Profesional</option>'+
+    	'<option value="89">Licenciatura en Ciencias de la Educación</option>'+
+    	'<option value="90">Licenciatura en Filología Inglesa</option>'+
+    	'<option value="91">Licenciatura en Filosofía</option>'+
+    	'<option value="92">Licenciatura en Francés</option>'+
+    	'<option value="93">Licenciatura en Geografía</option>'+
+    	'<option value="94">Licenciatura en Historia</option>'+
+    	'<option value="95">Licenciatura en Letras</option>'+
+    	'<option value="96">Licenciatura en Turismo</option>'+
+    	'<option value="97">Profesorado de Grado Universitario en Ciencias de la Educación</option>'+
+    	'<option value="98">Profesorado de Grado Universitario en Filosofía</option>'+
+    	'<option value="99">Profesorado de Grado Universitario en Geografía</option>'+
+    	'<option value="100">Profesorado de Grado Universitario en Historia</option>'+
+    	'<option value="101">Profesorado de Grado Universitario en Lengua y Cultura Inglesas</option>'+
+    	'<option value="102">Profesorado de Grado Universitario en Lengua y Literatura</option>'+
+    	'<option value="103">Profesorado de Grado Universitario en Lengua y Literatura Francesas</option>'+
+    	'<option value="104">Profesorado de Grado Universitario en Portugués</option>'+
+    	'<option value="105">Tecnicatura Universitaria de Francés</option>'+
+    	'<option value="106">Tecnicatura Universitaria en Cartografía, Sistemas de Información Geográfica y Teledetección</option>'+
+    	'<option value="107">Traductorado Público Inglés - Español</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-11" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="108">Arquitectura</option>'+
+    	'<option value="109">Ingeniería Civil</option>'+
+    	'<option value="110">Ingeniería de Petróleos</option>'+
+    	'<option value="111">Ingeniería en Mecatrónica</option>'+
+    	'<option value="112">Ingeniería Industrial</option>'+
+    	'<option value="113">Licenciatura en Ciencias de la Computación</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-12" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="114">Odontología</option>'+
+    	'<option value="115">Tecnicatura Universitaria en Asistencia Odontológica</option>'+
+    	'<option value="116">Tecnicatura Universitaria en Prótesis Dental</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-13" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="117">Ingeniería en Telecomunicaciones</option>'+
+    	'<option value="118">Ingeniería Mecánica</option>'+
+    	'<option value="119">Ingeniería Nuclear</option>'+
+    	'<option value="120">Licenciatura en Física</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-14" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="121">Tecnicatura en Higiene y Seguridad en el Trabajo</option>'+
+    	'<option value="122">Tecnicatura Universitaria en Electricidad y Sistemas de Control Industriales</option>'+
+    	'<option value="123">Tecnicatura Universitaria en Gestión de Empresas</option>'+
+    	'<option value="124">Tecnicatura Universitaria en Instalaciones Industriales y Mantenimiento</option>'+
+    	'<option value="125">Tecnicatura Universitaria en Logística y Transporte</option>'+
+    	'<option value="126">Tecnicatura Universitaria en Marketing</option>'+
+    	'<option value="127">Tecnicatura Universitaria en Producción Industrial Automatizada</option>'+
+    	'<option value="128">Tecnicatura Universitaria en Redes y Telecomunicaciones</option>'+
+    	'</select>'+
+
+    	'<select class="form-control class-carrera-editar" id="carrera-editar-becario-15" >'+
+    	'<option selected disabled>Carrera</option>'+
+    	'<option value="129">Licenciatura en Seguridad Pública</option>'+
+    	'<option value="130">Tecnicatura Universitaria en Seguridad Penitenciaria</option>'+
+    	'<option value="131">Tecnicatura Universitaria en Seguridad Pública</option>'+
+    	'</select>'+
+
+    	'</span><br><br>'+
+
+    	'<button type="button" id="btnModificarModal2" class="btn btn-primary boton-modificar-modal" onclick="enviardatos2('+parametro+');">Actualizar</button>'+
+
+    	'</div>'+
+    	'</div>'+
+    	'</div>'; 
+
+    	var maskHeight = $(document).height();  
+    	var maskWidth = $(window).width();  
+        //Set height and width to mask to fill up the whole screen  
+        $("#mask").css({"width":maskWidth,"height":maskHeight});  
+        //transition effect      
+        $("#mask").fadeIn(1000);      
+        $("#mask").fadeTo("slow",0.8);   
+        $("#dialog").fadeIn(1000);
+        $("#dialog").fadeTo("slow",1);  
+
+        //Get the window height and width  
+        var winH = $(window).height();  
+        var winW = $(window).width();  
+        var close =$("#boxes #dialog .close").clone();
+        $("#boxes #dialog").empty();
+        $("#boxes #dialog").append(contentString2);
+        $("#boxes #dialog").prepend(close);
+
+        $("#boxes").find(".close").click(function (e) {  
+        	e.preventDefault();  
+        	$("#mask").fadeOut(1000);      
+        	$("#mask").fadeTo("slow",0.8);   
+        	$("#dialog").fadeOut(1000, function(){
+        		$("#mask, .window").hide(); 
+        		$("#boxes #dialog").css("display","none"); 
+        	});
+        	$("#dialog").fadeTo("slow",1);  
+
+        });      
+
+        $("#mask").click(function () {  
+        	$("#boxes").find(".close").click();
+        });    
+
+        for (var j = 0; j < jerarquia.cantidad; j++) {
+        	if(jerarquia[j].id_user==parametro){
+        		$("#NombreEditar2").val(jerarquia[j].nombre_user);
+        		$("#ApellidoEditar2").val(jerarquia[j].apellido_user);
+        		$("#TelefonoEditar2").val(jerarquia[j].telefono_user);
+        		$("#DNIEditar2").val(jerarquia[j].dni_user);
+        		$("#universidad-editar-2").val(jerarquia[j].facultad_user);
+        		$("#carrera-Editar").css("display","none");
+        		var test = "#carrera-editar-becario-"+jerarquia[j].facultad_user;
+        		$(test).css("display","inline-block");
+        		$(test).val(jerarquia[j].carrera_user);
+        	}
+        }
+
+        $("#universidad-editar-2").change(function(){
+        	var test = "#carrera-editar-becario-"+$("#universidad-editar-2").val();
+        	$(".class-carrera-editar").each(function(){
+        		$(this).css("display","none");
+        	});
+        	$(test).css("display","inline-block");
+        });
+    }
+
+
+    function cerrarModal(){
+    	$("#boxes").find(".close").click();
+    }
+
+    function eliminarUsuario(parametro){
+    	var id_editar = parametro;
+    	$.ajax({
+    		url: "eliminar_user",
+    		type: "post",
+    		data: {
+    			id: id_editar
+    		}
+    	}).done(function(){
+    		var busqueda = "#colaborador-editar-"+parametro;
+    		var trs = $(busqueda).parent().parent().remove();
+    		$("#boxes").find(".close").click();
+    	});
+    }
+
+    function eliminarUsuario2(parametro){
+    	var id_editar = parametro;
+    	$.ajax({
+    		url: "eliminar_user",
+    		type: "post",
+    		data: {
+    			id: id_editar
+    		}
+    	}).done(function(){
+    		var busqueda = "#becario-editar-"+parametro;
+    		var trs = $(busqueda).parent().parent().remove();
+    		$("#boxes").find(".close").click();
+    	});
+    }
+
+    function muestraModalConfirmacion(parametro) {
+    	$("#boxes #dialog").css("display","block");
+
+    	var contentString2 = '<div id="content">'+
+    	'<div id="contenedor-marcador">'+
+    	'<div class="control-group form-group">'+
+    	'<h1>¿Desea eliminar este usuario?</h1><br>'+
+    	'<div class="controls">'+
+
+    	'<button type="button" id="btnModalSi" class="btn btn-primary boton-modal-si" onclick="eliminarUsuario('+parametro+');">Si</button>'+
+    	'<button type="button" id="btnModalNo" class="btn btn-primary boton-modal-no" onclick="cerrarModal();">No</button>'
+
+    	'</div>'+
+    	'</div>'+
+    	'</div>'; 
+
+    	var maskHeight = $(document).height();  
+    	var maskWidth = $(window).width();  
         //Set height and width to mask to fill up the whole screen  
         $("#mask").css({"width":maskWidth,"height":maskHeight});  
         //transition effect      
@@ -1566,27 +1974,7 @@
         }
     }
 
-
-    function cerrarModal(){
-    	$("#boxes").find(".close").click();
-    }
-
-    function eliminarUsuario(parametro){
-    	var id_editar = parametro;
-    	$.ajax({
-    		url: "eliminar_user",
-    		type: "post",
-    		data: {
-    			id: id_editar
-    		}
-    	}).done(function(){
-    		var busqueda = "#colaborador-editar-"+parametro;
-    		var trs = $(busqueda).parent().parent().remove();
-    		$("#boxes").find(".close").click();
-    	});
-    }
-
-    function muestraModalConfirmacion(parametro) {
+    function muestraModalConfirmacion2(parametro) {
     	$("#boxes #dialog").css("display","block");
 
     	var contentString2 = '<div id="content">'+
@@ -1595,7 +1983,7 @@
     	'<h1>¿Desea eliminar este usuario?</h1><br>'+
     	'<div class="controls">'+
 
-    	'<button type="button" id="btnModalSi" class="btn btn-primary boton-modal-si" onclick="eliminarUsuario('+parametro+');">Si</button>'+
+    	'<button type="button" id="btnModalSi" class="btn btn-primary boton-modal-si" onclick="eliminarUsuario2('+parametro+');">Si</button>'+
     	'<button type="button" id="btnModalNo" class="btn btn-primary boton-modal-no" onclick="cerrarModal();">No</button>'
 
     	'</div>'+

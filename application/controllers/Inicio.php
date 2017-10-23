@@ -74,14 +74,28 @@ class Inicio extends CI_Controller {
 			"apellido_user" 	=> $data["apellido"],
 			"dni_user" 			=> $data["dni"],
 			"telefono_user" 	=> $data["telefono"],
-			"pass_user" 		=> $data["pass"],
 			"facultad_user" 	=> $data["facultad"],
 			"carrera_user" 		=> $data["carrera"],
+			"fecha_egreso_user" => $data["fecha"],
 			"jerarquia" 		=> 3
 		);
 
 		$this->Inicio_model->insert_user($datos);
-		echo json_encode($data);
+		$last_id = $this->Inicio_model->obtener_last_id();
+
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"dni_user" 			=> $data["dni"],
+			"telefono_user" 	=> $data["telefono"],
+			"facultad_user" 	=> $data["facultad"],
+			"carrera_user" 		=> $data["carrera"],
+			"fecha_egreso_user" => $data["fecha"],
+			"id_user"			=> $last_id,
+			"jerarquia" 		=> 3
+		);
+
+		echo json_encode($datos);
 	}
 
 	public function load_admin()
@@ -114,6 +128,22 @@ class Inicio extends CI_Controller {
 			"id_user" 			=> $data["id"]
 		);
 		$this->Inicio_model->modificar_user($datos);
+	}
+
+	public function editar_becario()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"nombre_user" 		=> $data["nombre"],
+			"apellido_user" 	=> $data["apellido"],
+			"telefono_user"		=> $data["telefono"],
+			"dni_user" 			=> $data["dni"],
+			"facultad_user" 	=> $data["facultad"],
+			"carrera_user" 		=> $data["carrera"],
+			"id_user" 			=> $data["id"]
+		);
+		$this->Inicio_model->modificar_becario($datos);
 	}
 
 	public function eliminar_user()
@@ -226,5 +256,15 @@ class Inicio extends CI_Controller {
 		$this->session->unset_userdata("jerarquia");
 		$json["eliminado"]=1;
 		echo json_encode($json);
+	}
+
+
+	public function buscar_becario()
+	{
+		$data = $this->input->post();
+		$datos = array(
+			"dni_user" 	=> $data["dni"]
+		);
+		$becario = $this->Inicio_model->buscar_becario($datos);
 	}
 }

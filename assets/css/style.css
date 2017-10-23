@@ -1915,31 +1915,57 @@ label{
 	display: none;
 }
 
-.editar-colaborador, .eliminar-colaborador{
+.editar-colaborador, .eliminar-colaborador, .editar-becario, .eliminar-becario{
 	color: rgb(44,62,80);
 	text-decoration: none !important;
 }
 
-tr:hover .editar-colaborador, tr:hover .eliminar-colaborador{
+tr:hover .editar-colaborador, tr:hover .eliminar-colaborador, tr:hover .editar-becario, tr:hover .eliminar-becario{
 	color: white;
 }
 
-.editar-colaborador:hover, .eliminar-colaborador:hover{
+.editar-colaborador:hover, .eliminar-colaborador:hover, .editar-becario:hover, .eliminar-becario:hover{
 	text-decoration: none !important;
 }
 
-.editar-colaborador:hover{
+.editar-colaborador:hover, .editar-becario:hover{
 	color: #2ecc71 !important;	
 }
 
-.eliminar-colaborador:hover{
+.eliminar-colaborador:hover, .eliminar-becario:hover{
 	color: #e74c3c !important;	
 }
 
 body.back #contenedor-marcador, body.back #boxes #dialog{
-	height: auto;
+	height: 100vh;
 }
 
 body.back #boxes #dialog{
-	top: 15vh;
+	top: 0vh;
+}
+
+body.back #boxes #dialog .close{
+	top: 17px;
+}
+
+#carrera-editar-becario-1, #carrera-editar-becario-2, #carrera-editar-becario-3, #carrera-editar-becario-4, #carrera-editar-becario-5, #carrera-editar-becario-6, #carrera-editar-becario-7, #carrera-editar-becario-8, #carrera-editar-becario-9, #carrera-editar-becario-10, #carrera-editar-becario-11, #carrera-editar-becario-12, #carrera-editar-becario-13, #carrera-editar-becario-14, #carrera-editar-becario-15{
+	display: none;
+}
+
+#btnModificarModal{
+	position: fixed;
+	bottom: 22px;
+}
+
+.table{
+	margin-bottom: 1px
+}
+
+.tabla-max-width{
+	max-height: 281px !important;
+	overflow: auto;
+}
+
+.table-responsive{
+	overflow-x: inherit;
 }

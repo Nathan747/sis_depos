@@ -323,8 +323,8 @@
 
 					<div class="col-lg-6">
 						<div class="form-group">
-							<label for="password-2">Contraseña</label>
-							<input type="password" name="password-2" class="form-control" id="password-2" autocomplete="new-password">
+							<label for="date-2">Fecha Ingreso</label>
+							<input name="date-2" class="form-control" placeholder="Fecha de Ingreso" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha-2" step="1" max="2020-12-31">
 						</div>
 					</div>
 
@@ -397,7 +397,7 @@
 					<div class="col-lg-12"><h1>Editar Colaborador</h1></div>
 				</div>
 				<div class="col-lg-12"><div class="separador"></div></div>
-				<div class="col-lg-12">	
+				<div class="col-lg-12 tabla-max-width">	
 					<table class="table table-hover table-condensed">
 						<tr>
 							<th style="text-align: center;">NOMBRE Y APELLIDO</th>
@@ -430,12 +430,13 @@
 					<div class="col-lg-12"><h1>Editar Becario</h1></div>
 				</div>
 				<div class="col-lg-12"><div class="separador"></div></div>
-				<div class="col-lg-12">	
+				<div class="col-lg-12 tabla-max-width">	
 					<table class="table table-hover table-condensed">
 						<tr>
 							<th style="text-align: center;">NOMBRE Y APELLIDO</th>
 							<th style="text-align: center;">TELEFONO</th>
 							<th style="text-align: center;">DNI</th>
+							<th style="text-align: center;">FECHA INGRESO</th>
 							<th style="text-align: center;">FACULTAD</th>
 							<th style="text-align: center;">CARRERA</th>
 							<th style="text-align: center;">EDITAR</th>
@@ -443,12 +444,15 @@
 						</tr>
 						<?php 
 						for ($i=0; $i < $jerarquia["cantidad"]; $i++) {
-							if($jerarquia[$i]["jerarquia_user"]==3){	
+							if($jerarquia[$i]["jerarquia_user"]==3){
+								$originalDate = $jerarquia[$i]["fecha_egreso_user"];
+								$newDate = date("d-m-Y", strtotime($originalDate));	
 								echo "<tr>";
 								echo '<td style="text-align: center;">'.$jerarquia[$i]["nombre_user"]." ";
 								echo $jerarquia[$i]["apellido_user"]."</td>";
 								echo '<td style="text-align: center;">'.$jerarquia[$i]["telefono_user"]."</td>";
 								echo '<td style="text-align: center;">'.$jerarquia[$i]["dni_user"]."</td>";
+								echo '<td style="text-align: center;">'.$newDate."</td>";
 								echo '<td class="facultad_numero" style="text-align: center;">'.$jerarquia[$i]["facultad_user"]."</td>";
 								echo '<td class="carrera_numero" style="text-align: center;">'.$jerarquia[$i]["carrera_user"]."</td>";
 								echo '<td style="text-align: center;"><a class="editar-becario" href="#" id="becario-editar-'.$jerarquia[$i]["id_user"].'"><span class="icon-pencil"></span></a></td>';
