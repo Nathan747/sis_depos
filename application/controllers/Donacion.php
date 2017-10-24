@@ -128,12 +128,12 @@ class Donacion extends CI_Controller {
 					"neto_recibido"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"]
 				);
 
-				$hoy = date("d-m-Y H:i:s"); 
+				$hoy = date("Y-m-d"); 
 
-				$datos_usuario = {
-					"cantidad_dinero"		=> $objeto[$cantidad-1]["transaction_details"]["net_received_amount"],
+				$datos_usuario = array(
+					"cantidad_dinero"		=> $datos["neto_recibido"],
 					"ultima_modificacion"	=> $hoy
-				}
+				);
 
 				$respuesta_id_ya_cargado = $this->Donacion_model->control_id_orden($datos["id_operacion_mp"]);
 				if($respuesta_id_ya_cargado==0){

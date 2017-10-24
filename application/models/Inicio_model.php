@@ -33,7 +33,49 @@ class Inicio_model extends CI_Model {
 		return $arreglo;
 	}
 
-	public function select_transactions(){
+	public function select_cantidad_dinero()
+	{
+		$sql=$this->db->get('unc_cantidad_dinero');
+		$filas = $sql->num_rows();
+		if($filas>0){
+			foreach ($sql->result() as $row){
+				$arreglo["cantidad_dinero"] = $row->cantidad_dinero;
+				$arreglo["ultima_modificacion"] = $row->ultima_modificacion;
+			}
+		}
+		return $arreglo;
+	}
+
+	public function select_becas()
+	{
+		$sql=$this->db->get('unc_becas');
+		$sql2=$this->db->get('unc_usuarios');
+
+		$filas2 = $sql2->num_rows();
+		$filas = $sql->num_rows();
+		if($filas>0){
+			$x=0;
+			foreach ($sql->result() as $row){
+				$arreglo[$x]["id_becado"] = $row->id_becado;
+				$arreglo[$x]["monto_beca"] = $row->monto_beca;
+				$arreglo[$x]["fecha_inicio"] = $row->fecha_inicio;
+				$arreglo[$x]["ultima_modificacion"] = $row->ultima_modificacion;
+				if($filas2>0){
+					foreach ($sql2->result() as $row2){
+						if($arreglo[$x]["id_becado"] == $row2->id_user){
+							$arreglo[$x]["nombre"] = $row2->nombre_user;
+							$arreglo[$x]["apellido"] = $row2->apellido_user;
+							$arreglo[$x]["dni"] = $row2->dni_user;
+						}
+					}
+				}
+			}
+		}
+		return $arreglo;
+	}
+
+	public function select_transactions()
+	{
 		$sql=$this->db->get('unc_transactions');
 		$sql2=$this->db->get('unc_usuarios');
 

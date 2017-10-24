@@ -34,8 +34,10 @@ class Donacion_model extends CI_Model {
 			foreach ($sql->result() as $row){
 				$cantidad_dinero = $row->cantidad_dinero;
 			}
-			$data["cantidad_dinero"]+=$cantidad_dinero;
-			$this->db->insert('unc_cantidad_dinero', $data);
+			$data["cantidad_dinero"]+=floatval($cantidad_dinero);
+
+			$this->db->where('id_cantidad_dinero', 1);
+			$this->db->update('unc_cantidad_dinero', $data);
 		}
 
 	}

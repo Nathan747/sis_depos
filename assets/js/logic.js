@@ -759,7 +759,7 @@
       var biografia_usuario = $("#txtBiography").val();
       var es_egresado_usuario = $("#ejemplo-2").prop("checked");
       var facultad_usuario = $("#universidad_modify").val();
-      var carrera_usuario;
+      var carrera_usuario=1;
 
       var v = 1;
       $(".selecciones-modify").each(function(){
@@ -795,6 +795,7 @@
         }
       }).done(function(json){
         var objeto = $.parseJSON(json);
+        
         $(".username-change").find("div").text(objeto.username);
         $(".second").find(".name").find("strong").text(objeto.username);
         $(".second").find(".job").find("strong").text(objeto.profesion);
