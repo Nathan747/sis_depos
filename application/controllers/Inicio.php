@@ -77,6 +77,7 @@ class Inicio extends CI_Controller {
 			"facultad_user" 	=> $data["facultad"],
 			"carrera_user" 		=> $data["carrera"],
 			"fecha_egreso_user" => $data["fecha"],
+			"edad_user"			=> $data["edad"],
 			"jerarquia" 		=> 3
 		);
 
@@ -91,6 +92,7 @@ class Inicio extends CI_Controller {
 			"facultad_user" 	=> $data["facultad"],
 			"carrera_user" 		=> $data["carrera"],
 			"fecha_egreso_user" => $data["fecha"],
+			"edad_user"			=> $data["edad"],
 			"id_user"			=> $last_id,
 			"jerarquia" 		=> 3
 		);
@@ -139,6 +141,8 @@ class Inicio extends CI_Controller {
 			"apellido_user" 	=> $data["apellido"],
 			"telefono_user"		=> $data["telefono"],
 			"dni_user" 			=> $data["dni"],
+			"edad_user" 		=> $data["edad"],
+			"fecha_egreso_user"	=> $data["fecha"],
 			"facultad_user" 	=> $data["facultad"],
 			"carrera_user" 		=> $data["carrera"],
 			"id_user" 			=> $data["id"]
@@ -266,5 +270,7 @@ class Inicio extends CI_Controller {
 			"dni_user" 	=> $data["dni"]
 		);
 		$becario = $this->Inicio_model->buscar_becario($datos);
+		//echo json_encode($becario);
+		echo json_encode($becario);
 	}
 }

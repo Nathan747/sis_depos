@@ -328,6 +328,13 @@
 						</div>
 					</div>
 
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label for="edad-2">Edad</label>
+							<input type="nombre" name="edad-2" class="form-control" id="edad-2">
+						</div>
+					</div>
+
 					<div class="col-lg-12">
 						<button type="button" id="boton-enviar-2" class="btn btn-default boton-enviar">Crear</button>
 						<div class="contenedor-mensaje-becario" style="float: left">
@@ -437,6 +444,7 @@
 							<th style="text-align: center;">TELEFONO</th>
 							<th style="text-align: center;">DNI</th>
 							<th style="text-align: center;">FECHA INGRESO</th>
+							<th style="text-align: center;">EDAD</th>
 							<th style="text-align: center;">FACULTAD</th>
 							<th style="text-align: center;">CARRERA</th>
 							<th style="text-align: center;">EDITAR</th>
@@ -453,6 +461,7 @@
 								echo '<td style="text-align: center;">'.$jerarquia[$i]["telefono_user"]."</td>";
 								echo '<td style="text-align: center;">'.$jerarquia[$i]["dni_user"]."</td>";
 								echo '<td style="text-align: center;">'.$newDate."</td>";
+								echo '<td style="text-align: center;">'.$jerarquia[$i]["edad_user"]."</td>";
 								echo '<td class="facultad_numero" style="text-align: center;">'.$jerarquia[$i]["facultad_user"]."</td>";
 								echo '<td class="carrera_numero" style="text-align: center;">'.$jerarquia[$i]["carrera_user"]."</td>";
 								echo '<td style="text-align: center;"><a class="editar-becario" href="#" id="becario-editar-'.$jerarquia[$i]["id_user"].'"><span class="icon-pencil"></span></a></td>';

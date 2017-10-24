@@ -24,6 +24,22 @@ class Donacion_model extends CI_Model {
 		return $json;
 	}
 
+	public function almacenar_dinero($data)
+	{
+		$sql=$this->db->get('unc_cantidad_dinero');
+		$filas = $sql->num_rows();
+		if($filas==0){
+			$this->db->insert('unc_cantidad_dinero', $data);
+		}else{
+			foreach ($sql->result() as $row){
+				$cantidad_dinero = $row->cantidad_dinero;
+			}
+			$data["cantidad_dinero"]+=$cantidad_dinero;
+			$this->db->insert('unc_cantidad_dinero', $data);
+		}
+
+	}
+
 	public function control_id_orden($id_orden)
 	{
 		$this->db->where('id_operacion_mp', $id_orden);

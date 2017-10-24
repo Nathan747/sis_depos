@@ -1937,15 +1937,20 @@ tr:hover .editar-colaborador, tr:hover .eliminar-colaborador, tr:hover .editar-b
 }
 
 body.back #contenedor-marcador, body.back #boxes #dialog{
-	height: 100vh;
+	height: 80vh;
 }
 
 body.back #boxes #dialog{
-	top: 0vh;
+	top: 10vh;
+	overflow-x: hidden;
+    overflow-y: auto;
 }
 
-body.back #boxes #dialog .close{
-	top: 17px;
+body.back #boxes .close{
+	display: none;
+	right: 115px;
+    top: 17px;
+    z-index: 9999;
 }
 
 #carrera-editar-becario-1, #carrera-editar-becario-2, #carrera-editar-becario-3, #carrera-editar-becario-4, #carrera-editar-becario-5, #carrera-editar-becario-6, #carrera-editar-becario-7, #carrera-editar-becario-8, #carrera-editar-becario-9, #carrera-editar-becario-10, #carrera-editar-becario-11, #carrera-editar-becario-12, #carrera-editar-becario-13, #carrera-editar-becario-14, #carrera-editar-becario-15{
@@ -1954,7 +1959,6 @@ body.back #boxes #dialog .close{
 
 #btnModificarModal{
 	position: fixed;
-	bottom: 22px;
 }
 
 .table{

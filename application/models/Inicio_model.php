@@ -20,6 +20,7 @@ class Inicio_model extends CI_Model {
 				$arreglo[$x]["email_user"] = $row->email_user;
 				$arreglo[$x]["telefono_user"] = $row->telefono_user;
 				$arreglo[$x]["dni_user"] = $row->dni_user;
+				$arreglo[$x]["edad_user"] = $row->edad_user;
 				$arreglo[$x]["pass_user"] = $row->pass_user;
 				$arreglo[$x]["fecha_egreso_user"] = $row->fecha_egreso_user;
 				$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
@@ -106,6 +107,8 @@ class Inicio_model extends CI_Model {
 			"apellido_user" 	=> $datos["apellido_user"],
 			"telefono_user"		=> $datos["telefono_user"],
 			"dni_user" 			=> $datos["dni_user"],
+			"fecha_egreso_user"	=> $datos["fecha_egreso_user"],
+			"edad_user" 		=> $datos["edad_user"],
 			"facultad_user" 	=> $datos["facultad_user"],
 			"carrera_user" 		=> $datos["carrera_user"]
 		);
@@ -142,23 +145,24 @@ class Inicio_model extends CI_Model {
 	public function buscar_becario($datos)
 	{		
 		$this->db->where('dni_user', $datos["dni_user"]);
-		$sql=$this->db->get('unc_transactions');
+		$sql=$this->db->get('unc_usuarios');
 
 		$filas = $sql->num_rows();
 
 		if($filas>0){
-			$x=0;
 			foreach ($sql->result() as $row){
-				$arreglo[$x]["nombre_user"] = $row->nombre_user;
-				$arreglo[$x]["apellido_user"] = $row->apellido_user;
-				$arreglo[$x]["dni_user"] = $row->dni_user;
-				$arreglo[$x]["carrera_user"] = $row->carrera_user;
-				$arreglo[$x]["fecha_ingreso"] = $row->fecha_egreso_user;
-				$x++;
+				$arreglo["id_user"] = $row->id_user;
+				$arreglo["nombre_user"] = $row->nombre_user;
+				$arreglo["apellido_user"] = $row->apellido_user;
+				$arreglo["dni_user"] = $row->dni_user;
+				$arreglo["edad_user"] = $row->edad_user;
+				$arreglo["carrera_user"] = $row->carrera_user;
+				$arreglo["fecha_ingreso"] = $row->fecha_egreso_user;
 			}
 		}
+		$arreglo["cantidad"] = $filas;
 
-		return $sql;
+		return $arreglo;
 	}
 
 	

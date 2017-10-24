@@ -24,18 +24,18 @@
 		<div class="informacion-obtenida">
 			<div class="col-lg-6">
 				<div class="contenedor-info-becario">
-					<div class="item-buscado nombre-becario">Nombre: Maximiliano</div>
-					<div class="item-buscado apellido-becario">Apellido: Kadyszyn</div>
-					<div class="item-buscado dni-becario">DNI: 35563679</div>
-					<div class="item-buscado edad-becario">Edad: 26</div>
-					<div class="item-buscado carrera-becario">Carrera: Ing. en Sistemas</div>
-					<div class="item-buscado anio-ingreso-becario">Año de Ingreso: 03/03/2009</div>
+					<div class="item-buscado nombre-becario"><strong>Nombre:</strong> <span></span></div>
+					<div class="item-buscado apellido-becario"><strong>Apellido:</strong> <span></span></div>
+					<div class="item-buscado dni-becario"><strong>DNI:</strong> <span></span></div>
+					<div class="item-buscado edad-becario"><strong>Edad:</strong> <span></span></div>
+					<div class="item-buscado carrera-becario"><strong>Carrera:</strong> <span></span></div>
+					<div class="item-buscado anio-ingreso-becario"><strong>Año de Ingreso:</strong> <span></span></div>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="monto-buscar">
 					<div class="input-group monto-ingreso">
-						<input type="text" class="form-control" placeholder="Buscar">
+						<input type="text" class="form-control" placeholder="Dinero a derivar">
 					</div>
 				</div>
 				<div class="texto-monto">

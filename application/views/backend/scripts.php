@@ -1205,27 +1205,72 @@
 				dni: becario_buscar
 			}
 		}).done(function(json){
+			var objeto = $.parseJSON(json);
+			console.log(objeto);
 
-		});
+			var date = new Date(objeto.fecha_ingreso);
+			var year = date.getFullYear();
 
-		$(".contenedor-info-becario").animate({
-			top: "0px"
-		},function(){
-			$(".monto-buscar").animate({
-				top: "0px"
+			var month = (1 + date.getMonth()).toString();
+			month = month.length > 1 ? month : '0' + month;
+
+			var day = (1 +date.getDate()).toString();
+			day = day.length > 1 ? day : '0' + day;
+
+			objeto.fecha_ingreso = day + '-' + month + '-' + year;
+
+			objeto.carrera_user = deco_carrera(parseInt(objeto.carrera_user));
+
+			$(".nombre-becario").find("span").text(objeto.nombre_user);
+			$(".apellido-becario").find("span").text(objeto.apellido_user);
+			$(".dni-becario").find("span").text(objeto.dni_user);
+			$(".edad-becario").find("span").text(objeto.edad_user);
+			$(".carrera-becario").find("span").text(objeto.carrera_user);
+			$(".anio-ingreso-becario").find("span").text(objeto.fecha_ingreso);
+
+			$(".contenedor-info-becario").animate({
+				top: "340px"
 			},function(){
-				$(".texto-monto").animate({
-					top: "0px"
-				},function(){	
-					$(".botones-monto").animate({
-						top: "0px"
-					},function(){
-						$(".botones-confirmacion-final").animate({
-							top: "0px"
+				$(".monto-buscar").animate({
+					top: "340px"
+				},function(){
+					$(".texto-monto").animate({
+						top: "340px"
+					},function(){	
+						$(".botones-monto").animate({
+							top: "340px"
+						},function(){
+							$(".botones-confirmacion-final").animate({
+								top: "340px"
+							},function(){
+								$(".contenedor-info-becario").animate({
+									top: "0px"
+								},function(){
+									$(".monto-buscar").animate({
+										top: "0px"
+									},function(){
+										$(".texto-monto").animate({
+											top: "0px"
+										},function(){	
+											$(".botones-monto").animate({
+												top: "0px"
+											},function(){
+												$(".botones-confirmacion-final").animate({
+													top: "0px"
+												});
+											});
+										});
+									});
+								});
+							});
 						});
 					});
 				});
 			});
+
+			
+
+
 		});
 	});
 	/* FIN BUSCAR BECARIO */
@@ -1262,20 +1307,17 @@
 
 
 	$("#universidad-2").change(function(){
-		console.log($("#universidad-2").val());
 		var universidad_becario = $("#universidad-2").val();
 		$(".carreras-becario").find("select").each(function(){
 			$(this).css("display","none");
 			$(this).val(null);
 		});
 		var becario_clase = "#carrera-becario-"+universidad_becario;
-		console.log(becario_clase);
 		$(becario_clase).css("display","inline-block");
 
 	});
 
 	$("#boton-enviar-2").click(function(){
-		console.log("CLICK");
 		var nombre_becario = $("#nombre-2").val();
 		var apellido_becario = $("#apellido-2").val();
 		var dni_becario = $("#dni-2").val();
@@ -1284,6 +1326,7 @@
 		var clase_becario = "#carrera-becario-"+facultad_becario;
 		var carrera_becario = $(clase_becario).val();
 		var fecha_ingreso = $("#fecha-2").val();
+		var edad_becario = $("#edad-2").val();
 
 		$.ajax({
 			url: "load_becario",
@@ -1295,14 +1338,14 @@
 				telefono: telefono_becario,
 				facultad: facultad_becario,
 				carrera: carrera_becario,
-				fecha: fecha_ingreso
+				fecha: fecha_ingreso,
+				edad: edad_becario
 			}
 		}).done(function(json){
 			$(".padre-mensaje-becario").animate({
 				left: "0px"
 			});
 			var objeto = $.parseJSON(json);
-			console.log(json);
 
 			var elemento;
 			$(".editar-becario").each(function(){
@@ -1330,6 +1373,7 @@
 				"<td style='text-align: center;'>"+objeto.telefono_user+"</td>"+
 				"<td style='text-align: center;'>"+objeto.dni_user+"</td>"+
 				"<td style='text-align: center;'>"+objeto.fecha_egreso_user+"</td>"+
+				"<td style='text-align: center;'>"+objeto.edad_user+"</td>"+
 				"<td style='text-align: center;'>"+objeto.facultad_user+"</td>"+
 				"<td style='text-align: center;'>"+objeto.carrera_user+"</td>"+
 				"<td style='text-align: center;''><a class='editar-becario' href='#' id='becario-editar-"+objeto.id_user+"'><span class='icon-pencil'></span></a></td>"+
@@ -1341,7 +1385,6 @@
 
 
 	$("#boton-enviar-3").click(function(){
-		console.log("CLICK");
 		var nombre_admin = $("#nombre-3").val();
 		var apellido_admin = $("#apellido-3").val();
 		var email_admin = $("#email-3").val();
@@ -1363,7 +1406,6 @@
 				left: "0px"
 			});
 			var objeto = $.parseJSON(json);
-			console.log(json);
 		});
 	});
 
@@ -1374,7 +1416,6 @@
 		var id_buscar = $(this).attr("id");
 		id_buscar = id_buscar.replace("colaborador-editar-","");
 		id_buscar = parseInt(id_buscar);
-		console.log(id_buscar);
 		muestraModal(id_buscar);
 	});
 
@@ -1383,7 +1424,6 @@
 		var id_buscar = $(this).attr("id");
 		id_buscar = id_buscar.replace("becario-editar-","");
 		id_buscar = parseInt(id_buscar);
-		console.log(id_buscar);
 		muestraModal2(id_buscar);
 
 	});
@@ -1395,7 +1435,6 @@
 		var id_buscar = $(this).attr("id");
 		id_buscar = id_buscar.replace("colaborador-eliminar-","");
 		id_buscar = parseInt(id_buscar);
-		console.log(id_buscar);
 		muestraModalConfirmacion(id_buscar);
 	});
 
@@ -1404,7 +1443,6 @@
 		var id_buscar = $(this).attr("id");
 		id_buscar = id_buscar.replace("becario-eliminar-","");
 		id_buscar = parseInt(id_buscar);
-		console.log(id_buscar);
 		muestraModalConfirmacion2(id_buscar);
 	});
 
@@ -1439,13 +1477,13 @@
 		var nombre_editar = $("#NombreEditar2").val();
 		var apellido_editar = $("#ApellidoEditar2").val();
 		var dni_editar = $("#DNIEditar2").val();
+		var edad_editar = $("#EdadEditar2").val();
+		var fecha_editar = $("#FechaEditar2").val();
 		var telefono_editar = $("#TelefonoEditar2").val();
 		var facultad_editar = $("#universidad-editar-2").val();
 		var test_carrera = "#carrera-editar-becario-"+facultad_editar;
 		var carrera_editar = $(test_carrera).val();
-		var id_editar = parametro;
-		
-		
+		var id_editar = parametro;	
 		
 		$.ajax({
 			url: "editar_becario",
@@ -1455,6 +1493,8 @@
 				apellido: apellido_editar,
 				telefono: telefono_editar,
 				dni: dni_editar,
+				fecha: fecha_editar,
+				edad: edad_editar,
 				facultad: facultad_editar,
 				carrera: carrera_editar,
 				id: id_editar
@@ -1465,10 +1505,12 @@
 			$(tds[0]).text(nombre_editar+" "+apellido_editar);
 			$(tds[1]).text(telefono_editar);
 			$(tds[2]).text(dni_editar);
+			$(tds[3]).text(fecha_editar);
+			$(tds[4]).text(edad_editar);
 			facultad_editar = deco_facultad(parseInt(facultad_editar));
 			carrera_editar = deco_carrera(parseInt(carrera_editar));
-			$(tds[3]).text(facultad_editar);
-			$(tds[4]).text(carrera_editar);
+			$(tds[5]).text(facultad_editar);
+			$(tds[6]).text(carrera_editar);
 			$("#boxes").find(".close").click();
 		});
 	};
@@ -1487,6 +1529,7 @@
 
 	function muestraModal(parametro) {
 		$("#boxes #dialog").css("display","block");
+		$("#boxes").find(".close").css("display","block");
 
 		var contentString2 = '<div id="content">'+
 		'<div id="contenedor-marcador">'+
@@ -1546,7 +1589,12 @@
         		$("#mask, .window").hide(); 
         		$("#boxes #dialog").css("display","none"); 
         	});
-        	$("#dialog").fadeTo("slow",1);  
+        	$("#dialog").fadeTo("slow",1); 
+        	
+        	$("#boxes").find(".close").fadeOut(1000, function(){
+        		$("#boxes").find(".close").css("display","none"); 
+        	});
+        	$("#boxes").find(".close").fadeTo("slow",1); 
 
         });      
 
@@ -1567,6 +1615,7 @@
 
     function muestraModal2(parametro) {
     	$("#boxes #dialog").css("display","block");
+    	$("#boxes .close").css("display","block"); 
 
     	var contentString2 = '<div id="content">'+
     	'<div id="contenedor-marcador">'+
@@ -1593,6 +1642,17 @@
     	'<span id="alertDNI2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
     	'<input type="text" class="form-control" id="DNIEditar2" placeholder="Introduzca su DNI" required data-validation-required-message="Por favor introduzca su DNI.">'+
     	'</span><br>'+
+
+    	'<label>EDAD:</label>'+
+    	'<span id="alertEdad2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input type="text" class="form-control" id="EdadEditar2" placeholder="Introduzca su Edad" required data-validation-required-message="Por favor introduzca su Edad.">'+
+    	'</span><br>'+
+
+    	'<label>FECHA DE INGRESO:</label>'+
+    	'<span id="alertFecha2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
+    	'<input name="FechaEditar2" class="form-control" placeholder="Fecha de Ingreso" type="text" onfocus="(this.type=\'date\')" onblur="(this.type=\'text\')" id="FechaEditar2" step="1" max="2020-12-31">'+
+    	'</span><br>'+
+
 
     	'<label>Facultad:</label>'+
     	'<span id="FacultadEditar2" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">'+
@@ -1848,7 +1908,12 @@
         		$("#mask, .window").hide(); 
         		$("#boxes #dialog").css("display","none"); 
         	});
-        	$("#dialog").fadeTo("slow",1);  
+        	$("#dialog").fadeTo("slow",1); 
+
+        	$("#boxes").find(".close").fadeOut(1000, function(){
+        		$("#boxes .close").css("display","none"); 
+        	});
+        	$("#boxes").find(".close").fadeTo("slow",1);  
 
         });      
 
