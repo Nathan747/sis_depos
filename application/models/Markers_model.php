@@ -23,6 +23,8 @@ class Markers_model extends CI_Model {
       $json[$i]["fecha_creacion"] = $row->fecha_creacion;
       $json[$i]["es_egresado_user"] = $row->es_egresado_user;
       $json[$i]["jerarquia"] = $row->jerarquia;
+      $json[$i]["facultad_user"] = $row->facultad_user;
+      $json[$i]["carrera_user"] = $row->carrera_user;
       $json[$i]["img"] = $row->img;
       $i++;
     }
