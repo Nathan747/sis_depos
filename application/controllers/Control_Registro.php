@@ -27,6 +27,7 @@ class Control_Registro extends CI_Controller {
 			"long_user" 		=> $data["longitud"],
 			"facultad_user"		=> $data["facultad"],
 			"carrera_user"		=> $data["carrera"],
+			"img"				=> $data["picture"],
 			"jerarquia" 		=> 2
 		);
 

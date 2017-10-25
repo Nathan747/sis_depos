@@ -38,6 +38,7 @@
   var clase = 0;
   var facultad_number;
   var carrera_number;
+  var picture;
 
   function decodificar_facultad(indice){
     var string_facultad;

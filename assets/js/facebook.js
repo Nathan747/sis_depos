@@ -133,7 +133,8 @@ function handleSessionResponse(response) {
         work = response.work;
         locale = response.locale;
         acercade = response.bio;
-
+        picture2 = response.picture;
+        picture = picture2["data"].url;
 
         nombre_completo = nombre+" "+apellido;
 

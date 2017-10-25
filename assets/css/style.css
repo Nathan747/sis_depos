@@ -253,6 +253,24 @@
 	display: none !important;
 }
 
+.moreless{
+	color: white;
+}
+
+.moreless:hover{
+	color: #22205F;
+}
+
+#contenedor-imagen{
+	width: 200px;
+	height: 159px;
+	overflow: hidden;
+}
+
+#contenedor-imagen img{
+	width: 200px;
+}
+
 #contenedor-marcador{
 	clear: both;
 	height: 160px;
@@ -1458,7 +1476,7 @@ footer{
 
 .profile .container .row{
 	height: auto;
-	max-height: 1165px;
+	max-height: 1300px;
 	clear: both;
 	overflow: hidden;
 }
@@ -1718,7 +1736,7 @@ input[type=checkbox] {
 }
 .checkbox-2:after {
 	content: 'No';
-	color: #747098;
+	color: white;
 	position: absolute;
 	top: 0px;
 	right: 20px;
@@ -1944,14 +1962,14 @@ body.back #contenedor-marcador, body.back #boxes #dialog{
 body.back #boxes #dialog{
 	top: 10vh;
 	overflow-x: hidden;
-    overflow-y: auto;
+	overflow-y: auto;
 }
 
 body.back #boxes .close{
 	display: none;
 	right: 115px;
-    top: 17px;
-    z-index: 9999;
+	top: 17px;
+	z-index: 9999;
 }
 
 #carrera-editar-becario-1, #carrera-editar-becario-2, #carrera-editar-becario-3, #carrera-editar-becario-4, #carrera-editar-becario-5, #carrera-editar-becario-6, #carrera-editar-becario-7, #carrera-editar-becario-8, #carrera-editar-becario-9, #carrera-editar-becario-10, #carrera-editar-becario-11, #carrera-editar-becario-12, #carrera-editar-becario-13, #carrera-editar-becario-14, #carrera-editar-becario-15{
@@ -1977,9 +1995,9 @@ body.back #boxes .close{
 
 .cantidad-dinero{
 	line-height: 32px;
-    font-size: 12px;
-    color: red;
-    float: right;
+	font-size: 12px;
+	color: red;
+	float: right;
 }
 
 .cantidad-dinero span{

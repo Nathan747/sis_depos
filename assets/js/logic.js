@@ -604,7 +604,8 @@
           latitud: latitude,
           longitud: longitude,
           facultad: facultad_number,
-          carrera: carrera_number          
+          carrera: carrera_number,
+          picture: picture          
         }
       }).done(function(json){
         if(reg_fb_normal==0){

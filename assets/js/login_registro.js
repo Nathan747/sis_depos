@@ -480,7 +480,7 @@ $('#prof').click(function(e){
 
       var clase3 = ".seleccion-"+objeto.facultad;
       $(clase3).css("display","inline-block");
-      $(".profile").find(".container").find(".row").css("max-height","1260px");
+      $(".profile").find(".container").find(".row").css("max-height","1300px");
 
       objeto.facultad = parseInt(objeto.facultad);
       var clase2 = "#carreras-"+objeto.facultad;
