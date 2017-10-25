@@ -288,6 +288,13 @@ class Inicio extends CI_Controller {
 			"monto_beca"			=> $data["dinero"],
 			"ultima_modificacion"	=> $hoy
 		);
+
+		$datos2 = array(
+			"cantidad_dinero"		=> $data["dinero_total"],
+			"ultima_modificacion"	=> $hoy
+		);
+
 		$this->Inicio_model->asignar_beca($datos);
+		$this->Inicio_model->restar_dinero($datos2);
 	}
 }

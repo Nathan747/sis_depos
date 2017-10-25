@@ -1226,6 +1226,9 @@
 	$(".boton-buscar").click(function(){
 
 		var becario_buscar = $("#dni-buscar-becario").val();
+		$(".padre-becario-asignado").animate({
+			left: "-250px"
+		});
 		$.ajax({
 			type: "POST",
 			url: "buscar_becario",
@@ -1236,6 +1239,11 @@
 			var objeto = $.parseJSON(json);
 			console.log(objeto);
 			if(objeto.cantidad>0){
+				$(".padre-contenedor-dni").animate({
+					top: "-70px"
+				},function(){
+					$(".contenedor-no-dni").css("display","none");
+				});
 				var date = new Date(objeto.fecha_ingreso);
 				var year = date.getFullYear();
 
@@ -1311,15 +1319,20 @@
 							},function(){
 								$(".botones-confirmacion-final").animate({
 									top: "340px"
+								},function(){
+									$(".contenedor-no-dni").css("display","inline-block");
+									$(".padre-contenedor-dni").animate({
+										top: "0px"
+									});
 								});
 							});
 						});
 					});
 				});
-				console.log("No se encuentra");
+				
 			}
 
-
+			
 			
 
 
@@ -1337,29 +1350,46 @@
 	/* FIN A DERIVAR */
 
 	$(".boton-confirmar").click(function(){
-		var dinero_becario_final = parseFloat($("#dinero-derivar").val());
-		var total_dinero = parseFloat($($(".cantidad-total-numero")[0]).text());
+		var dinero_becario_final = parseFloat($("#dinero-derivar").val()).toFixed(2);
+		var total_dinero = parseFloat($($(".cantidad-total-numero")[0]).text()).toFixed(2);
 		console.log(total_dinero);
 
 		if(dinero_becario_final<=total_dinero){
-			$(".boton-final").removeAttr('disabled');			
+			$(".padre-mensaje-error").animate({
+				top: "-70px"
+			});
+			$(".boton-final").removeAttr('disabled');	
+			$(".monto_a_derivar").text(dinero_becario_final);		
 		}else{
-			console.log("El monto total no permite derivar esa cantidad de dinero");
+			$(".padre-mensaje-error").animate({
+				top: "0px"
+			});
 		}
 	});
 
 	$(".boton-final").click(function(){
 		var dni_becario_final = $(".dni-becario-span").text();
 		var dinero_becario_final = $("#dinero-derivar").val();
+
+		var dinero_final = parseFloat($(".cantidad-total-numero").text()).toFixed(2);
+		var dinero_derivar = parseFloat($(".monto_a_derivar").text()).toFixed(2);
+		dinero_final -= dinero_derivar; 
+		dinero_final = dinero_final.toFixed(2);
+
 		$.ajax({
 			type: "POST",
 			url: "asignar_beca",
 			data: {
 				dni: dni_becario_final,
-				dinero: dinero_becario_final
+				dinero: dinero_becario_final,
+				dinero_total: dinero_final
 			}
 		}).done(function(json){
-			console.log("TERMINO");
+			
+			$(".cantidad-total-numero").text(dinero_final);
+			$(".padre-becario-asignado").animate({
+				left: "0px"
+			});
 		});
 	});
 
