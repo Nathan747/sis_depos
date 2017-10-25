@@ -1145,23 +1145,6 @@ body.editprofile{
 	margin-bottom: 20px;
 }
 
-.boton-mp button{
-	background-color: #9b59b6;
-	color: white;
-	padding: 10px 16px;
-	font-size: 18px;
-	line-height: 1.3333333;
-	border-radius: 6px;
-}
-
-.boton-mp input:hover{
-	background-color: white;
-	color: #8e44ad;
-	box-shadow: none;
-	border-color: #adadad;
-	border: 1px solid;
-}
-
 .contenedor-lista-pp input{
 	width: 285px;
 	margin: 0 auto;
@@ -1384,7 +1367,8 @@ input[type="color"]:focus,
 	text-decoration: none;
 }
 
-.iniciar-sesion, .btn-recup-pass{
+
+.iniciar-sesion, .btn-recup-pass, .boton-mp button, .third .myprof, .third .editprof{
 	padding: 10px 0px;
 	font-size: 15px;
 	color: white;
@@ -1393,10 +1377,24 @@ input[type="color"]:focus,
 	border-radius: 4px;
 }
 
-.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover, .iniciar-sesion:hover, .btn-recup-pass:hover{
+.third a.myprof, .third a.editprof{
+	color: white;
+	padding-left: 15px;
+	margin-bottom: 5px;
+}
+
+.boton-mp button{
+	padding: 10px 54px;
+}
+
+.no-face a:hover, #siguiente-run:hover, #siguiente-basico:hover, #siguiente-fin:hover, #siguiente-fb:hover, .iniciar-sesion:hover, .btn-recup-pass:hover, .boton-mp button:hover, .third .editprof:hover, .third .myprof:hover{
 	background-color: white;
 	color: #22205F;
 	border: 1px solid #22205F
+}
+
+.third a.myprof:hover, .third a.editprof:hover{
+	color: #22205F;
 }
 
 .no-face a{

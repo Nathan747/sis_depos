@@ -53,6 +53,7 @@ class Inicio_model extends CI_Model {
 
 		$filas2 = $sql2->num_rows();
 		$filas = $sql->num_rows();
+		$arreglo="";
 		if($filas>0){
 			$x=0;
 			foreach ($sql->result() as $row){
@@ -71,6 +72,7 @@ class Inicio_model extends CI_Model {
 				}
 			}
 		}
+		$arreglo["cantidad"] = $filas;
 		return $arreglo;
 	}
 

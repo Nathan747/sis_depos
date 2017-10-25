@@ -167,13 +167,15 @@ class Inicio extends CI_Controller {
 		$jerarchy = $this->Inicio_model->select_jerarquia();
 		$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
 		$cantidad_becas = $this->Inicio_model->select_becas();
+		$cantidad_becas["cantidad_dinero"] = $cantidad_dinero["cantidad_dinero"];
+		$cantidad_becas["ultima_modificacion"] = $cantidad_dinero["ultima_modificacion"];
 		$cant_filas = $object["cantidad"];
 		
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "back";
 		$objeto["objeto"] = $object;
 		$jerarquia["jerarquia"] = $jerarchy;
-		$dinero_total["dinero"] = $cantidad_dinero;
+		$becas["becas"] = $cantidad_becas;
 
 		$this->load->view('backend/head',$data);
 		$this->load->view('layouts/style');
@@ -186,7 +188,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/gestionar_usuarios',$jerarquia);
 		$this->load->view('backend/ultimos_movimientos');
 		$this->load->view('backend/becarios');
-		$this->load->view('backend/recaudado',$dinero_total);
+		$this->load->view('backend/recaudado',$becas);
 		$this->load->view('backend/fin_backend');
 
 		$this->load->view('backend/scripts',$objeto,$jerarquia);
