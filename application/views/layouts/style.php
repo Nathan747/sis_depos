@@ -2,6 +2,26 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <style>
+
+
+.profile2 {
+    width: 1024px;
+
+    right: -167px;
+
+}
+
+.close {
+    right: -126px;
+}
+
+
+.profile2 {
+
+    height: 576px;
+
+}
+
 .name2 {
 	top: 10px;
 	position: relative;
@@ -79,6 +99,14 @@
 		width: 1000px;
 		overflow:scroll;
 	}
+	.profile2 {
+    width: 936px;
+    right: -110px;
+}
+
+.close {
+    right: -72px;
+}
 }
 
 
@@ -93,10 +121,77 @@
 		overflow: hidden;
 		height: 223px;
 	}
+
+	.contenedor-donar {
+
+		width: 600px;
+
+	}
 }
 
 
 @media(max-width:767px) {
+
+	.profile2 {
+    width: 100%;
+    right: 0px;
+    overflow: scroll;
+}
+
+.container2 {
+    background: #22205F;
+    width: 100%;
+    height: 94px;
+    border-bottom: 1px solid #e7e7e7;
+    /* top: 16px; */
+    /* margin-bottom: 19px; */
+    padding-top: 1px;
+}
+
+.profile2 .photo{
+
+       max-width: 320px;
+		margin: 0 0;
+
+}
+
+.profile2 .contenedor-informacion-perfil {
+    float: none;
+    overflow: hidden;
+    height: 81px;
+}
+
+
+
+
+	.login {
+		width:100%;
+
+	}
+
+	.separador-wizard {
+		height: 35px;
+		width: 100px;
+		float: left;
+		padding-top: 16px;
+	}
+
+	.contenedor-donar .word .palabras {
+		margin-right: 76px;
+	}
+
+
+	.contenedor-donar .word .word-cantidad {
+		margin-right: 50px;
+	}
+
+	.contenedor-donar {
+
+		width: 100%;
+
+	}
+
+
 	.float{
 		display:none;
 	}
