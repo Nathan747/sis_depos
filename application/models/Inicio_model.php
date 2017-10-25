@@ -189,6 +189,7 @@ class Inicio_model extends CI_Model {
 	public function buscar_becario($datos)
 	{		
 		$this->db->where('dni_user', $datos["dni_user"]);
+		$this->db->where('jerarquia', 3);
 		$sql=$this->db->get('unc_usuarios');
 
 		$filas = $sql->num_rows();

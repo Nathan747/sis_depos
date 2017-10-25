@@ -40,7 +40,7 @@
 				</div>
 				<div class="texto-monto">
 					<div class="texto-info-monto">Monto a Derivar</div>
-					<div class="cantidad-dinero-restante">Dinero restante: $2000</div>
+					<div class="cantidad-dinero-restante">Dinero restante: <strong>$<span class="cantidad-total-numero"><?php echo $becas["cantidad_dinero"] ?></span></strong></div>
 				</div>
 				<div class="botones-monto">
 					<div class="botones">

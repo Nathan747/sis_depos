@@ -187,7 +187,7 @@ class Inicio extends CI_Controller {
 		$this->load->view('backend/inicio_backend');
 		$this->load->view('backend/gestionar_usuarios',$jerarquia);
 		$this->load->view('backend/ultimos_movimientos');
-		$this->load->view('backend/becarios');
+		$this->load->view('backend/becarios',$becas);
 		$this->load->view('backend/recaudado',$becas);
 		$this->load->view('backend/fin_backend');
 

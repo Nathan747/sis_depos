@@ -1207,56 +1207,57 @@
 		}).done(function(json){
 			var objeto = $.parseJSON(json);
 			console.log(objeto);
+			if(objeto.cantidad>0){
+				var date = new Date(objeto.fecha_ingreso);
+				var year = date.getFullYear();
 
-			var date = new Date(objeto.fecha_ingreso);
-			var year = date.getFullYear();
+				var month = (1 + date.getMonth()).toString();
+				month = month.length > 1 ? month : '0' + month;
 
-			var month = (1 + date.getMonth()).toString();
-			month = month.length > 1 ? month : '0' + month;
+				var day = (1 +date.getDate()).toString();
+				day = day.length > 1 ? day : '0' + day;
 
-			var day = (1 +date.getDate()).toString();
-			day = day.length > 1 ? day : '0' + day;
+				objeto.fecha_ingreso = day + '-' + month + '-' + year;
 
-			objeto.fecha_ingreso = day + '-' + month + '-' + year;
+				objeto.carrera_user = deco_carrera(parseInt(objeto.carrera_user));
 
-			objeto.carrera_user = deco_carrera(parseInt(objeto.carrera_user));
+				$(".nombre-becario").find("span").text(objeto.nombre_user);
+				$(".apellido-becario").find("span").text(objeto.apellido_user);
+				$(".dni-becario").find("span").text(objeto.dni_user);
+				$(".edad-becario").find("span").text(objeto.edad_user);
+				$(".carrera-becario").find("span").text(objeto.carrera_user);
+				$(".anio-ingreso-becario").find("span").text(objeto.fecha_ingreso);
 
-			$(".nombre-becario").find("span").text(objeto.nombre_user);
-			$(".apellido-becario").find("span").text(objeto.apellido_user);
-			$(".dni-becario").find("span").text(objeto.dni_user);
-			$(".edad-becario").find("span").text(objeto.edad_user);
-			$(".carrera-becario").find("span").text(objeto.carrera_user);
-			$(".anio-ingreso-becario").find("span").text(objeto.fecha_ingreso);
-
-			$(".contenedor-info-becario").animate({
-				top: "340px"
-			},function(){
-				$(".monto-buscar").animate({
+				$(".contenedor-info-becario").animate({
 					top: "340px"
 				},function(){
-					$(".texto-monto").animate({
+					$(".monto-buscar").animate({
 						top: "340px"
-					},function(){	
-						$(".botones-monto").animate({
+					},function(){
+						$(".texto-monto").animate({
 							top: "340px"
-						},function(){
-							$(".botones-confirmacion-final").animate({
+						},function(){	
+							$(".botones-monto").animate({
 								top: "340px"
 							},function(){
-								$(".contenedor-info-becario").animate({
-									top: "0px"
+								$(".botones-confirmacion-final").animate({
+									top: "340px"
 								},function(){
-									$(".monto-buscar").animate({
+									$(".contenedor-info-becario").animate({
 										top: "0px"
 									},function(){
-										$(".texto-monto").animate({
+										$(".monto-buscar").animate({
 											top: "0px"
-										},function(){	
-											$(".botones-monto").animate({
+										},function(){
+											$(".texto-monto").animate({
 												top: "0px"
-											},function(){
-												$(".botones-confirmacion-final").animate({
+											},function(){	
+												$(".botones-monto").animate({
 													top: "0px"
+												},function(){
+													$(".botones-confirmacion-final").animate({
+														top: "0px"
+													});
 												});
 											});
 										});
@@ -1266,7 +1267,30 @@
 						});
 					});
 				});
-			});
+				
+			}else{
+				$(".contenedor-info-becario").animate({
+					top: "340px"
+				},function(){
+					$(".monto-buscar").animate({
+						top: "340px"
+					},function(){
+						$(".texto-monto").animate({
+							top: "340px"
+						},function(){	
+							$(".botones-monto").animate({
+								top: "340px"
+							},function(){
+								$(".botones-confirmacion-final").animate({
+									top: "340px"
+								});
+							});
+						});
+					});
+				});
+				console.log("No se encuentra");
+			}
+
 
 			
 
@@ -1590,7 +1614,7 @@
         		$("#boxes #dialog").css("display","none"); 
         	});
         	$("#dialog").fadeTo("slow",1); 
-        	
+
         	$("#boxes").find(".close").fadeOut(1000, function(){
         		$("#boxes").find(".close").css("display","none"); 
         	});
