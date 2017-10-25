@@ -665,7 +665,8 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 
 .contenedor-info-becario, .monto-buscar, .texto-monto, .botones-monto, .botones-confirmacion-final{
 	position: relative;
-	top: 340px;
+	/*top: 340px;*/
+	top: 0px;
 }
 
 .columna-busqueda-dni input{
@@ -744,7 +745,7 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 }
 
 .botones{
-	width: 50%;
+	width: 100%;
 	float: left;
 }
 
@@ -771,7 +772,7 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 }
 
 .boton-editar{
-	margin-right: 5px;
+	width: 100%;
 }
 
 .boton-confirmar{

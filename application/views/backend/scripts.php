@@ -493,10 +493,10 @@
 		var i;
 		var limite;
 		var cant_items = objeto.cantidad;
-		console.log(cant_items);
+		console.log("CANT_ITEMS: "+cant_items);
 		var aux_cant = cant_items;
 
-		var cant_items_mostrados = 4;
+		var cant_items_mostrados = 9;
 
 
 
@@ -508,7 +508,7 @@
 			done=1;
 		}
 		
-
+		console.log("CANT_PAGINAS: "+cant_paginas);
 		if($(".selectores-ultimos-movimientos").find(".selector-numero").length==0){
 			for(var x=0;x<cant_paginas;x++){
 				if(x==0){
@@ -521,10 +521,16 @@
 			}
 		}	
 
-		
+		console.log("INDICE: "+indice);
 		if(indice==0){
 			i = 0;
-			limite = cant_items_mostrados; 
+			if(cant_items_mostrados>cant_items){
+				limite = cant_items;	
+			}else{
+
+				limite = cant_items_mostrados; 
+			}
+			console.log("LIMITE: "+limite);
 		}else{
 			i = indice*cant_items_mostrados
 			limite = i + cant_items_mostrados; 
@@ -542,6 +548,13 @@
 
 		$(".total-resultados").text(" ");
 		$(".total-resultados").text(cant_items);
+
+		if(cant_paginas==1){
+			$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
+			$("#next").find(".siguiente").addClass("boton-deshabilitado");
+			$("#last").find(".anterior").addClass("boton-deshabilitado");
+			$("#primer-elemento").find(".anterior").addClass("boton-deshabilitado");
+		}
 
 		// FIN MOSTRAR INFO DE RESULTADOS
 
@@ -998,6 +1011,10 @@
 			}else{
 				rellenar_tabla(page_selected-1);
 			}
+		}else{
+			if(cant_paginas==1){
+				$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
+			}
 		}
 	});
 
@@ -1031,6 +1048,7 @@
 		}
 	});
 
+	console.log(page_selected + " - " + cant_paginas);
 	$("#ultimo").click(function(){
 		if(page_selected!=cant_paginas){
 			$(".selector-numero").each(function(){
@@ -1067,6 +1085,11 @@
 			console.log(page_selected);
 			limpiar_tabla();
 			rellenar_tabla(cant_paginas-1);
+		}else{
+			if(cant_paginas==1){
+				$("#ultimo").find(".siguiente").addClass("boton-deshabilitado");
+				$("#next").find(".siguiente").addClass("boton-deshabilitado");
+			}
 		}
 	});
 
@@ -1133,6 +1156,11 @@
 			}
 			limpiar_tabla();
 			rellenar_tabla(actual-1);
+		}else{
+			if(page_selected==1){
+				$("#primer-elemento").find(".anterior").addClass("boton-deshabilitado");
+
+			}
 		}
 	});
 
@@ -1299,6 +1327,41 @@
 	});
 	/* FIN BUSCAR BECARIO */
 
+	/* DINERO A DERIVAR */
+	var testo;
+	$("#dinero-derivar").keyup(function(e){
+		if ( (e.key=="0") || (e.key=="1") || (e.key=="2") || (e.key=="3") || (e.key=="4") || (e.key=="5") || (e.key=="6") || (e.key=="7") || (e.key=="8") || (e.key=="9") || (e.key==".") || (e.key==",") ){
+			$(".boton-confirmar").removeAttr('disabled');
+		} 
+	});
+	/* FIN A DERIVAR */
+
+	$(".boton-confirmar").click(function(){
+		var dinero_becario_final = parseFloat($("#dinero-derivar").val());
+		var total_dinero = parseFloat($($(".cantidad-total-numero")[0]).text());
+		console.log(total_dinero);
+
+		if(dinero_becario_final<=total_dinero){
+			$(".boton-final").removeAttr('disabled');			
+		}else{
+			console.log("El monto total no permite derivar esa cantidad de dinero");
+		}
+	});
+
+	$(".boton-final").click(function(){
+		var dni_becario_final = $(".dni-becario-span").text();
+		var dinero_becario_final = $("#dinero-derivar").val();
+		$.ajax({
+			type: "POST",
+			url: "asignar_beca",
+			data: {
+				dni: dni_becario_final,
+				dinero: dinero_becario_final
+			}
+		}).done(function(json){
+			console.log("TERMINO");
+		});
+	});
 
 	/* GESTIONAR USUARIOS */
 
