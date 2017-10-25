@@ -841,7 +841,7 @@ aside .nav>li>a:focus, aside .nav>li>a:hover{
 }
 .contenedor-olvide-pass{
 	position: relative;
-	top: -353px;
+	top: -330px;
 	float: left;
 	width: 100%;
 	left: 105%;
@@ -2001,4 +2001,12 @@ body.back #boxes .close{
 
 .cantidad-dinero span{
 	font-weight: bold;
+}
+
+.username-change, .test-profile .perfil-animation{
+	left: 0px;
+}
+
+.profile-options{
+	display: none;
 }

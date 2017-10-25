@@ -15,7 +15,6 @@
 
 			<?php 
 
-			echo $becas["cantidad"];
 			for ($x=0; $x<$becas["cantidad"]; $x++) { 
 			?>
 			<tr>
