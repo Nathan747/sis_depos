@@ -19,7 +19,7 @@ $('#ingresar').click(function(e){
     right: "0"
   });
   $('.contenedor-registro').animate({
-    right: "-100%"
+    right: "-300%"
   });
 
 });
@@ -29,7 +29,7 @@ $('#ingresar').click(function(e){
 $('#cerrar-registro').click(function(e){
   e.preventDefault();
   $('.contenedor-registro').animate({
-    right: "-100%"
+    right: "-300%"
   });
 
   $(".bloque-wizard").each(function(){
@@ -78,7 +78,7 @@ $("#cerrar-donacion").click(function(e){
   e.preventDefault();
   window.location=direccion;
   $(".contenedor-donar").animate({
-    right: "-100%"
+    right: "-250%"
   });
   $(".contenedor-mercado-pago").css("left","0");
   $(".contenedor-paypal").css("right","0");
@@ -340,7 +340,7 @@ $("#donar").click(function(){
 
 $("#cerrar-donar").click(function(){
   $(".contenedor-donar").animate({
-    right: "-100%"
+    right: "-250%"
   });
   $(".contenedor-mercado-pago").css("left","0");
   $(".contenedor-paypal").css("right","0");
@@ -420,7 +420,7 @@ function abreSitio(){
 $('#cerrar-perfil').click(function(e){
   e.preventDefault();
   $('.profile').animate({
-    right: "-100%"
+    right: "-350%"
   });
 
   $(".profile-options").animate({

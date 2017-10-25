@@ -244,9 +244,42 @@ function muestraModal(parametro) {
   var fecha_egreso=objeto_total[parametro].fecha_egreso_user;
   var es_egresado=objeto_total[parametro].es_egresado_user;
 
-  var es_esgresados=deco_egreso(parseInt(es_egresado));
-  var facultades=deco_facultad(parseInt(facultad));
+
+
+
+if(es_egresado==""){
+
+es_egresados="";
+}
+else{
+es_esgresados=deco_egreso(parseInt(es_egresado));
+
+}
+
+if(facultad==""){
+
+facultades="";
+}
+else{
+ var facultades=deco_facultad(parseInt(facultad));
+
+}
+
+
+if(carrera==""){
+carreras="";
+}
+else{
   var carreras=deco_carrera(parseInt(carrera));
+
+}
+
+
+ 
+
+
+
+
 
 
   var d = new Date(fecha_egreso);

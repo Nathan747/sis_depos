@@ -469,14 +469,36 @@ if ($this->session->has_userdata('newsession')){
 //setlocale(LC_TIME, 'spanish');
 //$fecha=strftime("%A, %d de %B de %Y");
 
+
+
+if($fecha==""){
+$fecha="";
+}
+else{
 $date=date_create($fecha);
 $fecha = date_format($date,"d/m/Y");
+}
 
 
 
-$carreras = deco_carrera($carrera);
-$egresado = deco_egreso($es_egresado);
+if($carrera==""){
+$carreras="";
+}
+else{
+$carreras = deco_carrera($carrera); 
+}
+
+if($facultad==""){
+$facul="";
+}
+else{
 $facul = deco_facultad($facultad);
+}
+
+
+
+$egresado = deco_egreso($es_egresado);
+
 ?>
 
 
@@ -491,9 +513,7 @@ $facul = deco_facultad($facultad);
       <a href="#" id="cerrar-perfil"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
     </div>
     <div class="col-md-12">
-      <h1 class="page-header">Perfil de <?php echo $nombre_completo ?>
-        <small>editando datos</small>
-      </h1>
+      <h1 class="page-header">Perfil de <?php echo $nombre_completo ?></h1>
     </div>
   </div>
   <!-- Fin Encabezado de página / Breadcrumb -->
@@ -536,6 +556,7 @@ $facul = deco_facultad($facultad);
         <div class="col-md-12 second">
           <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>
           <p class="job text-left"><strong>Profesión: </strong><?php echo $profesion; ?></p>
+          <p class="job text-left"><?php echo $email; ?></p>
         </div>
 
         <div class="col-md-10 third">

@@ -53,5 +53,39 @@ border-left:0px solid #cccccc!important;
     top: 0px;
 }
 
+
+.profile {
+
+    right: -350%;
+  
+}
+
+.contenedor-donar {
+
+    right: -250%;
+
+}
+
+.contenedor-registro, .contenedor-donar {
+
+    right: -300%;
+
+}
+
+/*responsive*/
+
+@media(max-width:480px) {
+
+.float{
+display:none;
+
+}
+
+
+}
+
+
+
+
 </style>
 </head>
