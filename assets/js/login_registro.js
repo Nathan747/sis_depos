@@ -497,8 +497,8 @@ $('#prof').click(function(e){
       
       console.log(objeto);
     });
-  }
-  
+}
+
 });
 
 $('.editprof').click(function(e){
@@ -509,10 +509,21 @@ $('.editprof').click(function(e){
 
   $('.bio').animate({
     right: "-100%"
+  },function(){
+    $('.bio').css("display","none");
+
+    $('.formul').animate({
+      right: "0",
+      top:"0"
+    });
   });
-  $('.formul').animate({
-    right: "0"
+
+  $('.bio2').animate({
+    right: "-100%"
+  },function(){
+    $('.bio2').css("display","none");
   });
+
  //$('.camimg').css("display","block");  
  $(".third").animate({
   top: "0px"
@@ -534,6 +545,8 @@ $('.myprof').click(function(e){
   $('.profile').animate({scrollTop : 0}, 300, function(){
     $("#b").addClass("active-perfil");
     $("#d").removeClass("active-perfil");
+    $('.bio').css("display","block");
+    $('.bio2').css("display","block");
 
     $('.bio').animate({
       right: "0"
@@ -541,7 +554,9 @@ $('.myprof').click(function(e){
     $('.formul').animate({
       right: "-100%"
     });
-
+    $('.bio2').animate({
+      right: "0"
+    });
     $(".camimg").animate({
       top: "-80px"
     });

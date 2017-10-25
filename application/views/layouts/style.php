@@ -49,5 +49,9 @@ width: 71%;
 border-left:0px solid #cccccc!important;
 }
 
+.formul {
+    top: 0px;
+}
+
 </style>
 </head>
