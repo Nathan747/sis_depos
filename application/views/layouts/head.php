@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/png" href="http://prueba.uncuyo.edu.ar/modular_3/favicon-96x96.png" sizes="96x96">
 	<link rel="icon" type="image/png" href="http://prueba.uncuyo.edu.ar/modular_3/favicon-16x16.png" sizes="16x16">
 	<link rel="icon" type="image/png" href="http://prueba.uncuyo.edu.ar/modular_3/favicon-32x32.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta property="og:url" content="https://koiron.com/proyectos/2017/unc/" />
 	<meta property="og:title" content="#SoyDeLaDeCuyo" />
 	<meta property="og:description" content="Gritale al mundo que sos de la de Cuyo" />

@@ -47,7 +47,7 @@
 						<button type="submit" class="btn btn-default boton-editar">Editar</button>
 					</div>
 					<div class="botones">
-						<button type="submit" class="btn btn-default boton-confirmar">Confirmar</button>
+						<button type="submit" class="btn btn-default boton-confirmar" disabled>Confirmar</button>
 					</div>
 				</div>
 			</div>
