@@ -2055,3 +2055,16 @@ body.back #boxes .close{
 .profile-options{
 	display: none;
 }
+
+.admin-back{
+	background-color: transparent;
+	font-weight: bold;
+    color: white!important;
+    font-size: 13px!important;
+}
+
+.icon-admin span{
+	color: white;
+	padding-left: 5px;
+	padding-right: 5px;  
+}

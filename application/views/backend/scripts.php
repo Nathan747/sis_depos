@@ -9,6 +9,7 @@
 	var facultad_editada;
 	var carrera_editada;
 	var carrera_sin_editar;
+	var direccion = "<?php echo base_url("") ?>";
 
 	function deco_facultad(facultad){
 		switch(facultad){
@@ -1642,7 +1643,19 @@
 		});
 		$("#dialog").fadeTo("slow",1);  
 
-	});      
+	});    
+
+
+	$("#salir").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "logout"
+		}).done(function(json){
+			window.location = direccion;
+		});
+	});
+
 
 	function muestraModal(parametro) {
 		$("#boxes #dialog").css("display","block");
@@ -2058,7 +2071,8 @@
         		$(this).css("display","none");
         	});
         	$(test).css("display","inline-block");
-        });
+        }); 
+
     }
 
 

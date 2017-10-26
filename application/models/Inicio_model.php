@@ -237,7 +237,7 @@ class Inicio_model extends CI_Model {
 	public function restar_dinero($datos)
 	{
 		$this->db->where('id_cantidad_dinero', 1);
-		$this->db->update('unc_cantidad_dinero', $data);
+		$this->db->update('unc_cantidad_dinero', $datos);
 
 	}
 
