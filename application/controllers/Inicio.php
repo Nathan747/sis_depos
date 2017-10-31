@@ -1,18 +1,19 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Inicio extends CI_Controller {
+class Inicio extends CI_Controller
+{
 
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('Login_model');
 		$this->load->model('Inicio_model');
 	}
 
-	public function index($payment=0, $status=0)
+	public function index($payment = 0, $status = 0)
 	{
-		$home = "location: ".base_url("");
+		$home = "location: " . base_url("");
 		header($home);
 	}
 
@@ -20,9 +21,9 @@ class Inicio extends CI_Controller {
 	{
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
-		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/head', $data);
 		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
+		$this->load->view('start_body', $class);
 		$this->load->view('layouts/header');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
@@ -36,9 +37,9 @@ class Inicio extends CI_Controller {
 	{
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
-		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/head', $data);
 		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
+		$this->load->view('start_body', $class);
 		$this->load->view('layouts/header');
 		$this->load->view('ventana_flotante');
 		$this->load->view('main');
@@ -53,12 +54,12 @@ class Inicio extends CI_Controller {
 		$data = $this->input->post();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"email_user" 		=> $data["email"],
-			"telefono_user" 	=> $data["telefono"],
-			"pass_user" 		=> $data["pass"],
-			"jerarquia" 		=> 1
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"email_user" => $data["email"],
+			"telefono_user" => $data["telefono"],
+			"pass_user" => $data["pass"],
+			"jerarquia" => 1
 		);
 
 		$this->Inicio_model->insert_user($datos);
@@ -70,31 +71,31 @@ class Inicio extends CI_Controller {
 		$data = $this->input->post();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"dni_user" 			=> $data["dni"],
-			"telefono_user" 	=> $data["telefono"],
-			"facultad_user" 	=> $data["facultad"],
-			"carrera_user" 		=> $data["carrera"],
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"dni_user" => $data["dni"],
+			"telefono_user" => $data["telefono"],
+			"facultad_user" => $data["facultad"],
+			"carrera_user" => $data["carrera"],
 			"fecha_egreso_user" => $data["fecha"],
-			"edad_user"			=> $data["edad"],
-			"jerarquia" 		=> 3
+			"edad_user" => $data["edad"],
+			"jerarquia" => 3
 		);
 
 		$this->Inicio_model->insert_user($datos);
 		$last_id = $this->Inicio_model->obtener_last_id();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"dni_user" 			=> $data["dni"],
-			"telefono_user" 	=> $data["telefono"],
-			"facultad_user" 	=> $data["facultad"],
-			"carrera_user" 		=> $data["carrera"],
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"dni_user" => $data["dni"],
+			"telefono_user" => $data["telefono"],
+			"facultad_user" => $data["facultad"],
+			"carrera_user" => $data["carrera"],
 			"fecha_egreso_user" => $data["fecha"],
-			"edad_user"			=> $data["edad"],
-			"id_user"			=> $last_id,
-			"jerarquia" 		=> 3
+			"edad_user" => $data["edad"],
+			"id_user" => $last_id,
+			"jerarquia" => 3
 		);
 
 		echo json_encode($datos);
@@ -105,12 +106,12 @@ class Inicio extends CI_Controller {
 		$data = $this->input->post();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"email_user" 		=> $data["email"],
-			"telefono_user" 	=> $data["telefono"],
-			"pass_user" 		=> $data["pass"],
-			"jerarquia" 		=> 0
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"email_user" => $data["email"],
+			"telefono_user" => $data["telefono"],
+			"pass_user" => $data["pass"],
+			"jerarquia" => 0
 		);
 
 		$this->Inicio_model->insert_user($datos);
@@ -122,12 +123,12 @@ class Inicio extends CI_Controller {
 		$data = $this->input->post();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"email_user" 		=> $data["email"],
-			"telefono_user" 	=> $data["telefono"],
-			"email_user" 		=> $data["email"],
-			"id_user" 			=> $data["id"]
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"email_user" => $data["email"],
+			"telefono_user" => $data["telefono"],
+			"email_user" => $data["email"],
+			"id_user" => $data["id"]
 		);
 		$this->Inicio_model->modificar_user($datos);
 	}
@@ -137,15 +138,15 @@ class Inicio extends CI_Controller {
 		$data = $this->input->post();
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"telefono_user"		=> $data["telefono"],
-			"dni_user" 			=> $data["dni"],
-			"edad_user" 		=> $data["edad"],
-			"fecha_egreso_user"	=> $data["fecha"],
-			"facultad_user" 	=> $data["facultad"],
-			"carrera_user" 		=> $data["carrera"],
-			"id_user" 			=> $data["id"]
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"telefono_user" => $data["telefono"],
+			"dni_user" => $data["dni"],
+			"edad_user" => $data["edad"],
+			"fecha_egreso_user" => $data["fecha"],
+			"facultad_user" => $data["facultad"],
+			"carrera_user" => $data["carrera"],
+			"id_user" => $data["id"]
 		);
 		$this->Inicio_model->modificar_becario($datos);
 	}
@@ -154,15 +155,15 @@ class Inicio extends CI_Controller {
 	{
 		$data = $this->input->post();
 		$datos = array(
-			"id_user" 	=> $data["id"]
+			"id_user" => $data["id"]
 		);
 		$this->Inicio_model->eliminar_user($datos);
 	}
 
 	public function back()
 	{
-		if ($this->session->has_userdata('jerarquia')){
-			if ($this->session->jerarquia==="0"){
+		if ($this->session->has_userdata('jerarquia')) {
+			if ($this->session->jerarquia === "0") {
 				$object = $this->Inicio_model->select_transactions();
 				$jerarchy = $this->Inicio_model->select_jerarquia();
 				$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
@@ -177,35 +178,62 @@ class Inicio extends CI_Controller {
 				$jerarquia["jerarquia"] = $jerarchy;
 				$becas["becas"] = $cantidad_becas;
 
-				$this->load->view('backend/head',$data);
+				$this->load->view('backend/head', $data);
 				$this->load->view('layouts/style');
-				$this->load->view('start_body',$class);
+				$this->load->view('start_body', $class);
 				$this->load->view('backend/modal');
 				$this->load->view('backend/header');
 				$this->load->view('backend/aside');
 
 				$this->load->view('backend/inicio_backend');
-				$this->load->view('backend/gestionar_usuarios',$jerarquia);
+				$this->load->view('backend/gestionar_usuarios', $jerarquia);
 				$this->load->view('backend/ultimos_movimientos');
-				$this->load->view('backend/becarios',$becas);
-				$this->load->view('backend/recaudado',$becas);
+				$this->load->view('backend/becarios', $becas);
+				$this->load->view('backend/recaudado', $becas);
 				$this->load->view('backend/fin_backend');
 
-				$this->load->view('backend/scripts',$objeto,$jerarquia);
+				$this->load->view('backend/scripts', $objeto, $jerarquia);
 				$this->load->view('end_body');
-			}else{
-				$home = "location: ".base_url("");
+			}
+			else {
+				$home = "location: " . base_url("");
 				header($home);
 			}
-		}else{
-			$home = "location: ".base_url("");
+		}
+		else {
+			$home = "location: " . base_url("");
 			header($home);
 		}
 	}
 
-	public function obtener_access_token_mp(){
+	public function back_colaborador()
+	{
+		/*if ($this->session->has_userdata('jerarquia')){
+			if ($this->session->jerarquia==="0"){
+			}
+		}*/
+
+		$data["titulo"] = "Admin UNCuyo";
+		$class["clase"] = "back-colaborador";
+
+		$this->load->view('backend/head', $data);
+		$this->load->view('layouts/style');
+		$this->load->view('start_body', $class);
+		$this->load->view('backend/header');
+		$this->load->view('back_colaborador/aside');
+
+		$this->load->view('back_colaborador/enviar_invitacion');
+		$this->load->view('back_colaborador/script');
+
+		$this->load->view('backend/inicio_backend');
+		$this->load->view('backend/fin_backend');
+		$this->load->view('end_body');
+	}
+
+	public function obtener_access_token_mp()
+	{
 		$this->load->view('mp/mercadopago.php');
-		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		//echo $access_token;
@@ -216,8 +244,8 @@ class Inicio extends CI_Controller {
 	{
 		$curl = curl_init();
 
-		$access_token =	$this->obtener_access_token_mp();
-		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=".$access_token;
+		$access_token = $this->obtener_access_token_mp();
+		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=" . $access_token;
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -238,7 +266,7 @@ class Inicio extends CI_Controller {
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
 
-		$mp = new MP ("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
 		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
 		//$balance = $mp->get ("/mercadopago_account/movements/search");
 
@@ -246,15 +274,21 @@ class Inicio extends CI_Controller {
 		return $resultados;
 		
 		//return $balance;
+
+
+
+
+
+
 	}
 
 	public function perfil()
 	{
 		$data["titulo"] = "Perfil UNCuyo";
 		$class["clase"] = "home";
-		$this->load->view('layouts/head',$data);
+		$this->load->view('layouts/head', $data);
 		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
+		$this->load->view('start_body', $class);
 		$this->load->view('editperfil/header');
 		$this->load->view('editperfil/aside');
 		$this->load->view('editperfil/contenido');
@@ -265,13 +299,13 @@ class Inicio extends CI_Controller {
 	public function logout()
 	{
 		session_unset();
-		$this->session->set_userdata("EMAIL",NULL);
-		$this->session->set_userdata("FULLNAME",NULL);
-		$this->session->set_userdata("FBID",NULL);
+		$this->session->set_userdata("EMAIL", NULL);
+		$this->session->set_userdata("FULLNAME", NULL);
+		$this->session->set_userdata("FBID", NULL);
 		$this->session->unset_userdata("newsession");
 		$this->session->unset_userdata("email");
 		$this->session->unset_userdata("jerarquia");
-		$json["eliminado"]=1;
+		$json["eliminado"] = 1;
 		echo json_encode($json);
 	}
 
@@ -280,7 +314,7 @@ class Inicio extends CI_Controller {
 	{
 		$data = $this->input->post();
 		$datos = array(
-			"dni_user" 	=> $data["dni"]
+			"dni_user" => $data["dni"]
 		);
 		$becario = $this->Inicio_model->buscar_becario($datos);
 		//echo json_encode($becario);
@@ -290,38 +324,21 @@ class Inicio extends CI_Controller {
 	public function asignar_beca()
 	{
 		$data = $this->input->post();
-		$hoy = date("Y-m-d"); 
+		$hoy = date("Y-m-d");
 		$datos = array(
-			"dni_user" 				=> $data["dni"],
-			"monto_beca"			=> $data["dinero"],
-			"ultima_modificacion"	=> $hoy
+			"dni_user" => $data["dni"],
+			"monto_beca" => $data["dinero"],
+			"ultima_modificacion" => $hoy
 		);
 
 		$datos2 = array(
-			"cantidad_dinero"		=> $data["dinero_total"],
-			"ultima_modificacion"	=> $hoy
+			"cantidad_dinero" => $data["dinero_total"],
+			"ultima_modificacion" => $hoy
 		);
 
 		$this->Inicio_model->asignar_beca($datos);
 		$this->Inicio_model->restar_dinero($datos2);
 	}
 
-	public function back_colaborador()
-	{
-		/*if ($this->session->has_userdata('jerarquia')){
-			if ($this->session->jerarquia==="0"){
-			}
-		}*/
 
-		$data["titulo"] = "Admin UNCuyo";
-		$class["clase"] = "back";
-		$this->load->view('backend/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('backend/header');
-		$this->load->view('back_colaborador/aside');
-		$this->load->view('backend/inicio_backend');
-		$this->load->view('backend/fin_backend');
-		$this->load->view('end_body');
-	}
 }
