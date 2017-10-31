@@ -2547,6 +2547,14 @@ body.back #boxes .close {
     text-align: center;
 }
 
-#back-colaborador .contenedor-mensaje-admin {
+.back-colaborador .contenedor-mensaje-admin {
     width: 100%;
+}
+
+.back-colaborador .padre-mensaje-admin {
+    position: relative;
+    left: 0;
+    font-size: 12px;
+    top: -200px;
+    text-align: center;
 }
