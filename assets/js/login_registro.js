@@ -1,3 +1,4 @@
+
 $('#cerrar-login').click(function(e){
   e.preventDefault();
   $('.login').animate({
@@ -424,26 +425,46 @@ $('#cerrar-perfil').click(function(e){
   });
 
   $(".profile-options").animate({
-    left: "180px"
+    left: "0px"
   });
 
   $(".perfil-animation").animate({
-    left: "180px"
+    left: "0px"
   });
 
   $(".username-change").animate({
-    left: "180px"
+    left: "0px"
   });
+
+  $(".profile-options").animate({
+    left: "0px"
+  });
+
+  $(".profile-options").css("display","none");
 
 });
 
 $('#prof').click(function(e){
   e.preventDefault();
   $("#cerrar-donar").click();
+
   $('.profile').animate({
     right: "0"
   });
+
+  $(".test-profile").css("left","180px");
   
+  $(".username-change").css("left","180px");
+
+  $(".perfil-animation").css("left","180px");
+
+  $(".profile-options").css("display","inline-block");
+
+
+  $(".test-profile").animate({
+    left: "0px"
+  });
+
   $(".username-change").animate({
     left: "0px"
   });

@@ -278,4 +278,16 @@ class Inicio extends CI_Controller {
 		//echo json_encode($becario);
 		echo json_encode($becario);
 	}
+
+	public function asignar_beca()
+	{
+		$data = $this->input->post();
+		$hoy = date("Y-m-d"); 
+		$datos = array(
+			"dni_user" 				=> $data["dni"],
+			"monto_beca"			=> $data["dinero"],
+			"ultima_modificacion"	=> $hoy
+		);
+		$this->Inicio_model->asignar_beca($datos);
+	}
 }

@@ -37,7 +37,16 @@ class Welcome extends CI_Controller {
 		if($payment!=0){
 			$this->load->view('respuesta_status');
 		}
-		$this->load->view('login');
+
+		if (isset($_SESSION['newsession'])) {
+			if ($_SESSION['newsession'] != "yes"){
+				$this->load->view('login');
+			}
+		} else{
+			$this->load->view('login');
+		}
+		
+		
 		$this->load->view('donar');
 		$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');

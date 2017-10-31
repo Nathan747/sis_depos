@@ -70,6 +70,7 @@ class Inicio_model extends CI_Model {
 						}
 					}
 				}
+				$x++;
 			}
 		}
 		$arreglo["cantidad"] = $filas;
@@ -208,6 +209,29 @@ class Inicio_model extends CI_Model {
 		$arreglo["cantidad"] = $filas;
 
 		return $arreglo;
+	}
+
+	public function asignar_beca($datos)
+	{
+		$this->db->where('dni_user', $datos["dni_user"]);
+		$sql=$this->db->get('unc_usuarios');
+
+		$filas = $sql->num_rows();
+
+		if($filas>0){
+			foreach ($sql->result() as $row){
+				$arreglo["id_user"] = $row->id_user;
+			}
+		}
+
+		$data = array(
+			"id_becado" 			=> $arreglo["id_user"],
+			"monto_beca"			=> $datos["monto_beca"],
+			"ultima_modificacion"	=> $datos["ultima_modificacion"]
+		);
+
+		$this->db->insert('unc_becas', $data);
+
 	}
 
 	
