@@ -5,20 +5,20 @@
 
 
 .profile2 {
-    width: 1024px;
+	width: 1024px;
 
-    right: -167px;
+	right: -167px;
 
 }
 
 .close {
-    right: -126px;
+	right: -126px;
 }
 
 
 .profile2 {
 
-    height: 576px;
+	height: 576px;
 
 }
 
@@ -100,13 +100,13 @@
 		overflow:scroll;
 	}
 	.profile2 {
-    width: 936px;
-    right: -110px;
-}
+		width: 936px;
+		right: -110px;
+	}
 
-.close {
-    right: -72px;
-}
+	.close {
+		right: -72px;
+	}
 }
 
 
@@ -129,43 +129,87 @@
 	}
 }
 
+@media(max-width:860px) {
+
+.contenedor-registro{
+
+width:100%!important;
+overflow: scroll!important;
+
+}
+.contenedor-registro .wizard {
+    width: 297px;
+    height: 35px;
+    margin: 0 auto;
+}
+.contenedor-registro .separador-wizard {
+    height: 35px;
+    width: 51px;
+    float: left;
+    padding-top: 16px;
+}
+
+
+.contenedor-registro .word {
+    width: 370px;
+    height: 30px;
+    margin: 0 auto;
+    padding-left: 7px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+
+.contenedor-registro .word-modo,.contenedor-registro .word-datos {
+    margin-right: 22px;
+    margin-left: 20px;
+}
+
+.contenedor-registro .word-carrera {
+    margin-left: 10px;
+    margin-right: 37px;
+}
+
+}
+
+
+
 
 @media(max-width:767px) {
 
-	.profile2 {
-    width: 100%;
-    right: 0px;
-    overflow: scroll;
-}
 
-.container2 {
-    background: #22205F;
-    width: 100%;
-    height: 94px;
-    border-bottom: 1px solid #e7e7e7;
-    /* top: 16px; */
-    /* margin-bottom: 19px; */
-    padding-top: 1px;
-}
-
-.profile2 .photo{
-
-       max-width: 320px;
-		margin: 0 0;
-
-}
-
-.profile2 .contenedor-informacion-perfil {
-    float: none;
-    overflow: hidden;
-    height: 81px;
-}
+	.contenedor-donar .word .word-modo-donar {
+		margin-right: 82px;
+		font-size: 14px;
+	}
+	.contenedor-donar .word-modo-donar {
+		margin-left: 11px;
+	}
 
 
+	.contenedor-donar .word .word-cantidad {
+		margin-right: 51px;
+		font-size: 14px;
+	}
+
+	.contenedor-donar .word .word-confirmacion {
+		margin-right: 0px;
+		font-size: 14px;
+	}
+
+	.contenedor-donar .word {
+		width: 348px;
+	}
 
 
-	.login {
-		width:100%;
+	.contenedor-donar .wizard {
+		width: 305px;
+	}
+
+
+	.contenedor-donar {
+
+		width: 100%;
 
 	}
 
@@ -176,21 +220,54 @@
 		padding-top: 16px;
 	}
 
-	.contenedor-donar .word .palabras {
-		margin-right: 76px;
-	}
-
-
-	.contenedor-donar .word .word-cantidad {
-		margin-right: 50px;
-	}
-
-	.contenedor-donar {
-
+	.contenedor-mercado-pago {
+		left: 0;
 		width: 100%;
+	}
+
+
+	.contenedor-paypal {
+		padding: 0px 0px 0px 0px;
+		float: left;
+		width: 100%;
+		top: 392px;
+	}
+
+
+
+	.profile2 {
+		width: 100%;
+		right: 0px;
+		overflow: scroll;
+	}
+
+	.container2 {
+		background: #22205F;
+		width: 100%;
+		height: 94px;
+		border-bottom: 1px solid #e7e7e7;
+		/* top: 16px; */
+		/* margin-bottom: 19px; */
+		padding-top: 1px;
+	}
+
+	.profile2 .photo{
+
+		max-width: 320px;
+		margin: 0 0;
 
 	}
 
+	.profile2 .contenedor-informacion-perfil {
+		float: none;
+		overflow: hidden;
+		height: 81px;
+	}
+
+	.login {
+		width:100%;
+
+	}
 
 	.float{
 		display:none;
@@ -201,6 +278,7 @@
 	.profile {
 		width: 100%;
 		overflow:scroll;
+		
 	}
 	.page-header{
 		font-size: 20px!important;
@@ -218,6 +296,24 @@
 		overflow: hidden;
 		height: 223px;
 	}
+
+
+
+	/*nav*/
+
+	.username-change div {
+		float: none;
+		text-align: center;
+	}
+
+	#registrate,#ingresar{
+
+		text-align: center;
+
+	}
+
+
+
 
 }
 

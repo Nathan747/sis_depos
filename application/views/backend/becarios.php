@@ -20,6 +20,12 @@
 		</div>
 	</div>
 
+	<div class="contenedor-no-dni">
+		<div class="padre-contenedor-dni">
+			No se encuentra el DNI del Becario
+		</div>
+	</div>
+
 	<div class="contenedor-fade-in">
 		<div class="informacion-obtenida">
 			<div class="col-lg-6">
@@ -39,9 +45,16 @@
 					</div>
 				</div>
 				<div class="texto-monto">
-					<div class="texto-info-monto">Monto a Derivar</div>
+					<div class="texto-info-monto">Monto a Derivar: <span class="monto_a_derivar"></span> </div>
 					<div class="cantidad-dinero-restante">Dinero restante: <strong>$<span class="cantidad-total-numero"><?php echo $becas["cantidad_dinero"] ?></span></strong></div>
 				</div>
+
+				<div class="mensaje-error-dinero">
+					<div class="padre-mensaje-error">
+						No dispone del dinero suficiente para derivar
+					</div>
+				</div>		
+
 				<div class="botones-monto">
 					<div class="botones">
 						<button type="submit" class="btn btn-default boton-confirmar" disabled>Confirmar</button>
@@ -53,9 +66,16 @@
 		<div class="botones-confirmacion-final">
 			<div class="col-lg-12">
 				<button type="submit" class="btn btn-default boton-final" disabled>Confirmar</button>
+				<div class="contenedor-mensaje-becario-asignado">
+					<div class="padre-becario-asignado">
+						Beca guardada satisfactoriamente
+					</div>
+				</div>
 			</div>
 		</div>
 
 	</div>
+
+	
 	
 </div>

@@ -13,12 +13,14 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			
 			<ul class="nav navbar-nav navbar-right">
-					
-					<li><a href="#" id="ingresar">Admin</a></li>
-			
-				
+				<li class="admin-back">
+					<div><?php echo $this->session->username; ?></div>
+				</li>
+				<li class="icon-admin">
+					<span class="icon-user"></span>
+				</li>
+				<li><a href="#" id="salir">Salir</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

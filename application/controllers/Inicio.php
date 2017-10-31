@@ -161,38 +161,46 @@ class Inicio extends CI_Controller {
 
 	public function back()
 	{
-		//$object = $this->cargar_informacion_mp();
+		if ($this->session->has_userdata('jerarquia')){
+			if ($this->session->jerarquia==="0"){
+				$object = $this->Inicio_model->select_transactions();
+				$jerarchy = $this->Inicio_model->select_jerarquia();
+				$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
+				$cantidad_becas = $this->Inicio_model->select_becas();
+				$cantidad_becas["cantidad_dinero"] = $cantidad_dinero["cantidad_dinero"];
+				$cantidad_becas["ultima_modificacion"] = $cantidad_dinero["ultima_modificacion"];
+				$cant_filas = $object["cantidad"];
 
-		$object = $this->Inicio_model->select_transactions();
-		$jerarchy = $this->Inicio_model->select_jerarquia();
-		$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
-		$cantidad_becas = $this->Inicio_model->select_becas();
-		$cantidad_becas["cantidad_dinero"] = $cantidad_dinero["cantidad_dinero"];
-		$cantidad_becas["ultima_modificacion"] = $cantidad_dinero["ultima_modificacion"];
-		$cant_filas = $object["cantidad"];
-		
-		$data["titulo"] = "Admin UNCuyo";
-		$class["clase"] = "back";
-		$objeto["objeto"] = $object;
-		$jerarquia["jerarquia"] = $jerarchy;
-		$becas["becas"] = $cantidad_becas;
+				$data["titulo"] = "Admin UNCuyo";
+				$class["clase"] = "back";
+				$objeto["objeto"] = $object;
+				$jerarquia["jerarquia"] = $jerarchy;
+				$becas["becas"] = $cantidad_becas;
 
-		$this->load->view('backend/head',$data);
-		$this->load->view('layouts/style');
-		$this->load->view('start_body',$class);
-		$this->load->view('backend/modal');
-		$this->load->view('backend/header');
-		$this->load->view('backend/aside');
+				$this->load->view('backend/head',$data);
+				$this->load->view('layouts/style');
+				$this->load->view('start_body',$class);
+				$this->load->view('backend/modal');
+				$this->load->view('backend/header');
+				$this->load->view('backend/aside');
 
-		$this->load->view('backend/inicio_backend');
-		$this->load->view('backend/gestionar_usuarios',$jerarquia);
-		$this->load->view('backend/ultimos_movimientos');
-		$this->load->view('backend/becarios',$becas);
-		$this->load->view('backend/recaudado',$becas);
-		$this->load->view('backend/fin_backend');
+				$this->load->view('backend/inicio_backend');
+				$this->load->view('backend/gestionar_usuarios',$jerarquia);
+				$this->load->view('backend/ultimos_movimientos');
+				$this->load->view('backend/becarios',$becas);
+				$this->load->view('backend/recaudado',$becas);
+				$this->load->view('backend/fin_backend');
 
-		$this->load->view('backend/scripts',$objeto,$jerarquia);
-		$this->load->view('end_body');
+				$this->load->view('backend/scripts',$objeto,$jerarquia);
+				$this->load->view('end_body');
+			}else{
+				$home = "location: ".base_url("");
+				header($home);
+			}
+		}else{
+			$home = "location: ".base_url("");
+			header($home);
+		}
 	}
 
 	public function obtener_access_token_mp(){
@@ -288,6 +296,32 @@ class Inicio extends CI_Controller {
 			"monto_beca"			=> $data["dinero"],
 			"ultima_modificacion"	=> $hoy
 		);
+
+		$datos2 = array(
+			"cantidad_dinero"		=> $data["dinero_total"],
+			"ultima_modificacion"	=> $hoy
+		);
+
 		$this->Inicio_model->asignar_beca($datos);
+		$this->Inicio_model->restar_dinero($datos2);
+	}
+
+	public function back_colaborador()
+	{
+		/*if ($this->session->has_userdata('jerarquia')){
+			if ($this->session->jerarquia==="0"){
+			}
+		}*/
+
+		$data["titulo"] = "Admin UNCuyo";
+		$class["clase"] = "back";
+		$this->load->view('backend/head',$data);
+		$this->load->view('layouts/style');
+		$this->load->view('start_body',$class);
+		$this->load->view('backend/header');
+		$this->load->view('back_colaborador/aside');
+		$this->load->view('backend/inicio_backend');
+		$this->load->view('backend/fin_backend');
+		$this->load->view('end_body');
 	}
 }
