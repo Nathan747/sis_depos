@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('Login_model');
 	}
@@ -16,41 +18,44 @@ class Login extends CI_Controller {
 			"email_user" => $data["email"]
 		);
 
-		$existe=$this->Login_model->existe_mail($datos);
-		if($existe==1){
-			$this->session->set_userdata("username",$data["nombre_completo"]);
-			$this->session->set_userdata("email",$data["email"]);
-			$this->session->set_userdata("newsession","yes");
+		$existe = $this->Login_model->existe_mail($datos);
+		$id = $this->Login_model->obtener_id($datos);
+		if ($existe == 1) {
+			$this->session->set_userdata("username", $data["nombre_completo"]);
+			$this->session->set_userdata("email", $data["email"]);
+			$this->session->set_userdata("newsession", "yes");
+			$this->session->set_userdata("id", $id);
 		}
 
 		echo json_encode($existe);
-		
+
 	}
 
 	public function set_yes()
 	{
-		$this->session->set_userdata("newsession","yes");
+		$this->session->set_userdata("newsession", "yes");
 	}
 
 	public function set_no()
 	{
-		$this->session->set_userdata("newsession","no");
+		$this->session->set_userdata("newsession", "no");
 	}
 
-	public function validar_mail(){
+	public function validar_mail()
+	{
 		$data = $this->input->post();
 		$datos = array(
 			"email_user" => $data["email"]
 		);
-		$existe=$this->Login_model->recuperar_pass($datos);
-		
-		if($existe["encontro"]==1){
+		$existe = $this->Login_model->recuperar_pass($datos);
+
+		if ($existe["encontro"] == 1) {
 			$recuperacion = array(
-				"email" 	=> $data["email"],
-				"nombre"	=> $existe["nombre"],
-				"pass"		=> $existe["pass"]
+				"email" => $data["email"],
+				"nombre" => $existe["nombre"],
+				"pass" => $existe["pass"]
 			);
-			$email =  $recuperacion["email"];
+			$email = $recuperacion["email"];
 			$name = $recuperacion["nombre"];
 			$email_address = $email;
 			$to = $email_address;
@@ -67,23 +72,23 @@ class Login extends CI_Controller {
 			<center> 
 
 			<p>
-			Hola <strong>'.$name.'</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. </p>
+			Hola <strong>' . $name . '</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. </p>
 
-			<p>Tu contraseña ha sido restaurada a su version anterior: '.$recuperacion["pass"].'
+			<p>Tu contraseña ha sido restaurada a su version anterior: ' . $recuperacion["pass"] . '
 			</p>
 
 			<p>Gracias por utilizar la plataforma #SoyDeLaUNCuyo!</p>
 
 			</body>
 			</html>';
-			$json["body"]=$email_body;
+			$json["body"] = $email_body;
 
 			$headers = "MIME-Version: 1.0\n";
 			$headers .= "Content-type: text/html; charset=utf-8\n";
 			$headers .= "From: UNCuyo <noresponder@uncuyo.com>\r\n";
 
-			$headers .= "Reply-To: $email_address";	
-			mail($to,$email_subject,$email_body,$headers);
+			$headers .= "Reply-To: $email_address";
+			mail($to, $email_subject, $email_body, $headers);
 		}
 		echo json_encode($existe);
 	}

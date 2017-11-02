@@ -2519,28 +2519,37 @@ body.back #boxes .close {
     padding-right: 5px;
 }
 
-.contenedor-formulario {
+.contenedor-formulario,
+.contenedor-resumen,
+.contenedor-editar-colaborador {
     float: left;
     width: calc(100% - 260px);
     background: rgb(236, 240, 241);
 }
 
-.padre-formulario {
-    margin-top: 40px !important;
-    width: 700px;
+.padre-formulario,
+.padre-resumen,
+.contenedor-colaborador,
+.padre-colaborador {
+    margin: 40px 60px;
+    background-color: rgb(236, 240, 241);
+    overflow: hidden;
     clear: both;
     height: 70px;
-    margin: 0 auto;
     background-color: white;
-    padding-top: 20px;
     height: auto;
-    display: flex;
+    display: block;
+    width: calc( 100% - 120px);
+    float: left;
+    padding: 10px 15px 40px 15px;
+}
+
+.padre-formulario {
+    padding-bottom: 0px;
 }
 
 .back-colaborador form {
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .padre-boton-invitado {
@@ -2557,4 +2566,47 @@ body.back #boxes .close {
     font-size: 12px;
     top: -200px;
     text-align: center;
+}
+
+#resumen-colaborador {
+    width: calc(100% - 260px);
+    padding: 0px;
+    background: rgb(236, 240, 241);
+    position: relative;
+    top: 500px;
+    left: 260px;
+}
+
+.back-colaborador .container-fluid {
+    position: relative;
+    overflow: hidden;
+    background: rgb(236, 240, 241);
+}
+
+.back-colaborador .header-aside .container-fluid {
+    background: #22205F !important;
+}
+
+.back-colaborador .contenedor-formulario {
+    position: relative;
+    top: -565px;
+}
+
+.back-colaborador .padre-colaborador .padre-boton-invitado {
+    text-align: left;
+}
+
+.back-colaborador .padre-colaborador .contenedor-mensaje-admin {
+    margin-top: 10px;
+    width: 400px;
+}
+
+.back-colaborador .contenedor-editar-colaborador {
+    position: relative;
+    left: -100%;
+}
+
+.back-colaborador aside {
+    z-index: 4;
+    position: relative;
 }

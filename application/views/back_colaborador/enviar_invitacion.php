@@ -1,5 +1,11 @@
 <div class="contenedor-formulario">
     <div class="padre-formulario">
+        <div class="contenedor-titulo">
+		    <div class="col-lg-12">
+                <h1>Enviar invitación</h1>
+            </div>
+        </div>
+        <div class="col-lg-12"><div class="separador"></div></div>
         <form role="form">
             <div class="col-lg-12">
                 <div class="form-group">
@@ -9,7 +15,7 @@
             </div>
         
             <div class="col-lg-12 padre-boton-invitado">
-                <button type="button" id="boton-invitado" class="btn btn-default boton-enviar">Crear</button>
+                <button type="button" id="boton-invitado" class="btn btn-default boton-enviar">Enviar invitación</button>
             </div>
             <div class="col-lg-12">
                 <div class="contenedor-mensaje-admin" style="float: left">

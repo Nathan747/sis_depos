@@ -9,6 +9,7 @@ class Inicio extends CI_Controller
 		parent::__construct();
 		$this->load->model('Login_model');
 		$this->load->model('Inicio_model');
+		$this->load->model('Invitacion_model');
 	}
 
 	public function index($payment = 0, $status = 0)
@@ -212,7 +213,9 @@ class Inicio extends CI_Controller
 			if ($this->session->jerarquia==="0"){
 			}
 		}*/
-
+		$id_user = $this->session->id;
+		$object = $this->Inicio_model->select_transactions_colaborator($id_user);
+		$objeto["objeto"] = $object;
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "back-colaborador";
 
@@ -222,7 +225,9 @@ class Inicio extends CI_Controller
 		$this->load->view('backend/header');
 		$this->load->view('back_colaborador/aside');
 
+		$this->load->view('back_colaborador/editar_perfil');
 		$this->load->view('back_colaborador/enviar_invitacion');
+		$this->load->view('back_colaborador/resumen', $objeto);
 		$this->load->view('back_colaborador/script');
 
 		$this->load->view('backend/inicio_backend');
@@ -238,6 +243,28 @@ class Inicio extends CI_Controller
 		$access_token = $mp->get_access_token();
 		//echo $access_token;
 		return $access_token;
+	}
+
+	public function create_number($numero = 0)
+	{
+		$numero = ( ( ( ( ( ($numero + 17) * 3) + 7) * 41) + 17) * 57);
+		// echo $numero;
+		return $numero;
+	}
+
+	public function decode_number($numero = 0)
+	{
+		$numero = ( ( ( ( ( ($numero / 57) - 17) / 41) - 7) / 3) - 17);
+		// echo $numero;
+		return $numero;
+	}
+
+	public function generar_link()
+	{
+		$json["id"] = $this->session->id;
+		$json["id_encoded"] = $this->create_number($this->session->id);
+		$json["link"] = base_url() . "Donacion/decriptar/" . $json["id_encoded"];
+		echo json_encode($json);
 	}
 
 	public function cargar_informacion_mp()
@@ -274,6 +301,49 @@ class Inicio extends CI_Controller
 		return $resultados;
 		
 		//return $balance;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
