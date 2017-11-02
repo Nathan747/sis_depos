@@ -4,6 +4,8 @@
 <style>
 
 
+
+
 .profile2 {
 	width: 1024px;
 
@@ -172,10 +174,103 @@ overflow: scroll!important;
 
 }
 
+.nav-mobile{
+
+	display:none;
+}
 
 
 
 @media(max-width:767px) {
+
+.contenedor-registro, .contenedor-donar {
+
+    z-index: 9;
+}
+
+.profile {
+
+    z-index: 9!important;
+
+}
+
+
+	.navbar-right{
+		top: -200px;
+    position: relative;
+    background: #22205F;
+    margin: 0;
+    padding-top: 10px;
+
+
+	}
+
+
+	.navbar-collapse.in{
+
+-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+transition: all 1s ease;
+display:block;
+
+	}
+
+.navbar-collapse{
+    position: absolute;
+ 
+    width: 100%;
+	/*background: #22205F;*/
+	background: transparent;
+	
+    z-index: 99;
+	border-bottom: white;
+	height:auto!important;
+	-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+transition: all 1s ease;
+display:block;
+
+top: 59px;
+    overflow: hidden;
+    padding: 0;
+
+}
+.nav-mobile{
+
+	display:block;
+	
+}
+.nav-mobile li{
+	text-align:center;
+	width:100%;
+	padding-bottom:15px;
+
+	
+}
+
+.nav-mobile li a{
+
+	text-decoration:none;
+
+	
+}
+.username-change a div{
+	text-align:center;
+	float:none;	
+
+}
+
+
+
+
+.trop{
+display:none!important;
+	
+}
+
+
+
+
 
 
 	.contenedor-donar .word .word-modo-donar {
@@ -301,10 +396,7 @@ overflow: scroll!important;
 
 	/*nav*/
 
-	.username-change div {
-		float: none;
-		text-align: center;
-	}
+
 
 	#registrate,#ingresar{
 

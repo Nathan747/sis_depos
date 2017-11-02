@@ -1,3 +1,36 @@
+/*nav bar */
+
+var target=$(".navbar-collapse");
+var clicks;
+
+var clickeado=1;
+	$(".navbar-toggle").click(function(e){
+    e.preventDefault();
+if (clickeado){
+
+
+  
+  $(".navbar-collapse").css("display","block");
+$(".navbar-right").animate({
+  top:"0px"
+});
+clickeado=0;
+//$(".navbar-collapse").css("display","inline-block");
+
+}else{
+  $(".navbar-right").animate({
+    top:"-200px"
+  },function(){
+    $(".navbar-collapse").css("display","none");
+  });
+   clickeado=1;
+     //$(".navbar-collapse").css("display","inline-block");
+}
+});
+/*nav bar */
+
+
+
 
 $('#cerrar-login').click(function(e){
   e.preventDefault();
@@ -332,12 +365,29 @@ $("#universidad_login").change(function(){
 
 $("#donar").click(function(){
 
+  $(".navbar-right").animate({
+    top:"-200px"
+  });
+
   $("#cerrar-perfil").click();
 
   $(".contenedor-donar").animate({
     right: "0px"
   })
 });
+
+$(".donar").click(function(){
+
+  $(".navbar-toggle").click();
+  $(".navbar-collapse").css("display","none");
+   
+  
+    $("#cerrar-perfil").click();
+  
+    $(".contenedor-donar").animate({
+      right: "0px"
+    })
+  });
 
 $("#cerrar-donar").click(function(){
   $(".contenedor-donar").animate({
@@ -419,6 +469,8 @@ function abreSitio(){
 /*Perfil*/
 
 $('#cerrar-perfil').click(function(e){
+
+
   e.preventDefault();
   $('.profile').animate({
     right: "-350%"
@@ -447,6 +499,90 @@ $('#cerrar-perfil').click(function(e){
 $('#prof').click(function(e){
   e.preventDefault();
   $("#cerrar-donar").click();
+
+  $('.profile').animate({
+    right: "0"
+  });
+
+  $(".test-profile").css("left","180px");
+  
+  $(".username-change").css("left","180px");
+
+  $(".perfil-animation").css("left","180px");
+
+  $(".profile-options").css("display","inline-block");
+
+
+  $(".test-profile").animate({
+    left: "0px"
+  });
+
+  $(".username-change").animate({
+    left: "0px"
+  });
+
+  $(".perfil-animation").animate({
+    left: "0px"
+  });
+
+  $(".profile-options").animate({
+    left: "0px"
+  });
+
+  if(datos_perfil==0){
+    $.ajax({
+      url: "Perfil/obtener_datos_json",
+      type: "POST"
+    }).done(function(json){
+      datos_perfil=1;
+      var objeto = $.parseJSON(json);
+      $("#txtName").val(objeto.nombre);
+      $("#txtSurname").val(objeto.apellido);
+      $("#txtEmail").val(objeto.email);
+      $("#txtPhone").val(objeto.telefono);
+      $("#txtDni").val(objeto.dni);
+      $("#txtBday").val(objeto.fecha);
+      $("#txtPassword").val(objeto.password);
+      $("#txtQualification").val(objeto.profesion);
+      $("#txtBiography").val(objeto.biografia);
+      $("#universidad_modify").val(objeto.facultad);
+
+      $(".selecciones-modify").each(function(){
+        $(this).css("display","none");
+      });
+
+      var clase3 = ".seleccion-"+objeto.facultad;
+      $(clase3).css("display","inline-block");
+      $(".profile").find(".container").find(".row").css("max-height","1300px");
+
+      objeto.facultad = parseInt(objeto.facultad);
+      var clase2 = "#carreras-"+objeto.facultad;
+      console.log(objeto.carrera);
+      objeto.carrera = parseInt(objeto.carrera);
+      console.log(objeto.carrera);
+      console.log($(clase2));
+      $(clase2).val(objeto.carrera);
+      if(objeto.es_egresado==1){
+        $("#ejemplo-2").prop("checked",true);
+      }else{
+        $("#ejemplo-2").prop("checked",false);
+      }
+      
+      console.log(objeto);
+    });
+}
+
+});
+
+
+
+$('.prof').click(function(e){
+  e.preventDefault();
+  $("#cerrar-donar").click();
+  $(".navbar-toggle").click();
+  $(".navbar-collapse").css("display","none");
+    $(".navbar-collapse").css("display","none");
+ 
 
   $('.profile').animate({
     right: "0"
