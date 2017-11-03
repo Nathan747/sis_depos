@@ -8,14 +8,6 @@
 
     var objetos;
 
-    $.ajax({
-        type: "POST",
-        url: "obtener_usuarios"
-       }).done(function(json){
-         console.log("NAISSS");
-        objetos = $.parseJSON(json);
-       });
-
     $("#boton-invitado").click(function(){
         var email_invitado = $("#email-invitado").val();
         $.ajax({
@@ -169,18 +161,21 @@
       var email = $("#email-perfil-colaborador").val();
       var phone = $("#telefono-perfil-colaborador").val();
       var pass = $("#pass-perfil-colaborador").val();
-       console.log(name);
-       console.log(lastname);
-       console.log(email);
-       console.log(phone);
-       console.log(pass);
-
-       /*$.ajax({
-        type: "POST",
-        url: ""
-       }).done(function(json){
-
-       });*/
+     
+      
+        $.ajax({
+          type: "POST",
+          url: "modificar_colaborador",
+          data: {
+            nombre: name,
+            apellido: lastname,
+            email: email,
+            telefono: phone,
+            pass: pass
+          }
+        }).done(function(json){
+          console.log("changed");
+        });
     });
     
 

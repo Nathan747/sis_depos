@@ -165,8 +165,19 @@ class Inicio_model extends CI_Model
 			"nombre_user" => $datos["nombre_user"],
 			"apellido_user" => $datos["apellido_user"],
 			"email_user" => $datos["email_user"],
+			"telefono_user" => $datos["telefono_user"]
+		);
+		$this->db->update('unc_usuarios', $data);
+	}
+
+	public function modificar_colaborador($datos)
+	{
+		$this->db->where('email_user', $datos["email_user"]);
+		$data = array(
+			"nombre_user" => $datos["nombre_user"],
+			"apellido_user" => $datos["apellido_user"],
 			"telefono_user" => $datos["telefono_user"],
-			"email_user" => $datos["email_user"]
+			"pass_user" => $datos["pass_user"]
 		);
 		$this->db->update('unc_usuarios', $data);
 	}

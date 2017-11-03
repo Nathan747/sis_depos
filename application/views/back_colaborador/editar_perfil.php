@@ -24,7 +24,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label for="email-perfil-colaborador">Email</label>
-                    <input type="nombre" name="email-perfil-colaborador" class="form-control" id="email-perfil-colaborador" value="<?php echo $colaborador["email"] ?>">
+                    <input type="nombre" name="email-perfil-colaborador" class="form-control" id="email-perfil-colaborador" value="<?php echo $colaborador["email"] ?>" disabled>
                 </div>
             </div>
 
@@ -46,8 +46,8 @@
         
             <div class="col-lg-12 padre-boton-invitado">
                 <button type="button" id="editar-boton-invitado" class="btn btn-default boton-enviar" style="float: left">Modificar</button>
-                <div class="contenedor-mensaje-admin" style="float: left">
-                    <div class="padre-mensaje-admin">
+                <div class="contenedor-mensaje-colaborador" style="float: left">
+                    <div class="padre-mensaje-colaborador">
                         <p>Administrador creado exitosamente</p>
                     </div>
                 </div>	
