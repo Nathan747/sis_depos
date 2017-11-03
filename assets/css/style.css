@@ -1866,16 +1866,14 @@ footer {
     padding: 10px 15px;
     align-items: flex-start;
     border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-    border-image: initial;
     margin-top: 15px;
 }
 
 .examinar:hover {
-    color: #555;
+    color: black;
     text-decoration: none;
     background-color: #f5f5f5;
+    border: 1px solid black;
 }
 
 .contenedor-informacion-perfil {

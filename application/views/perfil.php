@@ -541,7 +541,7 @@ $egresado = deco_egreso($es_egresado);
           <div class="inputModificado">
             <div class="botonInputFileModificado">
               <input style="display: none" name="imagen" type="file" class="inputImagenOculto" id="archivo_oculto1" name="archivo_oculto1"/>
-              <div class="examinar">CAMBIAR IMAGEN</div>    
+              <div class="examinar">Cambiar Imagen</div>    
             </div>    
           </div>
 

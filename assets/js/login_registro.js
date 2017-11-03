@@ -8,9 +8,7 @@ var clickeado=1;
     e.preventDefault();
 if (clickeado){
 
-
-  
-  $(".navbar-collapse").css("display","block");
+$(".navbar-collapse").css("display","block");
 $(".navbar-right").animate({
   top:"0px"
 });
@@ -49,6 +47,7 @@ $('#cerrar-login').click(function(e){
 
 $('#ingresar').click(function(e){
   e.preventDefault();
+  $(".navbar-toggle").click();
   $('.login').animate({
     right: "0"
   });
@@ -135,6 +134,8 @@ $("#cerrar-donacion").click(function(e){
 //BOTON REGISTRATE HEADER
 $('#registrate').click(function(e){
   e.preventDefault();
+
+  $(".navbar-toggle").click();
 
   $(".bloque-wizard").each(function(){
     $(this).removeClass("active");
@@ -379,7 +380,6 @@ $("#donar").click(function(){
 $(".donar").click(function(){
 
   $(".navbar-toggle").click();
-  $(".navbar-collapse").css("display","none");
    
   
     $("#cerrar-perfil").click();
@@ -580,8 +580,7 @@ $('.prof').click(function(e){
   e.preventDefault();
   $("#cerrar-donar").click();
   $(".navbar-toggle").click();
-  $(".navbar-collapse").css("display","none");
-    $(".navbar-collapse").css("display","none");
+
  
 
   $('.profile').animate({
@@ -758,3 +757,23 @@ $(".all-careers").find("a").click(function(){
 
 
 /*Perfil*/
+
+
+
+/*seccion responsive*/
+
+//<!-- Funcion para obtener el Ancho(width) --> 
+function obtenerAncho( obj, ancho ) {
+  $( "#anvent" ).text( "El ancho de la " + obj + " es " + ancho + "px. (Width)" );
+}
+$("#obtan").click(function() {
+  obtenerAncho( "ventana", $( window ).width() );
+});
+ 
+//<!-- Funcion para obtener el Alto(Height) --> 
+function obtenerAlto( obj, alto ) {
+  $( "#alvent" ).text( "El alto de la " + obj + " es " + alto + "px. (Height)" );
+}
+$( "#obtal" ).click(function() {
+  obtenerAlto( "ventana", $( window ).height() );
+});
