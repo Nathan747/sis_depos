@@ -207,6 +207,12 @@ class Inicio extends CI_Controller
 		}
 	}
 
+	public function obtener_usuarios()
+	{
+		$becario = $this->Inicio_model->get_users();
+		echo json_encode($becario);
+	}
+
 	public function back_colaborador()
 	{
 		/*if ($this->session->has_userdata('jerarquia')){
@@ -214,8 +220,12 @@ class Inicio extends CI_Controller
 			}
 		}*/
 		$id_user = $this->session->id;
+		$datos_colaborador = $this->Inicio_model->get_colaborador($id_user);
+		//$usuarios = $this->Inicio_model->get_users();
 		$object = $this->Inicio_model->select_transactions_colaborator($id_user);
 		$objeto["objeto"] = $object;
+		$colaborador["colaborador"] = $datos_colaborador;
+		//$colaborador["usuarios"] = $usuarios;
 		$data["titulo"] = "Admin UNCuyo";
 		$class["clase"] = "back-colaborador";
 
@@ -225,7 +235,7 @@ class Inicio extends CI_Controller
 		$this->load->view('backend/header');
 		$this->load->view('back_colaborador/aside');
 
-		$this->load->view('back_colaborador/editar_perfil');
+		$this->load->view('back_colaborador/editar_perfil', $colaborador);
 		$this->load->view('back_colaborador/enviar_invitacion');
 		$this->load->view('back_colaborador/resumen', $objeto);
 		$this->load->view('back_colaborador/script');
@@ -301,48 +311,6 @@ class Inicio extends CI_Controller
 		return $resultados;
 		
 		//return $balance;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

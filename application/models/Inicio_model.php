@@ -11,6 +11,29 @@ class Inicio_model extends CI_Model
 		$this->load->library('session');
 	}
 
+	public function get_users()
+	{
+		$sql = $this->db->get('unc_usuarios');
+		$x = 0;
+		foreach ($sql->result() as $row) {
+			$arreglo[$x]["id_user"] = $row->id_user;
+			$arreglo[$x]["nombre_user"] = $row->nombre_user;
+			$arreglo[$x]["apellido_user"] = $row->apellido_user;
+			$arreglo[$x]["email_user"] = $row->email_user;
+			$arreglo[$x]["telefono_user"] = $row->telefono_user;
+			$arreglo[$x]["dni_user"] = $row->dni_user;
+			$arreglo[$x]["edad_user"] = $row->edad_user;
+			$arreglo[$x]["pass_user"] = $row->pass_user;
+			$arreglo[$x]["fecha_egreso_user"] = $row->fecha_egreso_user;
+			$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
+			$arreglo[$x]["facultad_user"] = $row->facultad_user;
+			$arreglo[$x]["carrera_user"] = $row->carrera_user;
+			$x++;
+		}
+		$arreglo["cantidad"] = $x;
+		return $arreglo;
+	}
+
 	public function select_jerarquia()
 	{
 		$sql2 = $this->db->get('unc_usuarios');
@@ -244,6 +267,23 @@ class Inicio_model extends CI_Model
 		$this->db->where('id_cantidad_dinero', 1);
 		$this->db->update('unc_cantidad_dinero', $datos);
 
+	}
+
+	public function get_colaborador($id)
+	{
+		$sql = $this->db->get('unc_usuarios');
+		$filas = $sql->num_rows();
+		$contador = 0;
+		if ($filas > 0) {
+			foreach ($sql->result() as $row) {
+				$arreglo["nombre"] = $row->nombre_user;
+				$arreglo["apellido"] = $row->apellido_user;
+				$arreglo["email"] = $row->email_user;
+				$arreglo["telefono"] = $row->telefono_user;
+				$arreglo["pass"] = $row->pass_user;
+			}
+		}
+		return $arreglo;
 	}
 
 	public function select_transactions_colaborator($data)

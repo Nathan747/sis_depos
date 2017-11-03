@@ -6,6 +6,16 @@
 
 <script>  
 
+    var objetos;
+
+    $.ajax({
+        type: "POST",
+        url: "obtener_usuarios"
+       }).done(function(json){
+         console.log("NAISSS");
+        objetos = $.parseJSON(json);
+       });
+
     $("#boton-invitado").click(function(){
         var email_invitado = $("#email-invitado").val();
         $.ajax({
@@ -63,13 +73,13 @@
                   left: "-100%"
                 },function(){
                   $(".contenedor-formulario").animate({
-                    top: "-565px"
+                    top: "-506px"
                   });
                 });                
               break;
             case 3: 
             $(".contenedor-formulario").animate({
-                top: "-565px"
+                top: "-506px"
               });
               $("#resumen-colaborador").animate({
                 top: "0px"
@@ -85,7 +95,7 @@
                   left: "-100%"
                 },function(){
                   $("#resumen-colaborador").animate({
-                    top: "-932px"
+                    top: "-873px"
                   });
                 });   
             break;
@@ -94,7 +104,7 @@
               top: "-965px"
             });
             $("#resumen-colaborador").animate({
-              top: "-932px"
+              top: "-873px"
             });
             break;
           }
@@ -152,6 +162,27 @@
       });
       administrar_movimientos(3,selected);
     });
+
+    $("#editar-boton-invitado").click(function(){
+      var name = $("#nombre-perfil-colaborador").val();
+      var lastname = $("#apellido-perfil-colaborador").val();
+      var email = $("#email-perfil-colaborador").val();
+      var phone = $("#telefono-perfil-colaborador").val();
+      var pass = $("#pass-perfil-colaborador").val();
+       console.log(name);
+       console.log(lastname);
+       console.log(email);
+       console.log(phone);
+       console.log(pass);
+
+       /*$.ajax({
+        type: "POST",
+        url: ""
+       }).done(function(json){
+
+       });*/
+    });
+    
 
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
