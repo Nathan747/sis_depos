@@ -42,7 +42,7 @@
 							<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?><span class="icon-user"></span></div></a></li>
 					        <li><a href="#" class="prof">Perfil</a></li>
 							<li><a href="#" class="donar">#BancáUnaBeca</a></li>
-							<li><a href="#"  id="salir">Salir</a></li>
+							<li><a href="#"  class="salir">Salir</a></li>
 						</div>
 
 

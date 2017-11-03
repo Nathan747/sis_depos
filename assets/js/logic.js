@@ -696,6 +696,41 @@
       });
     });
 
+    $(".salir").click(function(e){
+      e.preventDefault();
+      localStorage.setItem("ingreso_normal", "no");
+      localStorage.setItem("registro_facebook", "no");
+      $.ajax({
+        type: "POST",
+        url: "inicio/logout/"
+      }).done(function(json){
+        var objeto = $.parseJSON(json);
+        //FB.getLoginStatus(handleSessionResponse);
+        FB.getLoginStatus(function(response) {
+          if (response && response.status === 'connected') {
+            FB.logout(function(response) {
+              if (objeto.eliminado){
+                window.location = direccion;
+              }
+            });
+          }else{
+            if (objeto.eliminado){
+              window.location = direccion;
+            }
+          }
+        });
+        facebook_count = 0;
+      }).fail(function(xhr, status, error){
+        console.log(xhr);
+        console.log(status);
+        console.log(error);
+        console.log("FAIL");
+      });
+    });
+
+
+
+
     $(".btn-recup-pass").click(function(){
       var email_recup = $("#email_recupera").val();
       $(".texto-recupera").animate({
