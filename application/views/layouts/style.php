@@ -140,6 +140,10 @@
 }
 
 @media(max-width:767px) {
+
+.profile .container .expand {
+    max-height: 2000px!important;
+}
 .login {
     z-index: 9;
 }
@@ -150,7 +154,7 @@
     width: 97%;
 }
 .profile .container .row {
-	max-height: 1832px!important;
+	max-height: 1832px;
 }
 .contenedor-registro, .contenedor-donar {
     z-index: 9;

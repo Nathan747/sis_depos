@@ -519,7 +519,7 @@ $egresado = deco_egreso($es_egresado);
   <!-- Fin Encabezado de página / Breadcrumb -->
   <!-- Contact Form -->
   <!-- Campos del formulario de contacto con validación de campos-->
-  <div class="row">
+  <div class="row expand">
     <!-- Columna de la izquierda -->
     <div class="col-md-3">
       <div class="col-md-12 first" align="left">
