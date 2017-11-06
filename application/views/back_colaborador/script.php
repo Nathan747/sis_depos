@@ -26,7 +26,7 @@
                     top: "0px"
                 });
             });
-            window.location = objeto.link;
+            //window.location = objeto.link;
         });
         
         
@@ -174,7 +174,9 @@
             pass: pass
           }
         }).done(function(json){
-          console.log("changed");
+          $(".padre-mensaje-editar-colaborador").animate({
+            
+          });
         });
     });
     

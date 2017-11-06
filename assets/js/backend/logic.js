@@ -670,7 +670,7 @@
           localStorage.setItem("registro_facebook", "no");
           $.ajax({
               type: "POST",
-              url: "inicio/logout/"
+              url: "logout/"
           }).done(function(json) {
               var objeto = $.parseJSON(json);
               //FB.getLoginStatus(handleSessionResponse);

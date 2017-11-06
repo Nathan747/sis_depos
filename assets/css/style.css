@@ -2139,15 +2139,21 @@ label {
 
 .padre-mensaje-colaborador,
 .padre-mensaje-becario,
-.padre-mensaje-admin {
+.padre-mensaje-admin,
+.padre-mensaje-editar-colaborador {
     position: relative;
     left: -300px;
     font-size: 12px;
 }
 
+.contenedor-mensaje-colaborador {
+    margin-top: 10px;
+}
+
 .padre-mensaje-colaborador p,
 .padre-mensaje-becario p,
-.padre-mensaje-admin p {
+.padre-mensaje-admin p,
+.padre-mensaje-editar-colaborador p {
     color: red;
 }
 
