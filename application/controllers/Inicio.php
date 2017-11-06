@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Inicio extends CI_Controller
 {
@@ -194,13 +194,11 @@ class Inicio extends CI_Controller
 
 				$this->load->view('backend/scripts', $objeto, $jerarquia);
 				$this->load->view('end_body');
-			}
-			else {
+			} else {
 				$home = "location: " . base_url("");
 				header($home);
 			}
-		}
-		else {
+		} else {
 			$home = "location: " . base_url("");
 			header($home);
 		}
@@ -324,6 +322,7 @@ class Inicio extends CI_Controller
 		
 		//return $balance;
 
+<<<<<<< HEAD
 
 
 
@@ -335,6 +334,8 @@ class Inicio extends CI_Controller
 
 
 
+=======
+>>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
 	}
 
 	public function perfil()

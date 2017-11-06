@@ -261,6 +261,11 @@ class Donacion extends CI_Controller
 		$this->load->view('end_body');
 	}
 
+	public function logout()
+	{
+
+	}
+
 
 	public function landing_pagado()
 	{

@@ -47,8 +47,13 @@
             <div class="col-lg-12 padre-boton-invitado">
                 <button type="button" id="editar-boton-invitado" class="btn btn-default boton-enviar" style="float: left">Modificar</button>
                 <div class="contenedor-mensaje-colaborador" style="float: left">
+<<<<<<< HEAD
                     <div class="padre-mensaje-colaborador">
                         <p>Administrador creado exitosamente</p>
+=======
+                    <div class="padre-mensaje-editar-colaborador">
+                        <p>Editado exitosamente</p>
+>>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
                     </div>
                 </div>	
             </div>
