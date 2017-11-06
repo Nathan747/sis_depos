@@ -128,7 +128,6 @@ class Inicio extends CI_Controller
 			"apellido_user" => $data["apellido"],
 			"email_user" => $data["email"],
 			"telefono_user" => $data["telefono"],
-			"email_user" => $data["email"],
 			"id_user" => $data["id"]
 		);
 		$this->Inicio_model->modificar_user($datos);
@@ -211,6 +210,19 @@ class Inicio extends CI_Controller
 	{
 		$becario = $this->Inicio_model->get_users();
 		echo json_encode($becario);
+	}
+
+	public function modificar_colaborador()
+	{
+		$data = $this->input->post();
+		$datos = array(
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"email_user" => $data["email"],
+			"telefono_user" => $data["telefono"],
+			"pass_user" => $data["pass"]
+		);
+		$this->Inicio_model->modificar_colaborador($datos);
 	}
 
 	public function back_colaborador()
@@ -311,6 +323,11 @@ class Inicio extends CI_Controller
 		return $resultados;
 		
 		//return $balance;
+
+
+
+
+
 
 
 
