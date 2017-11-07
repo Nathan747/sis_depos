@@ -6,6 +6,54 @@
 
 <script>  
 
+  var datos_perfil=0;
+  var direccion = "<?php echo base_url(""); ?>";
+  var id_colaborador = 
+	"<?php if ($this->session->has_userdata('id_colaborador')) {
+    echo $this->session->id_colaborador;
+  } else {
+    echo 0;
+  } ?>";
+  var objectos = $.parseJSON('<?php echo json_encode($objeto); ?>');
+  var total=0;
+  for(var u=0;u<objectos.cantidad;u++){
+    total+=parseFloat(objectos[u].recibido);
+  }
+  $(".cantidad-total-numero").text(total);
+  
+  var facebook_count = 0;
+  var map;
+  var map_register;
+  var marker = null;
+  var latitude;
+  var longitude;
+  var modo_log=0;
+  var string="";
+  var string2="";
+  var string3="";
+  var string4="";
+  var string5="";
+  var marker; 
+  var nombre;
+  var apellido;
+  var email;
+  var telefono;
+  var pass1;
+  var pass2;
+  var dni;
+  var fecha_egresado;
+  var es_egresado;
+  var profesion;
+  var prev_infowindow = false; 
+  var reg_fb_normal;
+  var nombre_completo;
+  var todos_los_mail;
+  var email_existe="";
+  var clase = 0;
+  var facultad_number;
+  var carrera_number;
+  var picture="";
+
     var objetos;
 
     $("#boton-invitado").click(function(){
@@ -181,40 +229,7 @@
     });
     
 
-  var datos_perfil=0;
-  var direccion = "<?php echo base_url(""); ?>";
-  var facebook_count = 0;
-  var map;
-  var map_register;
-  var marker = null;
-  var latitude;
-  var longitude;
-  var modo_log=0;
-  var string="";
-  var string2="";
-  var string3="";
-  var string4="";
-  var string5="";
-  var marker; 
-  var nombre;
-  var apellido;
-  var email;
-  var telefono;
-  var pass1;
-  var pass2;
-  var dni;
-  var fecha_egresado;
-  var es_egresado;
-  var profesion;
-  var prev_infowindow = false; 
-  var reg_fb_normal;
-  var nombre_completo;
-  var todos_los_mail;
-  var email_existe="";
-  var clase = 0;
-  var facultad_number;
-  var carrera_number;
-  var picture="";
+  
 
   function decodificar_facultad(indice){
     var string_facultad;

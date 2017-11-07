@@ -248,7 +248,7 @@ class Inicio extends CI_Controller
 		$this->load->view('back_colaborador/editar_perfil', $colaborador);
 		$this->load->view('back_colaborador/enviar_invitacion');
 		$this->load->view('back_colaborador/resumen', $objeto);
-		$this->load->view('back_colaborador/script');
+		$this->load->view('back_colaborador/script', $objeto);
 
 		$this->load->view('backend/inicio_backend');
 		$this->load->view('backend/fin_backend');
@@ -347,6 +347,7 @@ class Inicio extends CI_Controller
 		$this->session->unset_userdata("newsession");
 		$this->session->unset_userdata("email");
 		$this->session->unset_userdata("jerarquia");
+		$this->session->unset_userdata("id_colaborador");
 		$json["eliminado"] = 1;
 		echo json_encode($json);
 	}

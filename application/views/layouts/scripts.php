@@ -7,6 +7,13 @@
 <script>  
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
+  var id_colaborador = "<?php 
+                        if ($this->session->has_userdata('id_colaborador')) {
+                          echo $this->session->id_colaborador;
+                        } else {
+                          echo 0;
+                        }
+                        ?>";
   var facebook_count = 0;
   var map;
   var map_register;

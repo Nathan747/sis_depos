@@ -10,7 +10,7 @@
 	var carrera_editada;
 	var carrera_sin_editar;
 	var direccion = "<?php echo base_url("") ?>";
-
+	
 	function deco_facultad(facultad){
 		switch(facultad){
 			case 1: 

@@ -1,43 +1,46 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Control_Registro extends CI_Controller {
+class Control_Registro extends CI_Controller
+{
 	//$this->load->library('session');
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('Registro_model');
 	}
 
 	public function load_user_info()
-	{	
+	{
 
 		$data = $this->input->post();//Se puede reemplazar en esto
 
 		$datos = array(
-			"nombre_user" 		=> $data["nombre"],
-			"apellido_user" 	=> $data["apellido"],
-			"email_user" 		=> $data["email"],
-			"telefono_user" 	=> $data["telefono"],
-			"dni_user"			=> $data["dni"],
-			"es_egresado_user"	=> $data["egresado"],
+			"nombre_user" => $data["nombre"],
+			"apellido_user" => $data["apellido"],
+			"email_user" => $data["email"],
+			"telefono_user" => $data["telefono"],
+			"dni_user" => $data["dni"],
+			"es_egresado_user" => $data["egresado"],
 			"fecha_egreso_user" => $data["fecha_egresado"],
-			"pass_user" 		=> $data["password"],
-			"profesion_user"	=> $data["profesion"],
-			"lat_user" 			=> $data["latitud"],
-			"long_user" 		=> $data["longitud"],
-			"facultad_user"		=> $data["facultad"],
-			"carrera_user"		=> $data["carrera"],
-			"img"				=> $data["picture"],
-			"jerarquia" 		=> 2
+			"pass_user" => $data["password"],
+			"profesion_user" => $data["profesion"],
+			"lat_user" => $data["latitud"],
+			"long_user" => $data["longitud"],
+			"facultad_user" => $data["facultad"],
+			"carrera_user" => $data["carrera"],
+			"img" => $data["picture"],
+			"jerarquia" => 2,
+			"id_asociado" => $data["id_colaborador"]
 		);
 
 		$datos_mail = array(
-			"email"		=> $data["email"],
-			"nombre"	=> $data["nombre"]
+			"email" => $data["email"],
+			"nombre" => $data["nombre"]
 		);
 
 		$this->Registro_model->insert_user($datos);
-		$email =  $datos_mail["email"];
+		$email = $datos_mail["email"];
 		$name = $datos_mail["nombre"];
 		$email_address = $email;
 		$to = $email_address;
@@ -54,7 +57,7 @@ class Control_Registro extends CI_Controller {
 		<center> 
 
 		<p>
-		Hola <strong>'.$name.'</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. 
+		Hola <strong>' . $name . '</strong>, tu participación es muy importante para nosotros, por esto te agradecemos el haberte registrado. 
 		</p>
 
 		</body>
@@ -64,9 +67,9 @@ class Control_Registro extends CI_Controller {
 		$headers .= "Content-type: text/html; charset=utf-8\n";
 		$headers .= "From: UNCuyo <noresponder@uncuyo.com>\r\n";
 
-		$headers .= "Reply-To: $email_address";	
-		mail($to,$email_subject,$email_body,$headers);
-		
+		$headers .= "Reply-To: $email_address";
+		mail($to, $email_subject, $email_body, $headers);
+
 		echo json_encode($data);
 	}
 
