@@ -322,6 +322,20 @@ class Inicio extends CI_Controller
 		
 		//return $balance;
 
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
 	}
 
 	public function perfil()

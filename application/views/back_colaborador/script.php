@@ -222,9 +222,13 @@
             pass: pass
           }
         }).done(function(json){
+<<<<<<< HEAD
+          console.log("changed");
+=======
           $(".padre-mensaje-editar-colaborador").animate({
             
           });
+>>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
         });
     });
     
