@@ -639,7 +639,7 @@
           console.log(password_ingresar);
           $.ajax({
               type: "POST",
-              url: "Control_Login/enviar_datos/",
+              url: "../Control_Login/enviar_datos/",
               data: {
                   email: email_ingresar,
                   password: password_ingresar
@@ -665,7 +665,6 @@
 
       //SALIR
 
-      console.log("COLABORADOR: " + id_colaborador);
       $("#salir").click(function(e) {
           e.preventDefault();
           localStorage.setItem("ingreso_normal", "no");

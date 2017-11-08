@@ -14,7 +14,7 @@
   } else {
     echo 0;
   } ?>";
-  var objectos = $.parseJSON('<?php echo json_encode($objeto); ?>');
+  var objectos = $.parseJSON('<?php if(isset($objeto)){echo json_encode($objeto);}else{echo 0;}?>');
   var total=0;
   for(var u=0;u<objectos.cantidad;u++){
     total+=parseFloat(objectos[u].recibido);
@@ -88,7 +88,7 @@
               $(".contenedor-formulario").animate({
                 top: "-965px"
               },function(){
-                $(".contenedor-editar-colaborador").animate({
+                $(".padre-colaborador").animate({
                   left: "0px"
                 });
               });
@@ -98,7 +98,7 @@
               $("#resumen-colaborador").animate({
                 top: "500px"
               },function(){
-                $(".contenedor-editar-colaborador").animate({
+                $(".padre-colaborador").animate({
                   left: "0px"
                 });
               });
@@ -109,7 +109,7 @@
         case 2: 
           switch(anterior){
             case 1: 
-                $(".contenedor-editar-colaborador").animate({
+                $(".padre-colaborador").animate({
                   left: "-100%"
                 },function(){
                   $(".contenedor-formulario").animate({
@@ -131,7 +131,7 @@
         case 3: 
           switch(anterior){
             case 1: 
-            $(".contenedor-editar-colaborador").animate({
+            $(".padre-colaborador").animate({
                   left: "-100%"
                 },function(){
                   $("#resumen-colaborador").animate({
@@ -222,13 +222,10 @@
             pass: pass
           }
         }).done(function(json){
-<<<<<<< HEAD
           console.log("changed");
-=======
           $(".padre-mensaje-editar-colaborador").animate({
             
           });
->>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
         });
     });
     

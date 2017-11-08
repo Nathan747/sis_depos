@@ -2548,6 +2548,11 @@ body.back #boxes .close {
     padding: 10px 15px 40px 15px;
 }
 
+.padre-colaborador{
+    position: relative;
+    left: -100%;
+}
+
 .padre-formulario {
     padding-bottom: 0px;
 }
@@ -2573,12 +2578,12 @@ body.back #boxes .close {
 }
 
 #resumen-colaborador {
-    width: calc(100% - 260px);
+    width: 100%;
     padding: 0px;
     background: rgb(236, 240, 241);
     position: relative;
     top: 500px;
-    left: 260px;
+    left: 0px;
 }
 
 .back-colaborador .container-fluid {
@@ -2594,6 +2599,7 @@ body.back #boxes .close {
 .back-colaborador .contenedor-formulario {
     position: relative;
     top: -506px;
+    width: 100%;
 }
 
 .back-colaborador .padre-colaborador .padre-boton-invitado {
@@ -2606,8 +2612,7 @@ body.back #boxes .close {
 }
 
 .back-colaborador .contenedor-editar-colaborador {
-    position: relative;
-    left: -100%;
+    
 }
 
 .back-colaborador aside {

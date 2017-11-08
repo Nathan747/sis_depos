@@ -199,6 +199,9 @@ class Donacion extends CI_Controller
 	{
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
+		/*if($this->session->has_userdata('id_colaborador')){
+			echo $this->session->id_colaborador;
+		}*/
 		$this->load->view('layouts/head', $data);
 		$this->load->view('layouts/style');
 		if (isset($_SESSION['newsession'])) {
