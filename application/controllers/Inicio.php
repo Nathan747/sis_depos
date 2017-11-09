@@ -281,9 +281,49 @@ class Inicio extends CI_Controller
 
 	public function generar_link()
 	{
+		$data = $this->input->post();
 		$json["id"] = $this->session->id;
 		$json["id_encoded"] = $this->create_number($this->session->id);
 		$json["link"] = base_url() . "Donacion/decriptar/" . $json["id_encoded"];
+		$email = $data["email"];
+		$email_address = $email;
+		$to = $email_address;
+		$email_subject = "#SOYDELADECUYO";
+		$email_body = '<!DOCTYPE html>
+			<html lang="es">
+			<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>#SOYDELADECUYO</title>
+			</head>  
+			<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;width: 100% !important;line-height: 100% !important;">
+			<center> 
+
+			<p>
+			Queremos invitarte a formar parte de nuestra comunidad. Para que le cuentes al mundo que sos de la de Cuyo.
+			</p>
+			<p>
+			¡Ingresa en el siguiente enlace Y enterate de todo!
+			</p>
+
+			<p>
+				'.$json["link"].'
+			</p>
+
+
+			<p>#SOYDELADECUYO</p>
+
+			</body>
+			</html>';
+			$json["body"] = $email_body;
+
+			$headers = "MIME-Version: 1.0\n";
+			$headers .= "Content-type: text/html; charset=utf-8\n";
+			$headers .= "From: UNCuyo <noresponder@uncuyo.com>\r\n";
+
+			$headers .= "Reply-To: $email_address";
+			mail($to, $email_subject, $email_body, $headers);
 		echo json_encode($json);
 	}
 

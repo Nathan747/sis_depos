@@ -155,7 +155,7 @@ class Donacion extends CI_Controller
 					if ($this->session->has_userdata('id_colaborador')) {
 						$porcentaje = floatval($datos["neto_recibido"]) * 0.1;
 						$datos2 = array(
-							"id_colaborador" => $id,
+							"id_colaborador" => $this->session->id_colaborador,
 							"id_operacion_mp" => $objeto[$cantidad - 1]["order"]["id"],
 							"cantidad_dinero" => $datos["neto_recibido"],
 							"recibido" => $porcentaje

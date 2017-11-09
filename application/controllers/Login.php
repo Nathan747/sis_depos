@@ -59,7 +59,7 @@ class Login extends CI_Controller
 			$name = $recuperacion["nombre"];
 			$email_address = $email;
 			$to = $email_address;
-			$email_subject = "#SoyDeLaUNCuyo";
+			$email_subject = "#SOYDELADECUYO";
 			$email_body = '<!DOCTYPE html>
 			<html lang="es">
 			<head>
@@ -77,7 +77,7 @@ class Login extends CI_Controller
 			<p>Tu contraseña ha sido restaurada a su version anterior: ' . $recuperacion["pass"] . '
 			</p>
 
-			<p>Gracias por utilizar la plataforma #SoyDeLaUNCuyo!</p>
+			<p>Gracias por utilizar la plataforma #SOYDELADECUYO!</p>
 
 			</body>
 			</html>';
