@@ -284,7 +284,7 @@ class Inicio extends CI_Controller
 		$data = $this->input->post();
 		$json["id"] = $this->session->id;
 		$json["id_encoded"] = $this->create_number($this->session->id);
-		$json["link"] = base_url() . "Donacion/decriptar/" . $json["id_encoded"];
+		$json["link"] = base_url() . "Donacion/invitacion/" . $json["id_encoded"];
 		$email = $data["email"];
 		$email_address = $email;
 		$to = $email_address;

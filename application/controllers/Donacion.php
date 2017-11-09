@@ -184,7 +184,7 @@ class Donacion extends CI_Controller
 
 	}
 
-	public function decriptar($id = 0)
+	public function invitacion($id = 0)
 	{
 		$id_colaborador = $this->decode_number($id);
 		$this->session->set_userdata('id_colaborador', $id_colaborador);
