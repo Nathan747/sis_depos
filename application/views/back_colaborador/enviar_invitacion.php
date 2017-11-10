@@ -20,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="contenedor-mensaje-admin" style="float: left">
                     <div class="padre-mensaje-admin">
-                        <p>Administrador creado exitosamente</p>
+                        <p>Invitación enviada exitosamente</p>
                     </div>
                 </div>	
             </div>

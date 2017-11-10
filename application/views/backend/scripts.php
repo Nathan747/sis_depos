@@ -10,6 +10,9 @@
 	var carrera_editada;
 	var carrera_sin_editar;
 	var direccion = "<?php echo base_url("") ?>";
+	var mercado_pago = $.parseJSON('<?php echo json_encode($mercadopago); ?>');
+	console.log(mercado_pago);
+
 	
 	function deco_facultad(facultad){
 		switch(facultad){

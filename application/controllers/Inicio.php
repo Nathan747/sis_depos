@@ -162,8 +162,9 @@ class Inicio extends CI_Controller
 
 	public function back()
 	{
-		if ($this->session->has_userdata('jerarquia')) {
-			if ($this->session->jerarquia === "0") {
+		//if ($this->session->has_userdata('jerarquia')) {
+			//if ($this->session->jerarquia === "0") {
+				$mercado_pago = $this->cargar_informacion_mp();
 				$object = $this->Inicio_model->select_transactions();
 				$jerarchy = $this->Inicio_model->select_jerarquia();
 				$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
@@ -172,6 +173,7 @@ class Inicio extends CI_Controller
 				$cantidad_becas["ultima_modificacion"] = $cantidad_dinero["ultima_modificacion"];
 				$cant_filas = $object["cantidad"];
 
+				$objeto["mercadopago"] = $mercado_pago;
 				$data["titulo"] = "Admin UNCuyo";
 				$class["clase"] = "back";
 				$objeto["objeto"] = $object;
@@ -194,14 +196,14 @@ class Inicio extends CI_Controller
 
 				$this->load->view('backend/scripts', $objeto, $jerarquia);
 				$this->load->view('end_body');
-			} else {
+			/*} else {
 				$home = "location: " . base_url("");
 				header($home);
 			}
 		} else {
 			$home = "location: " . base_url("");
 			header($home);
-		}
+		}*/
 	}
 
 	public function obtener_usuarios()
