@@ -13,6 +13,22 @@
 	var mercado_pago = $.parseJSON('<?php echo json_encode($mercadopago); ?>');
 	console.log(mercado_pago);
 
+	var objeto = <?php echo json_encode($objeto) ?>;
+	console.log(objeto);
+
+	var jerarquia = <?php echo json_encode($jerarquia) ?>;
+	console.log(jerarquia);
+
+	for (var i = 0; i < objeto.cantidad; i++) {
+		for (var x = 0; x < mercado_pago.length; x++) {
+			if(objeto[i].id_operacion_mp == mercado_pago[x].id){
+				console.log("Objeto i: " + i + " - Objeto j: " + x);
+				console.log(mercado_pago[x].status);
+				console.log("-----------------------------------");
+			}
+		}
+	}
+
 	
 	function deco_facultad(facultad){
 		switch(facultad){
@@ -512,7 +528,6 @@
 			done=1;
 		}
 		
-		console.log("CANT_PAGINAS: "+cant_paginas);
 		if($(".selectores-ultimos-movimientos").find(".selector-numero").length==0){
 			for(var x=0;x<cant_paginas;x++){
 				if(x==0){
@@ -525,7 +540,6 @@
 			}
 		}	
 
-		console.log("INDICE: "+indice);
 		if(indice==0){
 			i = 0;
 			if(cant_items_mostrados>cant_items){
@@ -534,7 +548,6 @@
 
 				limite = cant_items_mostrados; 
 			}
-			console.log("LIMITE: "+limite);
 		}else{
 			i = indice*cant_items_mostrados
 			limite = i + cant_items_mostrados; 
@@ -564,7 +577,6 @@
 
 		if(cant_items<limite){
 			for(fila=1;i<cant_items;i++,fila++){
-				console.log("i: "+i);
 				$(".table-condensed").append("<tr class=row-"+i+"></tr>");
 
 				$(".fila-"+fila).find(".columna-1").text();
@@ -597,7 +609,6 @@
 			}	
 		}else{
 			for(fila=1;i<limite;i++,fila++){
-				console.log("i: "+i);
 				$(".table-condensed").append("<tr class=row-"+i+"></tr>");
 
 				$(".fila-"+fila).find(".columna-1").text();
@@ -631,12 +642,6 @@
 		}
 
 	}
-
-	var objeto = <?php echo json_encode($objeto) ?>;
-	console.log(objeto);
-
-	var jerarquia = <?php echo json_encode($jerarquia) ?>;
-	console.log(jerarquia);
 	
 	rellenar_tabla();
 
@@ -957,9 +962,7 @@
 				}
 				i++;
 			});
-			console.log("SELECTED: "+selected);
 			page_selected--;
-			console.log("Page selected last: "+page_selected);
 			if(selected>3){
 				$($(".selector-numero")[2]).addClass("numero-activo");
 				var first_number = parseInt($($(".selector-numero")[0]).children().text());
@@ -1008,7 +1011,6 @@
 					$("#last").children().removeClass("boton-deshabilitado");
 				}
 			}
-			console.log("Page selected last DESPUES: "+page_selected);
 			limpiar_tabla();
 			if (selected>2){
 				rellenar_tabla(page_selected);
@@ -1046,13 +1048,11 @@
 
 			///cant_paginas;
 			page_selected = 1;
-			console.log(page_selected);
 			limpiar_tabla();
 			rellenar_tabla(0);
 		}
 	});
 
-	console.log(page_selected + " - " + cant_paginas);
 	$("#ultimo").click(function(){
 		if(page_selected!=cant_paginas){
 			$(".selector-numero").each(function(){
@@ -1086,7 +1086,6 @@
 			
 			///cant_paginas;
 			page_selected = cant_paginas;
-			console.log(page_selected);
 			limpiar_tabla();
 			rellenar_tabla(cant_paginas-1);
 		}else{
@@ -1121,7 +1120,6 @@
 			if ((actual>3)&&(actual<max+1)){
 				$($(".selector-numero")[2]).addClass("numero-activo");
 				var first_number = parseInt($($(".selector-numero")[0]).children().text());
-				console.log("FIRST NUMBER NEXT: "+first_number);
 				first_number++;
 				//console.log("FIRST NUMBER NEXT AUMENTADO: "+first_number);
 				if(first_number+2>cant_paginas){
@@ -1132,9 +1130,7 @@
 					first_number++;
 				});
 			}else{
-				console.log("ELSE");
 				var first_number = parseInt($($(".selector-numero")[0]).children().text());
-				console.log(first_number);
 				//first_number++;
 				$(".selector-numero").each(function(){
 					$(this).children().text(first_number);
@@ -1241,7 +1237,6 @@
 			}
 		}).done(function(json){
 			var objeto = $.parseJSON(json);
-			console.log(objeto);
 			if(objeto.cantidad>0){
 				$(".padre-contenedor-dni").animate({
 					top: "-70px"
@@ -1356,7 +1351,6 @@
 	$(".boton-confirmar").click(function(){
 		var dinero_becario_final = parseFloat($("#dinero-derivar").val()).toFixed(2);
 		var total_dinero = parseFloat($($(".cantidad-total-numero")[0]).text()).toFixed(2);
-		console.log(total_dinero);
 
 		if(dinero_becario_final<=total_dinero){
 			$(".padre-mensaje-error").animate({
@@ -1400,7 +1394,6 @@
 	/* GESTIONAR USUARIOS */
 
 	$("#boton-enviar-1").click(function(){
-		console.log("CLICK");
 		var nombre_colaborador = $("#nombre-1").val();
 		var apellido_colaborador = $("#apellido-1").val();
 		var email_colaborador = $("#email-1").val();
@@ -1422,7 +1415,6 @@
 				left: "0px"
 			});
 			var objeto = $.parseJSON(json);
-			console.log(json);
 		});
 	});
 
