@@ -797,6 +797,24 @@
     return string_carrera;
   }
 
+  function execute_my_onreturn(json){
+    console.log(json);
+    if (json.collection_status == 'approved') {
+        alert('Pago acreditado, le enviaremos un correo con los datos de su reserva');
+        enviarConfirmacion('Pago en Confirmado');
+    } else if (json.collection_status == 'pending') {
+        alert('El usuario no completó el pago');
+    } else if (json.collection_status == 'in_process') {
+        alert('El pago está siendo procesado,le enviaremos un correo con los datos \n\
+                    de su reserva, cuando el pago se acredite su reserva se confirmara ');
+        enviarConfirmacion('Pago en Proceso');
+    } else if (json.collection_status == 'rejected') {
+        alert('El pago fué rechazado,puede intentar nuevamente el pago');
+    } else if (json.collection_status == null) {
+        alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
+    }
+  }
+
 
 </script>
 

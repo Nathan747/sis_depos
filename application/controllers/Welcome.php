@@ -8,8 +8,39 @@ class Welcome extends CI_Controller {
 		$this->load->model("Perfil_model");
 	}
 
+	public function obtener_access_token_mp()
+	{
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		return $access_token;
+	}
+
+	
+		
+	
+
 	public function index($payment=0, $status=0)
 	{
+
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$preference_data = array(
+			"items" => array(
+				array(
+					"title" => "Test 1",
+					"quantity" => 1,
+					"currency_id" => "ARS", // Available currencies at: https://api.mercadopago.com/currencies
+					"unit_price" => 1.00
+				)
+			)
+		);
+
+		$preference = $mp->create_preference($preference_data);
+		$obj["preference"] = $preference;
+
 		$datos = array(
 			"email_user" => $this->session->email
 		);
@@ -46,8 +77,7 @@ class Welcome extends CI_Controller {
 			$this->load->view('login');
 		}
 		
-		
-		$this->load->view('donar');
+		$this->load->view('donar',$obj);
 		$this->load->view('layouts/footer');
 		$this->load->view('layouts/scripts');
 		$this->load->view('end_body');
