@@ -26,11 +26,12 @@ class Welcome extends CI_Controller {
 	{
 
 		$this->load->view('mp/mercadopago.php');
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		//$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); mi user
+		$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$preference_data = array(
 			"items" => array(
 				array(
-					"title" => "Test 1",
+					"title" => "Test 10",
 					"quantity" => 1,
 					"currency_id" => "ARS", // Available currencies at: https://api.mercadopago.com/currencies
 					"unit_price" => 1.00
