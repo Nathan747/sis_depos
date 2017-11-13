@@ -257,16 +257,6 @@ class Inicio extends CI_Controller
 		$this->load->view('end_body');
 	}
 
-	public function obtener_access_token_mp()
-	{
-		$this->load->view('mp/mercadopago.php');
-		//$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); mi user
-		$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
-		$access_token = $mp->get_access_token();
-		//echo $access_token;
-		return $access_token;
-	}
-
 	public function create_number($numero = 0)
 	{
 		$numero = ( ( ( ( ( ($numero + 17) * 3) + 7) * 41) + 17) * 57);
@@ -329,12 +319,34 @@ class Inicio extends CI_Controller
 		echo json_encode($json);
 	}
 
+	public function imprimir_access_token_mp()
+	{
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		echo $access_token;
+	}
+
+	public function obtener_access_token_mp()
+	{
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		return $access_token;
+	}
+
 	public function cargar_informacion_mp()
 	{
 		$curl = curl_init();
 
 		$access_token = $this->obtener_access_token_mp();
 		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=" . $access_token;
+		//$url = "https://api.mercadopago.com/v1/payments/search?collector.id=277501295&access_token=" . $access_token;
+		
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -355,15 +367,24 @@ class Inicio extends CI_Controller
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
 
-		//$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); mi user
-		$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); // mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
 		//$balance = $mp->get ("/mercadopago_account/movements/search");
 
 		$resultados = $response["results"];
+
 		return $resultados;
 		
 		//return $balance;
+	}
+
+	public function test()
+	{
+		$access_token = $this->obtener_access_token_mp();
+		$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$resultados = $mp->get("/merchant_orders/8416405");
+		echo print_r($resultados);
 	}
 
 	public function perfil()

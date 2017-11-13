@@ -55,7 +55,7 @@ class Donacion extends CI_Controller
 	public function obtener_access_token_mp()
 	{
 		$this->load->view('mp/mercadopago.php');
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); mi user
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		//echo $access_token;
@@ -68,6 +68,7 @@ class Donacion extends CI_Controller
 
 		$access_token = $this->obtener_access_token_mp();
 		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=" . $access_token;
+		//$url = "https://api.mercadopago.com/v1/payments/search?collector.id=277501295&access_token=" . $access_token;
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -88,7 +89,8 @@ class Donacion extends CI_Controller
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
 
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
 		//$balance = $mp->get ("/mercadopago_account/movements/search");
 
