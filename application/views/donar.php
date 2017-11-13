@@ -77,7 +77,7 @@ if (isset($_SESSION['newsession'])) {
               <a id="boton-6" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-c2616622-630b-48ae-b3f9-bdaccb97feb1" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$750</a>
               <a id="boton-7" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton" target="_blank">Suscribirme</a>
               <!--a id="boton-8" name="MP-Checkout" mp-mode="modal" href="https://www.mercadopago.com/mla/checkout/start?pref_id=277501295-10f3abc2-c15b-49dd-8a15-9d86d34b2653" onreturn="execute_my_onreturn" target="modal" >$1</a-->
-              <a id="boton-8" name="MP-Checkout" mp-mode="modal" href="<?php echo $preference['response']['sandbox_init_point'] ?>" onreturn="execute_my_onreturn" target="modal">$1</a>
+              <a id="boton-8" name="MP-Checkout" mp-mode="modal" href="<?php echo $preference['response']['init_point'] ?>" onreturn="execute_my_onreturn" target="modal">$1</a>
               
               
             </div>
