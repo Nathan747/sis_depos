@@ -162,8 +162,9 @@ class Inicio extends CI_Controller
 
 	public function back()
 	{
-		if ($this->session->has_userdata('jerarquia')) {
-			if ($this->session->jerarquia === "0") {
+		//if ($this->session->has_userdata('jerarquia')) {
+			//if ($this->session->jerarquia === "0") {
+				$mercado_pago = $this->cargar_informacion_mp();
 				$object = $this->Inicio_model->select_transactions();
 				$jerarchy = $this->Inicio_model->select_jerarquia();
 				$cantidad_dinero = $this->Inicio_model->select_cantidad_dinero();
@@ -172,6 +173,7 @@ class Inicio extends CI_Controller
 				$cantidad_becas["ultima_modificacion"] = $cantidad_dinero["ultima_modificacion"];
 				$cant_filas = $object["cantidad"];
 
+				$objeto["mercadopago"] = $mercado_pago;
 				$data["titulo"] = "Admin UNCuyo";
 				$class["clase"] = "back";
 				$objeto["objeto"] = $object;
@@ -194,14 +196,14 @@ class Inicio extends CI_Controller
 
 				$this->load->view('backend/scripts', $objeto, $jerarquia);
 				$this->load->view('end_body');
-			} else {
+			/*} else {
 				$home = "location: " . base_url("");
 				header($home);
 			}
 		} else {
 			$home = "location: " . base_url("");
 			header($home);
-		}
+		}*/
 	}
 
 	public function obtener_usuarios()
@@ -248,21 +250,11 @@ class Inicio extends CI_Controller
 		$this->load->view('back_colaborador/editar_perfil', $colaborador);
 		$this->load->view('back_colaborador/enviar_invitacion');
 		$this->load->view('back_colaborador/resumen', $objeto);
-		$this->load->view('back_colaborador/script');
+		$this->load->view('back_colaborador/script', $objeto);
 
 		$this->load->view('backend/inicio_backend');
 		$this->load->view('backend/fin_backend');
 		$this->load->view('end_body');
-	}
-
-	public function obtener_access_token_mp()
-	{
-		$this->load->view('mp/mercadopago.php');
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
-		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
-		$access_token = $mp->get_access_token();
-		//echo $access_token;
-		return $access_token;
 	}
 
 	public function create_number($numero = 0)
@@ -281,10 +273,70 @@ class Inicio extends CI_Controller
 
 	public function generar_link()
 	{
+		$data = $this->input->post();
 		$json["id"] = $this->session->id;
 		$json["id_encoded"] = $this->create_number($this->session->id);
-		$json["link"] = base_url() . "Donacion/decriptar/" . $json["id_encoded"];
+		$json["link"] = base_url() . "Donacion/invitacion/" . $json["id_encoded"];
+		$email = $data["email"];
+		$email_address = $email;
+		$to = $email_address;
+		$email_subject = "#SOYDELADECUYO";
+		$email_body = '<!DOCTYPE html>
+			<html lang="es">
+			<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>#SOYDELADECUYO</title>
+			</head>  
+			<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;width: 100% !important;line-height: 100% !important;">
+			<center> 
+
+			<p>
+			Queremos invitarte a formar parte de nuestra comunidad. Para que le cuentes al mundo que sos de la de Cuyo.
+			</p>
+			<p>
+			¡Ingresa en el siguiente enlace Y enterate de todo!
+			</p>
+
+			<p>
+				'.$json["link"].'
+			</p>
+
+
+			<p>#SOYDELADECUYO</p>
+
+			</body>
+			</html>';
+			$json["body"] = $email_body;
+
+			$headers = "MIME-Version: 1.0\n";
+			$headers .= "Content-type: text/html; charset=utf-8\n";
+			$headers .= "From: UNCuyo <noresponder@uncuyo.com>\r\n";
+
+			$headers .= "Reply-To: $email_address";
+			mail($to, $email_subject, $email_body, $headers);
 		echo json_encode($json);
+	}
+
+	public function imprimir_access_token_mp()
+	{
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		echo $access_token;
+	}
+
+	public function obtener_access_token_mp()
+	{
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$access_token = $mp->get_access_token();
+		//echo $access_token;
+		return $access_token;
 	}
 
 	public function cargar_informacion_mp()
@@ -293,6 +345,8 @@ class Inicio extends CI_Controller
 
 		$access_token = $this->obtener_access_token_mp();
 		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=" . $access_token;
+		//$url = "https://api.mercadopago.com/v1/payments/search?collector.id=277501295&access_token=" . $access_token;
+		
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -313,29 +367,16 @@ class Inicio extends CI_Controller
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
 
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); // mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
 		//$balance = $mp->get ("/mercadopago_account/movements/search");
 
 		$resultados = $response["results"];
+
 		return $resultados;
 		
 		//return $balance;
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> b45e9a3e86663953a1d81590ed80f10a4bc4865c
 	}
 
 	public function perfil()
@@ -361,6 +402,7 @@ class Inicio extends CI_Controller
 		$this->session->unset_userdata("newsession");
 		$this->session->unset_userdata("email");
 		$this->session->unset_userdata("jerarquia");
+		$this->session->unset_userdata("id_colaborador");
 		$json["eliminado"] = 1;
 		echo json_encode($json);
 	}

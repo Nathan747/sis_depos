@@ -1,5 +1,5 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 //$this->load->library('session');
 class Registro_model extends CI_Model
 {
@@ -19,7 +19,7 @@ class Registro_model extends CI_Model
 		$this->session->set_userdata('username', $nombre_completo);
 		$this->session->set_userdata('email', $data["email_user"]);
 		$this->session->set_userdata('jerarquia', $data["jerarquia"]);
-
+		$this->session->set_userdata('id_colaborador', $data["id_asociado"]);
 		$sql = $this->db->get('unc_usuarios');
 		foreach ($sql->result() as $row) {
 			$id = $row->id_user;
@@ -42,8 +42,7 @@ class Registro_model extends CI_Model
 		$filas = $sql->num_rows();
 		if ($filas > 0) {
 			$exist = 1;
-		}
-		else {
+		} else {
 			$exist = 0;
 		}
 		return $exist;

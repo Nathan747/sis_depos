@@ -1,5 +1,5 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 //$this->load->library('session');
 class Login_model extends CI_Model
 {
@@ -26,14 +26,15 @@ class Login_model extends CI_Model
         $email = $row->email_user;
         $jerarquia = $row->jerarquia;
         $id = $row->id_user;
+        $colaborador = $row->id_asociado;
       }
       $this->session->set_userdata('username', $nombre_completo);
       $this->session->set_userdata('email', $email);
       $this->session->set_userdata('jerarquia', $jerarquia);
       $this->session->set_userdata('id', $id);
+      $this->session->set_userdata('id_colaborador', $colaborador);
       $json["username"] = $nombre_completo;
-    }
-    else {
+    } else {
       $this->session->set_userdata("newsession", "no");
       $json["entro"] = 0;
       $json["username"] = "none";
@@ -47,8 +48,7 @@ class Login_model extends CI_Model
     $filas = $sql->num_rows();
     if ($filas > 0) {
       $variable = 1;
-    }
-    else {
+    } else {
       $variable = 0;
     }
     return $variable;
@@ -76,8 +76,7 @@ class Login_model extends CI_Model
         $JSON["nombre"] = $row->nombre_user;
         $JSON["encontro"] = 1;
       }
-    }
-    else {
+    } else {
       $JSON["encontro"] = 0;
     }
     return $JSON;

@@ -1,5 +1,5 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Inicio_model extends CI_Model
 {
@@ -28,6 +28,7 @@ class Inicio_model extends CI_Model
 			$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
 			$arreglo[$x]["facultad_user"] = $row->facultad_user;
 			$arreglo[$x]["carrera_user"] = $row->carrera_user;
+			$arreglo[$x]["id_asociado"] = $row->id_asociado;
 			$x++;
 		}
 		$arreglo["cantidad"] = $x;
@@ -52,6 +53,7 @@ class Inicio_model extends CI_Model
 				$arreglo[$x]["jerarquia_user"] = $row->jerarquia;
 				$arreglo[$x]["facultad_user"] = $row->facultad_user;
 				$arreglo[$x]["carrera_user"] = $row->carrera_user;
+				$arreglo[$x]["id_asociado"] = $row->id_asociado;
 				$x++;
 			}
 		}

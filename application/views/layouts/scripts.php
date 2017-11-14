@@ -7,6 +7,13 @@
 <script>  
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
+  var id_colaborador = "<?php 
+  if ($this->session->has_userdata('id_colaborador')) {
+    echo $this->session->id_colaborador;
+  } else {
+    echo 0;
+  }
+  ?>";
   var facebook_count = 0;
   var map;
   var map_register;
@@ -788,6 +795,39 @@
     }
 
     return string_carrera;
+  }
+
+  function execute_my_onreturn(json){
+    console.log(json);
+    var id = "<?php echo $this->session->id ?>";
+    var email = "<?php echo $this->session->email ?>";
+    var username = "<?php echo $this->session->username ?>";
+    console.log(id);
+    console.log(email);
+    console.log(username);
+    if ( (json.collection_status == 'approved') || (json.collection_status == 'in_process') ) {
+      $.ajax({
+        url: "Donacion/guardar_pago",
+        type: "POST",
+        data: {
+          id_usuario: id,
+          id_operacion_mp: json.collection_id,
+          monto_transaction: 0,
+          neto_recibido: 0,
+          tipo_dinero: "ARS",
+          status: json.collection_status,
+          porcentaje_colaborador: 0
+        }
+      }).done(function(json){
+        console.log(" DONE ");
+      });
+    } else if (json.collection_status == 'pending') {
+      alert('No completaste la donación');
+    } else if (json.collection_status == 'rejected') {
+      alert('La donación fué rechazado, puede intentar nuevamente.');
+    } else if (json.collection_status == null) {
+      alert('No realizaste la donación.');
+    }
   }
 
 

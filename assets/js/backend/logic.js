@@ -605,7 +605,8 @@
                   longitud: longitude,
                   facultad: facultad_number,
                   carrera: carrera_number,
-                  picture: picture
+                  picture: picture,
+                  id_colaborador: id_colaborador
               }
           }).done(function(json) {
               if (reg_fb_normal == 0) {
@@ -638,7 +639,7 @@
           console.log(password_ingresar);
           $.ajax({
               type: "POST",
-              url: "Control_Login/enviar_datos/",
+              url: "../Control_Login/enviar_datos/",
               data: {
                   email: email_ingresar,
                   password: password_ingresar
@@ -670,7 +671,7 @@
           localStorage.setItem("registro_facebook", "no");
           $.ajax({
               type: "POST",
-              url: "logout/"
+              url: "../inicio/logout/"
           }).done(function(json) {
               var objeto = $.parseJSON(json);
               //FB.getLoginStatus(handleSessionResponse);

@@ -5,7 +5,7 @@ if ($this->session->has_userdata('newsession')) {
 
 		<div class="container float2">
 			<div class="row">
-				<h3>#SoyDeLaUNCuyo</h3>
+				<h3>#SOYDELADECUYO</h3>
 				<p>Formá parte de la comunidad de egresados de la Universidad Nacional de Cuyo alrededor del mundo.<br></p>
 			</div>
 
@@ -25,7 +25,7 @@ if ($this->session->has_userdata('newsession')) {
 
 		<div class="container float">
 			<div class="row">
-				<h3>#SoyDeLaUNCuyo</h3>
+				<h3>#SOYDELADECUYO</h3>
 				<p>Formá parte de la comunidad de egresados de la Universidad Nacional de Cuyo alrededor del mundo.<br></p>
 			</div>
 
@@ -46,7 +46,7 @@ if ($this->session->has_userdata('newsession')) {
 	?>
 	<div class="container float">
 		<div class="row">
-			<h3>#SoyDeLaUNCuyo</h3>
+			<h3>#SOYDELADECUYO</h3>
 			<p>Formá parte de la comunidad de egresados de la Universidad Nacional de Cuyo alrededor del mundo.<br></p>
 		</div>
 

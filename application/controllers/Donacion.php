@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Donacion extends CI_Controller
 {
@@ -55,7 +55,7 @@ class Donacion extends CI_Controller
 	public function obtener_access_token_mp()
 	{
 		$this->load->view('mp/mercadopago.php');
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		//echo $access_token;
@@ -68,6 +68,7 @@ class Donacion extends CI_Controller
 
 		$access_token = $this->obtener_access_token_mp();
 		$url = "https://api.mercadopago.com/v1/payments/search?collector.id=150678392&access_token=" . $access_token;
+		//$url = "https://api.mercadopago.com/v1/payments/search?collector.id=277501295&access_token=" . $access_token;
 
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => $url,
@@ -88,7 +89,8 @@ class Donacion extends CI_Controller
 		$response = json_decode($response, true); //because of true, it's in an array
 		$cantidad_elementos = sizeof($response["results"]);
 
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV");
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		//$balance = $mp->get ("/users/150678392/mercadopago_account/balance");
 		//$balance = $mp->get ("/mercadopago_account/movements/search");
 
@@ -96,18 +98,6 @@ class Donacion extends CI_Controller
 		return $resultados;
 		
 		//return $balance;
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 	public function status($payment = 0, $status = 0)
@@ -132,19 +122,25 @@ class Donacion extends CI_Controller
 		$cantidad = sizeof($objeto);
 		$object["objeto"] = $objeto;
 
+
 		if ( ($payment != 0) && ($id != -1)) {
 			$payment = $this->decode_number($payment);
 			if ($payment != 0) {
 				$status = $this->decode_status($status);
-
 				$datos = array(
 					"id_usuario" => $id,
 					"id_operacion_mp" => $objeto[$cantidad - 1]["order"]["id"],
 					"tipo_dinero" => $objeto[$cantidad - 1]["currency_id"],
 					"status" => $objeto[$cantidad - 1]["status"],
 					"monto_transaction" => $objeto[$cantidad - 1]["transaction_amount"],
-					"neto_recibido" => $objeto[$cantidad - 1]["transaction_details"]["net_received_amount"]
+					"neto_recibido" => $objeto[$cantidad - 1]["transaction_details"]["net_received_amount"],
+					"porcentaje_colaborador" => 0
 				);
+				if ($this->session->has_userdata('id_colaborador')) {
+					if ($this->session->id_colaborador != 0) {
+						$datos["porcentaje_colaborador"] = floatval($datos["neto_recibido"]) - (floatval($datos["neto_recibido"]) * 0.1);
+					}
+				}
 
 				$hoy = date("Y-m-d");
 
@@ -161,7 +157,7 @@ class Donacion extends CI_Controller
 					if ($this->session->has_userdata('id_colaborador')) {
 						$porcentaje = floatval($datos["neto_recibido"]) * 0.1;
 						$datos2 = array(
-							"id_colaborador" => $id,
+							"id_colaborador" => $this->session->id_colaborador,
 							"id_operacion_mp" => $objeto[$cantidad - 1]["order"]["id"],
 							"cantidad_dinero" => $datos["neto_recibido"],
 							"recibido" => $porcentaje
@@ -172,42 +168,86 @@ class Donacion extends CI_Controller
 
 					if ($status == 1) {
 						$home = "location: " . base_url("") . "Donacion/landing_pagado";
-					}
-					else {
+					} else {
 						$home = "location: " . base_url("") . "Donacion/landing_pendiente";
 					}
 					header($home);
-				}
-				else {
+				} else {
 					$home = "location: " . base_url("");
 					header($home);
 				}
 
 
 			}
-		}
-		else {
+		} else {
 			$home = "location: " . base_url("");
 			header($home);
 		}
 
 	}
 
-	public function decriptar($id = 0)
+	public function guardar_pago()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"id_usuario" => $data["id_usuario"],
+			"id_operacion_mp" => $data["id_operacion_mp"],
+			"tipo_dinero" => $data["tipo_dinero"],
+			"status" => $data["status"],
+			"monto_transaction" => $data["monto_transaction"],
+			"neto_recibido" => $data["neto_recibido"],
+			"porcentaje_colaborador" => 0
+		);
+
+		$objeto = $this->cargar_informacion_mp();
+		$cantidad = sizeof($objeto);
+		for ($i=0; $i < $cantidad; $i++) { 
+			if($objeto[$i]["id"] == $datos["id_operacion_mp"]){
+				$datos["monto_transaction"] = $objeto[$i]["transaction_amount"];
+				$datos["neto_recibido"] = $objeto[$i]["transaction_details"]["net_received_amount"];
+			}
+		}
+		
+		if ($this->session->has_userdata('id_colaborador')) {
+			if ($this->session->id_colaborador != 0) {
+				$datos["porcentaje_colaborador"] = floatval($datos["neto_recibido"]) - (floatval($datos["neto_recibido"]) * 0.1);
+			}
+		}
+
+		$hoy = date("Y-m-d");
+
+		$datos_usuario = array(
+			"cantidad_dinero" => $datos["neto_recibido"],
+			"ultima_modificacion" => $hoy
+		);
+
+		$this->Donacion_model->guardar_informacion_pago($datos);
+		$this->Donacion_model->almacenar_dinero($datos_usuario);
+
+		if ($this->session->has_userdata('id_colaborador')) {
+			$porcentaje = floatval($datos["neto_recibido"]) * 0.1;
+			$datos2 = array(
+				"id_colaborador" => $this->session->id_colaborador,
+				"id_operacion_mp" => $datos["id_operacion_mp"],
+				"cantidad_dinero" => $datos["neto_recibido"],
+				"recibido" => $porcentaje
+			);
+
+			$this->Donacion_model->guardar_informacion_pago_colaborador($datos2);
+		}
+
+		echo json_encode($datos);
+
+	}
+
+	public function invitacion($id = 0)
 	{
 		$id_colaborador = $this->decode_number($id);
 		$this->session->set_userdata('id_colaborador', $id_colaborador);
-		if ($this->session->has_userdata('newsession')) {
-			if ($this->session->newsession === "yes") {
-				$redirect = base_url("") . "Donacion/donar";
-			}
-			else {
-				$redirect = base_url("") . "Donacion/registro";
-			}
-		}
-		else {
-			$redirect = base_url("") . "Donacion/registro";
-		}
+
+		$redirect = base_url("") . "Donacion/registro";
+
 		$home = "location: " . $redirect;
 		header($home);
 	}
@@ -216,17 +256,18 @@ class Donacion extends CI_Controller
 	{
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
+		/*if($this->session->has_userdata('id_colaborador')){
+			echo $this->session->id_colaborador;
+		}*/
 		$this->load->view('layouts/head', $data);
 		$this->load->view('layouts/style');
 		if (isset($_SESSION['newsession'])) {
 			if ($_SESSION['newsession'] != "yes") {
 				$this->load->view('back_colaborador/style');
-			}
-			else {
+			} else {
 				$this->load->view('back_colaborador/style2');
 			}
-		}
-		else {
+		} else {
 			$this->load->view('back_colaborador/style');
 		}
 		$this->load->view('start_body', $class);
@@ -240,8 +281,7 @@ class Donacion extends CI_Controller
 			if ($_SESSION['newsession'] != "yes") {
 				$this->load->view('registro');
 			}
-		}
-		else {
+		} else {
 			$this->load->view('registro');
 		}
 
@@ -249,12 +289,9 @@ class Donacion extends CI_Controller
 			if ($_SESSION['newsession'] != "yes") {
 				$this->load->view('login');
 			}
-		}
-		else {
+		} else {
 			$this->load->view('login');
 		}
-
-
 		$this->load->view('donar');
 		$this->load->view('layouts/footer');
 		$this->load->view('back_colaborador/script');
@@ -263,7 +300,16 @@ class Donacion extends CI_Controller
 
 	public function logout()
 	{
-
+		session_unset();
+		$this->session->set_userdata("EMAIL", NULL);
+		$this->session->set_userdata("FULLNAME", NULL);
+		$this->session->set_userdata("FBID", NULL);
+		$this->session->unset_userdata("newsession");
+		$this->session->unset_userdata("email");
+		$this->session->unset_userdata("jerarquia");
+		$this->session->unset_userdata("id_colaborador");
+		$json["eliminado"] = 1;
+		echo json_encode($json);
 	}
 
 

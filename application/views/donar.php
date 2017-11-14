@@ -76,7 +76,9 @@ if (isset($_SESSION['newsession'])) {
               <a id="boton-5" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-d66f4a4d-2463-4104-ad61-8c38f7099103" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$500</a>
               <a id="boton-6" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=2857954-c2616622-630b-48ae-b3f9-bdaccb97feb1" name="MP-payButton" class='blue-ar-l-rn-none' target="_blank">$750</a>
               <a id="boton-7" mp-mode="dftl" style="display: none" href="http://mpago.la/vFlp" name="MP-payButton" target="_blank">Suscribirme</a>
-              <a id="boton-8" mp-mode="dftl" style="display: none" href="https://www.mercadopago.com/mla/checkout/start?pref_id=150678392-121ad1b1-06e4-4471-be28-1aaf58465e27" name="MP-payButton" target="_blank">$1</a>
+              <!--a id="boton-8" name="MP-Checkout" mp-mode="modal" href="https://www.mercadopago.com/mla/checkout/start?pref_id=277501295-10f3abc2-c15b-49dd-8a15-9d86d34b2653" onreturn="execute_my_onreturn" target="modal" >$1</a-->
+              <a id="boton-8" name="MP-Checkout" mp-mode="modal" href="<?php echo $preference['response']['init_point'] ?>" onreturn="execute_my_onreturn" target="modal">$1</a>
+              
               
             </div>
           </div>
@@ -104,3 +106,7 @@ if (isset($_SESSION['newsession'])) {
   }
 }
 ?>
+
+<script type="text/javascript">
+(function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
+</script>
