@@ -186,6 +186,51 @@ class Donacion extends CI_Controller
 
 	}
 
+	public function guardar_pago()
+	{
+		$data = $this->input->post();
+
+		$datos = array(
+			"id_usuario" => $data["id_usuario"],
+			"id_operacion_mp" => $data["id_operacion_mp"],
+			"tipo_dinero" => $data["tipo_dinero"],
+			"status" => $data["status"],
+			"monto_transaction" => $data["monto_transaction"],
+			"neto_recibido" => $data["neto_recibido"],
+			"porcentaje_colaborador" => 0
+		);
+
+		
+		if ($this->session->has_userdata('id_colaborador')) {
+			if ($this->session->id_colaborador != 0) {
+				$datos["porcentaje_colaborador"] = $data["porcentaje_colaborador"];
+			}
+		}
+
+		$hoy = date("Y-m-d");
+
+		$datos_usuario = array(
+			"cantidad_dinero" => $datos["neto_recibido"],
+			"ultima_modificacion" => $hoy
+		);
+
+		$this->Donacion_model->guardar_informacion_pago($datos);
+		$this->Donacion_model->almacenar_dinero($datos_usuario);
+
+		if ($this->session->has_userdata('id_colaborador')) {
+			$porcentaje = floatval($datos["neto_recibido"]) * 0.1;
+			$datos2 = array(
+				"id_colaborador" => $this->session->id_colaborador,
+				"id_operacion_mp" => $datos["id_operacion_mp"],
+				"cantidad_dinero" => $datos["neto_recibido"],
+				"recibido" => $porcentaje
+			);
+
+			$this->Donacion_model->guardar_informacion_pago_colaborador($datos2);
+		}
+
+	}
+
 	public function invitacion($id = 0)
 	{
 		$id_colaborador = $this->decode_number($id);

@@ -8,12 +8,12 @@
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
   var id_colaborador = "<?php 
-                        if ($this->session->has_userdata('id_colaborador')) {
-                          echo $this->session->id_colaborador;
-                        } else {
-                          echo 0;
-                        }
-                        ?>";
+  if ($this->session->has_userdata('id_colaborador')) {
+    echo $this->session->id_colaborador;
+  } else {
+    echo 0;
+  }
+  ?>";
   var facebook_count = 0;
   var map;
   var map_register;
@@ -806,37 +806,47 @@
     console.log(email);
     console.log(username);
     if (json.collection_status == 'approved') {
-        alert('Pago acreditado, le enviaremos un correo con los datos de su reserva');
-        enviarConfirmacion('Pago en Confirmado');
+      alert('Pago acreditado, le enviaremos un correo con los datos de su reserva');
     } else if (json.collection_status == 'pending') {
-        alert('El usuario no completó el pago');
+      alert('El usuario no completó el pago');
     } else if (json.collection_status == 'in_process') {
-        alert('El pago está siendo procesado,le enviaremos un correo con los datos \n\
-                    de su reserva, cuando el pago se acredite su reserva se confirmara ');
-        enviarConfirmacion('Pago en Proceso');
+      alert('El pago está siendo procesado,le enviaremos un correo con los datos \n\
+        de su reserva, cuando el pago se acredite su reserva se confirmara ');
     } else if (json.collection_status == 'rejected') {
-        alert('El pago fué rechazado,puede intentar nuevamente el pago');
+      alert('El pago fué rechazado,puede intentar nuevamente el pago');
     } else if (json.collection_status == null) {
-        alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
+      alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
     }
 
     var monto=0;
 
     switch(json.preference_id){
       case "150678392-d86f42df-8dd4-465f-b1ca-96bcfad19f17":
-        monto = 1;
-        break;
+      monto = 1;
+      break;
     }
 
-    var objeto = {
-      id_usuario: id,
-      id_operacion_mp_1: json.collection_id,
-      monto: monto,
-      tipo_dinero: "ARS",
-      status: json.collection_status
-    }
+    var neto = monto-(monto*0.6); 
+    var colaborador = "<?php echo $this->session->id_colaborador ?>";
+    var porcentaje = neto * 0.1;
 
-    console.log(objeto);
+    $.ajax({
+      url: "Donacion/guardar_pago",
+      type: "POST",
+      data: {
+        id_usuario: id,
+        id_operacion_mp: json.collection_id,
+        monto_transaction: monto,
+        neto_recibido: neto,
+        tipo_dinero: "ARS",
+        status: json.collection_status,
+        porcentaje_colaborador: porcentaje,
+        colaborador: colaborador
+      }
+    }).done(function(json){
+
+    });
+
   }
 
 
