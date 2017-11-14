@@ -379,14 +379,6 @@ class Inicio extends CI_Controller
 		//return $balance;
 	}
 
-	public function test()
-	{
-		$access_token = $this->obtener_access_token_mp();
-		$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
-		$resultados = $mp->get("/merchant_orders/8416405");
-		echo print_r($resultados);
-	}
-
 	public function perfil()
 	{
 		$data["titulo"] = "Perfil UNCuyo";

@@ -799,6 +799,12 @@
 
   function execute_my_onreturn(json){
     console.log(json);
+    var id = "<?php echo $this->session->id ?>";
+    var email = "<?php echo $this->session->email ?>";
+    var username = "<?php echo $this->session->username ?>";
+    console.log(id);
+    console.log(email);
+    console.log(username);
     if (json.collection_status == 'approved') {
         alert('Pago acreditado, le enviaremos un correo con los datos de su reserva');
         enviarConfirmacion('Pago en Confirmado');
@@ -813,6 +819,24 @@
     } else if (json.collection_status == null) {
         alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
     }
+
+    var monto=0;
+
+    switch(json.preference_id){
+      case "150678392-d86f42df-8dd4-465f-b1ca-96bcfad19f17":
+        monto = 1;
+        break;
+    }
+
+    var objeto = {
+      id_usuario: id,
+      id_operacion_mp_1: json.collection_id,
+      monto: monto,
+      tipo_dinero: "ARS",
+      status: json.collection_status
+    }
+
+    console.log(objeto);
   }
 
 
