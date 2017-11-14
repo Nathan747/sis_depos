@@ -141,6 +141,67 @@
 
 @media(max-width:767px) {
 
+
+
+/*maps*/
+
+
+#contenedor-leer {
+    position: absolute;
+    width: 195px;
+    bottom: 1px;
+    left: 3px;
+    height: 25px;
+    background-color: #108CFF;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div>.gm-style-iw {
+    top: 0 !important;
+    left: 0 !important;
+    width: 200px !important;
+    height: 293px!important;
+}
+
+
+
+#map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4){
+	position: absolute;
+    left: 24px!important;
+    top: 23px!important;
+    z-index: 107;
+    width: 100%;
+}
+
+
+#map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div>div:nth-child(1)>div:nth-child(4) {
+	height: 299px !important;
+    width: 199px!important;
+}
+
+#map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div>div:nth-child(1)>div:nth-child(2) {
+    height: 300px !important;
+    width: 201px!important;
+}
+
+#map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div {
+	cursor: default;
+    position: absolute;
+    width: 201px!important;
+    height: 296px!important;
+    left: 172px;
+    top: -49px;
+    z-index: -49;
+
+}
+
+/*maps*/
+
+
+
 .profile .container .expand {
     max-height: 2000px!important;
 }
