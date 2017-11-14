@@ -55,7 +55,7 @@ class Donacion extends CI_Controller
 	public function obtener_access_token_mp()
 	{
 		$this->load->view('mp/mercadopago.php');
-		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); mi user
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
 		//$mp = new MP ("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
 		$access_token = $mp->get_access_token();
 		//echo $access_token;
@@ -200,10 +200,18 @@ class Donacion extends CI_Controller
 			"porcentaje_colaborador" => 0
 		);
 
+		$objeto = $this->cargar_informacion_mp();
+		$cantidad = sizeof($objeto);
+		for ($i=0; $i < $cantidad; $i++) { 
+			if($objeto[$i]["id"] == $datos["id_operacion_mp"]){
+				$datos["monto_transaction"] = $objeto[$i]["transaction_amount"];
+				$datos["neto_recibido"] = $objeto[$i]["transaction_details"]["net_received_amount"];
+			}
+		}
 		
 		if ($this->session->has_userdata('id_colaborador')) {
 			if ($this->session->id_colaborador != 0) {
-				$datos["porcentaje_colaborador"] = $data["porcentaje_colaborador"];
+				$datos["porcentaje_colaborador"] = floatval($datos["neto_recibido"]) - (floatval($datos["neto_recibido"]) * 0.1);
 			}
 		}
 
@@ -228,6 +236,8 @@ class Donacion extends CI_Controller
 
 			$this->Donacion_model->guardar_informacion_pago_colaborador($datos2);
 		}
+
+		echo json_encode($datos);
 
 	}
 

@@ -818,17 +818,6 @@
       alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
     }
 
-    var monto=0;
-
-    switch(json.preference_id){
-      case "150678392-d86f42df-8dd4-465f-b1ca-96bcfad19f17":
-      monto = 1;
-      break;
-    }
-
-    var neto = monto-(monto*0.6); 
-    var colaborador = "<?php echo $this->session->id_colaborador ?>";
-    var porcentaje = neto * 0.1;
 
     $.ajax({
       url: "Donacion/guardar_pago",
@@ -836,15 +825,15 @@
       data: {
         id_usuario: id,
         id_operacion_mp: json.collection_id,
-        monto_transaction: monto,
-        neto_recibido: neto,
+        monto_transaction: 0,
+        neto_recibido: 0,
         tipo_dinero: "ARS",
         status: json.collection_status,
-        porcentaje_colaborador: porcentaje,
-        colaborador: colaborador
+        porcentaje_colaborador: 0
       }
     }).done(function(json){
-
+      console.log(" ENTRO ");
+      console.log($.parseJSON(json));
     });
 
   }
