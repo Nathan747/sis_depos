@@ -805,37 +805,29 @@
     console.log(id);
     console.log(email);
     console.log(username);
-    if (json.collection_status == 'approved') {
-      alert('Pago acreditado, le enviaremos un correo con los datos de su reserva');
+    if ( (json.collection_status == 'approved') || (json.collection_status == 'in_process') ) {
+      $.ajax({
+        url: "Donacion/guardar_pago",
+        type: "POST",
+        data: {
+          id_usuario: id,
+          id_operacion_mp: json.collection_id,
+          monto_transaction: 0,
+          neto_recibido: 0,
+          tipo_dinero: "ARS",
+          status: json.collection_status,
+          porcentaje_colaborador: 0
+        }
+      }).done(function(json){
+        console.log(" DONE ");
+      });
     } else if (json.collection_status == 'pending') {
-      alert('El usuario no completó el pago');
-    } else if (json.collection_status == 'in_process') {
-      alert('El pago está siendo procesado,le enviaremos un correo con los datos \n\
-        de su reserva, cuando el pago se acredite su reserva se confirmara ');
+      alert('No completaste la donación');
     } else if (json.collection_status == 'rejected') {
-      alert('El pago fué rechazado,puede intentar nuevamente el pago');
+      alert('La donación fué rechazado, puede intentar nuevamente.');
     } else if (json.collection_status == null) {
-      alert('El usuario no completó el proceso de pago, no se ha generado ningúna reserva');
+      alert('No realizaste la donación.');
     }
-
-
-    $.ajax({
-      url: "Donacion/guardar_pago",
-      type: "POST",
-      data: {
-        id_usuario: id,
-        id_operacion_mp: json.collection_id,
-        monto_transaction: 0,
-        neto_recibido: 0,
-        tipo_dinero: "ARS",
-        status: json.collection_status,
-        porcentaje_colaborador: 0
-      }
-    }).done(function(json){
-      console.log(" ENTRO ");
-      console.log($.parseJSON(json));
-    });
-
   }
 
 

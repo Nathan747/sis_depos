@@ -11,13 +11,13 @@
 	var carrera_sin_editar;
 	var direccion = "<?php echo base_url("") ?>";
 	var mercado_pago = $.parseJSON('<?php echo json_encode($mercadopago); ?>');
-	console.log(mercado_pago);
+	//console.log(mercado_pago);
 
 	var objeto = <?php echo json_encode($objeto) ?>;
 	console.log(objeto);
 
 	var jerarquia = <?php echo json_encode($jerarquia) ?>;
-	console.log(jerarquia);
+	//console.log(jerarquia);
 
 	for (var i = 0; i < objeto.cantidad; i++) {
 		for (var x = 0; x < mercado_pago.length; x++) {
@@ -2223,6 +2223,14 @@
         		$("#TelefonoEditar").val(jerarquia[j].telefono_user);
         	}
         }
+    }
+
+    function validar(e) {
+    	console.log(e);
+    	tecla = (document.all) ? e.keyCode : e.which;
+    	if (tecla==13) {
+    		console.log($("#ultimos-movimientos").find(".cuadro-busqueda").find("input").val());
+    	}
     }
 
 </script>
