@@ -2437,9 +2437,15 @@ tr:hover .eliminar-becario {
     color: #e74c3c !important;
 }
 
-body.back #contenedor-marcador,
 body.back #boxes #dialog {
     height: 80vh;
+    min-height: 500px;
+    max-height: 600px;
+}
+
+body.back #contenedor-marcador{
+	height: auto !important;
+	min-height: 0px;
 }
 
 body.back #boxes #dialog {
@@ -2474,7 +2480,8 @@ body.back #boxes .close {
 }
 
 #btnModificarModal {
-    position: fixed;
+    position: absolute;
+    bottom: 25px;
 }
 
 .table {

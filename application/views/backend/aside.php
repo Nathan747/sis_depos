@@ -4,7 +4,7 @@
 		<ul>
 			<a href="#" id="gestar"><li>Gestionar Usuarios</li></a>
 			<a href="#" id="movimientos" class="li-active"><li>Ultimos movimientos</li></a>
-			<a href="#" id="recaudado"><li>Recaudado</li></a>
+			<a href="#" id="recaudado"><li>Lista de Becas</li></a>
 			<a href="#" id="becarios"><li>Becarios</li></a>
 		</ul>
 		<div class="imagen-footer">

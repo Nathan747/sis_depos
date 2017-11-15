@@ -10,7 +10,7 @@
 	var carrera_editada;
 	var carrera_sin_editar;
 	var direccion = "<?php echo base_url("") ?>";
-	var mercado_pago = $.parseJSON('<?php echo json_encode($mercadopago); ?>');
+	
 	//console.log(mercado_pago);
 
 	var objeto = <?php echo json_encode($objeto) ?>;
@@ -18,16 +18,6 @@
 
 	var jerarquia = <?php echo json_encode($jerarquia) ?>;
 	//console.log(jerarquia);
-
-	for (var i = 0; i < objeto.cantidad; i++) {
-		for (var x = 0; x < mercado_pago.length; x++) {
-			if(objeto[i].id_operacion_mp == mercado_pago[x].id){
-				console.log("Objeto i: " + i + " - Objeto j: " + x);
-				console.log(mercado_pago[x].status);
-				console.log("-----------------------------------");
-			}
-		}
-	}
 
 	
 	function deco_facultad(facultad){
@@ -1538,7 +1528,6 @@
 		id_buscar = id_buscar.replace("becario-editar-","");
 		id_buscar = parseInt(id_buscar);
 		muestraModal2(id_buscar);
-
 	});
 
 
@@ -2046,11 +2035,15 @@
         	$("#boxes").find(".close").click();
         });    
 
+		console.log(jerarquia);
+
         for (var j = 0; j < jerarquia.cantidad; j++) {
         	if(jerarquia[j].id_user==parametro){
         		$("#NombreEditar2").val(jerarquia[j].nombre_user);
         		$("#ApellidoEditar2").val(jerarquia[j].apellido_user);
         		$("#TelefonoEditar2").val(jerarquia[j].telefono_user);
+				$("#EdadEditar2").val(jerarquia[j].edad_user);
+				$("#FechaEditar2").val(jerarquia[j].fecha_egreso_user);
         		$("#DNIEditar2").val(jerarquia[j].dni_user);
         		$("#universidad-editar-2").val(jerarquia[j].facultad_user);
         		$("#carrera-Editar").css("display","none");
