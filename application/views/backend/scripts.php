@@ -2035,15 +2035,15 @@
         	$("#boxes").find(".close").click();
         });    
 
-		console.log(jerarquia);
+        console.log(jerarquia);
 
         for (var j = 0; j < jerarquia.cantidad; j++) {
         	if(jerarquia[j].id_user==parametro){
         		$("#NombreEditar2").val(jerarquia[j].nombre_user);
         		$("#ApellidoEditar2").val(jerarquia[j].apellido_user);
         		$("#TelefonoEditar2").val(jerarquia[j].telefono_user);
-				$("#EdadEditar2").val(jerarquia[j].edad_user);
-				$("#FechaEditar2").val(jerarquia[j].fecha_egreso_user);
+        		$("#EdadEditar2").val(jerarquia[j].edad_user);
+        		$("#FechaEditar2").val(jerarquia[j].fecha_egreso_user);
         		$("#DNIEditar2").val(jerarquia[j].dni_user);
         		$("#universidad-editar-2").val(jerarquia[j].facultad_user);
         		$("#carrera-Editar").css("display","none");
@@ -2218,11 +2218,19 @@
         }
     }
 
+    var arreglo_filas = [];
+    for(i=1;i<10;i++){
+    	arreglo_filas[i] 
+    }
+
     function validar(e) {
-    	console.log(e);
-    	tecla = (document.all) ? e.keyCode : e.which;
-    	if (tecla==13) {
-    		console.log($("#ultimos-movimientos").find(".cuadro-busqueda").find("input").val());
+    	var busqueda = $("#ultimos-movimientos").find(".cuadro-busqueda").find("input").val();
+    	console.log(objeto);
+    	for (var i = 0; i < objeto.cantidad; i++) {
+    		var nombre_completo = objeto[i].nombre.toLowerCase()+""+objeto[i].apellido.toLowerCase();
+    		var n = nombre_completo.includes(busqueda.toLowerCase());
+
+    		if(n) console.log("Nombre completo: "+nombre_completo+" - Email: "+objeto[i].email+" - DNI: "+objeto[i].email+" - Teléfono: "+objeto[i].telefono+" - Fecha Creada: "+objeto[i].fecha_creada+" - Monto: "+objeto[i].monto_transaction+" - Neto: "+objeto[i].neto_recibido);
     	}
     }
 

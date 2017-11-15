@@ -254,6 +254,24 @@ class Donacion extends CI_Controller
 
 	public function registro()
 	{
+
+		$this->load->view('mp/mercadopago.php');
+		$mp = new MP("7135103912510152", "JcM0fTp0zyMAMHZ2BNQSrS7SZGZImQxV"); //mi user
+		//$mp = new MP("1693304189860337", "pSiu08Ck3WjGR4ElUDjXWUkk0zvUaPrE");
+		$preference_data = array(
+			"items" => array(
+				array(
+					"title" => "Test 10",
+					"quantity" => 1,
+					"currency_id" => "ARS", // Available currencies at: https://api.mercadopago.com/currencies
+					"unit_price" => 1.00
+				)
+			)
+		);
+
+		$preference = $mp->create_preference($preference_data);
+		$obj["preference"] = $preference;
+
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
 		/*if($this->session->has_userdata('id_colaborador')){
@@ -292,7 +310,7 @@ class Donacion extends CI_Controller
 		} else {
 			$this->load->view('login');
 		}
-		$this->load->view('donar');
+		$this->load->view('donar',$obj);
 		$this->load->view('layouts/footer');
 		$this->load->view('back_colaborador/script');
 		$this->load->view('end_body');
