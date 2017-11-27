@@ -226,6 +226,7 @@
         left: 29px;
         font-size: 13px;
         font-family: Alegreya Sans;
+        color: #3d3d3d;
     }
 
     .contenedor-ventana-flotante, .boton-registrate, .localizate{
@@ -249,7 +250,7 @@
         align-content: center;
         flex-direction: column;
         padding-left: 10px;
-        color: #333;
+        color: #3d3d3d;
         font-family: Alegreya Sans;
         font-weight: 700;
         font-size: 17px;
@@ -347,7 +348,7 @@
     .navbar-nav li a {
         font-family: Alegreya Sans;
         font-weight: normal;
-        color: #333; !important;
+        color: #3d3d3d !important;
         font-size: 18px!important;
     }
 
@@ -1517,10 +1518,6 @@
         float: left;
         border-radius: 5px;
         transition: all 1s ease;
-    }
-
-    .active-sep .puntito{
-        background-color: #DF5426;
     }
 
     .puntito-add{

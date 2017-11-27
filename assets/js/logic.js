@@ -28,7 +28,7 @@
 
       $(".bloq-2").addClass("active");
         //$(".sep-2").find(".linea-separador").addClass("active-sep");
-        $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+        $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
           setTimeout(mostrar($(this)),16000);
         });
 
@@ -68,7 +68,10 @@
           left: "0"
         });
         $(".bloq-3").addClass("active");
-        $(".sep-3").find(".linea-separador").addClass("active-sep");
+        //$(".sep-3").find(".linea-separador").addClass("active-sep");
+        $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+          setTimeout(mostrar($(this)),16000);
+        });
         $(".word-carrera").addClass("word-active");
       } else {
         $("#email_login").parent().addClass("has-error");

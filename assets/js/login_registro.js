@@ -180,6 +180,9 @@ $('#registrate').click(function(e){
   $('.login').animate({right: "-100%"});
 });
 
+var mostrar = function(etiqueta){
+  etiqueta.addClass("puntito-add");
+}
 
 //BOTON SIGUIENTE CARRERA
 $("#siguiente-run").click(function(e){
@@ -193,7 +196,10 @@ $("#siguiente-run").click(function(e){
     left: "0"
   });
   $(".bloq-4").addClass("active");
-  $(".sep-4").find(".linea-separador").addClass("active-sep");
+  //$(".sep-4").find(".linea-separador").addClass("active-sep");
+  $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+    setTimeout(mostrar($(this)),16000);
+  });
   $(".word-mapa").addClass("word-active");
 });
 
@@ -210,9 +216,16 @@ $("#bloque-01").click(function(e){
   $("#bloque-04").find(".bloque-wizard").removeClass("active");
   //$(".sep-2").find(".linea-separador").removeClass("active-sep");
   //$(".sep-3").find(".linea-separador").removeClass("active-sep");
+  $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+    setTimeout(remover($(this)),16000);
+  });
   $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
     setTimeout(remover($(this)),16000);
   });
+  $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
+    setTimeout(remover($(this)),16000);
+  });
+  
   $(".word-carrera").removeClass("word-active");
   $(".word-datos").removeClass("word-active");
   $(".word-mapa").removeClass("word-active");
@@ -251,7 +264,13 @@ $("#bloque-02").click(function(e){
   if($(this).find(".bloque-wizard").hasClass("active")){
     $("#bloque-03").find(".bloque-wizard").removeClass("active");
     $("#bloque-04").find(".bloque-wizard").removeClass("active");
-    $(".sep-3").find(".linea-separador").removeClass("active-sep");
+    //$(".sep-3").find(".linea-separador").removeClass("active-sep");
+    $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+      setTimeout(remover($(this)),16000);
+    });
+    $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+      setTimeout(remover($(this)),16000);
+    });
     $(".word-carrera").removeClass("word-active");
     $(".word-mapa").removeClass("word-active");
 
@@ -276,6 +295,9 @@ $("#bloque-03").click(function(e){
   if($(this).find(".bloque-wizard").hasClass("active")){
     $("#bloque-04").find(".bloque-wizard").removeClass("active");
     $(".word-mapa").removeClass("word-active");
+    $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+      setTimeout(remover($(this)),16000);
+    });
 
     $(".contenedor-carreras").css("display","block");
     $(".contenedor-carreras").animate({

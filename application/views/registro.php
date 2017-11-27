@@ -174,7 +174,7 @@
         </div>
 
         <div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" enabled>Siguiente</button>
+          <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
         </div>
 
         <!--div class="siguiente-registro-basico">
@@ -232,7 +232,7 @@
         </div>
 
         <div class="siguiente-facebook">
-          <button type="submit" class="btn btn-default" id="siguiente-fb" enabled>Siguiente</button>
+          <button type="submit" class="btn btn-default" id="siguiente-fb" disabled>Siguiente</button>
         </div>
 
       </div>
@@ -243,7 +243,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-group">
           <select class="form-control" id="universidad_login" placeholder="Universidad">
-            <option selected enabled>Facultad</option>
+            <option selected disabled>Facultad</option>
             <option value="1">Facultad de Artes y Diseño</option>
             <option value="2">Facultad de Ciencias Agrarias</option>
             <option value="3">Facultad de Ciencias Aplicadas a la Industria</option>
@@ -1901,7 +1901,7 @@
 
 
       <div class="siguiente-carrera">
-        <button type="submit" class="btn btn-default" id="siguiente-run" enabled>Siguiente</button>
+        <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
       </div>
     </div>
 
@@ -1913,7 +1913,7 @@
       </div>
 
       <div class="siguiente-finalizar">
-        <button type="submit" class="btn btn-default" id="siguiente-fin" enabled>Finalizar</button>
+        <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
       </div>
     </div>
   </div>
