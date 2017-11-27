@@ -11,20 +11,59 @@
           01
         </div></a>
         <div class="separador-wizard sep-1">
-          <div class="linea-separador active-sep"></div>
+          <div class="linea-separador active-sep">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
 
         <a id="bloque-02" href="#"><div class="bloque-wizard bloq-2">
           02
         </div></a>
         <div class="separador-wizard sep-2">
-          <div class="linea-separador"></div>
+          <div class="linea-separador">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
         <a id="bloque-03" href="#"><div class="bloque-wizard bloq-3">
           03
         </div></a>
         <div class="separador-wizard sep-3">
-          <div class="linea-separador"></div>
+          <div class="linea-separador">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
         <a id="bloque-04" href="#"><div class="bloque-wizard bloq-4">
           04
@@ -135,7 +174,7 @@
         </div>
 
         <div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
+          <button type="submit" class="btn btn-default" id="siguiente-basico" enabled>Siguiente</button>
         </div>
 
         <!--div class="siguiente-registro-basico">
@@ -193,7 +232,7 @@
         </div>
 
         <div class="siguiente-facebook">
-          <button type="submit" class="btn btn-default" id="siguiente-fb" disabled>Siguiente</button>
+          <button type="submit" class="btn btn-default" id="siguiente-fb" enabled>Siguiente</button>
         </div>
 
       </div>
@@ -204,7 +243,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-group">
           <select class="form-control" id="universidad_login" placeholder="Universidad">
-            <option selected disabled>Facultad</option>
+            <option selected enabled>Facultad</option>
             <option value="1">Facultad de Artes y Diseño</option>
             <option value="2">Facultad de Ciencias Agrarias</option>
             <option value="3">Facultad de Ciencias Aplicadas a la Industria</option>
@@ -1862,7 +1901,7 @@
 
 
       <div class="siguiente-carrera">
-        <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
+        <button type="submit" class="btn btn-default" id="siguiente-run" enabled>Siguiente</button>
       </div>
     </div>
 
@@ -1874,7 +1913,7 @@
       </div>
 
       <div class="siguiente-finalizar">
-        <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
+        <button type="submit" class="btn btn-default" id="siguiente-fin" enabled>Finalizar</button>
       </div>
     </div>
   </div>

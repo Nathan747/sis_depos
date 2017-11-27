@@ -10,6 +10,8 @@
 	var carrera_editada;
 	var carrera_sin_editar;
 	var direccion = "<?php echo base_url("") ?>";
+	var aux_busqueda="";
+	var aux_busqueda2="";
 	
 	//console.log(mercado_pago);
 
@@ -18,6 +20,9 @@
 
 	var jerarquia = <?php echo json_encode($jerarquia) ?>;
 	//console.log(jerarquia);
+
+	var becas = <?php echo json_encode($becas) ?>;
+	console.log(becas);
 
 	
 	function deco_facultad(facultad){
@@ -2216,22 +2221,122 @@
         		$("#TelefonoEditar").val(jerarquia[j].telefono_user);
         	}
         }
+
+
+        $(".busqueda-ultimos-movimientos").on('keydown', function() {
+        	console.log("CLICK");
+        	var key = event.keyCode || event.charCode;
+
+        	if( key == 8 || key == 46 )
+        		return false;
+        });
     }
 
     var arreglo_filas = [];
+    var tabla_ultimos_movimientos = $("#ultimos-movimientos").find("table").find("tr");
+    console.log(tabla_ultimos_movimientos);
     for(i=1;i<10;i++){
-    	arreglo_filas[i] 
+    	arreglo_filas[i]=$(tabla_ultimos_movimientos[i]);
+    	var filas = arreglo_filas[i].children();
+    	console.log("Nombre: "+$(filas[0]).text() );
     }
+    console.log(arreglo_filas);
 
     function validar(e) {
+    	var contenedor = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ";
+    	console.log(e.key);
+    	if(contenedor.includes(e.key)){
+    		aux_busqueda+=e.key
+    	}else{
+    		if(e.keyCode==8){
+    			aux_busqueda = aux_busqueda.slice(0,-1);
+    		}
+    	}
+
+    	console.log(aux_busqueda);
     	var busqueda = $("#ultimos-movimientos").find(".cuadro-busqueda").find("input").val();
+    	console.log(e);
+    	//console.log(busqueda);
     	console.log(objeto);
+    	contador=1;
+    	var tabla_ultimos_movimientos = $("#ultimos-movimientos").find("table").empty();
+    	var cabecera = '<tbody><tr><th style="text-align: center;">NOMBRE Y APELLIDO</th><th style="text-align: center;">EMAIL</th><th style="text-align: center;">DNI</th><th style="text-align: center;">TELEFONO</th><th style="text-align: center;">FECHA CREADO</th><th style="text-align: center;">DINERO</th><th style="text-align: center;">NETO TOTAL</th></tr>';
+    	$("#ultimos-movimientos").find("table").append(cabecera);
+
     	for (var i = 0; i < objeto.cantidad; i++) {
     		var nombre_completo = objeto[i].nombre.toLowerCase()+""+objeto[i].apellido.toLowerCase();
-    		var n = nombre_completo.includes(busqueda.toLowerCase());
+    		var n = nombre_completo.includes(aux_busqueda.toLowerCase());
 
-    		if(n) console.log("Nombre completo: "+nombre_completo+" - Email: "+objeto[i].email+" - DNI: "+objeto[i].email+" - Teléfono: "+objeto[i].telefono+" - Fecha Creada: "+objeto[i].fecha_creada+" - Monto: "+objeto[i].monto_transaction+" - Neto: "+objeto[i].neto_recibido);
+    		if(n){
+    			var consulta = '<tr class="fila-'+contador+'"><td class="columna-1" style="text-align: center;">'+nombre_completo+'</td>';
+
+    			consulta+='<td class="columna-2" style="text-align: center;">'+objeto[i].email+'</td>';
+    			consulta+='<td class="columna-3" style="text-align: center;">'+objeto[i].dni+'</td>';
+    			consulta+='<td class="columna-4" style="text-align: center;">'+objeto[i].telefono+'</td>';
+    			consulta+='<td class="columna-5" style="text-align: center;">'+objeto[i].fecha_creada+'</td>';
+    			consulta+='<td class="columna-6" style="text-align: center;">'+objeto[i].monto_transaction+'</td>';
+    			consulta+='<td class="columna-7" style="text-align: center;">'+objeto[i].neto_recibido+'</td>';
+    			consulta+='</tr>';
+    			
+    			$("#ultimos-movimientos").find("table").append(consulta);
+    			contador++;
+    		}
+
     	}
+    	while(contador<10){
+    		var consulta = '<tr class="fila-'+contador+'"><td class="columna-1" style="text-align: center;"></td>';
+    		consulta+='<td class="columna-2" style="text-align: center;">&nbsp</td>';
+    		consulta+='<td class="columna-3" style="text-align: center;">&nbsp</td>';
+    		consulta+='<td class="columna-4" style="text-align: center;">&nbsp</td>';
+    		consulta+='<td class="columna-5" style="text-align: center;">&nbsp</td>';
+    		consulta+='<td class="columna-6" style="text-align: center;">&nbsp</td>';
+    		consulta+='<td class="columna-7" style="text-align: center;">&nbsp</td>';
+    		consulta+='</tr>';
+
+    		$("#ultimos-movimientos").find("table").append(consulta);
+    		contador++;
+    	}
+    	$("#ultimos-movimientos").find("table").append("</tbody>");
+    }
+
+    function validar2(e) {
+    	var contenedor = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ ";
+    	console.log(e.key);
+    	if(contenedor.includes(e.key)){
+    		aux_busqueda2+=e.key
+    	}else{
+    		if(e.keyCode==8){
+    			aux_busqueda2 = aux_busqueda2.slice(0,-1);
+    		}
+    	}
+
+    	console.log(aux_busqueda2);
+    	var busqueda = $("#menu-recaudado").find(".cuadro-busqueda").find("input").val();
+    	contador=1;
+    	var tabla_ultimos_movimientos = $("#menu-recaudado").find("table").empty();
+    	var cabecera = '<tbody><tr>	<th style="text-align: center;">NOMBRE Y APELLIDO</th><th style="text-align: center;">DNI</th><th style="text-align: center;">CANTIDAD</th><th style="text-align: center;">INICIO BECA</th><th style="text-align: center;">ULTIMA ACTUALIZACION</th></tr>';
+    	$("#menu-recaudado").find("table").append(cabecera);
+
+    	for (var i = 0; i < becas.cantidad; i++){
+    		var nombre_completo = becas[i].nombre.toLowerCase()+" "+becas[i].apellido.toLowerCase();
+    		var n = nombre_completo.includes(aux_busqueda2.toLowerCase());
+    		console.log(nombre_completo);
+    		console.log(n);
+    		if(n){
+    			var consulta = '<tr><td style="text-align: center;">'+nombre_completo+'</td>';
+    			consulta+='<td style="text-align: center;">'+becas[i].dni+'</td>';
+    			consulta+='<td style="text-align: center;">'+becas[i].monto_beca+'</td>';
+    			consulta+='<td style="text-align: center;">'+becas[i].fecha_inicio+'</td>';
+    			consulta+='<td style="text-align: center;">'+becas[i].ultima_modificacion+'</td>';
+    			consulta+='</tr>';
+    			
+    			$("#menu-recaudado").find("table").append(consulta);
+    			contador++;
+    		}
+
+    	}
+    	
+    	$("#menu-recaudado").find("table").append("</tbody>");
     }
 
 </script>

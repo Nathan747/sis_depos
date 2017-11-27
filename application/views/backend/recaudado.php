@@ -3,7 +3,7 @@
 		<div class="col-lg-12"><h1>Recaudado</h1></div>
 	</div>
 	<div class="col-lg-12"><div class="separador"></div></div>
-	<div class="col-lg-12">
+	<div class="col-lg-12 tabla-menu-recaudado">
 		<table class="table table-condensed table-hover">
 			<tr>
 				<th style="text-align: center;">NOMBRE Y APELLIDO</th>
@@ -34,7 +34,7 @@
 <div class="col-lg-12"><div class="cuadro-busqueda">
 	<div class="col-lg-2">
 		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Buscar">
+			<input type="text" class="form-control busqueda-ultimos-movimientos2" placeholder="Buscar" onkeydown="validar2(event)">
 		</div>
 	</div>
 	<div class="col-lg-10">

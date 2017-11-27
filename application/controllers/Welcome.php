@@ -42,6 +42,7 @@ class Welcome extends CI_Controller {
 			"email_user" => $this->session->email
 		);
 		$profile=$this->Perfil_model->control_user($datos);
+		$perfil2["perfil"] = $profile;
 
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";
@@ -76,7 +77,7 @@ class Welcome extends CI_Controller {
 		
 		$this->load->view('donar',$obj);
 		$this->load->view('layouts/footer');
-		$this->load->view('layouts/scripts');
+		$this->load->view('layouts/scripts',$perfil2);
 		$this->load->view('end_body');
 	}
 }

@@ -12,7 +12,7 @@
 	right: -167px;
 }
 .close {
-	right: -126px;
+	right: -150px;
 }
 .profile2 {
 	height: 576px;
@@ -44,8 +44,9 @@
 }
 .container2 .page-header {
 	padding-bottom: 21px;
-	margin: 40px 0 20px;
+	margin: 33px 0 20px;
 	border-bottom: 0px solid #eee!important;
+	padding: 0px 30px;
 }
 .profile2 .bio2{
 	width: 71%;

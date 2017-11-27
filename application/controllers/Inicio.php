@@ -194,7 +194,7 @@ class Inicio extends CI_Controller
 				$this->load->view('backend/recaudado', $becas);
 				$this->load->view('backend/fin_backend');
 
-				$this->load->view('backend/scripts', $objeto, $jerarquia);
+				$this->load->view('backend/scripts', $objeto, $jerarquia, $becas);
 				$this->load->view('end_body');
 			/*} else {
 				$home = "location: " . base_url("");

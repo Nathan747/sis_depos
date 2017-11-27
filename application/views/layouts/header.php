@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default">
-	<div class="container">
+	<div class="contenedor-header">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed clos" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo base_url() ?>"><img src="<?php echo base_url('assets/img/logo-header.png') ?>" alt=""></a>
+			<a class="navbar-brand" href="<?php echo base_url() ?>"><img src="<?php echo base_url('assets/img/soydeladecuyo.svg') ?>" alt=""></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
