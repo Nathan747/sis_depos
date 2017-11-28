@@ -576,7 +576,7 @@ $egresado = deco_egreso($es_egresado);
     <div class="col-md-9 bio2">
       <div class="col-md-12" style="padding-left:0px;padding-right:0px;">
         <h3 style="text-align:left;padding-bottom: 10px;"><strong>Datos Académicos</strong></h3>
-        <div class="col-md-12" style="background:#ecf0f1;">
+        <div class="col-md-12" style="background:#ecf0f1;padding-bottom: 10px;">
           <p style="text-align: left; padding-top:10px"><strong>Facultad: </strong><?php echo $facul; ?></p>
           <p style="text-align: left; padding-top:10px"><strong>Carrera: </strong><?php echo $carreras; ?></p>
           <p style="text-align: left; padding-top:10px"><strong>Egreso: </strong><?php echo $egresado; ?></p>
@@ -592,7 +592,7 @@ $egresado = deco_egreso($es_egresado);
       <div class="col-md-12" style="">
         <h3 style="text-align:left"><strong>Biografía</strong></h3>
       </div>
-      <div class="col-md-12" style="background:#ecf0f1;">
+      <div class="col-md-12" style="background:#ecf0f1;padding-bottom: 10px;">
         <p style="text-align: left; padding-top:10px"><?php echo $biografia; ?></p>
       </div>
     </div>  

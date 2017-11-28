@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <style>
-
+.navbar-toggle {
+    margin-top: 13px!important;
+}
 .examinar{
 	background:#22205F;
 	color: white;
@@ -140,6 +142,11 @@
 }
 
 @media(max-width:767px) {
+
+
+
+
+
 
 
 
@@ -305,12 +312,12 @@ display:block;
 
 .contenedor-mercado-pago {
 	left: 0;
-	width: 100%;
+	width: 100%!important;
 }
 .contenedor-paypal {
 	padding: 0px 0px 0px 0px;
 	float: left;
-	width: 100%;
+	width: 100%!important;
 	top: 392px;
 }
 .profile2 {
