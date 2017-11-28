@@ -34,7 +34,7 @@
 							</div>
 						</div>
 						<div class="last-profile trop">
-							<li><a href="#" id="donar">#BancáUnaBeca</a></li>
+							<!--li><a href="#" id="donar">#BancáUnaBeca</a></li-->
 							<li><a href="#" id="salir">Salir</a></li>
 						</div>
 

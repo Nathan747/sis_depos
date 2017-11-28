@@ -1358,6 +1358,11 @@
             transition: all .2s;
         }
 
+        .contenedor-carrera:focus .padre-icono-carrera{
+            border: 1px solid #3F9FFF !important;
+            transition: all .2s;
+        }
+
         .icon-book {
             color: #777;
             font-size: 25px;
@@ -2741,11 +2746,11 @@
         }
 
         body.back #contenedor-marcador{
-           height: auto !important;
-           min-height: 0px;
-       }
+         height: auto !important;
+         min-height: 0px;
+     }
 
-       body.back #boxes #dialog {
+     body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;

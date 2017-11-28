@@ -587,7 +587,7 @@
       $(".bloq-3").addClass("active");
       $(".word-carrera").addClass("word-active");
       //$(".sep-3").find(".linea-separador").addClass("active-sep");
-      $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+      $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
         setTimeout(mostrar($(this)),16000);
       });
     });

@@ -679,9 +679,9 @@ $(".all-careers").find("a").click(function(){
     $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
     $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
   });
-  $(this).find(".padre-icono-carrera").css("border","1px solid #22205F");
-  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#22205F");
-  $(this).find(".padre-texto-carrera").css("color","#22205F");
+  $(this).find(".padre-icono-carrera").css("border","1px solid #3F9FFF");
+  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3F9FFF");
+  $(this).find(".padre-texto-carrera").css("color","#3F9FFF");
   var carrera_seleccionada = $(this).attr("id");
   carrera_seleccionada = carrera_seleccionada.replace("carrera-", "");
 
