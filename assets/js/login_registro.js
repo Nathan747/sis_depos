@@ -34,7 +34,7 @@ $('#cerrar-login').click(function(e){
   e.preventDefault();
   $('.login').animate({
     right: "-100%"
-  },function(){
+  },1000,function(){
     $(".contenedor-olvide-pass").animate({
       left: "105%"
     });
@@ -50,10 +50,10 @@ $('#ingresar').click(function(e){
   $(".navbar-toggle").click();
   $('.login').animate({
     right: "0"
-  });
+  },1000);
   $('.contenedor-registro').animate({
     right: "-300%"
-  });
+  },1000);
 
 });
 
@@ -63,7 +63,7 @@ $('#cerrar-registro').click(function(e){
   e.preventDefault();
   $('.contenedor-registro').animate({
     right: "-300%"
-  });
+  }, 1000);
 
   $(".bloque-wizard").each(function(){
     $(this).removeClass("active");
@@ -176,8 +176,8 @@ $('#registrate').click(function(e){
   $(".contenedor-registro").css("overflow","hidden");
   $('.contenedor-registro').animate({
     right: "0"
-  });
-  $('.login').animate({right: "-100%"});
+  }, 1000);
+  $('.login').animate({right: "-100%"},1000);
 });
 
 var mostrar = function(etiqueta){

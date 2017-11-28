@@ -143,47 +143,47 @@ var contentString = '<div id="content">'+
 
     map5.setMapTypeId('roadmap');
     map5.setOptions({
-    'styles': [
-    {
-      featureType: "all",
-      stylers: [
-      {  }
+      'styles': [
+      {
+        featureType: "all",
+        stylers: [
+        {  }
+        ]
+      },{
+        featureType: "landscape.natural",
+        stylers: [
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "landscape",
+        stylers: [
+        { hue: "#D8B384" },
+        { gamma: 0.60 }
+        ]
+      },{
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+        { hue: "#00ffee" },
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+        { visibility: "off" }
+        ]
+      },{
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [{color: '#92CAE7'}]
+      },
+      {
+        featureType: 'administrative',
+        elementType: "geometry.fill",
+        stylers: [{visibility: "off"}]
+      }
       ]
-    },{
-      featureType: "landscape.natural",
-      stylers: [
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "landscape",
-      stylers: [
-      { hue: "#D8B384" },
-      { gamma: 0.60 }
-      ]
-    },{
-      featureType: "road.arterial",
-      elementType: "geometry",
-      stylers: [
-      { hue: "#00ffee" },
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "poi.business",
-      elementType: "labels",
-      stylers: [
-      { visibility: "off" }
-      ]
-    },{
-      featureType: 'water',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#92CAE7'}]
-    },
-    {
-      featureType: 'administrative',
-      elementType: "geometry.fill",
-      stylers: [{visibility: "off"}]
-    }
-    ]
     });
 
 
@@ -438,41 +438,33 @@ var contentString2 = '<div id="content">'+
         '</div>'+
         '</div>';
 
-
         /********/        
-
 
         var close =$("#boxes #dialog .close").clone();
         $("#boxes #dialog").empty();
-        $("#boxes #dialog").append(contentString3);
-        $("#boxes #dialog").prepend(close);
 
-        //Get the A tag  
-        var id = $(this).attr("href");  
         //Get the screen height and width  
         var maskHeight = $(document).height();  
         var maskWidth = $(window).width();  
         //Set height and width to mask to fill up the whole screen  
         $("#mask").css({"width":maskWidth,"height":maskHeight});  
         //transition effect      
-        $("#mask").fadeIn(1000);      
-        $("#mask").fadeTo("slow",0.8);    
-        //Get the window height and width  
-        var winH = $(window).height();  
-        var winW = $(window).width();  
-        //Set the popup window to center  
-        $(id).css("top",  winH/2-$(id).height()/2);  
-        $(id).css("left", winW/2-$(id).width()/2);  
-        //transition effect  
-        $(id).fadeIn(2000);
+        $("#mask").fadeTo("slow",0.8,function(){
 
-    //if close button is clicked  
-    $(".window .close").click(function (e) {  
-        //Cancel the link behavior  
-        e.preventDefault();  
-        $("#mask, .window").hide(); 
-        $("#boxes #dialog").css("display","none"); 
-      });      
+        });    
+        $("#boxes #dialog").append(contentString3);
+        $("#boxes #dialog").prepend(close);
+        $("#boxes #dialog").fadeTo("slow");
+
+
+        //if close button is clicked  
+        $(".window .close").click(function (e) {  
+          //Cancel the link behavior  
+          console.log("click");
+          e.preventDefault();  
+          $("#mask, .window").hide(); 
+          $("#boxes #dialog").css("display","none"); 
+        });      
 
     //if mask is clicked  
     $("#mask").click(function () {  

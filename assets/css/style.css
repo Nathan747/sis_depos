@@ -376,7 +376,7 @@
             position: absolute;
             right: -100%;
             background-color: white;
-            height: calc(100vh - 169px);
+            height: calc(100vh - 70px);
             z-index: 999;
             top: 70px;
             border-left: 1px solid #cccccc;
@@ -504,7 +504,7 @@
 
         #contenedor-texto {
             width: 200px;
-            padding-left: 10px;
+            padding-left: 25px;
         }
 
         #contenedor-texto h1,
@@ -538,8 +538,8 @@
         #contenedor-leer {
             position: absolute;
             width: 252px;
-            bottom: 16px;
-            left: 70px;
+            bottom: 20px;
+            left: 80px;
             height: 25px;
             background-color: transparent;
             display: flex;
@@ -2383,10 +2383,15 @@
             right: 0;
             border: 1px solid #cccccc;
             position: absolute;
+            display: none;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
+        }
+
+        #boxes #dialog .close{
+            top: -105px;
         }
 
         #cont_text h1 {
@@ -2420,19 +2425,6 @@
             color: #B8BABF;
             margin-bottom: 15px;
             margin-top: 0px;
-        }
-
-        .profile2 {
-            width: 1200px;
-            overflow: hidden;
-            position: absolute;
-            top: -108px;
-            background: white;
-            z-index: 999;
-            border-left: 1px solid #cccccc;
-            right: -256px;
-            height: calc(100vh - 81px);
-            overflow-x: hidden !important;
         }
 
         #boton-enviar-1,
@@ -2648,18 +2640,14 @@
         }
 
         .profile2 {
-            width: 1200px;
             overflow: hidden;
-            top: -108px;
             background: white;
             z-index: 999;
             border-left: 1px solid #cccccc;
-            right: -256px;
-            height: calc(100vh - 81px);
             overflow-x: hidden !important;
             position: absolute;
             left: 50%;
-            top: 50%;
+            top: 42%;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
         }
@@ -2751,11 +2739,11 @@
         }
 
         body.back #contenedor-marcador{
-         height: auto !important;
-         min-height: 0px;
-     }
+           height: auto !important;
+           min-height: 0px;
+       }
 
-     body.back #boxes #dialog {
+       body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;

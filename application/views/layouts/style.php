@@ -10,13 +10,12 @@
 .profile2 {
 	width: 1024px;
 	right: -167px;
+	height: 576px;
 }
 .close {
 	right: -150px;
 }
-.profile2 {
-	height: 576px;
-}
+
 .name2 {
 	top: 10px;
 	position: relative;
@@ -34,7 +33,7 @@
 	padding-left: 46px;
 }
 .container2{
-	background:#22205F;
+	background: #8d6e63;
 	width: 100%;
 	height: 100px;
 	border-bottom: 1px solid #e7e7e7;
