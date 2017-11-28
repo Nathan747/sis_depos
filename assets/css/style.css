@@ -1248,7 +1248,7 @@
         }
 
         #map {
-            height: calc(100vh - 170px);
+            height: calc(100vh - 100px);
             opacity: .75;
         }
 
@@ -1856,22 +1856,20 @@
 
         .top-footer {
             text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
             background-color: white;
             color: white;
             font-size: 14px;
-            height: 100px;
-            line-height: 75px;
+            height: 30px;
+            line-height: 30px;
         }
 
         .top-footer .contenedor-logo-footer, .top-footer .info-footer{
             float: left;
-            height: 75px;
+            height: 30px;
         }
 
         .top-footer .info-footer{
-            height: 75px;
+            height: 30px;
             display: flex;
             justify-content: center;
             align-content: center;
@@ -1890,6 +1888,14 @@
             float: left;
             clear: both;
             margin-bottom: 0px;
+        }
+
+        .top-footer .texto-footer-izquierda, .top-footer .texto-footer-derecha{
+            color: #3d3d3d;
+        }
+
+        .top-footer .texto-footer-izquierda span{
+            font-weight: 700;
         }
 
         .nav-tabs>li>a {
