@@ -1894,6 +1894,16 @@
             color: #3d3d3d;
         }
 
+        .top-footer .texto-footer-izquierda{
+            float: left;
+            padding-left: 30px;
+        }
+
+        .top-footer .texto-footer-derecha{
+            float: right;
+            padding-right: 30px;
+        }
+
         .top-footer .texto-footer-izquierda span{
             font-weight: 700;
         }
