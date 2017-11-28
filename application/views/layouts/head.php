@@ -17,6 +17,6 @@
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="400" />
 	<meta property="og:image:height" content="400" />
-	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700,800" rel="stylesheet">
 	
 	

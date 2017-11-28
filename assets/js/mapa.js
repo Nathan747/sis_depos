@@ -117,15 +117,13 @@ var contentString = '<div id="content">'+
         '<h1>'+nombre+' '+apellido+'</h1>'+
         '<h2>'+profesion+'</h2>'+
         '<h3>'+texto+'...</h3>'+
-        '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Leer Más</a></div></div>'+
+        '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
         '</div></div>'+ // Cierre contenedor-texto y padre-texto
         '</div></div>'; // Cierre contenedor-marcador y content
         add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
       }
 
     });
-
-  console.log("LLEGO 1");
 
   var uluru4 = {lat: latitud5, lng: longitud5};
   if(document.getElementById('mapa_modificar')){
@@ -143,9 +141,8 @@ var contentString = '<div id="content">'+
       }
     }); 
 
-    console.log("LLEGO 2");
     map5.setMapTypeId('roadmap');
-  map5.setOptions({
+    map5.setOptions({
     'styles': [
     {
       featureType: "all",
@@ -187,9 +184,8 @@ var contentString = '<div id="content">'+
       stylers: [{visibility: "off"}]
     }
     ]
-  });
+    });
 
-    console.log("LLEGO 3");
 
     latitud5 = parseFloat(latitud5);
     longitud5 = parseFloat(longitud5);
@@ -201,7 +197,6 @@ var contentString = '<div id="content">'+
     });
     var aux = marker;
     marker.setMap(map5);
-    console.log("LLEGO 4");
 
     var click_registro2;
     google.maps.event.addListener(map5, "click", function (event) {
@@ -956,6 +951,7 @@ var contentString2 = '<div id="content">'+
   }
 
   function moveToLocation(lat, lng, map){
+    lat-=-14;
     var center = new google.maps.LatLng(lat, lng);
     map.panTo(center);
   }
