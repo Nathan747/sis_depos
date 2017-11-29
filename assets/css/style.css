@@ -2146,6 +2146,9 @@
             background-color: #3F9FFF !important;
             padding: 10px 24px;
             border: 0px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         #btnClean:hover,
@@ -2187,7 +2190,7 @@
         .examinar:hover {
             color: white;
             text-decoration: none;
-            background-color: #DF5426;
+            background-color: #DF5426 !important;
         }
 
         .contenedor-informacion-perfil {
@@ -2759,11 +2762,11 @@
         }
 
         body.back #contenedor-marcador{
-           height: auto !important;
-           min-height: 0px;
-       }
+         height: auto !important;
+         min-height: 0px;
+     }
 
-       body.back #boxes #dialog {
+     body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;
