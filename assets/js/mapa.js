@@ -473,8 +473,6 @@ var contentString2 = '<div id="content">'+
       $("#boxes #dialog").css("display","none");
     });    
 
-
-
   }
 
 
