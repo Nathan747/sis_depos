@@ -91,11 +91,21 @@ function initMap() {
 
       var biografia=objeto[x].biografia_user;
       var longitud=50;
-      /***********/
-      if(biografia.length > longitud){
-        var texto=(biografia.substring(0,longitud));
+      
+      if(objeto[x].biografia_user==""){
+        console.log("ENTRO");
+        var texto = "";
+      }else{
+        console.log("NO ENTRO");
+        console.log(biografia);
+        if(biografia.length > longitud){
+          var texto=(biografia.substring(0,longitud));
+          texto=texto+"...";
+        }
       }
-      /***********/
+      
+      console.log("TEXTO: "+texto);
+
       objeto[x].lat_user = parseFloat(objeto[x].lat_user);
       objeto[x].long_user = parseFloat(objeto[x].long_user);
       if(objeto[x].img==""){
@@ -113,7 +123,7 @@ function initMap() {
       '<div id="contenedor-texto">'+
       '<h1>'+nombre+' '+apellido+'</h1>'+
       '<h2>'+profesion+'</h2>'+
-      '<h3>'+texto+'...</h3>'+
+      '<h3>'+texto+'</h3>'+
       '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
       '</div></div>'+ // Cierre contenedor-texto y padre-texto
       '</div></div>'; // Cierre contenedor-marcador y content

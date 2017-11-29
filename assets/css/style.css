@@ -2171,11 +2171,10 @@
 
         .examinar {
             cursor: pointer;
-            width: 78%;
+            width: 100%;
             text-align: left;
             align-items: flex-start;
             margin-top: 15px;
-
             background-color: #3F9FFF !important;
             color: white;
             padding: 9px 40px;
@@ -2185,6 +2184,7 @@
             font-family: Alegreya Sans;
             font-weight: 700;
             font-size: 18px;
+            max-width: 249px;
         }
 
         .examinar:hover {

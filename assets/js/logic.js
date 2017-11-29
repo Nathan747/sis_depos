@@ -851,7 +851,9 @@
           longitud: longitude
         }
       }).done(function(json) {
+        console.log(json);
         var objeto = $.parseJSON(json);
+        console.log(objeto);
 
         $(".username-change").find("div").text(objeto.username);
         $(".second").find(".name").find("strong").text(objeto.username);
@@ -869,7 +871,6 @@
 
     $("#archivo_oculto1").change(function() {
       var imagen = $("#archivo_oculto1").val();
-      console.log("")
       $(".changeimg").click();
     });
 

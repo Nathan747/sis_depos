@@ -62,7 +62,6 @@ function statusChangeCallback(response) {
         facebook_count=2;
         localStorage.setItem("ingreso_normal", "no");
         localStorage.setItem("registro_facebook", "si");
-        console.log(objeto);
         if(objeto==1){
           window.location = direccion;
         }else{
@@ -124,7 +123,6 @@ function handleSessionResponse(response) {
   }
 
   function statusChangeCallback2(response2) {
-    console.log(response2);
     if (response2.status === 'connected') {
       FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
         nombre = response.first_name;
@@ -138,7 +136,6 @@ function handleSessionResponse(response) {
         picture = picture2["data"].url;
 
         nombre_completo = nombre+" "+apellido;
-        console.log(response);
         $.ajax({
           type: "POST",
           url: "Login/control/",
@@ -147,13 +144,11 @@ function handleSessionResponse(response) {
             nombre_completo: nombre_completo
           }
         }).done(function(json){
-          console.log(json);
 
           var objeto = $.parseJSON(json);
           facebook_count=2;
           localStorage.setItem("ingreso_normal", "no");
           localStorage.setItem("registro_facebook", "si");
-          console.log(objeto);
           if(objeto==1){
             window.location = direccion;
           }else{

@@ -463,7 +463,7 @@ $("#mercado-pago").click(function(e){
 });
 
 $("#dnr").click(function(){
-  $("#ingresar").click();
+  $("#registrate").click();
 });
 
 $("#olvidaste_contrasenia").click(function(){
@@ -675,9 +675,9 @@ $('.myprof').click(function(e){
 
 $(".all-careers").find("a").click(function(){
   $(".all-careers").find("a").each(function(){
-    $(this).find(".padre-icono-carrera").css("border","1px solid #D3D3D3");
-    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
-    $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
+    $(this).find(".padre-icono-carrera").css("border","1px solid #3d3d3d");
+    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3d3d3d");
+    $(this).find(".padre-texto-carrera").css("color","#3d3d3d");
   });
   $(this).find(".padre-icono-carrera").css("border","1px solid #3F9FFF");
   $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3F9FFF");
