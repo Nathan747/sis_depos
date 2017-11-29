@@ -376,11 +376,7 @@
             position: absolute;
             right: -100%;
             background-color: white;
-<<<<<<< HEAD
-            height: calc(100vh - 169px);
-=======
             height: calc(100vh - 70px);
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
             z-index: 999;
             top: 70px;
             border-left: 1px solid #cccccc;
@@ -508,11 +504,7 @@
 
         #contenedor-texto {
             width: 200px;
-<<<<<<< HEAD
-            padding-left: 10px;
-=======
             padding-left: 25px;
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         }
 
         #contenedor-texto h1,
@@ -546,13 +538,8 @@
         #contenedor-leer {
             position: absolute;
             width: 252px;
-<<<<<<< HEAD
-            bottom: 16px;
-            left: 70px;
-=======
             bottom: 20px;
             left: 80px;
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
             height: 25px;
             background-color: transparent;
             display: flex;
@@ -1371,14 +1358,11 @@
             transition: all .2s;
         }
 
-<<<<<<< HEAD
-=======
         .contenedor-carrera:focus .padre-icono-carrera{
             border: 1px solid #3F9FFF !important;
             transition: all .2s;
         }
 
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         .icon-book {
             color: #777;
             font-size: 25px;
@@ -1929,14 +1913,11 @@
             font-weight: 700;
         }
 
-<<<<<<< HEAD
-=======
         .top-footer .texto-footer-izquierda span a{
             text-decoration: none;
             color: #3d3d3d;
         }
 
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         .nav-tabs>li>a {
             color: rgb(67, 89, 112) !important;
         }
@@ -2402,23 +2383,17 @@
             right: 0;
             border: 1px solid #cccccc;
             position: absolute;
-<<<<<<< HEAD
-=======
             display: none;
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
         }
 
-<<<<<<< HEAD
-=======
         #boxes #dialog .close{
             top: -105px;
         }
 
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         #cont_text h1 {
             font-size: 13px;
             color: #474747;
@@ -2452,22 +2427,6 @@
             margin-top: 0px;
         }
 
-<<<<<<< HEAD
-        .profile2 {
-            width: 1200px;
-            overflow: hidden;
-            position: absolute;
-            top: -108px;
-            background: white;
-            z-index: 999;
-            border-left: 1px solid #cccccc;
-            right: -256px;
-            height: calc(100vh - 81px);
-            overflow-x: hidden !important;
-        }
-
-=======
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         #boton-enviar-1,
         #boton-enviar-2,
         #boton-enviar-3 {
@@ -2681,20 +2640,6 @@
         }
 
         .profile2 {
-<<<<<<< HEAD
-            width: 1200px;
-            overflow: hidden;
-            top: -108px;
-            background: white;
-            z-index: 999;
-            border-left: 1px solid #cccccc;
-            right: -256px;
-            height: calc(100vh - 81px);
-            overflow-x: hidden !important;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-=======
             overflow: hidden;
             background: white;
             z-index: 999;
@@ -2703,7 +2648,6 @@
             position: absolute;
             left: 50%;
             top: 42%;
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
         }

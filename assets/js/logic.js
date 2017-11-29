@@ -587,11 +587,7 @@
       $(".bloq-3").addClass("active");
       $(".word-carrera").addClass("word-active");
       //$(".sep-3").find(".linea-separador").addClass("active-sep");
-<<<<<<< HEAD
-      $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
-=======
       $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
         setTimeout(mostrar($(this)),16000);
       });
     });

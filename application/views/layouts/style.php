@@ -16,12 +16,9 @@
 }
 .close {
 	right: -150px;
-<<<<<<< HEAD
 }
 .profile2 {
 	height: 576px;
-=======
->>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
 }
 
 .name2 {
