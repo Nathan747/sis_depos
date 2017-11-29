@@ -1,10 +1,14 @@
 window.fbAsyncInit = function() {
   FB.init({
+<<<<<<< HEAD
     appId      : '151910012095751',
+=======
+    appId      : '2089149237765483',
+>>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
       cookie     : true,  // enable cookies to allow the server to access
                         // the session
       xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.8' // use graph api version 2.8
+      version    : 'v2.11' // use graph api version 2.8
     });
 
   FB.getLoginStatus(function(response) {
@@ -124,6 +128,7 @@ function handleSessionResponse(response) {
   }
 
   function statusChangeCallback2(response2) {
+    console.log(response2);
     if (response2.status === 'connected') {
       FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
         nombre = response.first_name;
@@ -137,7 +142,7 @@ function handleSessionResponse(response) {
         picture = picture2["data"].url;
 
         nombre_completo = nombre+" "+apellido;
-
+        console.log(response);
         $.ajax({
           type: "POST",
           url: "Login/control/",
@@ -146,6 +151,8 @@ function handleSessionResponse(response) {
             nombre_completo: nombre_completo
           }
         }).done(function(json){
+          console.log(json);
+
           var objeto = $.parseJSON(json);
           facebook_count=2;
           localStorage.setItem("ingreso_normal", "no");
@@ -165,7 +172,10 @@ function handleSessionResponse(response) {
             });
 
             $(".bloq-2").addClass("active");
-            $(".sep-2").find(".linea-separador").addClass("active-sep");
+            //$(".sep-2").find(".linea-separador").addClass("active-sep");
+            $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
+              setTimeout(mostrar($(this)),16000);
+            });
             $(".word-datos").addClass("word-active");
 
             modo_log = 1;

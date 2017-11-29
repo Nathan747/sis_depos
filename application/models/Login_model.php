@@ -58,6 +58,7 @@ class Login_model extends CI_Model
   {
     $sql = $this->db->where($data)->get('unc_usuarios');
     $filas = $sql->num_rows();
+    $id=0;
     if ($filas > 0) {
       foreach ($sql->result() as $row) {
         $id = $row->id_user;

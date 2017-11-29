@@ -10,10 +10,10 @@
 	<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon/favicon-16x16.png") ?>" sizes="16x16">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta name="#UNCuyo" content="Gritale al mundo que sos de la de Cuyo"/>
-	<meta property="og:url" content="https://koiron.com/proyectos/2017/unc/" />
+	<meta property="og:url" content="http://www.unidiversidad.com.ar/soydeladecuyo/" />
 	<meta property="og:title" content="#SoyDeLaDeCuyo" />
 	<meta property="og:description" content="Gritale al mundo que sos de la de Cuyo" />
-	<meta property="og:image" content="https://koiron.com/proyectos/2017/unc/assets/img/share.png" />
+	<meta property="og:image" content="http://www.unidiversidad.com.ar/soydeladecuyo/assets/img/share.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="400" />
 	<meta property="og:image:height" content="400" />

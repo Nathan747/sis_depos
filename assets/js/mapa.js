@@ -140,6 +140,54 @@ var contentString = '<div id="content">'+
         'styled_map']
       }
     }); 
+<<<<<<< HEAD
+=======
+
+    map5.setMapTypeId('roadmap');
+    map5.setOptions({
+      'styles': [
+      {
+        featureType: "all",
+        stylers: [
+        {  }
+        ]
+      },{
+        featureType: "landscape.natural",
+        stylers: [
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "landscape",
+        stylers: [
+        { hue: "#D8B384" },
+        { gamma: 0.60 }
+        ]
+      },{
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+        { hue: "#00ffee" },
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+        { visibility: "off" }
+        ]
+      },{
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [{color: '#92CAE7'}]
+      },
+      {
+        featureType: 'administrative',
+        elementType: "geometry.fill",
+        stylers: [{visibility: "off"}]
+      }
+      ]
+    });
+>>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
 
     map5.setMapTypeId('roadmap');
     map5.setOptions({
@@ -186,6 +234,7 @@ var contentString = '<div id="content">'+
     ]
     });
 
+<<<<<<< HEAD
 
     latitud5 = parseFloat(latitud5);
     longitud5 = parseFloat(longitud5);
@@ -277,6 +326,98 @@ var contentString = '<div id="content">'+
     ]
   });
 
+=======
+    latitud5 = parseFloat(latitud5);
+    longitud5 = parseFloat(longitud5);
+    var uluru4 = {lat: latitud5, lng: longitud5};
+    marker = new google.maps.Marker({
+      position: uluru4,
+      title:"Marcador",
+      map: map5
+    });
+    var aux = marker;
+    marker.setMap(map5);
+
+    var click_registro2;
+    google.maps.event.addListener(map5, "click", function (event) {
+      if(marker!=null) {
+        marker.setMap(null);
+        aux.setMap(null);
+      }
+      latitude = event.latLng.lat();
+      longitude = event.latLng.lng();
+      click_registro2 = {lat: latitude, lng: longitude}
+      marker = new google.maps.Marker({
+        position: click_registro2,
+        map: map5,
+        title: 'Ubicación'
+      });
+    });
+  }  
+
+  /* Mapa Registro */
+  console.log("LLEGO 5");
+  uluru2 = {lat: -34.9950075, lng: -67.5100458};
+  var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
+    zoom: 8,
+    center: {lat: -34.9950075, lng: -67.5100458},
+    mapTypeControl: 0,
+    scaleControl: 10,
+    streetViewControl: 0,
+    rotateControl: 0,
+    fullscreenControl: 0,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+      'styled_map']
+    }
+  });
+
+  map_register.setMapTypeId('roadmap');
+  map_register.setOptions({
+    'styles': [
+    {
+      featureType: "all",
+      stylers: [
+      {  }
+      ]
+    },{
+      featureType: "landscape.natural",
+      stylers: [
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "landscape",
+      stylers: [
+      { hue: "#D8B384" },
+      { gamma: 0.60 }
+      ]
+    },{
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [
+      { hue: "#00ffee" },
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "poi.business",
+      elementType: "labels",
+      stylers: [
+      { visibility: "off" }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{color: '#92CAE7'}]
+    },
+    {
+      featureType: 'administrative',
+      elementType: "geometry.fill",
+      stylers: [{visibility: "off"}]
+    }
+    ]
+  });
+
+>>>>>>> adba878916692d9f2f57c748b7c1872bd313b2e9
   var click_registro;
   google.maps.event.addListener(map_register, "click", function (event) {
     if(marker!=null) {
@@ -438,41 +579,33 @@ var contentString2 = '<div id="content">'+
         '</div>'+
         '</div>';
 
-
         /********/        
-
 
         var close =$("#boxes #dialog .close").clone();
         $("#boxes #dialog").empty();
-        $("#boxes #dialog").append(contentString3);
-        $("#boxes #dialog").prepend(close);
 
-        //Get the A tag  
-        var id = $(this).attr("href");  
         //Get the screen height and width  
         var maskHeight = $(document).height();  
         var maskWidth = $(window).width();  
         //Set height and width to mask to fill up the whole screen  
         $("#mask").css({"width":maskWidth,"height":maskHeight});  
         //transition effect      
-        $("#mask").fadeIn(1000);      
-        $("#mask").fadeTo("slow",0.8);    
-        //Get the window height and width  
-        var winH = $(window).height();  
-        var winW = $(window).width();  
-        //Set the popup window to center  
-        $(id).css("top",  winH/2-$(id).height()/2);  
-        $(id).css("left", winW/2-$(id).width()/2);  
-        //transition effect  
-        $(id).fadeIn(2000);
+        $("#mask").fadeTo("slow",0.8,function(){
 
-    //if close button is clicked  
-    $(".window .close").click(function (e) {  
-        //Cancel the link behavior  
-        e.preventDefault();  
-        $("#mask, .window").hide(); 
-        $("#boxes #dialog").css("display","none"); 
-      });      
+        });    
+        $("#boxes #dialog").append(contentString3);
+        $("#boxes #dialog").prepend(close);
+        $("#boxes #dialog").fadeTo("slow");
+
+
+        //if close button is clicked  
+        $(".window .close").click(function (e) {  
+          //Cancel the link behavior  
+          console.log("click");
+          e.preventDefault();  
+          $("#mask, .window").hide(); 
+          $("#boxes #dialog").css("display","none"); 
+        });      
 
     //if mask is clicked  
     $("#mask").click(function () {  

@@ -34,7 +34,7 @@ $('#cerrar-login').click(function(e){
   e.preventDefault();
   $('.login').animate({
     right: "-100%"
-  },function(){
+  },1000,function(){
     $(".contenedor-olvide-pass").animate({
       left: "105%"
     });
@@ -50,10 +50,10 @@ $('#ingresar').click(function(e){
   $(".navbar-toggle").click();
   $('.login').animate({
     right: "0"
-  });
+  },1000);
   $('.contenedor-registro').animate({
     right: "-300%"
-  });
+  },1000);
 
 });
 
@@ -63,7 +63,7 @@ $('#cerrar-registro').click(function(e){
   e.preventDefault();
   $('.contenedor-registro').animate({
     right: "-300%"
-  });
+  }, 1000);
 
   $(".bloque-wizard").each(function(){
     $(this).removeClass("active");
@@ -176,8 +176,8 @@ $('#registrate').click(function(e){
   $(".contenedor-registro").css("overflow","hidden");
   $('.contenedor-registro').animate({
     right: "0"
-  });
-  $('.login').animate({right: "-100%"});
+  }, 1000);
+  $('.login').animate({right: "-100%"},1000);
 });
 
 var mostrar = function(etiqueta){
@@ -679,9 +679,9 @@ $(".all-careers").find("a").click(function(){
     $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
     $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
   });
-  $(this).find(".padre-icono-carrera").css("border","1px solid #22205F");
-  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#22205F");
-  $(this).find(".padre-texto-carrera").css("color","#22205F");
+  $(this).find(".padre-icono-carrera").css("border","1px solid #3F9FFF");
+  $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3F9FFF");
+  $(this).find(".padre-texto-carrera").css("color","#3F9FFF");
   var carrera_seleccionada = $(this).attr("id");
   carrera_seleccionada = carrera_seleccionada.replace("carrera-", "");
 
