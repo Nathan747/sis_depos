@@ -20,16 +20,14 @@ class Cargar_Imagen extends CI_Controller {
 	public function proceso()
 	{
 		//$target_path = "C:\\xampp2/htdocs/UNC/assets/img/pics/";
-		$target_path = "assets/img/pics/";
+		$target_path = "uploads/perfiles/";
 		$target_path = $target_path . basename( $_FILES['imagen']['name']); 
 
 		$nombre_fichero = $_FILES['imagen']['tmp_name'];
 		list($ancho, $alto) = getimagesize($nombre_fichero);
-		//echo "ANCHO: " . $ancho . "<br>";
-		//echo "ALTO: " . $alto . "<br>";
 
 		$max_ancho = 200;
-		$max_alto = 159;
+		$max_alto = 200;
 
 		$promedio_alto = $max_alto / $alto;
 		$promedio_ancho = $max_ancho / $ancho;
@@ -49,12 +47,12 @@ class Cargar_Imagen extends CI_Controller {
 			$max_alto = $alto * $promedio_ancho;
 			$nuevo_ancho = $ancho * $promedio_ancho;	
 			//echo "Resolucion vertical: ".$nuevo_ancho."x".$max_alto."<br>";	
-			$resto = $max_alto - 159;
+			$resto = $max_alto - 200;
 			$eliminar_bordes_x = $max_ancho;
 			$offset_y = $resto / 2;
 			$eliminar_bordes_y = $max_alto - $offset_y;
 			$offset_x = 0;
-			$max_alto = 159;
+			$max_alto = 200;
 		}
 
 		$new_image = imagecreatetruecolor($max_ancho, $max_alto);

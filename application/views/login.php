@@ -4,6 +4,11 @@
           <a href="#" id="cerrar-login"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
         </div>
 
+        <!-- facebook -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
+        </div> 
+
         <div class="contenedor-inicio-sesion">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <form role="form">
@@ -32,10 +37,6 @@
             <a href="#" id="olvidaste_contrasenia">¿Olvidaste la contraseña?</a>
           </div>    
 
-          <!-- facebook -->
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">      
-            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email" onlogin="checkLoginState();"></div>
-          </div> 
         </div>
 
         <div class="contenedor-olvide-pass">
