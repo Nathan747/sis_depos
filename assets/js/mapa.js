@@ -101,7 +101,7 @@ function initMap() {
       objeto[x].lat_user = parseFloat(objeto[x].lat_user);
       objeto[x].long_user = parseFloat(objeto[x].long_user);
       if(objeto[x].img==""){
-        var test_img = "assets/img/pics/1.png";
+        var test_img = "uploads/perfiles/1.png";
       }else{
         var test_img = objeto[x].img;
       }
@@ -348,7 +348,7 @@ function muestraModal(parametro) {
   var profesion=objeto_total[parametro].profesion_user;
   var biografia=objeto_total[parametro].biografia_user;
   if(objeto_total[parametro].img==""){
-    var test_img = "assets/img/pics/1.png";
+    var test_img = "uploads/perfiles/1.png";
   }else{
     var test_img = objeto_total[parametro].img;
   }
@@ -516,8 +516,6 @@ var contentString2 = '<div id="content">'+
       $(".window").hide();  
       $("#boxes #dialog").css("display","none");
     });    
-
-
 
   }
 
@@ -998,7 +996,7 @@ var contentString2 = '<div id="content">'+
       position: {lat: valor1, lng: valor2}
     });
     window.setTimeout(function() {
-      var image = "assets/img/pics/marcador.png";
+      var image = "assets/img/marcador.png";
       marker = new google.maps.Marker({
         position: {lat: valor1, lng: valor2},
         map: maps,
