@@ -4,171 +4,107 @@ var email2;
 var email;
 
 function initMap() {
+
+  console.log(info_perfil);
+  var latitud5 = info_perfil.latitud;
+  var longitud5 = info_perfil.longitud;
   var uluru = {lat: -34.9950075, lng: -67.5100458};
   var uluru2 = {lat: -35.9950075, lng: -68.5100458};
-  var styledMapType = new google.maps.StyledMapType(
-    [
-    {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
-    {elementType: 'labels.text.fill', stylers: [{color: '#929292'}]},
-    {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
+
+  //var uluru = {lat: 16.2591717, lng: -5.5345314};
+  var uluru = {lat: -23.582723, lng: -23.5132007};
+  
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 3,
+    center: uluru,
+    mapTypeControl: 0,
+    scaleControl: 1,
+    streetViewControl: 0,
+    rotateControl: 0,
+    fullscreenControl: 0,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+      'styled_map']
+    }
+  }); 
+
+  map.setMapTypeId('roadmap');
+  map.setOptions({
+    'styles': [
+    {
+      featureType: "all",
+      stylers: [
+      {  }
+      ]
+    },{
+      featureType: "landscape.natural",
+      stylers: [
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "landscape",
+      stylers: [
+      { hue: "#D8B384" },
+      { gamma: 0.60 }
+      ]
+    },{
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [
+      { hue: "#00ffee" },
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "poi.business",
+      elementType: "labels",
+      stylers: [
+      { visibility: "off" }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{color: '#92CAE7'}]
+    },
     {
       featureType: 'administrative',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#ffffff'}]
-    },
-    {
-      featureType: 'administrative.land_parcel',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#FFFFFF'}]
-    },
-    {
-      featureType: 'administrative.land_parcel',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#929292'}]
-    },
-    {/*terreno*/
-      featureType: 'landscape.natural',
-      elementType: 'geometry',
-      stylers: [{color: '#F7F7F7'}]
-    },
-    {
-      featureType: 'poi',
-      elementType: 'geometry',
-      stylers: [{color: '#cccccc'}]
-    },
-    {
-      featureType: 'poi',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#929292'}]
-    },
-    {
-      featureType: 'poi.park',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#cccccc'}]
-    },
-    {
-      featureType: 'poi.park',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#cccccc'}]
-    },
-    {/*carretera*/
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [{color: '#f5f1e6'}]
-    },
-    {
-      featureType: 'road.arterial',
-      elementType: 'geometry',
-      stylers: [{color: '#fdfcf8'}]
-    },
-    {
-      featureType: 'road.highway',
-      elementType: 'geometry',
-      stylers: [{color: '#667D98'}]
-    },
-    {
-      featureType: 'road.highway',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#667D98'}]
-    },
-    {
-      featureType: 'road.highway.controlled_access',
-      elementType: 'geometry',
-      stylers: [{color: '#667D98'}]
-    },
-    {
-      featureType: 'road.highway.controlled_access',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#667D98'}]
-    },
-    {
-      featureType: 'road.local',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#806b63'}]
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}]
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#8f7d77'}]
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'labels.text.stroke',
-      stylers: [{color: '#ebe3cd'}]
-    },
-    {
-      featureType: 'transit.station',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}]
-    },
-    {
-      featureType: 'water',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#EDEDED'}]
-    },
-    {
-      featureType: 'water',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#929292'}]
+      elementType: "geometry.fill",
+      stylers: [{visibility: "off"}]
     }
-    ],
-    {name: 'Styled Map'});
+    ]
+  });
 
-var uluru = {lat: 16.2591717, lng: -5.5345314};
-var map = new google.maps.Map(document.getElementById('map'), {
-  zoom: 2,
-  center: uluru,
-  mapTypeControl: 0,
-  scaleControl: 1,
-  streetViewControl: 0,
-  rotateControl: 0,
-  fullscreenControl: 0,
-  mapTypeControlOptions: {
-    mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-    'styled_map']
-  }
-}); 
+  $.ajax({
+    type: "POST",
+    url: "Markers/load/",
+  }).done(function(json){
+    var objeto = $.parseJSON(json);
+    objeto_total=objeto;
+    for(var x=0;x<objeto.length;x++){
+      var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
+      var nombre=objeto[x].nombre_user;
+      var email=objeto[x].email_user;
+      var nombre=objeto[x].nombre_user;
+      var apellido=objeto[x].apellido_user;
+      var profesion=objeto[x].profesion_user;
+      var facultad=objeto[x].facultad_user;
+      var carrera=objeto[x].carrera_user;
+      var es_egresado=objeto[x].fecha_egreso_user;
+      var fecha_egreso=objeto[x].es_egresado_user;
 
-map.mapTypes.set('styled_map', styledMapType);
-map.setMapTypeId('styled_map');
-
-$.ajax({
-  type: "POST",
-  url: "Markers/load/",
-}).done(function(json){
-  var objeto = $.parseJSON(json);
-  objeto_total=objeto;
-  for(var x=0;x<objeto.length;x++){
-    var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
-    var nombre=objeto[x].nombre_user;
-    var email=objeto[x].email_user;
-    var nombre=objeto[x].nombre_user;
-    var apellido=objeto[x].apellido_user;
-    var profesion=objeto[x].profesion_user;
-    var facultad=objeto[x].facultad_user;
-    var carrera=objeto[x].carrera_user;
-    var es_egresado=objeto[x].fecha_egreso_user;
-    var fecha_egreso=objeto[x].es_egresado_user;
-
-    var biografia=objeto[x].biografia_user;
-    var longitud=50;
-    /***********/
-    if(biografia.length > longitud){
-      var texto=(biografia.substring(0,longitud));
-    }
-    /***********/
-    objeto[x].lat_user = parseFloat(objeto[x].lat_user);
-    objeto[x].long_user = parseFloat(objeto[x].long_user);
-    if(objeto[x].img==""){
-      var test_img = "assets/img/pics/1.png";
-    }else{
-      var test_img = objeto[x].img;
-    }
+      var biografia=objeto[x].biografia_user;
+      var longitud=50;
+      /***********/
+      if(biografia.length > longitud){
+        var texto=(biografia.substring(0,longitud));
+      }
+      /***********/
+      objeto[x].lat_user = parseFloat(objeto[x].lat_user);
+      objeto[x].long_user = parseFloat(objeto[x].long_user);
+      if(objeto[x].img==""){
+        var test_img = "assets/img/pics/1.png";
+      }else{
+        var test_img = objeto[x].img;
+      }
 //<input type="button" value="Pinchame y verás" onclick="muestraMensaje()" />
 var contentString = '<div id="content">'+
 '<div id="contenedor-marcador">'+
@@ -181,7 +117,7 @@ var contentString = '<div id="content">'+
         '<h1>'+nombre+' '+apellido+'</h1>'+
         '<h2>'+profesion+'</h2>'+
         '<h3>'+texto+'...</h3>'+
-        '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Leer Más</a></div></div>'+
+        '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
         '</div></div>'+ // Cierre contenedor-texto y padre-texto
         '</div></div>'; // Cierre contenedor-marcador y content
         add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
@@ -189,41 +125,174 @@ var contentString = '<div id="content">'+
 
     });
 
+  var uluru4 = {lat: latitud5, lng: longitud5};
+  if(document.getElementById('mapa_modificar')){
+    var map5 = new google.maps.Map(document.getElementById('mapa_modificar'), {
+      zoom: 2,
+      center: {lat: 16.2591717, lng: -5.5345314},
+      mapTypeControl: 0,
+      scaleControl: 1,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
+      mapTypeControlOptions: {
+        mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+        'styled_map']
+      }
+    }); 
+
+    map5.setMapTypeId('roadmap');
+    map5.setOptions({
+    'styles': [
+    {
+      featureType: "all",
+      stylers: [
+      {  }
+      ]
+    },{
+      featureType: "landscape.natural",
+      stylers: [
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "landscape",
+      stylers: [
+      { hue: "#D8B384" },
+      { gamma: 0.60 }
+      ]
+    },{
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [
+      { hue: "#00ffee" },
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "poi.business",
+      elementType: "labels",
+      stylers: [
+      { visibility: "off" }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{color: '#92CAE7'}]
+    },
+    {
+      featureType: 'administrative',
+      elementType: "geometry.fill",
+      stylers: [{visibility: "off"}]
+    }
+    ]
+    });
 
 
-uluru2 = {lat: -34.9950075, lng: -67.5100458};
-var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
-  zoom: 8,
-  center: {lat: -34.9950075, lng: -67.5100458},
-  mapTypeControl: 0,
-  scaleControl: 10,
-  streetViewControl: 0,
-  rotateControl: 0,
-  fullscreenControl: 0,
-  mapTypeControlOptions: {
-    mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-    'styled_map']
-  }
-});
+    latitud5 = parseFloat(latitud5);
+    longitud5 = parseFloat(longitud5);
+    var uluru4 = {lat: latitud5, lng: longitud5};
+    marker = new google.maps.Marker({
+      position: uluru4,
+      title:"Marcador",
+      map: map5
+    });
+    var aux = marker;
+    marker.setMap(map5);
 
-map_register.mapTypes.set('styled_map', styledMapType);
-map_register.setMapTypeId('styled_map');
+    var click_registro2;
+    google.maps.event.addListener(map5, "click", function (event) {
+      if(marker!=null) {
+        marker.setMap(null);
+        aux.setMap(null);
+      }
+      latitude = event.latLng.lat();
+      longitude = event.latLng.lng();
+      click_registro2 = {lat: latitude, lng: longitude}
+      marker = new google.maps.Marker({
+        position: click_registro2,
+        map: map5,
+        title: 'Ubicación'
+      });
+    });
+  }  
 
-var click_registro;
-google.maps.event.addListener(map_register, "click", function (event) {
-  if(marker!=null) {
-    marker.setMap(null);
-  }
-  latitude = event.latLng.lat();
-  longitude = event.latLng.lng();
-  click_registro = {lat: latitude, lng: longitude}
-  marker = new google.maps.Marker({
-    position: click_registro,
-    map: map_register,
-    title: 'Ubicación'
+  /* Mapa Registro */
+  console.log("LLEGO 5");
+  uluru2 = {lat: -34.9950075, lng: -67.5100458};
+  var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
+    zoom: 8,
+    center: {lat: -34.9950075, lng: -67.5100458},
+    mapTypeControl: 0,
+    scaleControl: 10,
+    streetViewControl: 0,
+    rotateControl: 0,
+    fullscreenControl: 0,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+      'styled_map']
+    }
   });
-  $("#siguiente-fin").removeAttr("disabled");
-});
+
+  map_register.setMapTypeId('roadmap');
+  map_register.setOptions({
+    'styles': [
+    {
+      featureType: "all",
+      stylers: [
+      {  }
+      ]
+    },{
+      featureType: "landscape.natural",
+      stylers: [
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "landscape",
+      stylers: [
+      { hue: "#D8B384" },
+      { gamma: 0.60 }
+      ]
+    },{
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [
+      { hue: "#00ffee" },
+      { saturation: 100 }
+      ]
+    },{
+      featureType: "poi.business",
+      elementType: "labels",
+      stylers: [
+      { visibility: "off" }
+      ]
+    },{
+      featureType: 'water',
+      elementType: 'geometry.fill',
+      stylers: [{color: '#92CAE7'}]
+    },
+    {
+      featureType: 'administrative',
+      elementType: "geometry.fill",
+      stylers: [{visibility: "off"}]
+    }
+    ]
+  });
+
+  var click_registro;
+  google.maps.event.addListener(map_register, "click", function (event) {
+    if(marker!=null) {
+      marker.setMap(null);
+    }
+    latitude = event.latLng.lat();
+    longitude = event.latLng.lng();
+    click_registro = {lat: latitude, lng: longitude}
+    marker = new google.maps.Marker({
+      position: click_registro,
+      map: map_register,
+      title: 'Ubicación'
+    });
+    $("#siguiente-fin").removeAttr("disabled");
+  });
+
 } 
 
 function muestraModal(parametro) {
@@ -247,27 +316,27 @@ function muestraModal(parametro) {
 
 
 
-if(es_egresado==""){
+  if(es_egresado==""){
 
-es_egresados="";
-}
-else{
-es_esgresados=deco_egreso(parseInt(es_egresado));
+    es_egresados="";
+  }
+  else{
+    es_esgresados=deco_egreso(parseInt(es_egresado));
 
-}
+  }
 
-if(facultad==""){
+  if(facultad==""){
 
-facultades="";
-}
-else{
- var facultades=deco_facultad(parseInt(facultad));
+    facultades="";
+  }
+  else{
+   var facultades=deco_facultad(parseInt(facultad));
 
-}
+ }
 
 
-if(carrera==""){
-carreras="";
+ if(carrera==""){
+  carreras="";
 }
 else{
   var carreras=deco_carrera(parseInt(carrera));
@@ -275,24 +344,17 @@ else{
 }
 
 
- 
+var d = new Date(fecha_egreso);
+var dia = d.getUTCDate();
+var mes = d.getUTCMonth() + 1;
+var anio = d.getUTCFullYear();
+var fecha = dia+"/"+mes+"/"+anio;
 
-
-
-
-
-
-  var d = new Date(fecha_egreso);
-  var dia = d.getUTCDate();
-  var mes = d.getUTCMonth() + 1;
-  var anio = d.getUTCFullYear();
-  var fecha = dia+"/"+mes+"/"+anio;
-
-  var contentString2 = '<div id="content">'+
-  '<div id="contenedor-marcador">'+
-  '<div id="fat_img">'+
-  '<div id="cont-img">'+
-  '<img src="'+test_img+'" />'+
+var contentString2 = '<div id="content">'+
+'<div id="contenedor-marcador">'+
+'<div id="fat_img">'+
+'<div id="cont-img">'+
+'<img src="'+test_img+'" />'+
         '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
         '<div id="fat_text">'+
         '<div id="cont_text">'+
@@ -889,6 +951,7 @@ else{
   }
 
   function moveToLocation(lat, lng, map){
+    lat-=-14;
     var center = new google.maps.LatLng(lat, lng);
     map.panTo(center);
   }

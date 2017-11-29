@@ -11,20 +11,59 @@
           01
         </div></a>
         <div class="separador-wizard sep-1">
-          <div class="linea-separador active-sep"></div>
+          <div class="linea-separador active-sep">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
 
         <a id="bloque-02" href="#"><div class="bloque-wizard bloq-2">
           02
         </div></a>
         <div class="separador-wizard sep-2">
-          <div class="linea-separador"></div>
+          <div class="linea-separador">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
         <a id="bloque-03" href="#"><div class="bloque-wizard bloq-3">
           03
         </div></a>
         <div class="separador-wizard sep-3">
-          <div class="linea-separador"></div>
+          <div class="linea-separador">
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+            <div class="puntito"></div>
+          </div>
         </div>
         <a id="bloque-04" href="#"><div class="bloque-wizard bloq-4">
           04

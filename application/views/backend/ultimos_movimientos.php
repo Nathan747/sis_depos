@@ -112,7 +112,8 @@
 	<div class="col-lg-12"><div class="cuadro-busqueda">
 		<div class="col-lg-2">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar" onkeypress="validar(event)">
+				<!--input type="text" class="form-control busqueda-ultimos-movimientos" placeholder="Buscar"-->
+				<input type="text" class="form-control busqueda-ultimos-movimientos" placeholder="Buscar" onkeydown="validar(event)">
 			</div>
 		</div>
 		<div class="col-lg-5">

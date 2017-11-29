@@ -29,6 +29,8 @@ class Perfil_model extends CI_Model {
         $es_egresado = $row->es_egresado_user;
         $facultad = $row->facultad_user;
         $carrera = $row->carrera_user;
+        $latitud = $row->lat_user;;
+        $longitud = $row->long_user;;
         if ($foto==""){
           $foto='assets/img/pics/'.'1.png';
         }
@@ -47,6 +49,8 @@ class Perfil_model extends CI_Model {
       $json["es_egresado"]=$es_egresado;
       $json["facultad"]=$facultad;
       $json["carrera"]=$carrera;
+      $json["latitud"]=$latitud;
+      $json["longitud"]=$longitud;
     }else{
       $json["nombre"]="";
       $json["apellido"]="";
@@ -62,6 +66,8 @@ class Perfil_model extends CI_Model {
       $json["es_egresado"]="";
       $json["facultad"]="";
       $json["carrera"]="";
+      $json["latitud"]="";
+      $json["longitud"]="";
     }
 
     return $json; 

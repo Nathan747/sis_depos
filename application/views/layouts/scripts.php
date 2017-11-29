@@ -5,6 +5,7 @@
 <script src="<?php echo base_url("assets/js/AjaxUpload.2.0.min.js"); ?>"></script>
 
 <script>  
+  var info_perfil = <?php echo json_encode($perfil) ?>;
   var datos_perfil=0;
   var direccion = "<?php echo base_url(""); ?>";
   var id_colaborador = "<?php 
@@ -46,6 +47,7 @@
   var facultad_number;
   var carrera_number;
   var picture;
+  var map5;
 
   function decodificar_facultad(indice){
     var string_facultad;

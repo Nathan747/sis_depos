@@ -10,4 +10,5 @@
 	<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon/favicon-16x16.png") ?>" sizes="16x16">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,800" rel="stylesheet">
 	
