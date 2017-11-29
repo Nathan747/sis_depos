@@ -189,7 +189,7 @@
         border: 0px solid #cccccc;
         background-size: cover;
         position: absolute;
-        left: 40px;
+        left: 25px;
         top: 50%;
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-10px, -50%);
@@ -1248,7 +1248,7 @@
         }
 
         #map {
-            height: calc(100vh - 100px);
+            height: calc(100vh - 70px);
             opacity: .75;
         }
 
@@ -1868,16 +1868,14 @@
 
         footer {
             padding: 0px;
-            height: 100px;
+            height: 85px;
+            position: absolute;
+            bottom: 0px;
         }
 
         .top-footer {
             text-align: left;
-            background-color: white;
-            color: white;
-            font-size: 14px;
-            height: 30px;
-            line-height: 30px;
+            background-color: transparent;
         }
 
         .top-footer .contenedor-logo-footer, .top-footer .info-footer{
@@ -1913,7 +1911,7 @@
 
         .top-footer .texto-footer-izquierda{
             float: left;
-            padding-left: 30px;
+            padding-left: 0px;
         }
 
         .top-footer .texto-footer-derecha{
@@ -2761,11 +2759,11 @@
         }
 
         body.back #contenedor-marcador{
-         height: auto !important;
-         min-height: 0px;
-     }
+           height: auto !important;
+           min-height: 0px;
+       }
 
-     body.back #boxes #dialog {
+       body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;
@@ -2935,10 +2933,6 @@
         width: 400px;
     }
 
-    .back-colaborador .contenedor-editar-colaborador {
-
-    }
-
     .back-colaborador aside {
         z-index: 4;
         position: relative;
@@ -2951,7 +2945,7 @@
 
     #mapa-overlay{
         width: 100vw;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 70px);
         position: absolute;
         top: 70px;
         background-image: url(../img/dot.png);
