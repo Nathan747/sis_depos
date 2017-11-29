@@ -37,7 +37,7 @@ if ($this->session->has_userdata('newsession')) {
 
 			<div class="contenedor-ventana-flotante">
 				<div class="boton-registrate">
-					<button id="dnr">ENTRAR</button>
+					<button id="dnr">SUMATE</button>
 				</div>
 				<div class="localizate">
 					Localizate en el mapa y contanos tu historia.
@@ -72,7 +72,7 @@ if ($this->session->has_userdata('newsession')) {
 
 			<div class="contenedor-ventana-flotante">
 				<div class="boton-registrate">
-					<button id="dnr">ENTRAR</button>
+					<button id="dnr">SUMATE</button>
 				</div>
 				<div class="localizate">
 					Localizate en el mapa y contanos tu historia.
@@ -104,7 +104,7 @@ if ($this->session->has_userdata('newsession')) {
 
 			<div class="contenedor-ventana-flotante">
 				<div class="boton-registrate">
-					<button id="dnr">ENTRAR</button>
+					<button id="dnr">SUMATE</button>
 				</div>
 				<div class="localizate">
 					Localizate en el mapa y contanos tu historia.

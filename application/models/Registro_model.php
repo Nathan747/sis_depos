@@ -52,6 +52,7 @@ class Registro_model extends CI_Model
 	{
 		$sql = $this->db->get('unc_usuarios');
 		$i = 0;
+		$json="";
 		foreach ($sql->result() as $row)
 			{
 			$json[$i]["email_user"] = $row->email_user;

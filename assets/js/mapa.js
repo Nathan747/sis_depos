@@ -5,13 +5,11 @@ var email;
 
 function initMap() {
 
-  console.log(info_perfil);
   var latitud5 = info_perfil.latitud;
   var longitud5 = info_perfil.longitud;
   var uluru = {lat: -34.9950075, lng: -67.5100458};
   var uluru2 = {lat: -35.9950075, lng: -68.5100458};
 
-  //var uluru = {lat: 16.2591717, lng: -5.5345314};
   var uluru = {lat: -23.582723, lng: -23.5132007};
   
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -105,25 +103,24 @@ function initMap() {
       }else{
         var test_img = objeto[x].img;
       }
-//<input type="button" value="Pinchame y verás" onclick="muestraMensaje()" />
-var contentString = '<div id="content">'+
-'<div id="contenedor-marcador">'+
-'<div id="padre-imagen">'+
-'<div id="contenedor-imagen">'+
-'<img src="'+test_img+'" />'+
-        '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
-        '<div id="padre-texto">'+
-        '<div id="contenedor-texto">'+
-        '<h1>'+nombre+' '+apellido+'</h1>'+
-        '<h2>'+profesion+'</h2>'+
-        '<h3>'+texto+'...</h3>'+
-        '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
-        '</div></div>'+ // Cierre contenedor-texto y padre-texto
-        '</div></div>'; // Cierre contenedor-marcador y content
-        add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
-      }
+      var contentString = '<div id="content">'+
+      '<div id="contenedor-marcador">'+
+      '<div id="padre-imagen">'+
+      '<div id="contenedor-imagen">'+
+      '<img src="'+test_img+'" />'+
+      '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
+      '<div id="padre-texto">'+
+      '<div id="contenedor-texto">'+
+      '<h1>'+nombre+' '+apellido+'</h1>'+
+      '<h2>'+profesion+'</h2>'+
+      '<h3>'+texto+'...</h3>'+
+      '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
+      '</div></div>'+ // Cierre contenedor-texto y padre-texto
+      '</div></div>'; // Cierre contenedor-marcador y content
+      add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
+    }
 
-    });
+  });
 
   var uluru4 = {lat: latitud5, lng: longitud5};
   if(document.getElementById('mapa_modificar')){
@@ -216,82 +213,84 @@ var contentString = '<div id="content">'+
   }  
 
   /* Mapa Registro */
-  console.log("LLEGO 5");
   uluru2 = {lat: -34.9950075, lng: -67.5100458};
-  var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
-    zoom: 8,
-    center: {lat: -34.9950075, lng: -67.5100458},
-    mapTypeControl: 0,
-    scaleControl: 10,
-    streetViewControl: 0,
-    rotateControl: 0,
-    fullscreenControl: 0,
-    mapTypeControlOptions: {
-      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-      'styled_map']
-    }
-  });
-
-  map_register.setMapTypeId('roadmap');
-  map_register.setOptions({
-    'styles': [
-    {
-      featureType: "all",
-      stylers: [
-      {  }
-      ]
-    },{
-      featureType: "landscape.natural",
-      stylers: [
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "landscape",
-      stylers: [
-      { hue: "#D8B384" },
-      { gamma: 0.60 }
-      ]
-    },{
-      featureType: "road.arterial",
-      elementType: "geometry",
-      stylers: [
-      { hue: "#00ffee" },
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "poi.business",
-      elementType: "labels",
-      stylers: [
-      { visibility: "off" }
-      ]
-    },{
-      featureType: 'water',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#92CAE7'}]
-    },
-    {
-      featureType: 'administrative',
-      elementType: "geometry.fill",
-      stylers: [{visibility: "off"}]
-    }
-    ]
-  });
-
-  var click_registro;
-  google.maps.event.addListener(map_register, "click", function (event) {
-    if(marker!=null) {
-      marker.setMap(null);
-    }
-    latitude = event.latLng.lat();
-    longitude = event.latLng.lng();
-    click_registro = {lat: latitude, lng: longitude}
-    marker = new google.maps.Marker({
-      position: click_registro,
-      map: map_register,
-      title: 'Ubicación'
+  if(document.getElementById('mapa_registro')){
+    var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
+      zoom: 8,
+      center: {lat: -34.9950075, lng: -67.5100458},
+      mapTypeControl: 0,
+      scaleControl: 10,
+      streetViewControl: 0,
+      rotateControl: 0,
+      fullscreenControl: 0,
+      mapTypeControlOptions: {
+        mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+        'styled_map']
+      }
     });
-    $("#siguiente-fin").removeAttr("disabled");
-  });
+
+    map_register.setMapTypeId('roadmap');
+    map_register.setOptions({
+      'styles': [
+      {
+        featureType: "all",
+        stylers: [
+        {  }
+        ]
+      },{
+        featureType: "landscape.natural",
+        stylers: [
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "landscape",
+        stylers: [
+        { hue: "#D8B384" },
+        { gamma: 0.60 }
+        ]
+      },{
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+        { hue: "#00ffee" },
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+        { visibility: "off" }
+        ]
+      },{
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [{color: '#92CAE7'}]
+      },
+      {
+        featureType: 'administrative',
+        elementType: "geometry.fill",
+        stylers: [{visibility: "off"}]
+      }
+      ]
+    });
+
+
+    var click_registro;
+    google.maps.event.addListener(map_register, "click", function (event) {
+      if(marker!=null) {
+        marker.setMap(null);
+      }
+      latitude = event.latLng.lat();
+      longitude = event.latLng.lng();
+      click_registro = {lat: latitude, lng: longitude}
+      marker = new google.maps.Marker({
+        position: click_registro,
+        map: map_register,
+        title: 'Ubicación'
+      });
+      $("#siguiente-fin").removeAttr("disabled");
+    });
+  }
 
 } 
 
@@ -460,7 +459,6 @@ var contentString2 = '<div id="content">'+
         //if close button is clicked  
         $(".window .close").click(function (e) {  
           //Cancel the link behavior  
-          console.log("click");
           e.preventDefault();  
           $("#mask, .window").hide(); 
           $("#boxes #dialog").css("display","none"); 
