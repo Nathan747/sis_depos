@@ -1803,7 +1803,19 @@
 
         .third a.myprof:hover,
         .third a.editprof:hover {
-            color: #22205F;
+            color: white;
+        }
+
+        .third a.myprof:focus,
+        .third a.editprof:focus {
+            background-color: #3F9FFF;
+            color: white;
+        }
+
+        .third a.myprof:focus:hover,
+        .third a.editprof:focus:hover {
+            background-color: #DF5426;
+            color: white;
         }
 
         .no-face a {
@@ -2126,18 +2138,22 @@
             margin-left: 10px;
         }
 
+        #btnClean{
+            margin-right: 10px;
+        }
+
         #btnEnviar,
         #btnClean {
             color: #fff !important;
-            background-color: #22205F !important;
-            border-color: #22205F !important;
+            background-color: #3F9FFF !important;
+            padding: 10px 24px;
+            border: 0px;
         }
 
         #btnClean:hover,
         #btnEnviar:hover {
-            color: #22205F !important;
-            background-color: white !important;
-            border-color: #22205F !important;
+            color: white !important;
+            background-color: #DF5426 !important;
         }
 
         .centrar-botones {
@@ -2171,10 +2187,9 @@
         }
 
         .examinar:hover {
-            color: black;
+            color: white;
             text-decoration: none;
-            background-color: #f5f5f5;
-            border: 1px solid black;
+            background-color: #DF5426;
         }
 
         .contenedor-informacion-perfil {
@@ -2212,7 +2227,7 @@
         .checkbox-2 {
             width: 100%;
             height: 34px;
-            background: #22205F;
+            background: #3F9FFF;
             margin: 0 0px;
             border-radius: 0;
             position: relative;
@@ -2239,7 +2254,7 @@
         }
 
         .checkbox-2 label {
-            background: #747098;
+            background: white;
             display: block;
             width: 49px;
             height: 22px;
