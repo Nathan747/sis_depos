@@ -76,7 +76,7 @@ function statusChangeCallback(response) {
               right: "-100%"
             },function(){
               $("#registrate").click();
-              
+               
               $(".contenedor-modo").animate({
                 left: "-100%"
               });

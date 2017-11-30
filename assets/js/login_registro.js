@@ -188,7 +188,7 @@ $('#registrate').click(function(e){
   $(".mapa-registro").css("display","block");
   $(".mapa-registro").css("left","100%");
 
-  $(".formulario-no-fb").css("display","block");
+  $(".formulario-no-fb").css("display","block"); 
   $(".formulario-fb").css("display","block");
 
   $(".face").css("display","block");

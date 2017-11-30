@@ -47,7 +47,7 @@ class Markers_model extends CI_Model {
       $json[$i]["jerarquia"] = "";
       $json[$i]["facultad_user"] = "";
       $json[$i]["carrera_user"] = "";
-      $json[$i]["img"] = "";
+      $json[$i]["img"] = ""; 
       //$i++;
     }
 

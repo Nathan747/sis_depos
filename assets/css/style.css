@@ -489,7 +489,8 @@
         }
 
         #contenedor-imagen img {
-            height: 200px;
+            height: auto;
+            width: 100%;
         }
 
         #contenedor-marcador {
@@ -2800,11 +2801,11 @@
         }
 
         body.back #contenedor-marcador{
-         height: auto !important;
-         min-height: 0px;
-     }
+           height: auto !important;
+           min-height: 0px;
+       }
 
-     body.back #boxes #dialog {
+       body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;

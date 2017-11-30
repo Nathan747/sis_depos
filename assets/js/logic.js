@@ -9,7 +9,7 @@
     });
 
     var mostrar = function(etiqueta){
-      etiqueta.addClass("puntito-add");
+      etiqueta.addClass("puntito-add"); 
     }
 
     //BOTON SIGUIENTE REGISTRATE

@@ -49,7 +49,7 @@
   var carrera_number;
   var picture="";
   var map5;
-  var is_facebook=0;
+  var is_facebook=0; 
 
   function decodificar_facultad(indice){
     var string_facultad;
