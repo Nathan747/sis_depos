@@ -560,6 +560,15 @@ display:none;
 
 
 @media(max-width:767px) {
+
+
+.contenedor-wizard{
+display:none;
+
+}
+
+
+
 	.hamburger {
 display:block!important;
 }

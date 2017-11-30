@@ -75,8 +75,10 @@ function initMap() {
     type: "POST",
     url: "Markers/load/",
   }).done(function(json){
+    console.log(json);
     var objeto = $.parseJSON(json);
     objeto_total=objeto;
+    console.log(objeto);
     for(var x=0;x<objeto.length;x++){
       var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
       var nombre=objeto[x].nombre_user;

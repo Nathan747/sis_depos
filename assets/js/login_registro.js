@@ -738,11 +738,211 @@ $(".all-careers").find("a").click(function(){
 
 /*seccion responsive*/
 
-var windowWidth = $(window).width(); //retrieve current window width
-//console.log(windowWidth);
 
-var windowHeight = $(window).height(); //retrieve current window height
-//console.log(windowHeight);
+
+
+
+
+$(window).resize(function(){
+  var windowWidth = $(window).width(); //retrieve current window width
+
+  //console.log(windowWidth);
+  var windowHeight = $(window).height(); //retrieve current window height
+
+
+  console.log(windowWidth);
+/*resize*/
+if(windowWidth < 768){
+  
+    $('.prof').click(function(e){
+      e.preventDefault();
+      $("#cerrar-donar").click();
+      $(".navbar-toggle").click();
+      $('.hamburger').click();
+  
+      $(".home .profile .container .expand").css("height","834px");
+      $(".contenedor-informacion-perfil").css("height","225px");
+  
+      $('.profile').animate({
+        right: "0"
+      });
+  
+      $(".test-profile").css("left","180px");
+      
+      $(".username-change").css("left","180px");
+  
+      $(".perfil-animation").css("left","180px");
+  
+      $(".profile-options").css("display","inline-block");
+  
+  
+      $(".test-profile").animate({
+        left: "0px"
+      });
+  
+      $(".username-change").animate({
+        left: "0px"
+      });
+  
+      $(".perfil-animation").animate({
+        left: "0px"
+      });
+  
+      $(".profile-options").animate({
+        left: "0px"
+      });
+  
+      if(datos_perfil==0){
+        $.ajax({
+          url: "Perfil/obtener_datos_json",
+          type: "POST"
+        }).done(function(json){
+          datos_perfil=1;
+          var objeto = $.parseJSON(json);
+          $("#txtName").val(objeto.nombre);
+          $("#txtSurname").val(objeto.apellido);
+          $("#txtEmail").val(objeto.email);
+          $("#txtPhone").val(objeto.telefono);
+          $("#txtDni").val(objeto.dni);
+          $("#txtBday").val(objeto.fecha);
+          $("#txtPassword").val(objeto.password);
+          $("#txtQualification").val(objeto.profesion);
+          $("#txtBiography").val(objeto.biografia);
+          $("#universidad_modify").val(objeto.facultad);
+  
+          $(".selecciones-modify").each(function(){
+            $(this).css("display","none");
+          });
+  
+          var clase3 = ".seleccion-"+objeto.facultad;
+          $(clase3).css("display","inline-block");
+          $(".profile").find(".container").find(".row").css("max-height","1700px");
+  
+          objeto.facultad = parseInt(objeto.facultad);
+          var clase2 = "#carreras-"+objeto.facultad;
+          console.log(objeto.carrera);
+          objeto.carrera = parseInt(objeto.carrera);
+          console.log(objeto.carrera);
+          console.log($(clase2));
+          $(clase2).val(objeto.carrera);
+          if(objeto.es_egresado==1){
+            $("#ejemplo-2").prop("checked",true);
+          }else{
+            $("#ejemplo-2").prop("checked",false);
+          }
+          
+          //console.log(objeto);
+        });
+      }
+  
+    });
+  
+    
+  
+  
+    $(".donar").click(function(){
+  
+      $(".navbar-toggle").click();
+      $("#cerrar-perfil").click();
+      $(".contenedor-donar").animate({
+        right: "0px"
+      })
+    });
+  
+  
+  
+    $('.myprof').click(function(e){
+      e.preventDefault();
+      
+      $('.profile').animate({scrollTop : 0}, 300, function(){
+        $("#b").addClass("active-perfil");
+        $("#d").removeClass("active-perfil");
+        $('.bio').css("display","block");
+        $('.bio2').css("display","block");
+  
+        $(".home .profile .container .expand").css("height","834px");
+        $(".contenedor-informacion-perfil").css("height","225px");
+  
+        $('.bio').animate({
+          right: "0"
+        });
+        $('.formul').animate({
+          right: "-100%"
+        });
+        $('.bio2').animate({
+          right: "0"
+        });
+        $(".camimg").animate({
+          top: "-80px"
+        });
+  
+        $(".third").animate({
+          top: "-80px"
+        });
+  
+        $(".second").animate({
+          top: "-80px"
+        });
+  
+        $('.profile').css("overflow","hidden");
+      });
+  
+  
+    });
+  
+    $('.editprof').click(function(e){
+      e.preventDefault();
+  
+      $(".home .profile .container .expand").css("height","2300px");
+      $(".contenedor-informacion-perfil").css("height","328px");
+  
+      $("#d").addClass("active-perfil");
+      $("#b").removeClass("active-perfil");
+  
+      $('.bio').animate({
+        right: "-100%"
+      },function(){
+        $('.bio').css("display","none");
+  
+        $('.formul').animate({
+          right: "0",
+          top:"0"
+        });
+      });
+  
+      $('.bio2').animate({
+        right: "-100%"
+      },function(){
+        $('.bio2').css("display","none");
+      });
+  
+     //$('.camimg').css("display","block");  
+     $(".third").animate({
+      top: "0px"
+    });
+  
+     $(".second").animate({
+      top: "0px"
+    });
+  
+     $(".camimg").animate({
+      top: "0px"
+    });
+  
+     $('.profile').css("overflow","scroll");  
+   });
+  
+   }
+  });//fin if
+
+
+  var windowWidth = $(window).width(); //retrieve current window width
+  //console.log(windowWidth);
+  
+  var windowHeight = $(window).height(); //retrieve current window height
+  //console.log(windowHeight);
+
+console.log(windowWidth);
 
 if(windowWidth < 768){
 
@@ -814,8 +1014,8 @@ if(windowWidth < 768){
         var clase2 = "#carreras-"+objeto.facultad;
         console.log(objeto.carrera);
         objeto.carrera = parseInt(objeto.carrera);
-        console.log(objeto.carrera);
-        console.log($(clase2));
+        //console.log(objeto.carrera);
+        //console.log($(clase2));
         $(clase2).val(objeto.carrera);
         if(objeto.es_egresado==1){
           $("#ejemplo-2").prop("checked",true);
@@ -823,7 +1023,7 @@ if(windowWidth < 768){
           $("#ejemplo-2").prop("checked",false);
         }
         
-        console.log(objeto);
+        //console.log(objeto);
       });
     }
 
