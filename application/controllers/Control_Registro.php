@@ -86,6 +86,6 @@ class Control_Registro extends CI_Controller
 	public function bring_mails()
 	{
 		$mails = $this->Registro_model->bring_mails();
-		echo json_encode($mails);
+		echo json_encode($mails); 
 	}
 }

@@ -11,7 +11,7 @@ class Markers extends CI_Controller {
 	public function load()
 	{
 		$usuarios = $this->Markers_model->select_markers();
-		echo json_encode($usuarios);
+		echo json_encode($usuarios); 
 	}
 	
 }
