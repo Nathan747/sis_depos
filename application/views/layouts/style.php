@@ -2,8 +2,414 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <style>
+
+
+
+
+
+/*menu hamburguesa*/
+.hamburger {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  position: relative;
+  display: block;
+  width: 68px;
+  height: 68px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor:pointer;
+  float:right;
+}
+.navbar-toggle{
+display:none;
+
+}
+
+.burger-main {
+  position: absolute;
+  padding: 20px 16px;
+  height: 68px;
+  width: 68px;
+}
+
+.burger-inner {
+  position: relative;
+  height: 28px;
+  width: 36px;
+}
+
+.burger-main span {
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 36px;
+  border-radius: 2px;
+  background: #3F9FFF;
+}
+
+.top {
+  top: 0;
+  transform-origin: 34px 2px;
+}
+
+.bot {
+  bottom: 0;
+  transform-origin: 34px 2px;
+}
+
+.mid {
+  top: 12px;
+}
+
+.svg-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+.circle {
+  width: 68px;
+  height: 68px;
+}
+
+.path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  stroke-linejoin: round;
+}
+
+.hamburger.open .path {
+  animation: dash-in 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.closed .path {
+  animation: dash-out 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.open .top {
+  animation: close-top-out 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.open .bot {
+  animation: close-bot-out 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.closed .top {
+  animation: close-top-in 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.closed .bot {
+  animation: close-bot-in 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.open .mid {
+  animation: burger-fill-out 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.closed .mid {
+  animation: burger-fill-in 0.6s linear normal;
+}
+
+.path-burger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 68px;
+  width: 68px;
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+  -webkit-mask-box-image: url(http://dev.awsm.in/codepen/mask.svg);
+}
+
+.animate-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+.path-rotation {
+  height: 34px;
+  width: 34px;
+  margin: 34px 34px 0 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+
+.path-rotation:before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 34px;
+  margin: 0 4px 0 0;
+  background: #3F9FFF;
+}
+
+.hamburger.open .animate-path {
+  animation: circle-in 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+.hamburger.closed .animate-path {
+  animation: circle-out 0.6s linear normal;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes dash-in {
+  0% {
+    stroke-dashoffset: 240;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+
+}
+
+@keyframes dash-in {
+  0% {
+    stroke-dashoffset: 240;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+
+}
+
+@-webkit-keyframes dash-out {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 240;
+  }
+
+}
+
+@keyframes dash-out {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 240;
+  }
+
+}
+
+@keyframes close-top-out {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    left: 0;
+    top: 0;
+    transform: rotate(15deg);
+  }
+
+  80% {
+    left: -5px;
+    top: 0;
+    transform: rotate(-60deg);
+  }
+
+  100% {
+    left: -5px;
+    top: 1px;
+    transform: rotate(-45deg);
+  }
+
+}
+
+@keyframes close-bot-out {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    left: 0;
+    transform: rotate(-15deg);
+  }
+
+  80% {
+    left: -5px;
+    transform: rotate(60deg);
+  }
+
+  100% {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+
+}
+
+@keyframes close-top-in {
+  0% {
+    left: -5px;
+    bot: 0;
+    transform: rotate(-45deg);
+  }
+
+  20% {
+    left: -5px;
+    bot: 0;
+    transform: rotate(-60deg);
+  }
+
+  80% {
+    left: 0;
+    bot: 0;
+    transform: rotate(15deg);
+  }
+
+  100% {
+    left: 0;
+    bot: 1px;
+    transform: rotate(0deg);
+  }
+
+}
+
+@keyframes close-bot-in {
+  0% {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+
+  20% {
+    left: -5px;
+    transform: rotate(60deg);
+  }
+
+  80% {
+    left: 0;
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+}
+
+@keyframes burger-fill-in {
+  0% {
+    width: 0;
+    left: 36px;
+  }
+
+  40% {
+    width: 0;
+    left: 40px;
+  }
+
+  80% {
+    width: 36px;
+    left: -6px;
+  }
+
+  100% {
+    width: 36px;
+    left: 0px;
+  }
+
+}
+
+@keyframes burger-fill-out {
+  0% {
+    width: 36px;
+    left: 0px;
+  }
+
+  20% {
+    width: 42px;
+    left: -6px;
+  }
+
+  40% {
+    width: 0;
+    left: 40px;
+  }
+
+  100% {
+    width: 0;
+    left: 36px;
+  }
+
+}
+@keyframes circle-out {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes circle-in {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  40% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+/*fin menu hamburguesa*/
+
+
 .navbar-toggle {
-    margin-top: 13px!important;
+    margin-top: 18px!important;
 }
 .examinar{
 	background:#22205F;
@@ -144,25 +550,58 @@
 	display:none;
 }
 
+.hamburger {
+display:none;
+}
+
+
+
+
+
+
 @media(max-width:767px) {
+	.hamburger {
+display:block!important;
+}
 
 
 
 
 
+	.navbar-nav li a:hover:after {
+    width: 21%;
+    background: #3d3d3d;
+}
 
+
+.face{
+
+text-align:center;
+
+}
+
+.padre-biografia, .allFormButtons {
+    position: relative;
+    top: -26px!important;
+}
 
 
 /*maps*/
+
+#contenedor-imagen {
+    height: 148px;
+    overflow: hidden;
+}
+
 
 
 #contenedor-leer {
     position: absolute;
     width: 195px;
-    bottom: 1px;
-    left: 3px;
+    bottom: 18px;
+    left: -25px;
     height: 25px;
-    background-color: #108CFF;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -173,7 +612,7 @@
     top: 0 !important;
     left: 0 !important;
     width: 200px !important;
-    height: 293px!important;
+    height: 330px!important;
 }
 
 
@@ -188,12 +627,12 @@
 
 
 #map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div>div:nth-child(1)>div:nth-child(4) {
-	height: 299px !important;
+	height: 330px !important;
     width: 199px!important;
 }
 
 #map>div>.gm-style>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div>div:nth-child(1)>div:nth-child(2) {
-    height: 300px !important;
+    height: 330px !important;
     width: 201px!important;
 }
 
@@ -201,7 +640,7 @@
 	cursor: default;
     position: absolute;
     width: 201px!important;
-    height: 296px!important;
+    height: 330px!important;
     left: 172px;
     top: -49px;
     z-index: -49;
@@ -213,7 +652,7 @@
 
 
 .profile .container .expand {
-    max-height: 2000px!important;
+	max-height: 2194px!important;
 }
 .login {
     z-index: 9;
@@ -237,9 +676,9 @@
 .navbar-right{
 	top: -200px;
     position: relative;
-    background: #22205F;
+    background:#ffffff;
     margin: 0;
-    padding-top: 10px;
+	padding-top: 10px;
 }
 .navbar-collapse.in{
 -webkit-transition: all 1s ease;

@@ -28,6 +28,29 @@ $(".navbar-toggle").click(function(e){
 /*nav bar */
 
 
+/*menu hamburguesa */
+$('document').ready(function () {
+  var Closed = false;
+
+  $('.hamburger').click(function (e) {
+ 
+    if (Closed == true) {
+      $(".navbar-toggle").click();
+      $(this).removeClass('open');
+      $(this).addClass('closed');
+      Closed = false;
+    } else {     
+      $(".navbar-toggle").click();          
+      $(this).removeClass('closed');
+      $(this).addClass('open');
+      Closed = true;
+    }
+  });
+});
+
+/*menu hamburguesa*/ 
+
+
 
 
 $('#cerrar-login').click(function(e){
@@ -488,9 +511,12 @@ function abreSitio(){
 /*Perfil*/
 
 $('#cerrar-perfil').click(function(e){
-
+ 
 
   e.preventDefault();
+
+  
+  
   $('.profile').animate({
     right: "-350%"
   });
@@ -715,6 +741,7 @@ if(windowWidth < 768){
     e.preventDefault();
     $("#cerrar-donar").click();
     $(".navbar-toggle").click();
+    $('.hamburger').click();
 
     $(".home .profile .container .expand").css("height","834px");
     $(".contenedor-informacion-perfil").css("height","225px");
@@ -849,7 +876,7 @@ if(windowWidth < 768){
   $('.editprof').click(function(e){
     e.preventDefault();
 
-    $(".home .profile .container .expand").css("height","1800px");
+    $(".home .profile .container .expand").css("height","2300px");
     $(".contenedor-informacion-perfil").css("height","328px");
 
     $("#d").addClass("active-perfil");

@@ -4,6 +4,7 @@
 <script src="<?php echo base_url("assets/js/login_registro.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/AjaxUpload.2.0.min.js"); ?>"></script>
 
+
 <script>  
   var info_perfil = <?php echo json_encode($perfil) ?>;
   var datos_perfil=0;

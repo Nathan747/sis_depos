@@ -9,6 +9,29 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+
+<div class="hamburger closed clos">
+  <div class="burger-main">
+    <div class="burger-inner">
+      <span class="top"></span>
+      <span class="mid"></span>
+      <span class="bot"></span>
+    </div>
+  </div>
+
+  <div class="svg-main">
+    <svg class="svg-circle">
+    <path class="path" fill="none" stroke="#3F9FFF" stroke-miterlimit="10" stroke-width="4" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"/>
+    </svg>
+  </div>
+  <div class="path-burger">
+    <div class="animate-path">
+      <div class="path-rotation"></div>
+    </div>
+  </div>
+</div>
+
+
 			<a class="navbar-brand" href="<?php echo base_url() ?>"><img src="<?php echo base_url('assets/img/soydeladecuyo.svg') ?>" alt=""></a>
 		</div>
 
@@ -41,7 +64,7 @@
 						<div class="nav-mobile">
 							<li class="username-change"><a href="#"><div><?php echo $this->session->username; ?><span class="icon-user"></span></div></a></li>
 					        <li><a href="#" class="prof">Perfil</a></li>
-							<li><a href="#" class="donar">#BancáUnaBeca</a></li>
+							<!--<li><a href="#" class="donar">#BancáUnaBeca</a></li>-->
 							<li><a href="#"  class="salir">Salir</a></li>
 						</div>
 
