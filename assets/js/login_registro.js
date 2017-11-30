@@ -281,35 +281,44 @@ $("#bloque-01").click(function(e){
 
 });
 
+$("#bloque-02").mouseover(function(){
+  console.log("HOVER");
+  console.log("IS FACEBOOK: "+is_facebook);
+  if(is_facebook){
+    $("#bloque-02").css("cursor","not-allowed");
+  }
+});
+
 
 $("#bloque-02").click(function(e){
   e.preventDefault();
-  if($(this).find(".bloque-wizard").hasClass("active")){
-    $("#bloque-03").find(".bloque-wizard").removeClass("active");
-    $("#bloque-04").find(".bloque-wizard").removeClass("active");
-    //$(".sep-3").find(".linea-separador").removeClass("active-sep");
-    $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
-      setTimeout(remover($(this)),16000);
-    });
-    $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
-      setTimeout(remover($(this)),16000);
-    });
-    $(".word-carrera").removeClass("word-active");
-    $(".word-mapa").removeClass("word-active");
+  if(is_facebook==0){
+    if($(this).find(".bloque-wizard").hasClass("active")){
+      $("#bloque-03").find(".bloque-wizard").removeClass("active");
+      $("#bloque-04").find(".bloque-wizard").removeClass("active");
+      $(".sep-3").find(".linea-separador").find(".puntito").each(function(){
+        setTimeout(remover($(this)),16000);
+      });
+      $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+        setTimeout(remover($(this)),16000);
+      });
+      $(".word-carrera").removeClass("word-active");
+      $(".word-mapa").removeClass("word-active");
 
-    $(".formulario-padre").css("display","block");
-    $(".formulario-padre").animate({
-      left: "0"
-    });
-    $(".contenedor-carreras").css("right","-100%");
-    $(".contenedor-carreras").css("left","100%");
-    $(".contenedor-carreras").css("display","block");
+      $(".formulario-padre").css("display","block");
+      $(".formulario-padre").animate({
+        left: "0"
+      });
+      $(".contenedor-carreras").css("right","-100%");
+      $(".contenedor-carreras").css("left","100%");
+      $(".contenedor-carreras").css("display","block");
 
-    $(".mapa-registro").css("right","-100%");
-    $(".mapa-registro").css("left","100%");
-    $(".mapa-registro").css("display","block");
+      $(".mapa-registro").css("right","-100%");
+      $(".mapa-registro").css("left","100%");
+      $(".mapa-registro").css("display","block");
 
-    $(".contenedor-registro").css("overflow","hidden");
+      $(".contenedor-registro").css("overflow","hidden");
+    }
   }
 });
 
@@ -486,7 +495,7 @@ $("#mercado-pago").click(function(e){
 });
 
 $("#dnr").click(function(){
-  $("#ingresar").click();
+  $("#registrate").click();
 });
 
 $("#olvidaste_contrasenia").click(function(){
@@ -701,9 +710,9 @@ $('.myprof').click(function(e){
 
 $(".all-careers").find("a").click(function(){
   $(".all-careers").find("a").each(function(){
-    $(this).find(".padre-icono-carrera").css("border","1px solid #D3D3D3");
-    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#D3D3D3");
-    $(this).find(".padre-texto-carrera").css("color","#D3D3D3");
+    $(this).find(".padre-icono-carrera").css("border","1px solid #3d3d3d");
+    $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3d3d3d");
+    $(this).find(".padre-texto-carrera").css("color","#3d3d3d");
   });
   $(this).find(".padre-icono-carrera").css("border","1px solid #3F9FFF");
   $(this).find(".padre-icono-carrera").find(".icon-book").css("color","#3F9FFF");

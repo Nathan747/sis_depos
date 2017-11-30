@@ -42,12 +42,12 @@
       nombre = $("#nombre_login").val();
       apellido = $("#apellido_login").val();
       email = $("#email_login").val();
-      telefono = $("#telefono_login").val();
+      //telefono = $("#telefono_login").val();
       pass1 = $("#password_login").val();
-      dni = $("#dni_login").val();
-      fecha_egresado = $("#fecha_login").val();
-      profesion = $("#lugar_login").val();
-      es_egresado = $("#egresado_login").is(':checked');
+      //dni = $("#dni_login").val();
+      //fecha_egresado = $("#fecha_login").val();
+      //profesion = $("#lugar_login").val();
+      //es_egresado = $("#egresado_login").is(':checked');
       e.preventDefault();
       for (var j = 0; j < todos_los_mail.length; j++) {
         if (email == todos_los_mail[j].email_user) {
@@ -294,7 +294,7 @@
       dni = $("#dni_login").val();
       fecha_egresado = $("#fecha_login").val();
       profesion = $("#lugar_login").val();
-      es_egresado = $("#egresado_login").is(':checked');
+      //es_egresado = $("#egresado_login").is(':checked');
 
       if ((event.which > 31) && (event.which < 166)) {
         if ((event.which != 35) && (event.which != 36) && (event.which != 45) && (event.which != 46) && (event.which != 93) && (event.which != 113) && (event.which != 115) && (event.which != 116) && (event.which != 118) && (event.which != 119) && (event.which != 120) && (event.which != 122) && (event.which != 123) && (event.which != 144) && (event.which != 44) && (event.which != 145)) {
@@ -571,7 +571,7 @@
       dni = $("#dni_fb").val();
       fecha_egresado = $("#fecha_login_fb").val();
       profesion = $("#lugar_fb").val();
-      es_egresado = $("#egresado_fb").is(':checked');
+      //es_egresado = $("#egresado_fb").is(':checked');
 
       e.preventDefault();
       $(".contenedor-modo").css("display", "none");
@@ -594,11 +594,12 @@
 
 
     $("#siguiente-fin").click(function() {
-      if (es_egresado) {
+      /*if (es_egresado) {
         var egresado = 1
       } else {
         var egresado = 0;
-      }
+      }*/
+      if(is_facebook){pass1="";} 
       $(".class").click();
       console.log($(".fb-xfbml-parse-ignore"));
 
@@ -609,11 +610,11 @@
           nombre: nombre,
           apellido: apellido,
           email: email,
-          telefono: telefono,
-          egresado: egresado,
+          egresado: es_egresado,
+          /*telefono: telefono,
           dni: dni,
           fecha_egresado: fecha_egresado,
-          profesion: profesion,
+          profesion: profesion,*/
           password: pass1,
           latitud: latitude,
           longitud: longitude,
@@ -851,7 +852,9 @@
           longitud: longitude
         }
       }).done(function(json) {
+        console.log(json);
         var objeto = $.parseJSON(json);
+        console.log(objeto);
 
         $(".username-change").find("div").text(objeto.username);
         $(".second").find(".name").find("strong").text(objeto.username);
@@ -869,7 +872,6 @@
 
     $("#archivo_oculto1").change(function() {
       var imagen = $("#archivo_oculto1").val();
-      console.log("")
       $(".changeimg").click();
     });
 

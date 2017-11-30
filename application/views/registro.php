@@ -103,139 +103,63 @@
 
     <div class="formulario-padre">
       <div class="formulario-no-fb">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 campos-registro">
           <div class="form-group">
+            <label for="nombre_login">Nombre:</label>
             <input name="nombre_login" type="text" class="form-control" id="nombre_login"
-            placeholder="Nombre">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="apellido_login" type="text" class="form-control" id="apellido_login"
-            placeholder="Apellido">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padre-email">
-          <div class="form-group">
-            <input name="email_login" type="email" class="form-control" id="email_login"
-            placeholder="E-Mail" data-toggle="tooltip-mail" title="E-Mail ya en uso">
-          </div>
-          <div class="error-email"></div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="telefono_login" type="number" class="form-control" id="telefono_login" placeholder="Teléfono">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="dni_login" type="number" class="form-control" id="dni_login" placeholder="DNI">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="date_login" class="form-control" placeholder="Fecha de nacimiento" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login" step="1" max="2020-12-31">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="password" type="password" class="form-control" id="password_login" 
-            placeholder="Contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="password2" type="password" class="form-control" id="password2_login"
-            placeholder="Repita la contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="lugar_login" type="text" class="form-control" id="lugar_login" placeholder="Trabajo actual">
+            placeholder="Ingresa tu nombre">
           </div>
         </div>
 
         <div class="clearfix"></div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container-checkbox">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 campos-registro">
           <div class="form-group">
-            <div class="checkbox">
-              <label><input id="egresado_login" type="checkbox" value="">Soy egresado</label>
-            </div>
+            <label for="apellido_login">Apellido:</label>
+            <input name="apellido_login" type="text" class="form-control" id="apellido_login"
+            placeholder="Ingresa tu apellido">
           </div>
         </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 padre-email campos-registro">
+          <div class="form-group">
+            <label for="email_login">Email:</label>
+            <input name="email_login" type="email" class="form-control" id="email_login"
+            placeholder="Ingresa tu email" data-toggle="tooltip-mail" title="E-Mail ya en uso">
+          </div>
+          <div class="error-email"></div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 campos-registro">
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input name="password" type="password" class="form-control" id="password_login" 
+            placeholder="Ingresa tu contraseña">
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 campos-registro">
+          <div class="form-group">
+            <label for="password2">Repetí tu contraseña:</label>
+            <input name="password2" type="password" class="form-control" id="password2_login"
+            placeholder="Repita tu contraseña">
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
 
         <div class="siguiente-registro-basico">
           <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
         </div>
 
-        <!--div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" >Siguiente</button>
-        </div-->
-
       </div>
 
-      <div class="formulario-fb">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="telefono-fb" type="number" class="form-control" id="telefono_fb"
-            placeholder="Teléfono">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="dni_fb" type="number" class="form-control" id="dni_fb" placeholder="DNI">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input placeholder="Fecha de nacimiento" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_login_fb" step="1" max="2020-12-31">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="lugar_fb" type="text" class="form-control" id="lugar_fb" placeholder="Trabajo actual">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="password-fb" type="password" class="form-control" id="password_fb" 
-            placeholder="Contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <div class="form-group">
-            <input name="password2-fb" type="password" class="form-control" id="password2_fb"
-            placeholder="Repita la contraseña">
-          </div>
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container-checkbox">
-          <div class="form-group">
-            <div class="checkbox">
-              <label><input id="egresado_fb" type="checkbox" value="">Soy egresado</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="siguiente-facebook">
-          <button type="submit" class="btn btn-default" id="siguiente-fb" disabled>Siguiente</button>
-        </div>
-
-      </div>
     </div>
 
 
@@ -1909,7 +1833,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mapa-registro">
       <div class="form-group">
         <div id="mapa_registro"></div>
-        <div style="display:none" class="fb-share-button" data-href="https://koiron.com/proyectos/2017/unc/" data-layout="button" data-size="large"><a class="class" href="javascript:void(0);" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkoiron.com%2Fproyectos%2F2017%2Func%2F&amp;src=sdkpreparse', 'popup', 'left=390, top=200, width=600, height=350, toolbar=0, resizable=1')" style="text-decoration: none;">Compartir</a></div>
+        <div style="display:none" class="fb-share-button" data-href="http://www.unidiversidad.com.ar/soydeladecuyo/" data-layout="button" data-size="large"><a class="class" href="javascript:void(0);" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Funidiversidad.com.ar%2Fsoydeladecuyo%2F&amp;src=sdkpreparse', 'popup', 'left=390, top=200, width=600, height=350, toolbar=0, resizable=1')" style="text-decoration: none;">Compartir</a></div>
       </div>
 
       <div class="siguiente-finalizar">

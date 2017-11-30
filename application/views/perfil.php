@@ -557,7 +557,7 @@ $egresado = deco_egreso($es_egresado);
       <p class="job text-left"><?php echo $email; ?></p>
   </div>
 
-  <div class="col-md-10 third">
+  <div class="col-md-12 third">
       <!-- Barra vertical de opciones del perfil de usuairo -->
       <br >
       <ul class="list-group list-primary">
