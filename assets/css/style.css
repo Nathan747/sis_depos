@@ -2053,6 +2053,17 @@
             padding-left: 0px;
         }
 
+        .first{
+            max-width: 262px;
+            max-height: 262px;
+            overflow: hidden;
+        }
+
+        .first .photo{
+            width: 100%
+            height: auto;
+        }
+
         .changeimg {
             cursor: pointer;
             width: 78%;
@@ -2801,11 +2812,11 @@
         }
 
         body.back #contenedor-marcador{
-           height: auto !important;
-           min-height: 0px;
-       }
+         height: auto !important;
+         min-height: 0px;
+     }
 
-       body.back #boxes #dialog {
+     body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;
