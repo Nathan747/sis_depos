@@ -1137,18 +1137,45 @@
 
         /* FIN BACKEND*/
 
-        .formulario-no-fb .form-group {
-            margin-bottom: 22px;
+        .campos-registro{
+            float: none;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .formulario-no-fb .padre-email .form-group {
-            margin-bottom: 0px;
+        .campos-registro label{
+            float: left;
+            width: 180px;
+            text-align: right;
+            padding-right: 10px;
+            padding-top: 6px;
+            font-size: 18px;
+        }
+
+        .campos-registro input{
+            float: left;
+            width: 290px;
+        }
+
+        .formulario-no-fb{
+            text-align: center;
+            width: 100%;
+        }
+
+        .formulario-no-fb .form-group {
+            margin-bottom: 22px;
+            float: left;
         }
 
         .formulario-no-fb .padre-email .error-email,
         .error-login {
             font-size: 12px;
             color: red;
+        }
+
+        .error-email{
+            height: 20px;
+            padding: 0px 2px;
         }
 
         .texto-recupera {
@@ -1776,6 +1803,16 @@
             font-size: 18px;
         }
 
+        .iniciar-sesion:focus{
+            background-color: #3F9FFF;
+            color: white;
+        }
+
+        .iniciar-sesion:focus:hover{
+            background-color: #DF5426;
+            color: white;
+        }
+
         .third a.myprof,
         .third a.editprof {
             color: white;
@@ -1827,7 +1864,8 @@
             position: relative;
             right: -100%;
             overflow: hidden;
-            float: left
+            float: left;
+            width: 100%;
         }
 
         ::-webkit-datetime-edit {
@@ -2367,7 +2405,7 @@
 
         #mask {
             z-index: 9000;
-            background-color: #000;
+            background-color: #fff;
             display: none;
             top: 0px;
             position: absolute;
@@ -2956,4 +2994,14 @@
 
     body{
         font-family: Alegreya Sans
+    }
+
+    @media screen and (max-width: 1366px){
+        .profile2{
+            top: 50%;
+        }
+
+        #boxes #dialog .close{
+            top: -80px;
+        }
     }

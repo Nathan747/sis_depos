@@ -32,11 +32,11 @@
   var apellido;
   var email;
   var telefono;
-  var pass1;
+  var pass1="";
   var pass2;
   var dni;
   var fecha_egresado;
-  var es_egresado;
+  var es_egresado=2;
   var profesion;
   var prev_infowindow = false; 
   var reg_fb_normal;
@@ -46,8 +46,9 @@
   var clase = 0;
   var facultad_number;
   var carrera_number;
-  var picture;
+  var picture="";
   var map5;
+  var is_facebook=0;
 
   function decodificar_facultad(indice){
     var string_facultad;

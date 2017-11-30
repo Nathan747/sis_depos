@@ -109,7 +109,7 @@ function initMap() {
       objeto[x].lat_user = parseFloat(objeto[x].lat_user);
       objeto[x].long_user = parseFloat(objeto[x].long_user);
       if(objeto[x].img==""){
-        var test_img = "uploads/perfiles/1.png";
+        var test_img = "uploads/perfiles/uncuyo-perfil-default.gif";
       }else{
         var test_img = objeto[x].img;
       }
@@ -313,7 +313,7 @@ function muestraModal(parametro) {
   var profesion=objeto_total[parametro].profesion_user;
   var biografia=objeto_total[parametro].biografia_user;
   if(objeto_total[parametro].img==""){
-    var test_img = "uploads/perfiles/1.png";
+    var test_img = "uploads/perfiles/uncuyo-perfil-default.gif";
   }else{
     var test_img = objeto_total[parametro].img;
   }
@@ -352,12 +352,17 @@ else{
 
 }
 
-
-var d = new Date(fecha_egreso);
-var dia = d.getUTCDate();
-var mes = d.getUTCMonth() + 1;
-var anio = d.getUTCFullYear();
-var fecha = dia+"/"+mes+"/"+anio;
+if(fecha_egreso=="0000-00-00"){
+  console.log("ENTRO FECHA");
+  fecha="";
+}else{
+  console.log("NO ENTRO FECHA");
+  var d = new Date(fecha_egreso);
+  var dia = d.getUTCDate();
+  var mes = d.getUTCMonth() + 1;
+  var anio = d.getUTCFullYear();
+  var fecha = dia+"/"+mes+"/"+anio;
+}
 
 var contentString2 = '<div id="content">'+
 '<div id="contenedor-marcador">'+
@@ -492,7 +497,9 @@ var contentString2 = '<div id="content">'+
       case 1: 
       es_egresado = "Si";
       break;
-
+      case 2: 
+      es_egresado = "";
+      break;
     }
     return es_egresado;
   }

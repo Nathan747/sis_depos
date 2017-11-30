@@ -44,12 +44,18 @@ window.fbAsyncInit = function() {
 
 function statusChangeCallback(response) {
   if (response.status === 'connected') {
-    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,location,picture', function(response) {
+    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
       nombre = response.first_name;
       apellido = response.last_name;
       email = response.email;
-      nombre_completo = nombre+" "+apellido;
-      birthday=response.birthday;
+      birthday = response.age_range;
+      work = response.work;
+      locale = response.locale;
+      acercade = response.bio;
+      picture2 = response.picture;
+      picture = picture2["data"].url;
+
+      
       $.ajax({
         type: "POST",
         url: "Login/control/",
@@ -70,20 +76,34 @@ function statusChangeCallback(response) {
               right: "-100%"
             },function(){
               $("#registrate").click();
+              
               $(".contenedor-modo").animate({
                 left: "-100%"
               });
               $(".contenedor-modo").css("display","none");
               $(".formulario-no-fb").css("display","none");
+              $(".formulario-padre").css("display","none");
               $(".formulario-padre").animate({
                 right: "0",
                 left: "0"
               });
 
+              $(".contenedor-carreras").animate({
+                left: "0"
+              });
+
               $(".bloq-2").addClass("active");
-              $(".sep-2").find(".linea-separador").addClass("active-sep");
-              $(".word-datos").addClass("word-active");
+              $(".bloq-3").addClass("active");
+            //$(".sep-2").find(".linea-separador").addClass("active-sep");
+            $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
+              setTimeout(mostrar($(this)),16000);
             });
+            $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+              setTimeout(mostrar($(this)),16000);
+            });
+            $(".word-datos").addClass("word-active");
+            $(".word-carrera").addClass("word-active");
+          });
           });
         }
         
@@ -108,6 +128,7 @@ function statusChangeCallback(response) {
 }
 
 function handleSessionResponse(response) {
+  console.log("handleSessionResponse");
     //if(response.status!="unknown"){
       FB.logout(handleSessionResponse);
     //}
@@ -116,6 +137,7 @@ function handleSessionResponse(response) {
   // FB REGISTRATE
 
   function checkLoginState2() {
+    console.log("checkLoginState2");
     reg_fb_normal=1;
     FB.getLoginStatus(function(response2) {
       statusChangeCallback2(response2);
@@ -123,6 +145,7 @@ function handleSessionResponse(response) {
   }
 
   function statusChangeCallback2(response2) {
+    console.log("statusChangeCallback2");
     if (response2.status === 'connected') {
       FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
         nombre = response.first_name;
@@ -144,7 +167,7 @@ function handleSessionResponse(response) {
             nombre_completo: nombre_completo
           }
         }).done(function(json){
-
+          is_facebook=1;
           var objeto = $.parseJSON(json);
           facebook_count=2;
           localStorage.setItem("ingreso_normal", "no");
@@ -157,17 +180,27 @@ function handleSessionResponse(response) {
             });
             $(".contenedor-modo").css("display","none");
             $(".formulario-no-fb").css("display","none");
+            $(".formulario-padre").css("display","none");
             $(".formulario-padre").animate({
               right: "0",
               left: "0"
             });
 
+            $(".contenedor-carreras").animate({
+              left: "0"
+            });
+
             $(".bloq-2").addClass("active");
+            $(".bloq-3").addClass("active");
             //$(".sep-2").find(".linea-separador").addClass("active-sep");
             $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
               setTimeout(mostrar($(this)),16000);
             });
+            $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+              setTimeout(mostrar($(this)),16000);
+            });
             $(".word-datos").addClass("word-active");
+            $(".word-carrera").addClass("word-active");
 
             modo_log = 1;
             FB.getLoginStatus(handleSessionResponse);

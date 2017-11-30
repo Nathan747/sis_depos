@@ -32,7 +32,7 @@ class Perfil_model extends CI_Model {
         $latitud = $row->lat_user;;
         $longitud = $row->long_user;;
         if ($foto==""){
-          $foto='uploads/perfiles/'.'1.png';
+          $foto='uploads/perfiles/'.'uncuyo-perfil-default.gif';
         }
       }
       $json["nombre"]=$nombre;
