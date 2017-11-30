@@ -547,7 +547,6 @@ $egresado = deco_egreso($es_egresado);
 
 
       <!--input class="testo2" name="imagen" type="file" maxlength="150"-->
-      <br>
       <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
 
   </form>
@@ -559,7 +558,6 @@ $egresado = deco_egreso($es_egresado);
 
   <div class="col-md-12 third">
       <!-- Barra vertical de opciones del perfil de usuairo -->
-      <br >
       <ul class="list-group list-primary">
         <a href="#" class="list-group-item myprof">Mi perfil</a>
         <a href="#" class="list-group-item editprof">Editar Perfil</a>

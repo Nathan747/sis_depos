@@ -1628,7 +1628,7 @@
         }
 
         .siguiente-carrera {
-            padding-top: 40px;
+            padding-top: 15px;
             padding-bottom: 30px;
             position: relative;
             top: 0px;
@@ -2045,12 +2045,23 @@
             line-height: 1;
             color: #777;
             padding-top: 10px;
+            margin-bottom: 0px;
         }
 
         .first,
         .second,
         .third {
             padding-left: 0px;
+        }
+
+        .second,
+        .third {
+            position: relative;
+            top: -80px;
+        }
+
+        .second{
+            top: -60px;
         }
 
         .first{
@@ -2060,8 +2071,12 @@
         }
 
         .first .photo{
-            width: 100%
+            width: 100%;
             height: auto;
+        }
+
+        .third{
+            top: -50px;
         }
 
         .changeimg {
@@ -2246,12 +2261,6 @@
         .contenedor-informacion-perfil {
             float: left;
             overflow: hidden;
-        }
-
-        .second,
-        .third {
-            position: relative;
-            top: -80px;
         }
 
         .mensaje-no-user {

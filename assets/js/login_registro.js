@@ -658,7 +658,7 @@ $('.editprof').click(function(e){
 
  //$('.camimg').css("display","block");  
  $(".third").animate({
-  top: "0px"
+  top: "10px"
 });
 
  $(".second").animate({
@@ -694,11 +694,11 @@ $('.myprof').click(function(e){
     });
 
     $(".third").animate({
-      top: "-80px"
+      top: "-50px"
     });
 
     $(".second").animate({
-      top: "-80px"
+      top: "-60px"
     });
 
     $('.profile').css("overflow","hidden");
