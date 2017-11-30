@@ -54,6 +54,7 @@ function statusChangeCallback(response) {
       acercade = response.bio;
       picture2 = response.picture;
       picture = picture2["data"].url;
+      nombre_completo = nombre+" "+apellido;
 
       
       $.ajax({
@@ -64,7 +65,7 @@ function statusChangeCallback(response) {
           nombre_completo: nombre_completo
         }
       }).done(function(json){
-        var objeto = $.parseJSON(json);
+       var objeto = $.parseJSON(json);
         facebook_count=2;
         localStorage.setItem("ingreso_normal", "no");
         localStorage.setItem("registro_facebook", "si");

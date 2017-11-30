@@ -44,6 +44,7 @@ class Login_model extends CI_Model
 
   public function existe_mail($data)
   {
+    $variable="";
     $sql = $this->db->where($data)->get('unc_usuarios');
     $filas = $sql->num_rows();
     if ($filas > 0) {
