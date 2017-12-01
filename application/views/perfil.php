@@ -409,6 +409,9 @@ function deco_egreso($es_egresado){
     case 1: 
     $es_egresado = "Si";
     break;
+    case 2: 
+    $es_egresado = "";
+    break;
 
 }
 return $es_egresado;
@@ -465,16 +468,18 @@ function deco_facultad($facultad){
 return $facultad;
 }
 
-
-
-
-
 if($fecha==""){
     $fecha="";
 }
 else{
     $date=date_create($fecha);
-    $fecha = date_format($date,"d/m/Y");
+    //$fecha = date_format($date,"d/m/Y");
+    $fecha = date_format($date,"Y"); 
+    if($fecha<1900){
+        $fecha="";
+    }else{
+        $fecha = date_format($date,"d/m/Y");
+    }
 }
 
 

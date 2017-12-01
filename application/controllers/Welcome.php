@@ -59,6 +59,30 @@ class Welcome extends CI_Controller {
 		return $json;
 	}
 
+	public function obtener_marcadores($all_users)
+	{
+		$json = array();
+		$max = sizeof($all_users);
+		for ($i=0; $i < $max; $i++) { 
+			$json[$i]["nombre"]=$all_users[$i]["nombre"];
+			$json[$i]["apellido"]=$all_users[$i]["apellido"];
+			$json[$i]["email"]=$all_users[$i]["email"];
+			$json[$i]["profesion"]=$all_users[$i]["profesion"];
+			$json[$i]["facultad"]=$all_users[$i]["facultad"];
+			$json[$i]["carrera"]=$all_users[$i]["carrera"];
+			$json[$i]["es_egresado"]=$all_users[$i]["es_egresado"];
+			$json[$i]["fecha"]=$all_users[$i]["fecha"];
+			$json[$i]["biografia"]=$all_users[$i]["biografia"];
+			$json[$i]["latitud"]=$all_users[$i]["latitud"];
+			$json[$i]["longitud"]=$all_users[$i]["longitud"];
+			if ($all_users[$i]["foto"]==""){
+				$all_users[$i]["foto"]='uploads/perfiles/'.'uncuyo-perfil-default.gif';
+			}
+			$json[$i]["foto"]=$all_users[$i]["foto"];			
+		}
+		return $json;
+	}
+
 	public function index($payment=0, $status=0)
 	{
 		//Deshabilitado esto y eld onar abajo hasta nuevo aviso
@@ -87,9 +111,11 @@ class Welcome extends CI_Controller {
 		$all_users = $this->Perfil_model->get_all_users();
 		$profile = $this->obtener_perfil($all_users,$datos["email_user"]);
 		$emails_obtenidos = $this->obtener_mails($all_users);
+		$marcadores = $this->obtener_marcadores($all_users);
 
 		$datos["perfil"] = $profile;
 		$datos["emails"] = $emails_obtenidos;
+		$datos["marcadores"] = $marcadores;
 
 		$data["titulo"] = "UNCuyo";
 		$class["clase"] = "home";

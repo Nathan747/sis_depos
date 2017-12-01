@@ -522,23 +522,23 @@ $('#cerrar-perfil').click(function(e){
   
   $('.profile').animate({
     right: "-350%"
-  });
+  },1000);
 
   $(".profile-options").animate({
     left: "0px"
-  });
+  },1000);
 
   $(".perfil-animation").animate({
     left: "0px"
-  });
+  },1000);
 
   $(".username-change").animate({
     left: "0px"
-  });
+  },1000);
 
   $(".profile-options").animate({
-    left: "0px"
-  });
+    left: "100px"
+  },1000);
 
   $(".profile-options").css("display","none");
 
@@ -551,7 +551,7 @@ $('#prof').click(function(e){
 
   $('.profile').animate({
     right: "0"
-  });
+  },1000);
 
   $(".test-profile").css("left","180px");
   
@@ -609,43 +609,6 @@ $('#prof').click(function(e){
     }else{
       $("#ejemplo-2").prop("checked",false);
     }
-
-    /*
-    $.ajax({
-      url: "Perfil/obtener_datos_json",
-      type: "POST"
-    }).done(function(json){
-      datos_perfil=1;
-      var objeto = $.parseJSON(json);
-      $("#txtName").val(objeto.nombre);
-      $("#txtSurname").val(objeto.apellido);
-      $("#txtEmail").val(objeto.email);
-      $("#txtPhone").val(objeto.telefono);
-      $("#txtDni").val(objeto.dni);
-      $("#txtBday").val(objeto.fecha);
-      $("#txtPassword").val(objeto.password);
-      $("#txtQualification").val(objeto.profesion);
-      $("#txtBiography").val(objeto.biografia);
-      $("#universidad_modify").val(objeto.facultad);
-
-      $(".selecciones-modify").each(function(){
-        $(this).css("display","none");
-      });
-
-      var clase3 = ".seleccion-"+objeto.facultad;
-      $(clase3).css("display","inline-block");
-      $(".profile").find(".container").find(".row").css("max-height","1700px");
-
-      objeto.facultad = parseInt(objeto.facultad);
-      var clase2 = "#carreras-"+objeto.facultad;
-      objeto.carrera = parseInt(objeto.carrera);
-      $(clase2).val(objeto.carrera);
-      if(objeto.es_egresado==1){
-        $("#ejemplo-2").prop("checked",true);
-      }else{
-        $("#ejemplo-2").prop("checked",false);
-      }
-    });*/
   }
 });
 

@@ -393,20 +393,6 @@ class Inicio extends CI_Controller
 		$this->load->view('end_body');
 	}
 
-	public function logout()
-	{
-		session_unset();
-		$this->session->set_userdata("EMAIL", NULL);
-		$this->session->set_userdata("FULLNAME", NULL);
-		$this->session->set_userdata("FBID", NULL);
-		$this->session->unset_userdata("newsession");
-		$this->session->unset_userdata("email");
-		$this->session->unset_userdata("jerarquia");
-		$this->session->unset_userdata("id_colaborador");
-		$json["eliminado"] = 1;
-		echo json_encode($json);
-	}
-
 
 	public function buscar_becario()
 	{

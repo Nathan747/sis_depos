@@ -71,62 +71,54 @@ function initMap() {
     ]
   });
 
-  $.ajax({
-    type: "POST",
-    url: "Markers/load/",
-  }).done(function(json){
-    var objeto = $.parseJSON(json);
-    objeto_total=objeto;
-    for(var x=0;x<objeto.length;x++){
-      var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
-      var nombre=objeto[x].nombre_user;
-      var email=objeto[x].email_user;
-      var nombre=objeto[x].nombre_user;
-      var apellido=objeto[x].apellido_user;
-      var profesion=objeto[x].profesion_user;
-      var facultad=objeto[x].facultad_user;
-      var carrera=objeto[x].carrera_user;
-      var es_egresado=objeto[x].fecha_egreso_user;
-      var fecha_egreso=objeto[x].es_egresado_user;
+  for(var x=0;x<marcadores.length;x++){
+    var posicion = "{lat: "+marcadores[x].lat_user+", lng: "+marcadores[x].long_user+"}";
+    var nombre=marcadores[x].nombre;
+    var apellido=marcadores[x].apellido;
+    var email=marcadores[x].email;
+    var profesion=marcadores[x].profesion;
+    var facultad=marcadores[x].facultad;
+    var carrera=marcadores[x].carrera;
+    var es_egresado=marcadores[x].fecha;
+    var fecha_egreso=marcadores[x].es_egresado;
 
-      var biografia=objeto[x].biografia_user;
-      var longitud=50;
-      
-      if(objeto[x].biografia_user==""){
-        var texto = "";
-      }else{
-        if(biografia.length > longitud){
-          var texto=(biografia.substring(0,longitud));
-          texto=texto+"...";
-        }
-      }
-      
+    var biografia=marcadores[x].biografia;
+    var longitud=50;
 
-      objeto[x].lat_user = parseFloat(objeto[x].lat_user);
-      objeto[x].long_user = parseFloat(objeto[x].long_user);
-      if(objeto[x].img==""){
-        var test_img = "uploads/perfiles/uncuyo-perfil-default.gif";
-      }else{
-        var test_img = objeto[x].img;
+    if(marcadores[x].biografia==""){
+      var texto = "";
+    }else{
+      if(biografia.length > longitud){
+        var texto=(biografia.substring(0,longitud));
+        texto=texto+"...";
       }
-      var contentString = '<div id="content">'+
-      '<div id="contenedor-marcador">'+
-      '<div id="padre-imagen">'+
-      '<div id="contenedor-imagen">'+
-      '<img src="'+test_img+'" />'+
-      '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
-      '<div id="padre-texto">'+
-      '<div id="contenedor-texto">'+
-      '<h1>'+nombre+' '+apellido+'</h1>'+
-      '<h2>'+profesion+'</h2>'+
-      '<h3>'+texto+'</h3>'+
-      '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
-      '</div></div>'+ // Cierre contenedor-texto y padre-texto
-      '</div></div>'; // Cierre contenedor-marcador y content
-      add_marker_delay(objeto[x].lat_user, objeto[x].long_user, x*300, map, contentString);
     }
 
-  });
+    var latitud_marcador = parseFloat(marcadores[x].latitud);
+    var longitud_marcador = parseFloat(marcadores[x].longitud);
+    if(marcadores[x].foto==""){
+      var test_foto = "uploads/perfiles/uncuyo-perfil-default.gif";
+    }else{
+      var test_img = marcadores[x].foto;
+    }
+    var contentString = '<div id="content">'+
+    '<div id="contenedor-marcador">'+
+    '<div id="padre-imagen">'+
+    '<div id="contenedor-imagen">'+
+    '<img src="'+test_img+'" />'+
+    '</div></div>'+ // Cierre contenedor-imagen y padre-imagen
+    '<div id="padre-texto">'+
+    '<div id="contenedor-texto">'+
+    '<h1>'+nombre+' '+apellido+'</h1>'+
+    '<h2>'+profesion+'</h2>'+
+    '<h3>'+texto+'</h3>'+
+    '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
+    '</div></div>'+ // Cierre contenedor-texto y padre-texto
+    '</div></div>'; // Cierre contenedor-marcador y content
+    console.log(contentString);
+    add_marker_delay(latitud_marcador, longitud_marcador, x*300, map, contentString);
+  }
+
 
   var uluru4 = {lat: latitud5, lng: longitud5};
   if(document.getElementById('mapa_modificar')){
@@ -191,47 +183,47 @@ function initMap() {
 
     map5.setMapTypeId('roadmap');
     map5.setOptions({
-    'styles': [
-    {
-      featureType: "all",
-      stylers: [
-      {  }
+      'styles': [
+      {
+        featureType: "all",
+        stylers: [
+        {  }
+        ]
+      },{
+        featureType: "landscape.natural",
+        stylers: [
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "landscape",
+        stylers: [
+        { hue: "#D8B384" },
+        { gamma: 0.60 }
+        ]
+      },{
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+        { hue: "#00ffee" },
+        { saturation: 100 }
+        ]
+      },{
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+        { visibility: "off" }
+        ]
+      },{
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [{color: '#92CAE7'}]
+      },
+      {
+        featureType: 'administrative',
+        elementType: "geometry.fill",
+        stylers: [{visibility: "off"}]
+      }
       ]
-    },{
-      featureType: "landscape.natural",
-      stylers: [
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "landscape",
-      stylers: [
-      { hue: "#D8B384" },
-      { gamma: 0.60 }
-      ]
-    },{
-      featureType: "road.arterial",
-      elementType: "geometry",
-      stylers: [
-      { hue: "#00ffee" },
-      { saturation: 100 }
-      ]
-    },{
-      featureType: "poi.business",
-      elementType: "labels",
-      stylers: [
-      { visibility: "off" }
-      ]
-    },{
-      featureType: 'water',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#92CAE7'}]
-    },
-    {
-      featureType: 'administrative',
-      elementType: "geometry.fill",
-      stylers: [{visibility: "off"}]
-    }
-    ]
     });
 
     latitud5 = parseFloat(latitud5);
@@ -347,20 +339,20 @@ function initMap() {
 function muestraModal(parametro) {
   $("#boxes #dialog").css("display","block");
   /***************/
-  var nombre=objeto_total[parametro].nombre_user;
-  var email=objeto_total[parametro].email_user;
-  var apellido=objeto_total[parametro].apellido_user;
-  var profesion=objeto_total[parametro].profesion_user;
-  var biografia=objeto_total[parametro].biografia_user;
-  if(objeto_total[parametro].img==""){
+  var nombre=marcadores[parametro].nombre;
+  var email=marcadores[parametro].email;
+  var apellido=marcadores[parametro].apellido;
+  var profesion=marcadores[parametro].profesion;
+  var biografia=marcadores[parametro].biografia;
+  if(marcadores[parametro].foto==""){
     var test_img = "uploads/perfiles/uncuyo-perfil-default.gif";
   }else{
-    var test_img = objeto_total[parametro].img;
+    var test_img = marcadores[parametro].foto;
   }
-  var facultad=objeto_total[parametro].facultad_user;
-  var carrera=objeto_total[parametro].carrera_user;
-  var fecha_egreso=objeto_total[parametro].fecha_egreso_user;
-  var es_egresado=objeto_total[parametro].es_egresado_user;
+  var facultad=marcadores[parametro].facultad;
+  var carrera=marcadores[parametro].carrera;
+  var fecha_egreso=marcadores[parametro].fecha;
+  var es_egresado=marcadores[parametro].es_egresado;
 
 
 
@@ -399,7 +391,11 @@ if(fecha_egreso=="0000-00-00"){
   var dia = d.getUTCDate();
   var mes = d.getUTCMonth() + 1;
   var anio = d.getUTCFullYear();
-  var fecha = dia+"/"+mes+"/"+anio;
+  if (anio<1900){
+    fecha=""
+  }else{
+    fecha = dia+"/"+mes+"/"+anio;
+  }
 }
 
 var contentString2 = '<div id="content">'+

@@ -6,22 +6,6 @@ window.fbAsyncInit = function() {
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.11' // use graph api version 2.8
     });
-
-  /*FB.getLoginStatus(function(response) {
-    var registro_fb = localStorage.getItem("registro_facebook");
-    var registro_normal = localStorage.getItem("ingreso_normal");
-    var valor;
-    if (registro_fb=="si") {
-      valor = 1;
-    }else{
-      if (registro_normal=="si") {
-        valor = 1;
-      }else{
-        valor = 0;
-      }
-    }
-
-  });*/
 };
 
  // Load the SDK asynchronously
@@ -117,90 +101,88 @@ function statusChangeCallback(response) {
 }
 
 function handleSessionResponse(response) {
-    //if(response.status!="unknown"){
-      FB.logout(handleSessionResponse);
-    //}
-  }
+  FB.logout(handleSessionResponse);
+}
 
-  // FB REGISTRATE
+// FB REGISTRATE
 
-  function checkLoginState2() {
-    reg_fb_normal=1;
-    FB.getLoginStatus(function(response2) {
-      statusChangeCallback2(response2);
+function checkLoginState2() {
+  reg_fb_normal=1;
+  FB.getLoginStatus(function(response2) {
+    statusChangeCallback2(response2);
+  });
+}
+
+function statusChangeCallback2(response2) {
+  if (response2.status === 'connected') {
+    FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
+      nombre = response.first_name;
+      apellido = response.last_name;
+      email = response.email;
+      picture2 = response.picture;
+      picture = picture2["data"].url;
+      nombre_completo = nombre+" "+apellido;
+      var existe=0;
+
+      for(var x=0; x<todos_los_mail.length; x++){
+        if(todos_los_mail[x].email_user==email){
+          existe=1;
+          x = todos_los_mail.length;
+        }
+      }
+
+      if(existe){
+        $.ajax({
+          type: "POST",
+          url: "Login/control/",
+          data:{
+            email: email,
+            nombre_completo: nombre_completo
+          }
+        }).done(function(){
+          is_facebook=1;
+          facebook_count=2;
+          localStorage.setItem("ingreso_normal", "no");
+          localStorage.setItem("registro_facebook", "si");
+          $("#afterloader").fadeIn(1000, function(){
+            window.location = direccion;
+          });
+        });
+      }else{
+        FB.logout(function(response) {
+
+          $(".contenedor-modo").animate({
+            left: "-100%"
+          });
+          $(".contenedor-modo").css("display","none");
+          $(".formulario-no-fb").css("display","none");
+          $(".formulario-padre").css("display","none");
+          $(".formulario-padre").animate({
+            right: "0",
+            left: "0"
+          });
+
+          $(".contenedor-carreras").animate({
+            left: "0"
+          });
+
+          $(".bloq-2").addClass("active");
+          $(".bloq-3").addClass("active");
+          $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
+            setTimeout(mostrar($(this)),16000);
+          });
+          $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
+            setTimeout(mostrar($(this)),16000);
+          });
+          $(".word-datos").addClass("word-active");
+          $(".word-carrera").addClass("word-active");
+
+          modo_log = 1;
+          FB.getLoginStatus(handleSessionResponse);
+          FB.logout(handleSessionResponse);
+
+        });
+      }
     });
   }
-
-  function statusChangeCallback2(response2) {
-    if (response2.status === 'connected') {
-      FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
-        nombre = response.first_name;
-        apellido = response.last_name;
-        email = response.email;
-        picture2 = response.picture;
-        picture = picture2["data"].url;
-        nombre_completo = nombre+" "+apellido;
-        var existe=0;
-
-        for(var x=0; x<todos_los_mail.length; x++){
-          if(todos_los_mail[x].email_user==email){
-            existe=1;
-            x = todos_los_mail.length;
-          }
-        }
-
-        if(existe){
-          $.ajax({
-            type: "POST",
-            url: "Login/control/",
-            data:{
-              email: email,
-              nombre_completo: nombre_completo
-            }
-          }).done(function(){
-            is_facebook=1;
-            facebook_count=2;
-            localStorage.setItem("ingreso_normal", "no");
-            localStorage.setItem("registro_facebook", "si");
-            $("#afterloader").fadeIn(1000, function(){
-              window.location = direccion;
-            });
-          });
-        }else{
-          FB.logout(function(response) {
-
-            $(".contenedor-modo").animate({
-              left: "-100%"
-            });
-            $(".contenedor-modo").css("display","none");
-            $(".formulario-no-fb").css("display","none");
-            $(".formulario-padre").css("display","none");
-            $(".formulario-padre").animate({
-              right: "0",
-              left: "0"
-            });
-
-            $(".contenedor-carreras").animate({
-              left: "0"
-            });
-
-            $(".bloq-2").addClass("active");
-            $(".bloq-3").addClass("active");
-            $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
-              setTimeout(mostrar($(this)),16000);
-            });
-            $(".sep-2").find(".linea-separador").find(".puntito").each(function(){
-              setTimeout(mostrar($(this)),16000);
-            });
-            $(".word-datos").addClass("word-active");
-            $(".word-carrera").addClass("word-active");
-
-            modo_log = 1;
-            FB.getLoginStatus(handleSessionResponse);
-            FB.logout(handleSessionResponse);
-
-          });
-        }
-      });
-    }
-  }
+}

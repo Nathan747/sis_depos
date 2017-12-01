@@ -42,19 +42,6 @@ class Login_model extends CI_Model
     return $json;
   }
 
-  /*public function existe_mail($data)
-  {
-    $variable="";
-    $sql = $this->db->where($data)->get('unc_usuarios');
-    $filas = $sql->num_rows();
-    if ($filas > 0) {
-      $variable = 1;
-    } else {
-      $variable = 0;
-    }
-    return $variable;
-  }*/
-
   public function obtener_id($data)
   {
     $sql = $this->db->where($data)->get('unc_usuarios');

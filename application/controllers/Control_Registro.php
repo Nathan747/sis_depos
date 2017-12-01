@@ -72,14 +72,4 @@ class Control_Registro extends CI_Controller
 
 		echo json_encode($data);
 	}
-
-	/*public function control_email()
-	{
-		$data = $this->input->post();
-		$datos = array(
-			"email_user" => $data["email"]
-		);
-		$existe_mail = $this->Registro_model->existe($datos);
-		echo $existe_mail;
-	}*/
 }
