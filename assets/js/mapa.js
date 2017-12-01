@@ -75,10 +75,8 @@ function initMap() {
     type: "POST",
     url: "Markers/load/",
   }).done(function(json){
-    console.log(json);
     var objeto = $.parseJSON(json);
     objeto_total=objeto;
-    console.log(objeto); 
     for(var x=0;x<objeto.length;x++){
       var posicion = "{lat: "+objeto[x].lat_user+", lng: "+objeto[x].long_user+"}";
       var nombre=objeto[x].nombre_user;
@@ -95,18 +93,14 @@ function initMap() {
       var longitud=50;
       
       if(objeto[x].biografia_user==""){
-        console.log("ENTRO");
         var texto = "";
       }else{
-        console.log("NO ENTRO");
-        console.log(biografia);
         if(biografia.length > longitud){
           var texto=(biografia.substring(0,longitud));
           texto=texto+"...";
         }
       }
       
-      console.log("TEXTO: "+texto);
 
       objeto[x].lat_user = parseFloat(objeto[x].lat_user);
       objeto[x].long_user = parseFloat(objeto[x].long_user);
@@ -399,10 +393,8 @@ else{
 }
 
 if(fecha_egreso=="0000-00-00"){
-  console.log("ENTRO FECHA");
   fecha="";
 }else{
-  console.log("NO ENTRO FECHA");
   var d = new Date(fecha_egreso);
   var dia = d.getUTCDate();
   var mes = d.getUTCMonth() + 1;

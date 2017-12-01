@@ -42,7 +42,7 @@ class Login_model extends CI_Model
     return $json;
   }
 
-  public function existe_mail($data)
+  /*public function existe_mail($data)
   {
     $variable="";
     $sql = $this->db->where($data)->get('unc_usuarios');
@@ -53,7 +53,7 @@ class Login_model extends CI_Model
       $variable = 0;
     }
     return $variable;
-  }
+  }*/
 
   public function obtener_id($data)
   {

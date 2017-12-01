@@ -73,7 +73,7 @@ class Control_Registro extends CI_Controller
 		echo json_encode($data);
 	}
 
-	public function control_email()
+	/*public function control_email()
 	{
 		$data = $this->input->post();
 		$datos = array(
@@ -81,11 +81,5 @@ class Control_Registro extends CI_Controller
 		);
 		$existe_mail = $this->Registro_model->existe($datos);
 		echo $existe_mail;
-	}
-
-	public function bring_mails()
-	{
-		$mails = $this->Registro_model->bring_mails();
-		echo json_encode($mails); 
-	}
+	}*/
 }

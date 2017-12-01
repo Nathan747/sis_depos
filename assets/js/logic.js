@@ -1,12 +1,5 @@
   /*login*/
   $(document).ready(function() {
-    $.ajax({
-      type: "post",
-      url: "Control_Registro/bring_mails"
-    }).done(function(json) {
-      var objeto = $.parseJSON(json);
-      todos_los_mail = objeto;
-    });
 
     var mostrar = function(etiqueta){
       etiqueta.addClass("puntito-add");
@@ -601,7 +594,6 @@
       }*/
       if(is_facebook){pass1="";} 
       $(".class").click();
-      console.log($(".fb-xfbml-parse-ignore"));
 
       $.ajax({
         type: "POST",
@@ -631,7 +623,9 @@
           localStorage.setItem("ingreso_normal", "no");
           localStorage.setItem("registro_facebook", "si");
         }
-        window.location = direccion;
+        $("#afterloader").fadeIn(1000, function(){
+          window.location = direccion;
+        });
       }).fail(function(xhr, status, error) {
         console.log(xhr);
         console.log(status);
@@ -650,8 +644,6 @@
       });
       var email_ingresar = $("#email_ingresar2").val();
       var password_ingresar = $("#password_ingresar2").val();
-      console.log(email_ingresar);
-      console.log(password_ingresar);
       $.ajax({
         type: "POST",
         url: "Control_Login/enviar_datos/",
@@ -661,9 +653,10 @@
         }
       }).done(function(json) {
         var objeto = $.parseJSON(json);
-        console.log(objeto);
         if (objeto.entro == 1) {
-          window.location = direccion;
+          $("#afterloader").fadeIn(1000, function(){
+            window.location = direccion;
+          });
         } else {
           $(".texto-no-user").animate({
             top: "0px"
@@ -681,34 +674,35 @@
     //SALIR
 
     $("#salir").click(function(e) {
-      console.log("CLICK");
       e.preventDefault();
-      localStorage.setItem("ingreso_normal", "no");
-      localStorage.setItem("registro_facebook", "no");
+      //localStorage.setItem("ingreso_normal", "no");
+      //localStorage.setItem("registro_facebook", "no");
       $.ajax({
         type: "POST",
-        url: "inicio/logout/"
+        url: "Logout/logout/"
       }).done(function(json) {
         var objeto = $.parseJSON(json);
-        console.log(objeto);
         FB.getLoginStatus(function(response) {
-          console.log("FB");
           if (response && response.status === 'connected') {
-            console.log("FB CONNECTED");
             FB.logout(function(response) {
               if (objeto.eliminado) {
-                window.location = direccion;
+                $("#afterloader").fadeIn(1000, function(){
+                  window.location = direccion;
+                });
               }
             });
           } else {
-            console.log("FB NOT CONNECTED");
             if (objeto.eliminado) {
-              window.location = direccion;
+              $("#afterloader").fadeIn(1000, function(){
+                window.location = direccion;
+              });
             }
           }
         });
         if (objeto.eliminado) {
-          window.location = direccion;
+          $("#afterloader").fadeIn(1000, function(){
+            window.location = direccion;
+          });
         }
         facebook_count = 0;
       }).fail(function(xhr, status, error) {
@@ -733,12 +727,16 @@
           if (response && response.status === 'connected') {
             FB.logout(function(response) {
               if (objeto.eliminado) {
-                window.location = direccion;
+                $("#afterloader").fadeIn(1000, function(){
+                  window.location = direccion;
+                });
               }
             });
           } else {
             if (objeto.eliminado) {
-              window.location = direccion;
+              $("#afterloader").fadeIn(1000, function(){
+                window.location = direccion;
+              });
             }
           }
         });
@@ -803,7 +801,6 @@
     // MODIFICAR LA INFORMACION DEL PERFIL
 
     $(".boton-modificar").click(function() {
-      console.log("click");
       var nombre_usuario = $("#txtName").val();
       var apellido_usuario = $("#txtSurname").val();
       var telefono_usuario = $("#txtPhone").val();
@@ -818,10 +815,10 @@
       var carrera_usuario = 1;
 
       var v = 1;
+      console.log(latitude);
+      console.log(longitude);
       $(".selecciones-modify").each(function() {
         if ($(this).find("select").val() != null) {
-          console.log("FACULTAD: " + facultad_usuario);
-          console.log("CARRERA: " + $(this).find("select").val());
           carrera_usuario = $(this).find("select").val();
         }
         v++;
@@ -861,7 +858,11 @@
         $(".second").find(".job").find("strong").text(objeto.profesion);
         $(".profile").animate({
           scrollTop: 0
-        }, 2000);
+        }, 2000, function(){
+          $("#afterloader").fadeIn(1000, function(){
+            window.location = direccion;
+          });
+        });
       });
     });
 

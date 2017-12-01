@@ -42,7 +42,7 @@
   var prev_infowindow = false; 
   var reg_fb_normal;
   var nombre_completo;
-  var todos_los_mail;
+  var todos_los_mail = <?php echo json_encode($emails) ?>;
   var email_existe="";
   var clase = 0;
   var facultad_number;
@@ -839,7 +839,7 @@
 
 <script src="<?php echo base_url("assets/js/logic.js"); ?>"></script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdbzPyzRdoXfcf-G_IAlFXgukEWqdr5uI&callback=initMap" async defer>
 </script>
 
 <script src="<?php echo base_url("assets/js/facebook.js"); ?>"></script>

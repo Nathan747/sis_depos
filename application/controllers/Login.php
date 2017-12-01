@@ -18,16 +18,15 @@ class Login extends CI_Controller
 			"email_user" => $data["email"]
 		);
 
-		$existe = $this->Login_model->existe_mail($datos);
+		//$existe = $this->Login_model->existe_mail($datos);
+		
 		$id = $this->Login_model->obtener_id($datos);
-		if ($existe == 1) {
-			$this->session->set_userdata("username", $data["nombre_completo"]);
-			$this->session->set_userdata("email", $data["email"]);
-			$this->session->set_userdata("newsession", "yes");
-			$this->session->set_userdata("id", $id);
-		}
+		$this->session->set_userdata("username", $data["nombre_completo"]);
+		$this->session->set_userdata("email", $data["email"]);
+		$this->session->set_userdata("newsession", "yes");
+		$this->session->set_userdata("id", $id);
 
-		echo json_encode($existe);
+		//echo json_encode($existe);
 
 	}
 
