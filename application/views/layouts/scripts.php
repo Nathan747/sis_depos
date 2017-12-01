@@ -20,8 +20,8 @@
   var map;
   var map_register;
   var marker = null;
-  var latitude;
-  var longitude;
+  var latitude = info_perfil.latitud;
+  var longitude = info_perfil.longitud;
   var modo_log=0;
   var string="";
   var string2="";
