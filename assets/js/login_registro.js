@@ -218,7 +218,11 @@ $("#siguiente-run").click(function(e){
   $('.contenedor-carreras').animate({
     left: "-100%"
   });
+  $(".siguiente-carrera").animate({
+    left: "-100%"
+  });
   $('.contenedor-carreras').css("display","none");
+  $('.siguiente-carrera').css("display","none");
   $(".mapa-registro").animate({
     right: "0",
     left: "0"

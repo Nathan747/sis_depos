@@ -115,10 +115,8 @@ function initMap() {
     '<div id="contenedor-leer"><div><a class="moreless" href="#" onclick=\'muestraModal('+x+')\' style="text-decoration: none;">Ver Más</a></div></div>'+
     '</div></div>'+ // Cierre contenedor-texto y padre-texto
     '</div></div>'; // Cierre contenedor-marcador y content
-    console.log(contentString);
     add_marker_delay(latitud_marcador, longitud_marcador, x*300, map, contentString);
   }
-
 
   var uluru4 = {lat: latitud5, lng: longitud5};
   if(document.getElementById('mapa_modificar')){
@@ -181,50 +179,6 @@ function initMap() {
       ]
     });
 
-    map5.setMapTypeId('roadmap');
-    map5.setOptions({
-      'styles': [
-      {
-        featureType: "all",
-        stylers: [
-        {  }
-        ]
-      },{
-        featureType: "landscape.natural",
-        stylers: [
-        { saturation: 100 }
-        ]
-      },{
-        featureType: "landscape",
-        stylers: [
-        { hue: "#D8B384" },
-        { gamma: 0.60 }
-        ]
-      },{
-        featureType: "road.arterial",
-        elementType: "geometry",
-        stylers: [
-        { hue: "#00ffee" },
-        { saturation: 100 }
-        ]
-      },{
-        featureType: "poi.business",
-        elementType: "labels",
-        stylers: [
-        { visibility: "off" }
-        ]
-      },{
-        featureType: 'water',
-        elementType: 'geometry.fill',
-        stylers: [{color: '#92CAE7'}]
-      },
-      {
-        featureType: 'administrative',
-        elementType: "geometry.fill",
-        stylers: [{visibility: "off"}]
-      }
-      ]
-    });
 
     latitud5 = parseFloat(latitud5);
     longitud5 = parseFloat(longitud5);

@@ -1824,13 +1824,16 @@
       </div>
 
 
-      <div class="siguiente-carrera">
-        <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
-      </div>
+    </div>
+    <div class="siguiente-carrera">
+      <button type="submit" class="btn btn-default" id="siguiente-run" disabled>Siguiente</button>
     </div>
 
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mapa-registro">
+      <div class="localizate-mapa">
+        <p>Localizate en el Mapa</p>
+      </div>
       <div class="form-group">
         <div id="mapa_registro"></div>
         <div style="display:none" class="fb-share-button" data-href="http://www.unidiversidad.com.ar/soydeladecuyo/" data-layout="button" data-size="large"><a class="class" href="javascript:void(0);" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Funidiversidad.com.ar%2Fsoydeladecuyo%2F&amp;src=sdkpreparse', 'popup', 'left=390, top=200, width=600, height=350, toolbar=0, resizable=1')" style="text-decoration: none;">Compartir</a></div>
