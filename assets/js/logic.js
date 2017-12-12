@@ -876,6 +876,8 @@
       $(".changeimg").click();
     });
 
+    
+
   });
 
   $(window).on('load', function() {

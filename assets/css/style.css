@@ -3038,6 +3038,10 @@
         background-image: url(../img/dot.png);
     }
 
+    .btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+        cursor: default;
+    }
+
     body{
         font-family: Alegreya Sans
     }
