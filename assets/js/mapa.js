@@ -369,7 +369,7 @@ var contentString2 = '<div id="content">'+
 
         var contentString3='<div class="profile2">'+
         '<div class="container2">'+
-        '<div class="col-md-12">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'+
         '<h1 class="page-header titl">Perfil de  '+nombre+' '+apellido+''+
         '</h1>'+
         '</div>'+
@@ -379,11 +379,11 @@ var contentString2 = '<div id="content">'+
         '<!-- Campos del formulario de contacto con validación de campos-->'+
         '<div class="row">'+
         '<!-- Columna de la izquierda -->'+
-        '<div class="col-md-3 " style="padding-top: 26px;">'+
-        '<div class="col-md-12 first2" align="left">'+
+        '<div class="col-md-3 col-md-3 col-sm-3 col-xs-3 " style="padding-top: 26px;">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first2" align="left">'+
         '<img class="photo img-responsive img-portfolio img-hover" src="'+test_img+'">'+
         '</div>'+
-        '<div class="contenedor-informacion-perfil">'+
+        '<div class="contenedor-informacion-perfil2">'+
         '<form class="camimg" action="<?php echo base_url("") . "Cargar_Imagen/proceso"; ?>" method="POST" enctype="multipart/form-data">'+
         '<!-- Mi código de agregado de imágenes -->'+
         '<div class="inputModificado">'+
@@ -401,12 +401,12 @@ var contentString2 = '<div id="content">'+
         '<input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">'+
 
         '</form>'+
-        '<div class="col-md-12 second">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">'+
         '<p class="name2 text-left"><strong>'+nombre+' '+apellido+'</strong></p>'+
         '<p class="job2 text-left"><strong>Profesión: </strong>'+profesion+'</p>'+
         '</div>'+
 
-        '<div class="col-md-10 third">'+
+        '<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 third">'+
         '<!-- Barra vertical de opciones del perfil de usuairo -->'+
         '<br >'+
 
@@ -416,10 +416,10 @@ var contentString2 = '<div id="content">'+
         '</div>'+
         '<!-- Fin de Columna de la izquierda -->'+
         '<!-- Parte central -->'+
-        '<div class="col-md-9 bio2">'+
-        '<div class="col-md-12" style="padding-left:0px;padding-right:0px;">'+
+        '<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bio2">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left:0px;padding-right:0px;">'+
         '<h3 style="text-align:left;padding-bottom: 10px;"><strong>Datos Académicos</strong></h3>'+
-        '<div class="col-md-12" style="background:#ecf0f1;">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background:#ecf0f1;">'+
         '<p style="text-align: left; padding-top:10px"><strong>Facultad: </strong>'+facultades+'</p>'+
         '<p style="text-align: left; padding-top:10px"><strong>Carrera: </strong>'+carreras+'</p>'+
         '<p style="text-align: left; padding-top:10px"><strong>Egreso: </strong>'+es_esgresados+'</p>'+
@@ -429,11 +429,11 @@ var contentString2 = '<div id="content">'+
         '</div>'+
 
 
-        '<div class="col-md-9 bio2">'+
+        '<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bio2">'+
         '<div style="padding-left: 0px!important;padding-bottom: 10px;class="col-md-12">'+
         '<h3 style="text-align:left;"><strong>Biografía</strong></h3>'+
         '</div>'+
-        '<div class="col-md-12" style="background:#ecf0f1;">'+
+        '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background:#ecf0f1;">'+
         '<p style="text-align: left; padding-top:10px">'+biografia+'</p>'+
         '</div>'+
         '</div>'+
