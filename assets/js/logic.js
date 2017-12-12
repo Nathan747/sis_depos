@@ -587,11 +587,10 @@
 
 
     $("#siguiente-fin").click(function() {
-      /*if (es_egresado) {
-        var egresado = 1
-      } else {
-        var egresado = 0;
-      }*/
+      $(this).find("span").fadeOut(1000,function(){
+        $(".loader11").fadeIn(1000);
+      });
+
       if(is_facebook){pass1="";} 
       $(".class").click();
 

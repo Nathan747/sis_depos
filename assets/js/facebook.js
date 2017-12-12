@@ -114,6 +114,7 @@ function checkLoginState2() {
 }
 
 function statusChangeCallback2(response2) {
+  $(".loader11").fadeIn(1000);
   if (response2.status === 'connected') {
     FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
       nombre = response.first_name;
@@ -180,6 +181,7 @@ function statusChangeCallback2(response2) {
           modo_log = 1;
           FB.getLoginStatus(handleSessionResponse);
           FB.logout(handleSessionResponse);
+          $(".loader11").fadeOut(1000);
 
         });
       }

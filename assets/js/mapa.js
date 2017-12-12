@@ -229,6 +229,7 @@ function initMap() {
         map: map_register,
         title: 'Ubicación'
       });
+      $("#siguiente-fin").removeAttr("disabled");
     }, function(){
       console.log("FUNCIÓN ERROR");
     }, function(posicion){

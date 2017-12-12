@@ -99,6 +99,10 @@
       </div> 
       <!-- fin registro -->
 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 loader">
+        <div class="loader11"></div>
+      </div>
+
     </div>
 
     <div class="formulario-padre">
@@ -1840,9 +1844,11 @@
       </div>
 
       <div class="siguiente-finalizar">
-        <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>Finalizar</button>
+        <button type="submit" class="btn btn-default" id="siguiente-fin" disabled>
+          <span>Finalizar</span>
+          <div class="loader11"></div>
+        </button>
       </div>
     </div>
   </div>
-
 </div>
