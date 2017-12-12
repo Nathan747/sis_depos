@@ -503,11 +503,11 @@ display:none;
 	overflow:scroll;
 }
 
-.contenedor-informacion-perfil {
+/*.contenedor-informacion-perfil {
 	float: none;
 	overflow: hidden;
 	height: 223px;
-}
+}*/
 
 .contenedor-donar {
 	width: 600px;
@@ -790,11 +790,11 @@ display:block;
 	max-width: 320px;
 	margin: 0 0;
 }*/
-.profile2 .contenedor-informacion-perfil{
+/*.profile2 .contenedor-informacion-perfil{
 	float: none;
 	overflow: hidden;
 	height: 81px;
-}
+}*/
 .login {
 	width:100%;
 }
