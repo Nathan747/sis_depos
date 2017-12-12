@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <style>
 
+
+
+.contenedor-informacion-perfil2 {
+    float: left;
+    overflow: hidden;
+}
 /*menu hamburguesa*/
 .hamburger {
   -webkit-transform: scale(0.5);
@@ -772,7 +778,6 @@ display:block;
 	overflow: scroll;
 }
 .container2 {
-	background: #22205F;
 	width: 100%;
 	height: 94px;
 	border-bottom: 1px solid #e7e7e7;
@@ -781,11 +786,11 @@ display:block;
 	padding-top: 1px;
 }
 
-.profile2 .photo{
+/*.profile2 .photo{
 	max-width: 320px;
 	margin: 0 0;
-}
-.profile2 .contenedor-informacion-perfil {
+}*/
+.profile2 .contenedor-informacion-perfil{
 	float: none;
 	overflow: hidden;
 	height: 81px;
@@ -806,10 +811,10 @@ display:block;
 .page-header{
 	font-size: 20px!important;
 }
-.photo{
+/*.photo{
 	max-width: 320px;
 	margin: 0 auto;
-}
+}*/
 .bio2{
 }
 .bio{
@@ -824,5 +829,232 @@ display:block;
 	text-align: center;
 }
 }
+
+
+@media(max-width:991px) and (min-width: 768px) {
+
+
+
+  .name2 {
+    top: -38px;
+    position: relative;
+    font-size: 20px;
+    padding-left: 46px;
+}
+
+
+.job2 {
+    font-weight: 400!important;
+    line-height: 1;
+    color: #777;
+    padding-top: 10px;
+    padding-left: 46px;
+    position: relative;
+    top: -48px;
+}
+
+
+  .profile2 {
+    width: 701px!important;
+    right: -110px!important;
+}
+
+  .profile2 {
+    height: 576px!important;
+}
+
+.profile2 {
+    top: 50%!important;
+}
+
+
+.close {
+  right: 17px!important;
+}
+.camimg {
+    position: relative;
+    top: -100px;
+    float: left;
+    width: 100%;
+}
+
+}
+
+
+@media(max-width:767px) and (min-width: 600px) {
+
+  .close {
+  right: 17px!important;
+}
+
+.profile2 {
+    width: 584px!important;
+    right: -110px!important;
+}
+.close {
+  right: -115px!important;
+}
+
+#boxes #dialog {
+    width: 299px;
+    background: white;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border: 1px solid #cccccc;
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+
+.camimg {
+    position: relative;
+    top: -97px;
+    float: left;
+    width: 100%;
+}
+
+
+.profile2 {
+    height: 505px;
+}
+
+
+
+#boxes #dialog .close {
+    top: -46px;
+}
+
+
+.name2 {
+    top: -42px;
+    position: relative;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+
+.job2 {
+  font-weight: 400!important;
+  line-height: 1;
+  color: #777;
+  padding-top: -43px;
+  padding-left: 15px;
+  top: -39px;
+  position: relative;
+}
+
+.first2 {
+    padding-left: 15px;
+
+}
+
+
+}
+
+
+
+@media(max-width:599px){
+
+
+.profile2 {
+  height: 500px;
+}
+
+.profile2 {
+    width: 320px!important;
+    right: -110px!important;
+}
+
+
+
+#boxes #dialog {
+    width: 299px;
+    background: white;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border: 1px solid #cccccc;
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+
+.camimg {
+  position: relative;
+  top: -155px;
+  float: left;
+  width: 100%;
+}
+
+
+.profile2 {
+    height: 505px;
+}
+.close {
+    right: 4px!important;
+}
+
+
+#boxes #dialog .close {
+  top: -40px;
+}
+.first2 {
+    /* padding-left: 15px; */
+    width: 131px;
+}
+
+.profile2 .bio2 {
+    width: 59%;
+    left: 39px;
+}
+
+.contenedor-informacion-perfil2 {
+  float: left;
+  overflow: hidden;
+  top: 10px;
+  position: relative;
+}
+
+.name2 {
+  top: -58px;
+  position: relative;
+  font-size: 20px;
+  padding-left: 15px;
+  z-index: 999999;
+}
+
+
+.job2 {
+  font-weight: 400!important;
+  line-height: 1;
+  color: #777;
+  padding-top: -43px;
+  padding-left: 15px;
+  top: -69px;
+  position: relative;
+}
+
+.first2 {
+    padding-left: 15px;
+
+}
+
+
+}
+
+
+
+
+
+
 </style>
 </head>
