@@ -515,7 +515,7 @@ $egresado = deco_egreso($es_egresado);
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <a href="#" id="cerrar-perfil"><img src="<?php echo base_url('assets/img/cruz.png') ?>" alt=""></a>
   </div>
-  <div class="col-md-12">
+  <div class="col-lg-12 col-md-12 col-sm-12">
       <h1 class="page-header">Perfil de <?php echo $nombre_completo ?></h1>
   </div>
 </div>
@@ -524,8 +524,8 @@ $egresado = deco_egreso($es_egresado);
 <!-- Campos del formulario de contacto con validación de campos-->
 <div class="row expand">
     <!-- Columna de la izquierda -->
-    <div class="col-md-3">
-      <div class="col-md-12 first" align="left">
+    <div class="col-lg-3 col-md-3 col-sm-3">
+      <div class="col-lg-12 col-md-12 col-sm-12 first" align="left">
         <?php  
         if (strpos($foto, 'https://') > -1) {
             ?>
@@ -555,13 +555,13 @@ $egresado = deco_egreso($es_egresado);
       <input class="changeimg" type="submit" value="Cambiar imagen" name="enviar" style="cursor: pointer">
 
   </form>
-  <div class="col-md-12 second">
+  <div class="col-lg-12 col-md-12 col-sm-12 second">
       <p class="name text-left"><strong><?php echo $nombre_completo ?></strong></p>
       <p class="job text-left"><strong>Profesión: </strong><?php echo $profesion; ?></p>
       <p class="job text-left"><?php echo $email; ?></p>
   </div>
 
-  <div class="col-md-12 third">
+  <div class="col-lg-12 col-md-12 col-sm-12 third">
       <!-- Barra vertical de opciones del perfil de usuairo -->
       <ul class="list-group list-primary">
         <a href="#" class="list-group-item myprof">Mi perfil</a>
@@ -574,10 +574,10 @@ $egresado = deco_egreso($es_egresado);
 <!-- Fin de Columna de la izquierda -->
 <!-- Parte central -->
 
-<div class="col-md-9 bio2">
-  <div class="col-md-12" style="padding-left:0px;padding-right:0px;">
+<div class="col-lg-9 col-md-9 col-sm-9 bio2">
+  <div class="col-lg-12 col-md-12 col-sm-12" style="padding-left:0px;padding-right:0px;">
     <h3 style="text-align:left;padding-bottom: 10px;"><strong>Datos Académicos</strong></h3>
-    <div class="col-md-12" style="background:#ecf0f1;">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="background:#ecf0f1;">
       <p style="text-align: left; padding-top:10px"><strong>Facultad: </strong><?php echo $facul; ?></p>
       <p style="text-align: left; padding-top:10px"><strong>Carrera: </strong><?php echo $carreras; ?></p>
       <p style="text-align: left; padding-top:10px"><strong>Egreso: </strong><?php echo $egresado; ?></p>
@@ -589,24 +589,24 @@ $egresado = deco_egreso($es_egresado);
 
 
 
-<div class="col-md-9 bio">
-  <div class="col-md-12" style="">
+<div class="col-lg-9 col-md-9 col-sm-9 bio">
+  <div class="col-lg-12 col-md-12 col-sm-12" style="">
     <h3 style="text-align:left"><strong>Biografía</strong></h3>
 </div>
-<div class="col-md-12" style="background:#ecf0f1;">
+<div class="col-lg-12 col-md-12 col-sm-12" style="background:#ecf0f1;">
     <p style="text-align: left; padding-top:10px"><?php echo $biografia; ?></p>
 </div>
 </div>  
 <!-- Fin del div de parte central -->
 <!-- Parte central -->
-<div class="col-md-9 formul">
-  <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
+<div class="col-lg-9 col-md-9 col-sm-9 formul">
+  <div class="col-lg-12 col-md-12 col-sm-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
     <h3 style="text-align: center">Mi perfil <p><small>Añade información personal para compartir tu perfil</small></p></h3>
 </div>
 <!-- Se inicia el form (ojo todos los elementos de formulario deben ir dentro de esta etiqueta-->
 <form name="modifyProfile" id="profileForm" novalidate>
     <!-- Inicio del div central parte de formulario información básica -->
-    <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6; padding-bottom: 20px">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6; padding-bottom: 20px">
       <div class="col-md-8 col-md-offset-2">
        <div class="control-group form-group">
         <div class="controls">
