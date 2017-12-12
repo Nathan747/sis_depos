@@ -1054,7 +1054,81 @@ display:block;
 
 
 
+@media(max-width:767px){
 
+
+
+
+.contenedor-carreras {
+    float: left;
+    clear: both;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
+    position: relative;
+    height: calc(100vh - 195px);
+    top: 41px;
+}
+
+.contenedor-modo, .mapa-registro {
+    float: left;
+    clear: both;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+    right: -100%;
+    position: relative;
+    top: 36px;
+}
+
+
+.campos-registro label {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-right: 10px;
+    padding-top: 6px;
+    font-size: 18px;
+}
+
+
+.campos-registro input {
+    /* float: left; */
+    width: 100%;
+}
+
+.formulario-padre {
+    position: relative;
+    right: -100%;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    top:30px;
+}
+
+
+.campos-registro {
+    float: left;
+    max-width: 767px;
+    margin: 0 auto;
+}
+
+.formulario-no-fb {
+    text-align: center;
+    width: 100%;
+}
+
+.formulario-no-fb .form-group {
+    margin-bottom: 22px;
+    float: left;
+    width: 100%;
+}
+
+
+
+
+
+}
 
 </style>
 </head>
