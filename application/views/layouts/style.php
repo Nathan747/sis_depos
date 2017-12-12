@@ -1054,8 +1054,15 @@ display:block;
 
 
 
-@media(max-width:767px){
+@media(max-width:860px){
 
+
+
+
+  .contenedor-wizard {
+    padding-top: 40px;
+    display: none;
+}
 
 
 
@@ -1108,9 +1115,10 @@ display:block;
 
 
 .campos-registro {
-    float: left;
-    max-width: 767px;
-    margin: 0 auto;
+  float: left;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%!important;
 }
 
 .formulario-no-fb {
@@ -1128,6 +1136,15 @@ display:block;
 
 
 
+}
+
+
+
+@media(max-width:1199px) and (min-width:861px){
+.campos-registro {
+    float: none;
+    max-width: 314px;
+    margin: 0 auto;
 }
 
 </style>

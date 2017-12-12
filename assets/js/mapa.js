@@ -981,7 +981,19 @@ var contentString2 = '<div id="content">'+
   }
 
   function moveToLocation(lat, lng, map){
-    lat-=-14;
+
+    // Dependiendo del zoom, es cuanta lat le tengo que restar
+    console.log("ZOOM: "+map.zoom);
+    switch(map.zoom){
+      case 3: lat-=-14; break;
+      case 4: lat-=-8; break;
+      case 5: lat-=-3; break;
+      case 6: lat-=-1; break;
+      case 7: lat-=-0.6; break;
+      case 8: lat-=-0.2; break;
+      case 9: lat-=0; break;
+    }
+    console.log("LAT: "+lat);
     var center = new google.maps.LatLng(lat, lng);
     map.panTo(center);
   }

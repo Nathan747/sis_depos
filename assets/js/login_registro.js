@@ -26,18 +26,24 @@ $(".navbar-toggle").click(function(e){
    }
  });
 /*nav bar */
-
+var Closed;
 
 /*menu hamburguesa */
 $('document').ready(function () {
   $("#contenedor-loader").animate({
     opacity: "1"
   },2000);
-  var Closed = false;
+  Closed = false;
 
   $('.hamburger').click(function (e) {
 
+
+  
+
+
     if (Closed == true) {
+
+     
       $(".navbar-toggle").click();
       $(this).removeClass('open');
       $(this).addClass('closed');
@@ -47,6 +53,7 @@ $('document').ready(function () {
       $(this).removeClass('closed');
       $(this).addClass('open');
       Closed = true;
+     
     }
   });
 });
@@ -73,7 +80,8 @@ $('#cerrar-login').click(function(e){
 
 $('#ingresar').click(function(e){
   e.preventDefault();
-  $(".navbar-toggle").click();
+  Closed = true;
+  $('.hamburger').click();
   $('.login').animate({
     right: "0"
   },1000);
@@ -163,7 +171,8 @@ $("#cerrar-donacion").click(function(e){
 $('#registrate').click(function(e){
   e.preventDefault();
 
-  $(".navbar-toggle").click();
+  Closed = true;
+  $('.hamburger').click();
 
   $(".bloque-wizard").each(function(){
     $(this).removeClass("active");
@@ -545,6 +554,7 @@ $('#cerrar-perfil').click(function(e){
   },1000);
 
   $(".profile-options").css("display","none");
+  
 
 });
 
@@ -728,8 +738,10 @@ $(window).resize(function(){
     $('.prof').click(function(e){
       e.preventDefault();
       $("#cerrar-donar").click();
-      $(".navbar-toggle").click();
+
+      Closed = true;
       $('.hamburger').click();
+     
 
       $(".home .profile .container .expand").css("height","834px");
       $(".contenedor-informacion-perfil").css("height","225px");
@@ -912,8 +924,10 @@ $(window).resize(function(){
     $('.prof').click(function(e){
       e.preventDefault();
       $("#cerrar-donar").click();
-      $(".navbar-toggle").click();
+      /*$(".navbar-toggle").click();*/
+      Closed = true;
       $('.hamburger').click();
+     
 
       $(".home .profile .container .expand").css("height","834px");
       $(".contenedor-informacion-perfil").css("height","225px");
