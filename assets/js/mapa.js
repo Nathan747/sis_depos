@@ -208,6 +208,40 @@ function initMap() {
     });
   }  
 
+  // GEOPOSICION
+
+  var latitud_geoposicion="";
+  var longitud_geoposicion="";
+
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(posicion){
+      console.log("FUNCIÓN ÉXITO");
+      latitud_geoposicion = posicion.coords.latitude;
+      longitud_geoposicion = posicion.coords.longitude;
+
+      console.log("LATITUD: "+latitud_geoposicion);
+      console.log("LONGITUD: "+longitud_geoposicion);
+
+      console.log("ENTRO MARKER");
+      click_registro = {lat: latitud_geoposicion, lng: longitud_geoposicion}
+      marker = new google.maps.Marker({
+        position: click_registro,
+        map: map_register,
+        title: 'Ubicación'
+      });
+    }, function(){
+      console.log("FUNCIÓN ERROR");
+    }, function(posicion){
+      console.log("OPCIONES");
+      console.log(posicion.coords.latitude);
+      console.log(posicion.coords.longitude);
+    })
+  }
+  else
+  {
+    console.log("NO SOPORTA");
+  }
+
   /* Mapa Registro */
   uluru2 = {lat: -34.9950075, lng: -67.5100458};
   if(document.getElementById('mapa_registro')){
@@ -269,12 +303,15 @@ function initMap() {
       }
       ]
     });
-
-
     var click_registro;
+
+
     google.maps.event.addListener(map_register, "click", function (event) {
-      if(marker!=null) {
-        marker.setMap(null);
+      if ( (latitud_geoposicion!="") && (longitud_geoposicion!="") ){
+        console.log("ELIMINA MARKER");
+        if(marker!=null) {
+          marker.setMap(null);
+        }
       }
       latitude = event.latLng.lat();
       longitude = event.latLng.lng();
