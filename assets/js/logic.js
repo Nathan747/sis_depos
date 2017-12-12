@@ -876,6 +876,14 @@
       $(".changeimg").click();
     });
 
+    if (navigator.geolocation){
+      console.log("SOPORTA");
+    }
+    else
+    {
+      console.log("NO SOPORTA");
+    }
+
   });
 
   $(window).on('load', function() {
