@@ -26,6 +26,7 @@
     bottom: 0;
     background: #FFF;
     z-index: 1003;
+    overflow: hidden;
 }
 
 #afterloader{
@@ -393,7 +394,9 @@
         }
 
         .login {
-            width: 314px;
+            width: 100% !important;
+            overflow: hidden !important;
+            overflow-y: hidden !important;
             position: absolute;
             right: -100%;
             background-color: white;
@@ -402,7 +405,6 @@
             top: 70px;
             border-left: 1px solid #cccccc;
             padding: 25px 20px;
-            overflow: hidden;
             box-shadow: -10px 0px 10px -11px rgba(0,0,0,0.5);
         }
 
