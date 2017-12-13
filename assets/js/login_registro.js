@@ -37,13 +37,8 @@ $('document').ready(function () {
 
   $('.hamburger').click(function (e) {
 
-
-  
-
-
     if (Closed == true) {
-
-     
+ 
       $(".navbar-toggle").click();
       $(this).removeClass('open');
       $(this).addClass('closed');
@@ -74,9 +69,7 @@ $('#cerrar-login').click(function(e){
     $(".contenedor-inicio-sesion").animate({
       left: "0px"
     });
-    
-    $('.login').css("display","none");
-
+    $(".login").css("display","none");
   });
 
 });
@@ -84,8 +77,8 @@ $('#cerrar-login').click(function(e){
 $('#ingresar').click(function(e){
   e.preventDefault();
   Closed = true;
+  $(".login").css("display","block");
   $('.hamburger').click();
-  $('.login').css("display","block");
   $('.login').animate({
     right: "0"
   },1000);
@@ -101,7 +94,9 @@ $('#cerrar-registro').click(function(e){
   e.preventDefault();
   $('.contenedor-registro').animate({
     right: "-300%"
-  }, 1000);
+  }, 1000, function(){
+    $(".contenedor-registro").css("display","none");
+  });
 
   $(".bloque-wizard").each(function(){
     $(this).removeClass("active");
@@ -168,7 +163,6 @@ $("#cerrar-donacion").click(function(e){
   $(".wizard-gracias").css("display","none");
   $(".wizard-donar").css("display","inline-block");
 
-
 });
 
 //BOTON REGISTRATE HEADER
@@ -176,6 +170,7 @@ $('#registrate').click(function(e){
   e.preventDefault();
 
   Closed = true;
+  $(".contenedor-registro").css("display","block");
   $('.hamburger').click();
 
   $(".bloque-wizard").each(function(){
