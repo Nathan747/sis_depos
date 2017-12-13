@@ -424,5 +424,20 @@ class Inicio extends CI_Controller
 		$this->Inicio_model->restar_dinero($datos2);
 	}
 
+	public function logout()
+	{
+		session_unset();
+		$this->session->set_userdata("EMAIL", NULL);
+		$this->session->set_userdata("FULLNAME", NULL);
+		$this->session->set_userdata("FBID", NULL);
+		$this->session->unset_userdata("newsession");
+		$this->session->unset_userdata("email");
+		$this->session->unset_userdata("username");
+		$this->session->unset_userdata("jerarquia");
+		$this->session->unset_userdata("id_colaborador");
+		$this->session->unset_userdata("id");
+		$json["eliminado"] = 1;
+		echo json_encode($json);
+	}
 
 }
