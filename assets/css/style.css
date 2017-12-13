@@ -437,6 +437,25 @@
             padding-bottom: 30px;
         }
 
+        .divider{
+            border-top: 1px solid #d9dadc;
+            display: block;
+            line-height: 1px;
+            margin: 15px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .divider .divider-title{
+            background: #fff;
+            font-size: 12px;
+            letter-spacing: 1px;
+            padding: 0 20px;
+            text-transform: uppercase;
+            line-height: 1px;
+            text-align: center;
+        }
+
 
         /* EDICION POPUP MARCADOR */
 
@@ -2848,11 +2867,11 @@
         }
 
         body.back #contenedor-marcador{
-         height: auto !important;
-         min-height: 0px;
-     }
+           height: auto !important;
+           min-height: 0px;
+       }
 
-     body.back #boxes #dialog {
+       body.back #boxes #dialog {
         top: 10vh;
         overflow-x: hidden;
         overflow-y: auto;

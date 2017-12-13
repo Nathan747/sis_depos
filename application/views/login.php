@@ -10,7 +10,9 @@
         </div> 
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-          <div>O</div>
+          <div class="divider">
+            <strong class="divider-title ng-binding">o</strong>
+          </div>
         </div>
 
         <div class="contenedor-inicio-sesion">
