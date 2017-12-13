@@ -637,6 +637,7 @@
     // INICIAR SESION
 
     $(".iniciar-sesion").click(function(e) {
+      $(".loader11").fadeIn(1000);
       e.preventDefault();
       $(".texto-no-user").animate({
         top: "-30px"
@@ -652,6 +653,7 @@
         }
       }).done(function(json) {
         var objeto = $.parseJSON(json);
+        $(".loader11").fadeOut(1000);
         if (objeto.entro == 1) {
           $("#afterloader").fadeIn(1000, function(){
             window.location = direccion;

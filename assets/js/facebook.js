@@ -27,6 +27,7 @@ window.fbAsyncInit = function() {
 }
 
 function statusChangeCallback(response) {
+  $(".loader11").fadeIn(1000);
   if (response.status === 'connected') {
     FB.api('/me?locale=en_US&fields=email,first_name,last_name,picture.height(400)', function(response) {
       nombre = response.first_name;
@@ -52,6 +53,7 @@ function statusChangeCallback(response) {
             nombre_completo: nombre_completo
           }
         }).done(function(){
+          $(".loader11").fadeOut(1000);
           facebook_count=2;
           localStorage.setItem("ingreso_normal", "no");
           localStorage.setItem("registro_facebook", "si");
@@ -61,6 +63,7 @@ function statusChangeCallback(response) {
         });
       }else{
         FB.logout(function(response) {
+          $(".loader11").fadeOut(1000);
           $(".login").animate({
             right: "-100%"
           },function(){
