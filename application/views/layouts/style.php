@@ -143,8 +143,8 @@ display:none;
 }
 
 .path-rotation {
-  height: 34px;
-  width: 34px;
+  height: 1px;
+  width: 1px;
   margin: 34px 34px 0 0;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
@@ -155,8 +155,8 @@ display:none;
 .path-rotation:before {
   content: '';
   display: block;
-  width: 30px;
-  height: 34px;
+  width: 1px;
+  height: 1px;
   margin: 0 4px 0 0;
   background: #3F9FFF;
 }
@@ -516,7 +516,8 @@ display:none;
 @media(max-width:860px) {
 .contenedor-registro{
 	width:100%!important;
-	overflow: scroll!important;
+  overflow: hidden!important;
+  overflow-y: scroll !important;
 }
 .contenedor-registro .wizard {
     width: 297px;
