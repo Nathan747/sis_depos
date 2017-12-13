@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <style>
 
-
+.contenedor-registro{
+  display:none;
+}
 
 .contenedor-informacion-perfil2 {
     float: left;
@@ -23,7 +25,9 @@
   user-select: none;
   cursor:pointer;
   float:right;
+  overflow: hidden;
 }
+
 .navbar-toggle{
 display:none;
 
@@ -563,6 +567,13 @@ display:none;
 
 @media(max-width:767px) {
 
+.navbar-header{
+  width: 100%;
+}
+
+.hamburger{
+  display: flex !important;
+}
 
 .contenedor-wizard{
 display:none;
@@ -667,6 +678,7 @@ text-align:center;
 }
 .login {
     z-index: 9;
+    display:none;
 }
 .camimg {
     z-index: 99999;

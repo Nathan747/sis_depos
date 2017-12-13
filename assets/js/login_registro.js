@@ -74,6 +74,9 @@ $('#cerrar-login').click(function(e){
     $(".contenedor-inicio-sesion").animate({
       left: "0px"
     });
+    
+    $('.login').css("display","none");
+
   });
 
 });
@@ -82,6 +85,7 @@ $('#ingresar').click(function(e){
   e.preventDefault();
   Closed = true;
   $('.hamburger').click();
+  $('.login').css("display","block");
   $('.login').animate({
     right: "0"
   },1000);
