@@ -27,6 +27,7 @@ window.fbAsyncInit = function() {
 }
 
 function statusChangeCallback(response) {
+  console.log("CHANGE 2");
   $(".loader11").fadeIn(1000);
   if (response.status === 'connected') {
     FB.api('/me?locale=en_US&fields=email,first_name,last_name,picture.height(400)', function(response) {
@@ -117,6 +118,7 @@ function checkLoginState2() {
 }
 
 function statusChangeCallback2(response2) {
+  console.log("CHANGE");
   $(".loader11").fadeIn(1000);
   if (response2.status === 'connected') {
     FB.api('/me?locale=en_US&fields=id,name,email,work,website,first_name,birthday,last_name,locale,picture.height(400),age_range', function(response) {
