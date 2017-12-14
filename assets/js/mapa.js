@@ -244,10 +244,10 @@ function initMap() {
   }
 
   /* Mapa Registro */
-  uluru2 = {lat: -34.9950075, lng: -67.5100458};
+  uluru2 = {lat: -32.5758512, lng: -69.590762};
   if(document.getElementById('mapa_registro')){
     map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
-      zoom: 8,
+      zoom: 5,
       center: uluru2,
       mapTypeControl: 0,
       scaleControl: 0,

@@ -3596,9 +3596,71 @@
         margin-bottom: 0px;
     }
 
+    .face {
+        padding-top: 0px;
+    }
+
 }
 
 .contenedor-wizard{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.contenedor-registro, .contenedor-modo, .formulario-padre, .contenedor-carreras, .mapa-registro, #siguiente-run, .siguiente-carrera{
+    display: none
+}
+
+.contenedor-wizard{
+    position: absolute;
+}
+
+@media (min-width: 768px) and (max-width: 1920px){
+    .contenedor-modo{
+        width: 100%;
+        position: absolute;
+        height: calc(100vh - 0px);
+    }
+
+    .formulario-padre{
+        width: 100%;
+        position: absolute;
+        max-height: calc(100vh - 95px);
+        overflow: auto;
+        top: 170px;
+    }
+
+    .formulario-no-fb{
+        text-align: center;
+        width: 100%;
+        height: calc(100vh - 365px);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        overflow: auto; 
+    }
+
+    .contenedor-carreras{
+        position: absolute;
+        top: 170px;
+        overflow: auto;
+    }
+
+    .contenedor-carreras2{
+        top: -15px;
+    }
+
+    .siguiente-carrera{
+        bottom: -15px;
+        position: absolute;
+    }
+
+    .mapa-registro{
+        position: absolute;
+        top: 170px;
+    }
+
+    .localizate-mapa{
+        width: 100%;
+    }
+}

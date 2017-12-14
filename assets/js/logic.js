@@ -8,6 +8,7 @@
     //BOTON SIGUIENTE REGISTRATE
     $("#registrate-form").click(function(e) {
       e.preventDefault();
+      $(".contenedor-modo").css("display","relative");
       $(".contenedor-modo").animate({
         left: "-100%"
       });
