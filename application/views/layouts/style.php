@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 <style>
 
-.contenedor-registro{
+/*.contenedor-registro{
   display:none;
-}
+}*/
 
 .contenedor-informacion-perfil2 {
     float: left;

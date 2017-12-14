@@ -6,6 +6,7 @@
 
 
 <script>  
+  var map_register;
   var info_perfil = <?php echo json_encode($perfil) ?>;
   var marcadores = <?php echo json_encode($marcadores) ?>;
   var datos_perfil=0;

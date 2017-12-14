@@ -69,7 +69,7 @@ $('#cerrar-login').click(function(e){
     $(".contenedor-inicio-sesion").animate({
       left: "0px"
     });
-    $(".login").css("display","none");
+    //$(".login").css("display","none");
   });
 
 });
@@ -77,7 +77,7 @@ $('#cerrar-login').click(function(e){
 $('#ingresar').click(function(e){
   e.preventDefault();
   Closed = true;
-  $(".login").css("display","block");
+  //$(".login").css("display","block");
   $('.hamburger').click();
   $('.login').animate({
     right: "0"
@@ -95,7 +95,7 @@ $('#cerrar-registro').click(function(e){
   $('.contenedor-registro').animate({
     right: "-300%"
   }, 1000, function(){
-    $(".contenedor-registro").css("display","none");
+    //$(".contenedor-registro").css("display","none");
   });
 
   $(".bloque-wizard").each(function(){
@@ -118,7 +118,7 @@ $('#cerrar-registro').click(function(e){
   $(".contenedor-carreras").css("display","block");
   $(".contenedor-modo").css("right","-100%");
   $(".contenedor-modo").css("left","100%");
-  $(".contenedor-modo").css("display","block");
+  $(".contenedor-modo").css("display","flex");
   $(".formulario-padre").css("left","100%");
   $(".formulario-padre").css("right","-100%");
   $(".formulario-padre").css("display","block");
@@ -126,8 +126,8 @@ $('#cerrar-registro').click(function(e){
   $(".mapa-registro").css("left","100%");
   $(".mapa-registro").css("display","block");
 
-  $(".formulario-no-fb").css("display","block");
-  $(".formulario-fb").css("display","block");
+  $(".formulario-no-fb").css("display","flex");
+  $(".formulario-fb").css("display","flex");
 
   $(".face").css("display","block");
   $(".no-face").css("display","block");
@@ -168,9 +168,10 @@ $("#cerrar-donacion").click(function(e){
 //BOTON REGISTRATE HEADER
 $('#registrate').click(function(e){
   e.preventDefault();
+  $(".contenedor-registro").css("display","flex");
 
   Closed = true;
-  $(".contenedor-registro").css("display","block");
+  //$(".contenedor-registro").css("display","block");
   $('.hamburger').click();
 
   $(".bloque-wizard").each(function(){
@@ -190,9 +191,9 @@ $('#registrate').click(function(e){
   $(".sep-1").find(".linea-separador").addClass("active-sep");
   $(".contenedor-modo").css("right","0");
   $(".contenedor-modo").css("left","0");
-  $(".contenedor-modo").css("display","block");
+  $(".contenedor-modo").css("display","flex");
 
-  $(".contenedor-carreras").css("left","100%");
+  /*$(".contenedor-carreras").css("left","100%");
   $(".contenedor-carreras").css("display","block");
   $(".formulario-padre").css("left","100%");
   $(".formulario-padre").css("right","-100%");
@@ -201,13 +202,13 @@ $('#registrate').click(function(e){
   $(".mapa-registro").css("display","block");
   $(".mapa-registro").css("left","100%");
 
-  $(".formulario-no-fb").css("display","block"); 
-  $(".formulario-fb").css("display","block");
+  $(".formulario-no-fb").css("display","flex"); 
+  $(".formulario-fb").css("display","flex");
 
   $(".face").css("display","block");
   $(".no-face").css("display","block");
 
-  $(".formulario-fb").css("display","block");
+  $(".formulario-fb").css("display","block");*/
 
   $(".contenedor-registro").css("overflow","hidden");
   $('.contenedor-registro').animate({
@@ -231,6 +232,8 @@ $("#siguiente-run").click(function(e){
   });
   $('.contenedor-carreras').css("display","none");
   $('.siguiente-carrera').css("display","none");
+  $(".mapa-registro").css("display","inline-block");
+  google.maps.event.trigger(map_register, 'resize') 
   $(".mapa-registro").animate({
     right: "0",
     left: "0"
@@ -270,7 +273,7 @@ $("#bloque-01").click(function(e){
   $(".word-datos").removeClass("word-active");
   $(".word-mapa").removeClass("word-active");
 
-  $(".contenedor-modo").css("display","block");
+  $(".contenedor-modo").css("display","flex");
   $(".contenedor-modo").animate({
     left: "0"
   });
@@ -285,8 +288,8 @@ $("#bloque-01").click(function(e){
   $(".mapa-registro").css("left","100%");
   $(".mapa-registro").css("display","block");
 
-  $(".formulario-no-fb").css("display","block");
-  $(".formulario-fb").css("display","block");
+  $(".formulario-no-fb").css("display","flex");
+  $(".formulario-fb").css("display","flex");
 
   $(".face").css("display","block");
   $(".no-face").css("display","block");
@@ -356,7 +359,7 @@ $("#bloque-03").click(function(e){
 
     if(modo_log==0){
       $(".formulario-fb").css("display","none");
-      $(".formulario-no-fb").css("display","block");  
+      $(".formulario-no-fb").css("display","flex");  
     }else{
       $(".formulario-fb").css("display","block");
       $(".formulario-no-fb").css("display","none");

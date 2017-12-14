@@ -12,6 +12,7 @@
         left: "-100%"
       });
       $(".contenedor-modo").css("display", "none");
+      $(".formulario-padre").css("display","block");
       $(".formulario-padre").animate({
         right: "0",
         left: "0"
@@ -24,6 +25,8 @@
         $(".sep-1").find(".linea-separador").find(".puntito").each(function(){
           setTimeout(mostrar($(this)),16000);
         });
+
+
 
         $(".word-datos").addClass("word-active");
         reg_fb_normal = 0;
@@ -56,6 +59,9 @@
           left: "-100%"
         });
         $(".formulario-padre").css("display", "none");
+        $(".contenedor-carreras").css("display","inline-block");
+        $(".siguiente-carrera").css("display","inline-block");
+        $("#siguiente-run").css("display","inline-block");
         $(".contenedor-carreras").animate({
           right: "0",
           left: "0"

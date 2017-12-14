@@ -158,10 +158,9 @@
 
         <div class="clearfix"></div>
 
-        <div class="siguiente-registro-basico">
-          <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
-        </div>
-
+      </div>
+      <div class="siguiente-registro-basico">
+        <button type="submit" class="btn btn-default" id="siguiente-basico" disabled>Siguiente</button>
       </div>
 
     </div>
