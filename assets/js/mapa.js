@@ -236,7 +236,7 @@ function initMap() {
       console.log("OPCIONES");
       console.log(posicion.coords.latitude);
       console.log(posicion.coords.longitude);
-    })
+    });
   }
   else
   {
@@ -246,20 +246,23 @@ function initMap() {
   /* Mapa Registro */
   uluru2 = {lat: -34.9950075, lng: -67.5100458};
   if(document.getElementById('mapa_registro')){
-    var map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
+    map_register = new google.maps.Map(document.getElementById('mapa_registro'), {
       zoom: 8,
-      center: {lat: -34.9950075, lng: -67.5100458},
+      center: uluru2,
       mapTypeControl: 0,
-      scaleControl: 10,
+      scaleControl: 0,
       streetViewControl: 0,
       rotateControl: 0,
-      fullscreenControl: 0,
+      fullscreenControl: 1,
       mapTypeControlOptions: {
         mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
         'styled_map']
       }
     });
 
+    console.log(map_register);
+
+    
     map_register.setMapTypeId('roadmap');
     map_register.setOptions({
       'styles': [

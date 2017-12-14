@@ -414,11 +414,11 @@
         }
 
         .fb-login-button {
-            padding-top: 30px;
+            padding-top: 0px;
         }
 
         .face {
-            padding-top: 10px;
+            padding-top: 0px;
             padding-bottom: 30px;
             text-align: center;
         }
@@ -1203,6 +1203,11 @@
         .formulario-no-fb{
             text-align: center;
             width: 100%;
+            height: calc(100vh - 365px);
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
         }
 
         .formulario-no-fb .form-group {
@@ -1355,7 +1360,7 @@
             z-index: 1;
             position: relative;
             width: 100%;
-            /*height: 250px;*/
+            overflow: all;
             height: calc(100vh - 390px);
         }
 
@@ -1461,7 +1466,7 @@
             position: absolute;
             top: 70px;
             background: white;
-            height: calc(100vh - 55px);
+            height: calc(100vh - 70px);
             right: -100%;
             width: 800px;
             padding: 25px 20px;
@@ -1685,10 +1690,17 @@
             float: left;
             clear: both;
             width: 100%;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
             padding-top: 10px;
             right: -100%;
             position: relative;
+        }
+
+        .contenedor-modo{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            height: calc(100vh - 310px);
         }
 
         .word {
@@ -1915,6 +1927,7 @@
             overflow: hidden;
             float: left;
             width: 100%;
+            padding-top: 30px;
         }
 
         ::-webkit-datetime-edit {
@@ -3510,4 +3523,69 @@
     .contenedor-header {
         padding-right: 0px;
     }
+
+    .contenedor-registro, .contenedor-modo, .formulario-padre, .contenedor-carreras, .mapa-registro, #siguiente-run, .siguiente-carrera{
+        display: none
+    }
+
+    .contenedor-registro{
+        height: calc(100vh - 70px);
+        overflow-y: hidden !important;
+    }
+
+    .contenedor-modo{
+        height: calc(100vh - 190px);
+    }
+
+    .formulario-padre{
+        top: 35px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .formulario-no-fb{
+        height: auto;
+    }
+
+    .siguiente-registro-basico{
+        padding-bottom: 30px;
+    }
+
+    .contenedor-carreras{
+        position: initial !important;
+        height: calc(100vh - 175px) !important;
+        margin-top: 32px !important;
+    }
+
+    .contenedor-carreras .form-group{
+        margin-bottom: 0px;
+    }
+
+    .contenedor-carreras2{
+        padding-top: 20px;
+    }
+
+    .mapa-registro{
+        width: 100% !important;
+        max-width: 1000px;
+        position: absolute !important;
+        top: 60px !important;
+    }
+
+    .localizate-mapa{
+        width: 100%;
+    }
+
+    #mapa_registro{
+        height: calc(100vh - 285px);
+    }
+
+    #bs-example-navbar-collapse-1{
+        display: none;
+    }
+
 }
+
+.contenedor-wizard{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
