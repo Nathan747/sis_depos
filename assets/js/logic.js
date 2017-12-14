@@ -622,6 +622,7 @@
           id_colaborador: id_colaborador
         }
       }).done(function(json) {
+        console.log(json);
         if (reg_fb_normal == 0) {
           localStorage.setItem("ingreso_normal", "si");
           localStorage.setItem("registro_facebook", "no");

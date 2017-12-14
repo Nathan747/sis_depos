@@ -597,7 +597,7 @@ $('#cerrar-perfil').click(function(e){
 $('#prof').click(function(e){
   e.preventDefault();
   $("#cerrar-donar").click();
-  $('.profile').css("overflow","hidden");0
+  $('.profile').css("overflow","hidden");
 
   $('.profile').animate({
     right: "0"
@@ -812,7 +812,38 @@ $(window).resize(function(){
       });
 
       if(datos_perfil==0){
-        $.ajax({
+
+        datos_perfil=1;
+        $("#txtName").val(info_perfil.nombre);
+        $("#txtSurname").val(info_perfil.apellido);
+        $("#txtEmail").val(info_perfil.email);
+        $("#txtPhone").val(info_perfil.telefono);
+        $("#txtDni").val(info_perfil.dni);
+        $("#txtBday").val(info_perfil.fecha);
+        $("#txtPassword").val(info_perfil.password);
+        $("#txtQualification").val(info_perfil.profesion);
+        $("#txtBiography").val(info_perfil.biografia);
+        $("#universidad_modify").val(info_perfil.facultad);
+
+        $(".selecciones-modify").each(function(){
+          $(this).css("display","none");
+        });
+
+        var clase3 = ".seleccion-"+info_perfil.facultad;
+        $(clase3).css("display","inline-block");
+        $(".profile").find(".container").find(".row").css("max-height","1700px");
+
+        var info_perfil_facultad = parseInt(info_perfil.facultad);
+        var clase2 = "#carreras-"+info_perfil_facultad;
+        var info_perfil_carrera = parseInt(info_perfil.carrera);
+        $(clase2).val(info_perfil_carrera);
+        if(info_perfil.es_egresado==1){
+          $("#ejemplo-2").prop("checked",true);
+        }else{
+          $("#ejemplo-2").prop("checked",false);
+        }
+
+        /*$.ajax({
           url: "Perfil/obtener_datos_json",
           type: "POST"
         }).done(function(json){
@@ -847,7 +878,7 @@ $(window).resize(function(){
             $("#ejemplo-2").prop("checked",false);
           }
           
-        });
+        });*/
       }
 
     });
@@ -958,9 +989,10 @@ $(window).resize(function(){
   if(windowWidth < 768){
 
     $('.prof').click(function(e){
+
       e.preventDefault();
       $("#cerrar-donar").click();
-      /*$(".navbar-toggle").click();*/
+
       Closed = true;
       $('.hamburger').click();
 
@@ -973,7 +1005,7 @@ $(window).resize(function(){
       });
 
       $(".test-profile").css("left","180px");
-
+      
       $(".username-change").css("left","180px");
 
       $(".perfil-animation").css("left","180px");
@@ -998,47 +1030,37 @@ $(window).resize(function(){
       });
 
       if(datos_perfil==0){
-        $.ajax({
-          url: "Perfil/obtener_datos_json",
-          type: "POST"
-        }).done(function(json){
-          datos_perfil=1;
-          var objeto = $.parseJSON(json);
-          $("#txtName").val(objeto.nombre);
-          $("#txtSurname").val(objeto.apellido);
-          $("#txtEmail").val(objeto.email);
-          $("#txtPhone").val(objeto.telefono);
-          $("#txtDni").val(objeto.dni);
-          $("#txtBday").val(objeto.fecha);
-          $("#txtPassword").val(objeto.password);
-          $("#txtQualification").val(objeto.profesion);
-          $("#txtBiography").val(objeto.biografia);
-          $("#universidad_modify").val(objeto.facultad);
 
-          $(".selecciones-modify").each(function(){
-            $(this).css("display","none");
-          });
+        datos_perfil=1;
+        $("#txtName").val(info_perfil.nombre);
+        $("#txtSurname").val(info_perfil.apellido);
+        $("#txtEmail").val(info_perfil.email);
+        $("#txtPhone").val(info_perfil.telefono);
+        $("#txtDni").val(info_perfil.dni);
+        $("#txtBday").val(info_perfil.fecha);
+        $("#txtPassword").val(info_perfil.password);
+        $("#txtQualification").val(info_perfil.profesion);
+        $("#txtBiography").val(info_perfil.biografia);
+        $("#universidad_modify").val(info_perfil.facultad);
 
-          var clase3 = ".seleccion-"+objeto.facultad;
-          $(clase3).css("display","inline-block");
-          $(".profile").find(".container").find(".row").css("max-height","1700px");
+        $(".selecciones-modify").each(function(){
+          $(this).css("display","none");
+        });
 
-          objeto.facultad = parseInt(objeto.facultad);
-          var clase2 = "#carreras-"+objeto.facultad;
-          objeto.carrera = parseInt(objeto.carrera);
-        //console.log(objeto.carrera);
-        //console.log($(clase2));
-        $(clase2).val(objeto.carrera);
-        if(objeto.es_egresado==1){
+        var clase3 = ".seleccion-"+info_perfil.facultad;
+        $(clase3).css("display","inline-block");
+        $(".profile").find(".container").find(".row").css("max-height","1700px");
+
+        var info_perfil_facultad = parseInt(info_perfil.facultad);
+        var clase2 = "#carreras-"+info_perfil_facultad;
+        var info_perfil_carrera = parseInt(info_perfil.carrera);
+        $(clase2).val(info_perfil_carrera);
+        if(info_perfil.es_egresado==1){
           $("#ejemplo-2").prop("checked",true);
         }else{
           $("#ejemplo-2").prop("checked",false);
         }
-        
-        //console.log(objeto);
-      });
       }
-
     });
 
     $(".donar").click(function(){
