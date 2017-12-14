@@ -173,10 +173,10 @@ $("#cerrar-donacion").click(function(e){
 //BOTON REGISTRATE HEADER
 $('#registrate').click(function(e){
   e.preventDefault();
+
   $(".contenedor-registro").css("display","flex");
 
   Closed = true;
-  //$(".contenedor-registro").css("display","block");
   $('.hamburger').click();
 
   $(".bloque-wizard").each(function(){
@@ -270,32 +270,28 @@ $("#bloque-01").click(function(e){
     left: "0"
   });
 
-  $(".contenedor-carreras").css("right","-100%");
-  $(".contenedor-carreras").css("left","100%");
-  $(".contenedor-carreras").css("display","block");
-  $(".formulario-padre").css("left","100%");
-  $(".formulario-padre").css("right","-100%");
-  $(".formulario-padre").css("display","block");
-  $(".mapa-registro").css("right","-100%");
-  $(".mapa-registro").css("left","100%");
-  $(".mapa-registro").css("display","block");
-
-  $(".formulario-no-fb").css("display","flex");
-  $(".formulario-fb").css("display","flex");
-
-  $(".face").css("display","block");
-  $(".no-face").css("display","block");
-
-  $(".no-face").css("display","block");
-  $(".formulario-fb").css("display","block");
 
   $(".contenedor-registro").css("overflow","hidden");
+
+  $(".contenedor-carreras").css("display","none");
+  $(".formulario-padre").css("display","none");
+  $(".mapa-registro").css("display","none");
+  $(".siguiente-carrera").css("display","none");
+  $("#siguiente-run").css("display","none");
+  $(".siguiente-carrera").css("left","0");
+
+  $(".formulario-padre").css("left","100%");
+  $(".formulario-padre").css("right","-100%");
+  $(".contenedor-carreras").css("right","-100%");
+  $(".contenedor-carreras").css("left","100%");
+  $(".mapa-registro").css("right","-100%");
+  $(".mapa-registro").css("left","100%");
 
 });
 
 $("#bloque-02").mouseover(function(){
   if(is_facebook){
-    $("#bloque-02").css("cursor","not-allowed");
+    $("#bloque-02").css("cursor","default");
   }
 });
 
@@ -315,17 +311,36 @@ $("#bloque-02").click(function(e){
       $(".word-carrera").removeClass("word-active");
       $(".word-mapa").removeClass("word-active");
 
-      $(".formulario-padre").css("display","block");
+      $(".mapa-registro").animate({
+        left: "100%"
+      });
+
+      $(".mapa-registro").css("display","none");
+
+      $(".contenedor-carreras").animate({
+        right: "-150%",
+        left: "150%"
+      },function(){
+        $(".contenedor-carreras").css("display","none");
+      });
+
+      $(".siguiente-carrera").animate({
+        right: "0",
+        left: "0"
+      },function(){
+        $(".siguiente-carrera").css("display","none");
+      });
+
+      $(".formulario-padre").css("display","inline-block");
       $(".formulario-padre").animate({
         left: "0"
       });
+
+
       $(".contenedor-carreras").css("right","-100%");
       $(".contenedor-carreras").css("left","100%");
-      $(".contenedor-carreras").css("display","block");
-
       $(".mapa-registro").css("right","-100%");
       $(".mapa-registro").css("left","100%");
-      $(".mapa-registro").css("display","block");
 
       $(".contenedor-registro").css("overflow","hidden");
     }
@@ -345,24 +360,43 @@ $("#bloque-03").click(function(e){
     $(".contenedor-carreras").animate({
       left: "0"
     });
-    $(".mapa-registro").css("right","-100%");
+    
+    /*$(".mapa-registro").css("right","-100%");
     $(".mapa-registro").css("left","100%");
-    $(".mapa-registro").css("display","block");
+    $(".mapa-registro").css("display","block");*/
 
-    if(modo_log==0){
+    $(".mapa-registro").animate({
+      left: "100%"
+    },function(){
+      $(".mapa-registro").css("display","none");
+    });
+
+
+    /*if(modo_log==0){
       $(".formulario-fb").css("display","none");
       $(".formulario-no-fb").css("display","flex");  
     }else{
       $(".formulario-fb").css("display","block");
       $(".formulario-no-fb").css("display","none");
-    }
+    }*/
 
-    $(".face").css("display","block");
+    /*$(".face").css("display","block");
     $(".no-face").css("display","block");
 
     $(".no-face").css("display","block");
 
-    $(".contenedor-registro").css("overflow","hidden");
+    $(".contenedor-registro").css("overflow","hidden");*/
+    $(".siguiente-carrera").css("display","inline-block");
+
+    $(".siguiente-carrera").animate({
+      left: 0
+    });
+
+    $(".contenedor-carreras").animate({
+      left: 0
+    });
+
+
   }
 });
 
@@ -420,9 +454,9 @@ $("#universidad_login").change(function(){
     top: "0px"
   });
 
-  $(".siguiente-carrera").animate({
+  /*$(".siguiente-carrera").animate({
     top: "0px"
-  });
+  });*/
 
 });
 

@@ -1069,15 +1069,14 @@ display:block;
 
 @media(max-width:860px){
 
-
-
-
   .contenedor-wizard {
     padding-top: 40px;
     display: none;
 }
 
-
+.face{
+  padding-top: 20px;
+}
 
 .contenedor-carreras {
     float: left;
@@ -1085,9 +1084,9 @@ display:block;
     width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 30px;
-    position: relative;
+    position: absolute;
     height: calc(100vh - 195px);
-    top: 41px;
+    top: 60px;
 }
 
 .contenedor-modo, .mapa-registro {
@@ -1101,6 +1100,14 @@ display:block;
     top: 36px;
 }
 
+.mapa-registro{
+  top: 60px;
+  position: absolute;
+}
+
+.contenedor-modo{
+  position: absolute;
+}
 
 .campos-registro label {
     float: left;
@@ -1113,12 +1120,11 @@ display:block;
 
 
 .campos-registro input {
-    /* float: left; */
     width: 100%;
 }
 
 .formulario-padre {
-    position: relative;
+    position: absolute;
     right: -100%;
     overflow: hidden;
     float: left;
