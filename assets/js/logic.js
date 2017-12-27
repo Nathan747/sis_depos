@@ -630,6 +630,7 @@
           localStorage.setItem("ingreso_normal", "no");
           localStorage.setItem("registro_facebook", "si");
         }
+        fbq('track', 'CompleteRegistration');
         $("#afterloader").fadeIn(1000, function(){
           window.location = direccion;
         });
