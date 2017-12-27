@@ -845,5 +845,15 @@
 </script>
 
 <script src="<?php echo base_url("assets/js/facebook.js"); ?>"></script>
-
 <!--facebook api-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111652656-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111652656-1');
+</script>
+
