@@ -1,5 +1,5 @@
   /*login*/
-  $(document).ready(function() {
+  $(function() {
 
     var mostrar = function(etiqueta){
       etiqueta.addClass("puntito-add");
@@ -887,9 +887,6 @@
     });
 
     
-
-  });
-
-  $(window).on('load', function() {
     $("#preloader").fadeOut(1000);
   });
+
